@@ -4,6 +4,8 @@ A small tool you run in one command. It answers one question about a pile of evi
 
 I am Brandon Flores. I am an industrial designer, about six months into writing software. I built this as one slice of a larger local-first system I call Core OS. I put it in its own public repo so a judge can clone it, run one command, and read the result without trusting a screenshot or cloning anything private.
 
+**Full competition write-up:** [SUBMISSION.md](SUBMISSION.md).
+
 ## The problem, in plain terms
 
 When you gather evidence on a hard question, it is easy to count the number of citations and treat that as the number of independent confirmations. It usually is not. Five citations can all trace back to one report. That is one source, not five.
