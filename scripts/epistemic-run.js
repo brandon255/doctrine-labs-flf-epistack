@@ -11,6 +11,7 @@ const CASE_DIRS = {
   covid: join(ROOT, "docs/epistemic/covid"),
   lhc: join(ROOT, "docs/epistemic/lhc"),
   eggs: join(ROOT, "docs/epistemic/eggs"),
+  sample: join(ROOT, "docs/epistemic/sample"),
 };
 
 const caseDir = CASE_DIRS[caseArg] ?? resolve(caseArg);

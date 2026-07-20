@@ -10,6 +10,7 @@
     "epistemic:covid": "node scripts/epistemic-run.js covid",
     "epistemic:lhc": "node scripts/epistemic-run.js lhc",
     "epistemic:eggs": "node scripts/epistemic-run.js eggs",
+    "epistemic:sample": "node scripts/epistemic-run.js sample",
     "epistemic:all": "node scripts/epistemic-run.js covid && node scripts/epistemic-run.js lhc && node scripts/epistemic-run.js eggs"
   }
 }

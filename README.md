@@ -63,6 +63,24 @@ The core files:
 - `src/epistemic/report.js` writes the readable report
 - `scripts/epistemic-run.js` is the command you run
 
+## Where the human judgment lives (and why it is on purpose)
+
+A human assigns the root tags. The tool counts them; it does not discover them. It will not read two differently worded articles and quietly work out that they came from the same place. Deciding that two blocks share a root is a judgment call, and I think that call belongs to a person. What the tool adds is that once a person makes that call, the consequence shows up in the count. One source quoted three times can no longer pass as three confirmations.
+
+Here is the exact human judgment in each case, so you can see my work:
+
+- **COVID origins:** three blocks (`covid-seed-001`, `002`, `004`) are tagged as tracing to the one FLF competition brief. That is why 21 blocks come out as 19 roots.
+- **LHC black holes:** three blocks are tagged to the LSAG safety report (`lsag-arxiv-0806.3414`), and two more to the FLF brief. That is why 9 blocks come out as 6 roots.
+- **Eggs:** three blocks are tagged to the Zhong 2019 JAMA study (`zhong-jama-2019-2728487`), and two to the FLF brief. That is why 9 blocks come out as 6 roots.
+
+## Reading the output
+
+- **Blocks** is how many pieces of evidence were cited. **Distinct roots** is how many different original sources those actually trace to. A **correlated cluster** is a group of blocks that share one root, so they should count as one source, not several.
+- Under the readable report, the command also prints a JSON summary with the same numbers, in case you want to feed it into your own tooling.
+- The report lists the exact links it merged, under "same_cluster edges", so you can see precisely which blocks were treated as one source. In the COVID case, that is where `covid-seed-001`, `002`, and `004` show up tied together.
+
+And it is all here to try. Open any of the three cases and run it. If you are curious, change a root tag and run it again to see how the count shifts. There is also a small worked example you can copy: run `npm run epistemic:sample`, then open `docs/epistemic/sample/evidence_blocks.json` and edit it to point the tool at evidence of your own.
+
 ## What this is not
 
 I want to be straight about the limits, because that matters more than any pitch.

@@ -1,0 +1,50 @@
+[
+  {
+    "evidence_id": "sample-1",
+    "timestamp": "2026-07-19T00:00:00.000Z",
+    "claim": "EXAMPLE ONLY. A primary report concludes that the new bridge coating lasts twenty years.",
+    "source": {
+      "type": "document",
+      "identifier": "acme-coating-report-2024",
+      "root_source_id": "acme-coating-report-2024"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-07-19T00:00:00.000Z",
+      "context": "The original primary report. Copy this file, replace the content, and run it."
+    },
+    "confidence_label": "HIGH"
+  },
+  {
+    "evidence_id": "sample-2",
+    "timestamp": "2026-07-19T00:00:00.000Z",
+    "claim": "EXAMPLE ONLY. A news article repeats the twenty-year figure for the bridge coating.",
+    "source": {
+      "type": "external_source",
+      "identifier": "trade-magazine-writeup",
+      "root_source_id": "acme-coating-report-2024"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-07-19T00:00:00.000Z",
+      "context": "Looks like a second source, but it traces back to the same report, so it shares the root tag."
+    },
+    "confidence_label": "MEDIUM"
+  },
+  {
+    "evidence_id": "sample-3",
+    "timestamp": "2026-07-19T00:00:00.000Z",
+    "claim": "EXAMPLE ONLY. A separate lab, funded and run independently, measured a fifteen-year coating life.",
+    "source": {
+      "type": "document",
+      "identifier": "independent-lab-study-2023",
+      "root_source_id": "independent-lab-study-2023"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-07-19T00:00:00.000Z",
+      "context": "A genuinely different origin, so it gets its own root tag and counts as an independent source."
+    },
+    "confidence_label": "HIGH"
+  }
+]
