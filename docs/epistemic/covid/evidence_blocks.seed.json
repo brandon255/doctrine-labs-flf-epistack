@@ -1,0 +1,87 @@
+[
+  {
+    "evidence_id": "covid-seed-001",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Two expert judges ruled decisively for zoonosis in the Wilf–Miller COVID origins debate (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid",
+      "excerpt": "Two expert judges ruled decisively for zoonosis."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "FLF competition brief — anchor fact for navigation, not independent verification of virology"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["meta", "debate-outcome", "judges"]
+  },
+  {
+    "evidence_id": "covid-seed-002",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Six independent Bayesian analyses of the same COVID origins evidence reportedly spanned 23 orders of magnitude in their results (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid",
+      "excerpt": "Six independent Bayesian analyses... spanned 23 orders of magnitude."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Motivates assessment layer: prior sensitivity as crux for newcomers"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["bayesian", "crux-candidate", "methodology"]
+  },
+  {
+    "evidence_id": "covid-seed-003",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Rootclaim argued debate structure favored the debater with more memorized issue-specific knowledge (per FLF footnote citing Rootclaim).",
+    "source": {
+      "type": "external_source",
+      "identifier": "rootclaim-debate-structure-claim",
+      "excerpt": "Structure provided a major advantage to the debater with more memorized knowledge."
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Rhetoric vs evidence flag — format may dominate substance; needs primary cite Jul 19"
+    },
+    "confidence_label": "LOW",
+    "tags": ["rhetoric-flag", "debate-format"]
+  },
+  {
+    "evidence_id": "covid-seed-004",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "The public debate record is difficult to navigate without significant background expertise (FLF case framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Problem statement our workflow targets"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["problem-statement"]
+  },
+  {
+    "evidence_id": "covid-seed-005",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Crux identification: if prior choice on geographic clustering of early cases shifts posterior odds by orders of magnitude, newcomers must resolve evidentiary treatment of early-case location data before updating on origin.",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-crux-hypothesis-001",
+      "excerpt": "Hypothesis for assessment demo — to be grounded in judge decisions and Weissman analysis by Jul 19"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Assessment-layer stub; requires human review and primary sources",
+      "prior_evidence_ids": ["covid-seed-002"]
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["crux-candidate", "needs-primary-source"]
+  }
+]

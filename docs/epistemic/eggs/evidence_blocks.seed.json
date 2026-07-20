@@ -1,0 +1,62 @@
+[
+  {
+    "evidence_id": "eggs-seed-001",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Dietary guidelines have shifted egg recommendations multiple times over decades (FLF case framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-eggs"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["meta", "guideline-history"]
+  },
+  {
+    "evidence_id": "eggs-seed-002",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Observational studies linking egg consumption to cardiovascular outcomes often share overlapping cohorts (genealogy hypothesis).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-eggs"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["genealogy-demo", "cohort-correlation"]
+  },
+  {
+    "evidence_id": "eggs-seed-003",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Industry-funded nutrition research may correlate with favorable outcomes for funded foods (general epidemiology concern).",
+    "source": {
+      "type": "external_source",
+      "identifier": "nutrition-funding-bias-literature"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "LOW",
+    "tags": ["funding-signal", "needs-primary"]
+  },
+  {
+    "evidence_id": "eggs-seed-004",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "MISSING: at least one primary RCT or meta-analysis excerpt on eggs and CVD not yet ingested.",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-missing-eggs-primary"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["missing", "validation-task"]
+  }
+]

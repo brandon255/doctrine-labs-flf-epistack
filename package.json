@@ -1,0 +1,15 @@
+{
+  "name": "doctrine-labs-flf-epistack",
+  "version": "1.0.0",
+  "description": "Provenance genealogy layer — a runnable epistemic demo. Counts distinct source roots behind a set of evidence blocks so correlated sources stop masquerading as independent confirmation. Submitted to the Future of Life Foundation Epistemic Case Study competition.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "epistemic:covid": "node scripts/epistemic-run.js covid",
+    "epistemic:lhc": "node scripts/epistemic-run.js lhc",
+    "epistemic:eggs": "node scripts/epistemic-run.js eggs",
+    "epistemic:all": "node scripts/epistemic-run.js covid && node scripts/epistemic-run.js lhc && node scripts/epistemic-run.js eggs"
+  }
+}

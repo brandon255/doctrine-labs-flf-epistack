@@ -1,0 +1,156 @@
+[
+  {
+    "evidence_id": "lhc-seed-001",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "CERN and the LHC Safety Assessment Group concluded that LHC collisions pose no conceivable danger (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-lhc",
+      "excerpt": "No conceivable danger from LHC collisions."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-18T12:00:00.000Z",
+      "context": "Meta anchor — FLF case brief"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["meta", "official-position"]
+  },
+  {
+    "evidence_id": "lhc-seed-002",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Public summaries of LHC safety often restate the same official risk assessment without independent analysis (FLF framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-lhc"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["genealogy-demo", "correlated-risk"]
+  },
+  {
+    "evidence_id": "lhc-seed-003",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Critics argued cosmic-ray analogy may not transfer to controlled collider conditions (hypothesis — needs primary cite).",
+    "source": {
+      "type": "external_source",
+      "identifier": "lhc-critic-cosmic-ray-analogy"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z",
+      "context": "Crux candidate — now grounded by Plaga primary"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["crux-candidate", "needs-primary"]
+  },
+  {
+    "evidence_id": "lhc-seed-004",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Gap closed: LSAG primary excerpts ingested as lhc-primary-lsag-* (former MISSING validation task).",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-gap-closed-lhc-primary"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "Tracks MISSING protocol resolution — not evidentiary on physics"
+    },
+    "confidence_label": "LOW",
+    "tags": ["gap-closed", "meta"]
+  },
+  {
+    "evidence_id": "lhc-primary-lsag-cosmic-1",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "LSAG states the LHC reproduces collisions at energies less than those reached in the atmosphere by cosmic rays that have bombarded Earth for billions of years.",
+    "source": {
+      "type": "document",
+      "identifier": "lsag-arxiv-0806.3414-cosmic",
+      "excerpt": "The LHC reproduces in the laboratory, under controlled conditions, collisions at centre-of-mass energies less than those reached in the atmosphere by some of the cosmic rays that have been bombarding the Earth for billions of years.",
+      "root_source_id": "lsag-arxiv-0806.3414"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://arxiv.org/abs/0806.3414 · LSAG report (CERN)"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "load-bearing", "cosmic-ray-argument"]
+  },
+  {
+    "evidence_id": "lhc-primary-lsag-conclusion-2",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "LSAG concludes there is no basis for any conceivable threat from the LHC, reaffirming the 2003 LHC Safety Study Group.",
+    "source": {
+      "type": "document",
+      "identifier": "lsag-arxiv-0806.3414-conclusion",
+      "excerpt": "We conclude by reiterating the conclusion of the LHC Safety Group in 2003 [1]: there is no basis for any conceivable threat from the LHC. Indeed, theoretical and experimental developments since 2003 have reinforced this conclusion.",
+      "root_source_id": "lsag-arxiv-0806.3414"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://arxiv.org/abs/0806.3414"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "official-position"]
+  },
+  {
+    "evidence_id": "lhc-primary-lsag-mbh-3",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "LSAG argues microscopic black holes produced at the LHC would present no conceivable danger, including via accretion constraints from astronomical stability.",
+    "source": {
+      "type": "document",
+      "identifier": "lsag-arxiv-0806.3414-mbh",
+      "excerpt": "Any microscopic black holes produced at the LHC are expected to decay by Hawking radiation before they reach the detector walls. If some microscopic black holes were stable, those produced by cosmic rays would be stopped inside the Earth or other astronomical bodies. The stability of astronomical bodies constrains strongly the possible rate of accretion by any such microscopic black holes, so that they present no conceivable danger.",
+      "root_source_id": "lsag-arxiv-0806.3414"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://arxiv.org/abs/0806.3414"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "micro-black-holes"]
+  },
+  {
+    "evidence_id": "lhc-primary-plaga-residual-4",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Astrophysicist Rainer Plaga argued that at the present stage of knowledge a residual risk from micro-black-hole production at colliders is not excluded, challenging the definitiveness of cosmic-ray safety arguments.",
+    "source": {
+      "type": "external_source",
+      "identifier": "plaga-arxiv-0808.1415-residual-risk",
+      "excerpt": "Thus, at the present stage of knowledge there is a residual risk from mBH production at colliders.",
+      "root_source_id": "plaga-arxiv-0808.1415"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://arxiv.org/abs/0808.1415 · Giddings & Mangano responded; LSAG cites dispute — navigation not adjudication"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["primary", "crux-candidate", "critique"]
+  },
+  {
+    "evidence_id": "lhc-primary-cern-popular-5",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "CERN's public safety page states Nature has already performed LHC-like collision rates on Earth and astronomical bodies without hazardous consequences.",
+    "source": {
+      "type": "document",
+      "identifier": "cern-lhc-safety-popular-summary",
+      "excerpt": "Whatever the LHC will do, Nature has already done many times over during the lifetime of the Earth and other astronomical bodies.",
+      "root_source_id": "cern-lhc-safety-popular-summary"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://home.cern/science/accelerators/large-hadron-collider/safety-lhc"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["primary", "popular-summary"]
+  }
+]

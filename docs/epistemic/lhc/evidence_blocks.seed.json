@@ -1,0 +1,66 @@
+[
+  {
+    "evidence_id": "lhc-seed-001",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "CERN and the LHC Safety Assessment Group concluded that LHC collisions pose no conceivable danger (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-lhc",
+      "excerpt": "No conceivable danger from LHC collisions."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-18T12:00:00.000Z",
+      "context": "Meta anchor — needs primary CERN/LSAG excerpt Jul 19"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["meta", "official-position"]
+  },
+  {
+    "evidence_id": "lhc-seed-002",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Public summaries of LHC safety often restate the same official risk assessment without independent analysis (FLF framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-lhc"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["genealogy-demo", "correlated-risk"]
+  },
+  {
+    "evidence_id": "lhc-seed-003",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Critics argued cosmic-ray analogy may not transfer to controlled collider conditions (hypothesis — needs primary cite).",
+    "source": {
+      "type": "external_source",
+      "identifier": "lhc-critic-cosmic-ray-analogy"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z",
+      "context": "FLAGGED for primary — dependency-chain crux candidate"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["crux-candidate", "needs-primary"]
+  },
+  {
+    "evidence_id": "lhc-seed-004",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "MISSING: verbatim excerpt from LSAG or equivalent primary safety document not yet ingested.",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-missing-lhc-primary"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-18T12:00:00.000Z",
+      "context": "VALIDATION: ingest LSAG PDF excerpt; IMPACT: independence count for official vs popular lanes"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["missing", "validation-task"]
+  }
+]

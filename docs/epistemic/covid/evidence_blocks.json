@@ -1,0 +1,442 @@
+[
+  {
+    "evidence_id": "covid-seed-001",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Two expert judges ruled decisively for zoonosis in the Wilf–Miller COVID origins debate (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid",
+      "excerpt": "Two expert judges ruled decisively for zoonosis."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "FLF competition brief — anchor fact for navigation, not independent verification of virology"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": [
+      "meta",
+      "debate-outcome",
+      "judges"
+    ]
+  },
+  {
+    "evidence_id": "covid-seed-002",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Six independent Bayesian analyses of the same COVID origins evidence reportedly spanned 23 orders of magnitude in their results (FLF case summary).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid",
+      "excerpt": "Six independent Bayesian analyses... spanned 23 orders of magnitude."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Motivates assessment layer: prior sensitivity as crux for newcomers"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": [
+      "bayesian",
+      "crux-candidate",
+      "methodology"
+    ]
+  },
+  {
+    "evidence_id": "covid-seed-003",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Rootclaim argued debate structure favored the debater with more memorized issue-specific knowledge (per FLF footnote citing Rootclaim).",
+    "source": {
+      "type": "external_source",
+      "identifier": "rootclaim-debate-structure-claim",
+      "excerpt": "Structure provided a major advantage to the debater with more memorized knowledge."
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Rhetoric vs evidence flag — format may dominate substance; needs primary cite Jul 19"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": [
+      "rhetoric-flag",
+      "debate-format",
+      "superseded-by-primary"
+    ]
+  },
+  {
+    "evidence_id": "covid-seed-004",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "The public debate record is difficult to navigate without significant background expertise (FLF case framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-covid"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Problem statement our workflow targets"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "problem-statement"
+    ]
+  },
+  {
+    "evidence_id": "covid-seed-005",
+    "timestamp": "2026-06-10T12:00:00.000Z",
+    "claim": "Crux identification: if prior choice on geographic clustering of early cases shifts posterior odds by orders of magnitude, newcomers must resolve evidentiary treatment of early-case location data before updating on origin.",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-crux-hypothesis-001",
+      "excerpt": "Hypothesis for assessment demo — to be grounded in judge decisions and Weissman analysis by Jul 19"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-10T12:00:00.000Z",
+      "context": "Assessment-layer stub; requires human review and primary sources",
+      "prior_evidence_ids": [
+        "covid-seed-002"
+      ]
+    },
+    "confidence_label": "FLAGGED",
+    "tags": [
+      "crux-candidate",
+      "needs-primary-source"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-will-decision-doc-1",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Judge Will explicitly framed his vote as a truth-seeking determination, not a procedural debate judgment.",
+    "source": {
+      "type": "document",
+      "identifier": "will-decision-doc",
+      "excerpt": "I viewed this debate as a truth-seeking exercise with my vote reflecting what I found to be the most plausible origin of SARS-CoV-2, subject to the constraint that I would rely on (to the greatest degree possible) claims made by the debaters.",
+      "root_source_id": "will-decision-doc"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://tinyurl.com/yrvzp8mk (27-page PDF, Will Van Treuren, PhD microbiologist/bioinformatician, Stanford)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-will-decision-bayes-2",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Judge Will's Bayesian computation placed the posterior probability of lab leak at approximately 1-in-300 (~0.3%).",
+    "source": {
+      "type": "document",
+      "identifier": "will-decision-bayes",
+      "excerpt": "In my Bayesian analysis, modeled after Michael Weissman's analysis I concluded P0(LL) / P0(ZO) = 1.7E-3. The product of my updates, I concluded P(LL) / P(ZO) = 2.125. The final, then is P0(LL) / P0(ZO) * P(LL) / P(ZO) = 3.6E-3. I concluded that there is approximately a 1 in 300 chance that SARS-CoV-2 was the result of a lab leak.",
+      "root_source_id": "will-decision-bayes"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://tinyurl.com/yrvzp8mk"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-will-decision-inconsistency-3",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Judge Will identified internal inconsistency and selective evidence presentation as the primary reasons he discounted the lab-leak case.",
+    "source": {
+      "type": "document",
+      "identifier": "will-decision-inconsistency",
+      "excerpt": "I ended up being more skeptical of the evidence that LL provided for two reasons. First, there were multiple instances of internal inconsistency. LL would assume truth claim A in one part of the debate, and then assume not A in another part of the debate, depending on the strategic utility of A/¬A. Second, I felt that the LL side misrepresented the strength of evidence by leaving out qualifying information.",
+      "root_source_id": "will-decision-inconsistency"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://tinyurl.com/yrvzp8mk"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-eric-decision-pdf-4",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Judge Eric's primary evidentiary basis was epidemiological proximity of the earliest cases to the Huanan Seafood Market rather than WIV.",
+    "source": {
+      "type": "document",
+      "identifier": "eric-decision-pdf",
+      "excerpt": "On the basis of the evidence and arguments presented during the debate, I find with high confidence that zoonotic spillover is the more likely origin of sars-cov-2. The most important basis for this decision is the relative epidemiological proximity of the earliest indicators of covid to a plausible animal source rather than a potential laboratory source.",
+      "root_source_id": "eric-decision-pdf"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://ermsta.com/r/covid_decision_20240217.pdf (Eric Stansifer, applied mathematician/Earth Science PhD)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-eric-decision-genetics-5",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Judge Eric held that anomalous genetic features of SARS-CoV-2 (including the furin cleavage site) were insufficient to overcome the epidemiological and prior-probability evidence favoring zoonosis.",
+    "source": {
+      "type": "document",
+      "identifier": "eric-decision-genetics",
+      "excerpt": "While Rootclaim identified unusual characteristics of the genetics of sars-cov-2 and the potential for laboratory work to create a similar virus, I found this insufficient to overcome the proximity evidence and the prior against a laboratory origin.",
+      "root_source_id": "eric-decision-genetics"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://ermsta.com/r/covid_decision_20240217.pdf"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-eric-decision-probability-6",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Eric's prior probabilities placed the annual lab-leak risk (1/17,000) roughly twice as high as the annual zoonotic-at-HSM risk (1/32,000), but location evidence subsequently drove his posterior to ~0.03% lab leak.",
+    "source": {
+      "type": "document",
+      "identifier": "eric-decision-probability",
+      "excerpt": "P(LL) = 1 / 17000.\" and \"Overall this gives P(Z) = 1 / 32000, which is to say that HSM should produce a pandemic akin to sars-cov-2 every 32000 years.",
+      "root_source_id": "eric-decision-probability"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://ermsta.com/r/covid_decision_20240217.pdf"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-weissman-prior-sensitivity-7",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Weissman identifies prior uncertainty as asymmetrically more damaging to inference than likelihood uncertainty — large Bayes factors can be rendered irrelevant by spread in the prior.",
+    "source": {
+      "type": "document",
+      "identifier": "weissman-prior-sensitivity",
+      "excerpt": "Our prior is then equivalent to L 0 = -4.2 ± 2.3. [...] Uncertainty in the likelihoods leads to discounting the likelihood ratios but not to discounting the priors. Uncertainty in the priors leads to discounting both. Thus observations with uncertain implications leave the priors untouched but highly uncertain priors can make fairly large likelihood ratios irrelevant.",
+      "root_source_id": "weissman-prior-sensitivity"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://michaelweissman.substack.com/p/an-inconvenient-probability-v57 (\"An Inconvenient Probability v5.11,\" Michael Weissman, 2024-03-14)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-weissman-wuhan-geographic-prior-8",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Weissman's key geographic crux: the pandemic starting in Wuhan constitutes a ~100x Bayes factor favoring lab leak over zoonosis because Wuhan holds <1% of China's wildlife-spillover exposure.",
+    "source": {
+      "type": "document",
+      "identifier": "weissman-wuhan-geographic-prior",
+      "excerpt": "Wuhan has less than 1% of China's population, so ~99% of the paths to ZW are crossed off. That means we need to increase whatever P(LL)/P(ZW) odds we started with by about a factor of 100.",
+      "root_source_id": "weissman-wuhan-geographic-prior"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://michaelweissman.substack.com/p/an-inconvenient-probability-v57"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-weissman-oom-spread-9",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Even among analysts using the same Bayesian framework on the same evidence, prior odds estimates at the equivalent stage spanned a ~37-fold range (4.4 to 165), illustrating the orders-of-magnitude sensitivity problem.",
+    "source": {
+      "type": "document",
+      "identifier": "weissman-oom-spread",
+      "excerpt": "A collection of other Bayesian estimates described as 'priors' but corresponding to this point in my analysis were made in response to a formal debate and presented on Scott Alexander's blog. These odds estimates for this point of the analysis ranged from 4.4 to 165.",
+      "root_source_id": "weissman-oom-spread"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://michaelweissman.substack.com/p/an-inconvenient-probability-v57"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-weissman-conclusion-10",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Weissman concludes that after uncertainty-discounting, only a prior of less than 1-in-1,300,000 for lab leak would prevent the analysis from favoring lab leak — placing his conclusion in direct tension with both judges' results.",
+    "source": {
+      "type": "document",
+      "identifier": "weissman-conclusion",
+      "excerpt": "After down-weighting due to uncertainties the likelihood factor reduces to ~1,300,000. Unless one has priors of less than about 1/1,300,000, the result favors LL over ZW. [...] The bottom line is just that LL looks a lot more probable than ZW, with some room for argument about exactly how much more probable.",
+      "root_source_id": "weissman-conclusion"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://michaelweissman.substack.com/p/an-inconvenient-probability-v57"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-sa-verdict-11",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Scott Alexander updated from near-even odds to 90% zoonosis after reviewing the full debate, representing a substantial personal probability shift.",
+    "source": {
+      "type": "document",
+      "identifier": "sa-verdict",
+      "excerpt": "For what it's worth, I was close to 50-50 before the debate, and now I'm 90-10 in favor of zoonosis.",
+      "root_source_id": "sa-verdict"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://www.astralcodexten.com/p/practically-a-book-review-rootclaim (\"Practically-A-Book Review: Rootclaim $100,000 Lab Leak Debate,\" 2024-03-28)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-sa-oom-spread-12",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "When analysts quantified the debate evidence Bayesian-style, their numerical outputs spanned 23 orders of magnitude in total and ~50x even among ostensibly neutral participants — indicating that the crux lies in how evidence is weighted, not the evidence itself.",
+    "source": {
+      "type": "document",
+      "identifier": "sa-oom-spread",
+      "excerpt": "The six estimates span twenty-three orders of magnitude. Even if we remove Peter (who's kind of trolling), the remaining estimates span a range of ~7 OOMs. And even if we remove Saar (limiting the analysis to neutral non-participants), we're still left with a factor-of-50 difference.",
+      "root_source_id": "sa-oom-spread"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://www.astralcodexten.com/p/practically-a-book-review-rootclaim"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-sa-rootclaim-method-13",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Scott Alexander identifies Rootclaim's systematic Bayesian quantification as not replicably workable in practice due to evidence complexity — framing the method itself, not the conclusion, as the core problem.",
+    "source": {
+      "type": "document",
+      "identifier": "sa-rootclaim-method",
+      "excerpt": "Unfortunately, the reason nobody else is trying this is because it doesn't work. There's too much evidence, and it's too hard to figure out how to quantify it.",
+      "root_source_id": "sa-rootclaim-method"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://www.astralcodexten.com/p/practically-a-book-review-rootclaim"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-rootclaim-format-critique-1-14",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Rootclaim's primary structural critique is that live oral debate systematically advantages the side with superior recall, which they argue is orthogonal to which hypothesis is correct.",
+    "source": {
+      "type": "document",
+      "identifier": "rootclaim-format-critique-1",
+      "excerpt": "While Peter's victory was well earned within the parameters of the debate, we believe it was also due to our failure to structure an effective debate. [...] First, the debate structure provided a major advantage to the debater with more memorized knowledge of the issue. The debate was live (via video) and Miller exemplified extensive knowledge and superb memory for many details, which we could not compete with in real-time.",
+      "root_source_id": "rootclaim-format-critique-1"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://blog.rootclaim.com/rootclaims-covid-19-origins-debate-results/ (Rootclaim blog, 2024-02-18)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-rootclaim-format-critique-2-15",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Rootclaim argues that without iterative judge feedback during the debate, they wasted time on non-crux evidence and could not correct what they identify as probabilistic reasoning errors in the judges' final rulings.",
+    "source": {
+      "type": "document",
+      "identifier": "rootclaim-format-critique-2",
+      "excerpt": "The second issue we identified was that we failed to incorporate a process of ongoing feedback from the judges, spending most of our time on issues that had little impact on the final decision. In their ruling, we found major mistakes in their understanding of our analysis, which could have been easily corrected had we built the debate with more direct ongoing feedback from the judges.",
+      "root_source_id": "rootclaim-format-critique-2"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://blog.rootclaim.com/rootclaims-covid-19-origins-debate-results/"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  },
+  {
+    "evidence_id": "covid-primary-rootclaim-probabilistic-failure-16",
+    "timestamp": "2026-06-19T12:00:00.000Z",
+    "claim": "Rootclaim contends that the judges committed a single identifiable probabilistic inference error — treating HSM workers as a random draw from all Wuhan residents — that was sufficient by itself to flip the outcome.",
+    "source": {
+      "type": "document",
+      "identifier": "rootclaim-probabilistic-failure",
+      "excerpt": "This is confusing two different things. The judges indeed had reservations about doing a full probabilistic analysis. But they definitely relied heavily on probabilistic thinking when evaluating the strength of specific evidence, most notably in wrongfully concluding HSM is strong evidence by calculating the probability of the index case being in a group of 1000 HSM workers out of 10 million Wuhan residents. As we showed, this probabilistic inference mistake alone was enough to reach a wrong conclusion.",
+      "root_source_id": "rootclaim-probabilistic-failure"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-19T12:00:00.000Z",
+      "context": "https://blog.rootclaim.com/covid-origins-debate-response-to-scott-alexander/ (Rootclaim blog, 2024-05-05)"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "primary",
+      "ingested-from-raw"
+    ]
+  }
+]

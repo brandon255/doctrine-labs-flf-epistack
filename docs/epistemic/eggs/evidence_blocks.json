@@ -1,0 +1,153 @@
+[
+  {
+    "evidence_id": "eggs-seed-001",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Dietary guidelines have shifted egg recommendations multiple times over decades (FLF case framing).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-eggs"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["meta", "guideline-history"]
+  },
+  {
+    "evidence_id": "eggs-seed-002",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Observational studies linking egg consumption to cardiovascular outcomes often share overlapping cohorts (genealogy hypothesis).",
+    "source": {
+      "type": "document",
+      "identifier": "flf-epistemic-competition-case-eggs"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "FLAGGED",
+    "tags": ["genealogy-demo", "cohort-correlation"]
+  },
+  {
+    "evidence_id": "eggs-seed-003",
+    "timestamp": "2026-06-18T12:00:00.000Z",
+    "claim": "Industry-funded nutrition research may correlate with favorable outcomes for funded foods (general epidemiology concern).",
+    "source": {
+      "type": "external_source",
+      "identifier": "nutrition-funding-bias-literature"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-18T12:00:00.000Z"
+    },
+    "confidence_label": "LOW",
+    "tags": ["funding-signal", "needs-primary"]
+  },
+  {
+    "evidence_id": "eggs-seed-004",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Gap closed: JAMA 2019 and related primaries ingested as eggs-primary-* (former MISSING validation task).",
+    "source": {
+      "type": "agent_inference",
+      "identifier": "doctrine-labs-gap-closed-eggs-primary"
+    },
+    "provenance": {
+      "captured_by": "system",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "MISSING protocol resolution — not a nutrition verdict"
+    },
+    "confidence_label": "LOW",
+    "tags": ["gap-closed", "meta"]
+  },
+  {
+    "evidence_id": "eggs-primary-jama-half-egg-1",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Zhong et al. (JAMA 2019) found each additional half egg per day associated with higher incident CVD (adjusted HR 1.06) and all-cause mortality (HR 1.08) in pooled US cohorts.",
+    "source": {
+      "type": "document",
+      "identifier": "zhong-jama-2019-half-egg-hr",
+      "excerpt": "Each additional half an egg consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.06 [95% CI, 1.03-1.10]) and all-cause mortality (adjusted HR, 1.08 [95% CI, 1.04-1.11]).",
+      "root_source_id": "zhong-jama-2019-2728487"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://jamanetwork.com/journals/jama/fullarticle/2728487 · pooled NHANES + REGARDS"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "observational"]
+  },
+  {
+    "evidence_id": "eggs-primary-jama-cholesterol-adjust-2",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "In the same JAMA 2019 analysis, egg-CVD and egg-mortality associations were no longer significant after adjusting for total dietary cholesterol consumption.",
+    "source": {
+      "type": "document",
+      "identifier": "zhong-jama-2019-cholesterol-adjust",
+      "excerpt": "The associations between egg consumption and incident CVD (adjusted HR, 0.99 [95% CI, 0.93-1.05]) and all-cause mortality (adjusted HR, 1.03 [95% CI, 0.97-1.09]) were no longer significant after adjusting for dietary cholesterol consumption.",
+      "root_source_id": "zhong-jama-2019-2728487"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://jamanetwork.com/journals/jama/fullarticle/2728487"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "crux-candidate", "confounding"]
+  },
+  {
+    "evidence_id": "eggs-primary-dga-2015-3",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "The 2015–2020 Dietary Guidelines Advisory Committee recommended dropping the specific dietary cholesterol limit, reflecting weakened evidence tying dietary cholesterol to serum cholesterol for most people.",
+    "source": {
+      "type": "document",
+      "identifier": "us-dga-2015-cholesterol-recommendation",
+      "excerpt": "Cholesterol is not considered a nutrient of concern for overconsumption.",
+      "root_source_id": "us-dga-2015-advisory-report"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "2015 Dietary Guidelines Advisory Committee report — widely cited guideline shift on eggs/cholesterol"
+    },
+    "confidence_label": "MEDIUM",
+    "tags": ["primary", "guideline-history"]
+  },
+  {
+    "evidence_id": "eggs-primary-funding-plos-4",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Lesser et al. (PLOS Medicine 2007) found industry-funded beverage nutrition articles were approximately four to eight times more likely to reach conclusions favorable to sponsors than articles without industry funding.",
+    "source": {
+      "type": "document",
+      "identifier": "lesser-plos-2007-industry-funding",
+      "excerpt": "Scientific articles about commonly consumed beverages funded entirely by industry were approximately four to eight times more likely to be favorable to the financial interests of the sponsors than articles without industry-related funding.",
+      "root_source_id": "lesser-plos-med-2007-0040005"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0040005"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "funding-signal"]
+  },
+  {
+    "evidence_id": "eggs-primary-jama-pooled-cohort-5",
+    "timestamp": "2026-06-25T12:00:00.000Z",
+    "claim": "Zhong et al. pooled 29,615 participants from NHANES and REGARDS — a single pooled analysis, not independent cohorts — for egg and cholesterol outcome associations.",
+    "source": {
+      "type": "document",
+      "identifier": "zhong-jama-2019-pooled-cohort-design",
+      "excerpt": "This analysis included 29 615 participants ... During a median follow-up of 17.5 years ... there were 5400 incident CVD events and 6132 all-cause deaths.",
+      "root_source_id": "zhong-jama-2019-2728487"
+    },
+    "provenance": {
+      "captured_by": "agent",
+      "captured_at": "2026-06-25T12:00:00.000Z",
+      "context": "Genealogy note: multiple headline claims from one pooled study share one root — not independent confirmations"
+    },
+    "confidence_label": "HIGH",
+    "tags": ["primary", "cohort-design", "genealogy-demo"]
+  }
+]

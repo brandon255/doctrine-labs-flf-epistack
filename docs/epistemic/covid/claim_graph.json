@@ -1,0 +1,164 @@
+{
+  "subquestion": "covid-origins-crux-navigation",
+  "version": "0.3-ingest",
+  "nodes": [
+    {
+      "id": "covid-seed-001",
+      "role": "meta_outcome"
+    },
+    {
+      "id": "covid-seed-002",
+      "role": "crux_hypothesis"
+    },
+    {
+      "id": "covid-seed-003",
+      "role": "seed"
+    },
+    {
+      "id": "covid-seed-004",
+      "role": "problem_statement"
+    },
+    {
+      "id": "covid-seed-005",
+      "role": "crux_hypothesis"
+    },
+    {
+      "id": "covid-primary-will-decision-doc-1",
+      "role": "judge_will"
+    },
+    {
+      "id": "covid-primary-will-decision-bayes-2",
+      "role": "judge_will"
+    },
+    {
+      "id": "covid-primary-will-decision-inconsistency-3",
+      "role": "judge_will"
+    },
+    {
+      "id": "covid-primary-eric-decision-pdf-4",
+      "role": "judge_eric"
+    },
+    {
+      "id": "covid-primary-eric-decision-genetics-5",
+      "role": "judge_eric"
+    },
+    {
+      "id": "covid-primary-eric-decision-probability-6",
+      "role": "judge_eric"
+    },
+    {
+      "id": "covid-primary-weissman-prior-sensitivity-7",
+      "role": "weissman"
+    },
+    {
+      "id": "covid-primary-weissman-wuhan-geographic-prior-8",
+      "role": "weissman"
+    },
+    {
+      "id": "covid-primary-weissman-oom-spread-9",
+      "role": "weissman"
+    },
+    {
+      "id": "covid-primary-weissman-conclusion-10",
+      "role": "weissman"
+    },
+    {
+      "id": "covid-primary-sa-verdict-11",
+      "role": "scott_alexander"
+    },
+    {
+      "id": "covid-primary-sa-oom-spread-12",
+      "role": "scott_alexander"
+    },
+    {
+      "id": "covid-primary-sa-rootclaim-method-13",
+      "role": "scott_alexander"
+    },
+    {
+      "id": "covid-primary-rootclaim-format-critique-1-14",
+      "role": "rootclaim"
+    },
+    {
+      "id": "covid-primary-rootclaim-format-critique-2-15",
+      "role": "rootclaim"
+    },
+    {
+      "id": "covid-primary-rootclaim-probabilistic-failure-16",
+      "role": "rootclaim"
+    }
+  ],
+  "edges": [
+    {
+      "from": "covid-seed-002",
+      "to": "covid-seed-005",
+      "relation": "motivates",
+      "note": "Bayesian spread motivates explicit crux mapping"
+    },
+    {
+      "from": "covid-seed-003",
+      "to": "covid-seed-001",
+      "relation": "qualifies",
+      "note": "Outcome may reflect format as well as evidence"
+    },
+    {
+      "from": "covid-seed-004",
+      "to": "covid-seed-005",
+      "relation": "supports",
+      "note": "Navigation problem justifies crux-first workflow"
+    },
+    {
+      "from": "covid-seed-001",
+      "to": "covid-seed-002",
+      "relation": "same_cluster",
+      "note": "Shared source.identifier flf-epistemic-competition-case-covid — correlated container, not independent evidence (genealogy gap demo)"
+    },
+    {
+      "from": "covid-primary-weissman-oom-spread-9",
+      "to": "covid-seed-002",
+      "relation": "qualifies",
+      "note": "Primary Weissman: prior spread at equivalent stage (~37x), not 23 OOM from one meta cite"
+    },
+    {
+      "from": "covid-primary-sa-oom-spread-12",
+      "to": "covid-seed-002",
+      "relation": "supports",
+      "note": "Scott Alexander: 23 OOM total, ~50x among neutral analysts"
+    },
+    {
+      "from": "covid-primary-eric-decision-pdf-4",
+      "to": "covid-seed-001",
+      "relation": "qualifies",
+      "note": "Eric vs Will — judges diverge; outcome not single voice"
+    },
+    {
+      "from": "covid-primary-rootclaim-format-critique-1-14",
+      "to": "covid-seed-003",
+      "relation": "supports",
+      "note": "Primary Rootclaim format critique grounds seed"
+    },
+    {
+      "from": "covid-primary-weissman-wuhan-geographic-prior-8",
+      "to": "covid-seed-005",
+      "relation": "motivates",
+      "note": "Geographic prior as load-bearing crux (Weissman)"
+    },
+    {
+      "from": "covid-primary-will-decision-bayes-2",
+      "to": "covid-primary-weissman-conclusion-10",
+      "relation": "qualifies",
+      "note": "Will ~1/300 LL vs Weissman favoring LL after discounting — judge/analyst tension"
+    },
+    {
+      "from": "covid-seed-001",
+      "to": "covid-seed-004",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id flf-epistemic-competition-case-covid — 3 blocks, not independent"
+    },
+    {
+      "from": "covid-seed-002",
+      "to": "covid-seed-004",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id flf-epistemic-competition-case-covid — 3 blocks, not independent"
+    }
+  ]
+}

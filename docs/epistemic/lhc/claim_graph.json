@@ -1,0 +1,110 @@
+{
+  "subquestion": "lhc-safety-dependency-chain",
+  "version": "0.3-ingest",
+  "nodes": [
+    {
+      "id": "lhc-seed-001",
+      "role": "seed"
+    },
+    {
+      "id": "lhc-seed-002",
+      "role": "seed"
+    },
+    {
+      "id": "lhc-seed-003",
+      "role": "crux_hypothesis"
+    },
+    {
+      "id": "lhc-seed-004",
+      "role": "seed"
+    },
+    {
+      "id": "lhc-primary-lsag-cosmic-1",
+      "role": "primary"
+    },
+    {
+      "id": "lhc-primary-lsag-conclusion-2",
+      "role": "primary"
+    },
+    {
+      "id": "lhc-primary-lsag-mbh-3",
+      "role": "primary"
+    },
+    {
+      "id": "lhc-primary-plaga-residual-4",
+      "role": "primary"
+    },
+    {
+      "id": "lhc-primary-cern-popular-5",
+      "role": "primary"
+    }
+  ],
+  "edges": [
+    {
+      "from": "lhc-seed-003",
+      "to": "lhc-seed-001",
+      "relation": "qualifies",
+      "note": "Cosmic-ray analogy challenge qualifies official position"
+    },
+    {
+      "from": "lhc-primary-lsag-cosmic-1",
+      "to": "lhc-seed-001",
+      "relation": "supports",
+      "note": "Primary LSAG grounds official cosmic-ray safety argument"
+    },
+    {
+      "from": "lhc-primary-lsag-conclusion-2",
+      "to": "lhc-seed-001",
+      "relation": "supports",
+      "note": "Primary LSAG conclusion grounds no-conceivable-danger claim"
+    },
+    {
+      "from": "lhc-primary-plaga-residual-4",
+      "to": "lhc-primary-lsag-cosmic-1",
+      "relation": "qualifies",
+      "note": "Plaga challenges definitiveness of cosmic-ray exclusion"
+    },
+    {
+      "from": "lhc-primary-plaga-residual-4",
+      "to": "lhc-seed-003",
+      "relation": "supports",
+      "note": "Primary grounds FLAGGED crux seed"
+    },
+    {
+      "from": "lhc-primary-cern-popular-5",
+      "to": "lhc-seed-002",
+      "relation": "supports",
+      "note": "Popular CERN summary exemplifies restatement without new analysis"
+    },
+    {
+      "from": "lhc-primary-lsag-mbh-3",
+      "to": "lhc-primary-lsag-conclusion-2",
+      "relation": "supports",
+      "note": "MBH argument is load-bearing sub-claim in LSAG conclusion"
+    },
+    {
+      "from": "lhc-seed-001",
+      "to": "lhc-seed-002",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id flf-epistemic-competition-case-lhc — 2 blocks, not independent"
+    },
+    {
+      "from": "lhc-primary-lsag-conclusion-2",
+      "to": "lhc-primary-lsag-cosmic-1",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+    },
+    {
+      "from": "lhc-primary-lsag-conclusion-2",
+      "to": "lhc-primary-lsag-mbh-3",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+    },
+    {
+      "from": "lhc-primary-lsag-cosmic-1",
+      "to": "lhc-primary-lsag-mbh-3",
+      "relation": "same_cluster",
+      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+    }
+  ]
+}
