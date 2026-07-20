@@ -3,5 +3,5 @@ node_modules/
 USER/
 secure_vault/
 
-# Generated when you run a case — regenerated every run, contains local paths
+# Generated when you run a case. Regenerated every run, contains local paths.
 docs/epistemic/*/RUN_OUTPUT.md

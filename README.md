@@ -1,33 +1,30 @@
-# Provenance Genealogy Layer — a runnable epistemic demo
+# Provenance genealogy layer
 
-**Future of Life Foundation — Epistemic Case Study competition**
-Brandon Flores · Doctrine Labs
+A small tool you run in one command. It answers one question about a pile of evidence: how many of these citations actually come from different original sources, and how many are the same source wearing different hats?
 
-This is a small, self-contained slice of a larger local-first system (Core OS). It exists so you can **run one command and read the result** without cloning a large private repo or trusting a screenshot.
+I am Brandon Flores. I am an industrial designer, about six months into writing software. I built this as one slice of a larger local-first system I call Core OS. I put it in its own public repo so a judge can clone it, run one command, and read the result without trusting a screenshot or cloning anything private.
 
----
+## The problem, in plain terms
 
-## The problem it addresses
+When you gather evidence on a hard question, it is easy to count the number of citations and treat that as the number of independent confirmations. It usually is not. Five citations can all trace back to one report. That is one source, not five.
 
-When you collect evidence for a contested question, it is easy to count *blocks of evidence* and mistake that for *independent confirmation*. But several blocks can trace back to **the same original source**. Five citations that all quote one report is one source wearing five hats — not five roots.
+I ran into this in my own data. I already had two safeguards in Core OS. One is an integrity ledger that catches tampering. The other is a human approval gate that stops the machine from rubber-stamping its own work. Neither one asked the question that actually mattered here: how many distinct roots are under these blocks? So I built the part that does.
 
-Existing safeguards I already had (an integrity ledger for tampering, human approval gates for rubber-stamping) did **not** catch this. Neither one asks: *how many distinct roots are actually under these blocks?*
+When you run it, it prints one line:
 
-This layer answers exactly that question, and prints one honest line:
+```
+N blocks cited; M distinct roots; K correlated cluster(s) detected. Treat as M independent sources, not N.
+```
 
-> `N blocks cited; M distinct roots; K correlated cluster(s) detected — treat as M independent sources, not N.`
+## Run it
 
----
-
-## Run it (no dependencies, Node 20+)
-
-There is nothing to install — the code has zero runtime dependencies.
+No dependencies. You need Node 20 or newer. There is nothing to install.
 
 ```bash
 npm run epistemic:covid
 ```
 
-Other cases:
+Also available:
 
 ```bash
 npm run epistemic:lhc
@@ -35,45 +32,46 @@ npm run epistemic:eggs
 npm run epistemic:all
 ```
 
-## What you should see (COVID-19 origins case)
+## What you should see (COVID case)
 
 ```
-21 blocks cited; 19 distinct roots; 1 correlated cluster(s) detected — treat as 19 independent sources, not 21.
+21 blocks cited; 19 distinct roots; 1 correlated cluster(s) detected. Treat as 19 independent sources, not 21.
 ```
 
-The command prints a full Markdown report plus a JSON summary. The three FLF starting cases are included:
+The command prints a full report and a JSON summary underneath it.
 
-| Case | Question | Result |
-|------|----------|--------|
-| `covid` | COVID-19 origins (Wilf–Miller debate) | 21 blocks → **19 distinct roots**, 1 correlated cluster |
-| `lhc`   | Do LHC collisions risk black holes? | 9 blocks → **6 distinct roots**, 2 correlated clusters |
-| `eggs`  | Are eggs bad for you? | 9 blocks → **6 distinct roots**, 2 correlated clusters |
+## The three cases
 
----
+These are the three starter cases from the competition. In each one I am not trying to settle the question. I am measuring how independent the cited evidence actually is.
+
+| Command | Question it is pointed at | Result |
+|---------|---------------------------|--------|
+| `epistemic:covid` | COVID-19 origins (the Wilf-Miller debate record): what do the cited blocks trace back to? | 21 blocks, **19 distinct roots**, 1 correlated cluster |
+| `epistemic:lhc` | Could Large Hadron Collider collisions create a dangerous black hole? | 9 blocks, **6 distinct roots**, 2 correlated clusters |
+| `epistemic:eggs` | Are eggs bad for you? | 9 blocks, **6 distinct roots**, 2 correlated clusters |
 
 ## How it works (three steps)
 
-1. **Evidence blocks** — each claim is stored as a structured block with a citation (`docs/epistemic/<case>/evidence_blocks.json`).
-2. **Root tagging** — each block carries a `root_source_id`. Blocks that trace to the same origin share that id.
-3. **Genealogy resolve** — the resolver groups blocks by root into clusters, counts **distinct roots**, and reports the gap between "blocks" and "independent sources."
+1. Each claim is stored as a block with its citation, in `docs/epistemic/<case>/evidence_blocks.json`.
+2. Each block carries a `root_source_id`. Blocks that trace to the same origin share that id.
+3. The resolver groups blocks by root, counts the distinct roots, and reports the gap between how many blocks you have and how many independent sources you actually have.
 
-Core logic:
+The core files:
 
-- `src/epistemic/genealogy.js` — clusters blocks by root, counts distinct roots
-- `src/epistemic/ingest.js` — loads a case, runs the resolve, builds the report
-- `src/epistemic/report.js` — renders the human-readable assessment
-- `scripts/epistemic-run.js` — the command-line entry point
+- `src/epistemic/genealogy.js` groups blocks by root and counts distinct roots
+- `src/epistemic/ingest.js` loads a case and runs it
+- `src/epistemic/report.js` writes the readable report
+- `scripts/epistemic-run.js` is the command you run
 
----
+## What this is not
 
-## Honest limits (what this is *not*)
+I want to be straight about the limits, because that matters more than any pitch.
 
-- Matching is by **explicit identifier** (`root_source_id`), not semantic similarity. Two sources that are secretly correlated but tagged differently will not be caught automatically — a human still assigns roots during ingest.
-- The case data is **human-curated**, not scraped. This is a reasoning tool, not a crawler.
-- It does **not** settle COVID origins, black-hole risk, or egg nutrition. It measures *how independent your evidence actually is* for whatever position you hold.
+- It matches on an explicit id (`root_source_id`), not on meaning. If two sources are secretly related but tagged as different roots, this will not catch it on its own. A human still assigns the roots when the evidence goes in.
+- The case data is hand-curated, not scraped. This is a reasoning tool, not a crawler.
+- It does not settle COVID origins, black-hole risk, or egg nutrition. It tells you how independent your evidence really is for whatever side you hold.
+- Any em-dashes you see in the output are inside the cited claims and source excerpts. That is evidence text, and I left it as written. In a competition about evidence, editing a source to make it look tidier is the one thing I will not do.
 
----
+## Who built this and why
 
-## Who built this
-
-Brandon Flores — industrial designer (~16 years shipping physical product), roughly six months into software. I am not claiming to be a senior engineer or a domain scientist. The wedge is a designer's instinct: reduce a fuzzy epistemic worry ("are these sources really independent?") to one command with the **least interpretation** required of the reader.
+I am an industrial designer with about sixteen years shipping physical product, and roughly six months in software. I am not a senior engineer and I am not a virologist. What I bring is a designer's habit: take a fuzzy worry, in this case "are these sources really independent?", and turn it into one command with the least interpretation required of the person reading it. In fabrication I spent years shortening the time between a decision and knowing whether it was right. This is that same instinct aimed at evidence.

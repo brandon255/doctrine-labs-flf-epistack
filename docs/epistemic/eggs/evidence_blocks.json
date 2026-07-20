@@ -55,7 +55,7 @@
     "provenance": {
       "captured_by": "system",
       "captured_at": "2026-06-25T12:00:00.000Z",
-      "context": "MISSING protocol resolution — not a nutrition verdict"
+      "context": "MISSING protocol resolution - not a nutrition verdict"
     },
     "confidence_label": "LOW",
     "tags": ["gap-closed", "meta"]
@@ -109,7 +109,7 @@
     "provenance": {
       "captured_by": "agent",
       "captured_at": "2026-06-25T12:00:00.000Z",
-      "context": "2015 Dietary Guidelines Advisory Committee report — widely cited guideline shift on eggs/cholesterol"
+      "context": "2015 Dietary Guidelines Advisory Committee report - widely cited guideline shift on eggs/cholesterol"
     },
     "confidence_label": "MEDIUM",
     "tags": ["primary", "guideline-history"]
@@ -145,7 +145,7 @@
     "provenance": {
       "captured_by": "agent",
       "captured_at": "2026-06-25T12:00:00.000Z",
-      "context": "Genealogy note: multiple headline claims from one pooled study share one root — not independent confirmations"
+      "context": "Genealogy note: multiple headline claims from one pooled study share one root - not independent confirmations"
     },
     "confidence_label": "HIGH",
     "tags": ["primary", "cohort-design", "genealogy-demo"]

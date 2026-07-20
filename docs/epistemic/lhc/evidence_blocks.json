@@ -11,7 +11,7 @@
     "provenance": {
       "captured_by": "user",
       "captured_at": "2026-06-18T12:00:00.000Z",
-      "context": "Meta anchor — FLF case brief"
+      "context": "Meta anchor - FLF case brief"
     },
     "confidence_label": "MEDIUM",
     "tags": ["meta", "official-position"]
@@ -42,7 +42,7 @@
     "provenance": {
       "captured_by": "agent",
       "captured_at": "2026-06-18T12:00:00.000Z",
-      "context": "Crux candidate — now grounded by Plaga primary"
+      "context": "Crux candidate - now grounded by Plaga primary"
     },
     "confidence_label": "FLAGGED",
     "tags": ["crux-candidate", "needs-primary"]
@@ -58,7 +58,7 @@
     "provenance": {
       "captured_by": "system",
       "captured_at": "2026-06-25T12:00:00.000Z",
-      "context": "Tracks MISSING protocol resolution — not evidentiary on physics"
+      "context": "Tracks MISSING protocol resolution - not evidentiary on physics"
     },
     "confidence_label": "LOW",
     "tags": ["gap-closed", "meta"]
@@ -130,7 +130,7 @@
     "provenance": {
       "captured_by": "agent",
       "captured_at": "2026-06-25T12:00:00.000Z",
-      "context": "https://arxiv.org/abs/0808.1415 · Giddings & Mangano responded; LSAG cites dispute — navigation not adjudication"
+      "context": "https://arxiv.org/abs/0808.1415 · Giddings & Mangano responded; LSAG cites dispute - navigation not adjudication"
     },
     "confidence_label": "FLAGGED",
     "tags": ["primary", "crux-candidate", "critique"]

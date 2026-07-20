@@ -1,4 +1,4 @@
-// Evidence blocks (Schema D) — unified provenance for integrity ledger + FLF import.
+// Evidence blocks (Schema D) - unified provenance for integrity ledger + FLF import.
 
 import { randomUUID } from "node:crypto";
 import { readFileSync } from "node:fs";

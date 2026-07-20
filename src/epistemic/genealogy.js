@@ -1,6 +1,6 @@
 /**
- * Provenance genealogy — cluster resolution for Schema D evidence blocks.
- * FLF Jun 21: detects shared root_source_id / source.identifier equivalence.
+ * Provenance genealogy: cluster resolution for Schema D evidence blocks.
+ * Detects shared root_source_id / source.identifier equivalence.
  */
 
 import { createHash } from "node:crypto";
@@ -82,7 +82,7 @@ export function resolveGenealogy(blocks) {
           from: sorted[i],
           to: sorted[j],
           relation: "same_cluster",
-          note: `Shared root_source_id ${cluster.root_source_id} — ${cluster.block_count} blocks, not independent`,
+          note: `Shared root_source_id ${cluster.root_source_id}, ${cluster.block_count} blocks, not independent`,
         });
       }
     }
@@ -100,7 +100,7 @@ export function resolveGenealogy(blocks) {
       cluster_count: clusters.length,
       independent_root_count: distinctRoots,
       correlated_cluster_count: correlatedClusters,
-      assessment_line: `${blocks.length} blocks cited; ${distinctRoots} distinct roots; ${correlatedClusters} correlated cluster(s) detected — treat as ${distinctRoots} independent sources, not ${blocks.length}.`,
+      assessment_line: `${blocks.length} blocks cited; ${distinctRoots} distinct roots; ${correlatedClusters} correlated cluster(s) detected. Treat as ${distinctRoots} independent sources, not ${blocks.length}.`,
     },
   };
 }

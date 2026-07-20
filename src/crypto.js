@@ -77,7 +77,7 @@ export function sha256(str) {
   return createHash("sha256").update(str, "utf8").digest("hex");
 }
 
-/** HMAC-SHA256 hex — deterministic pseudonym for an id (fixes RT-09 plaintext user_id). */
+/** HMAC-SHA256 hex - deterministic pseudonym for an id (fixes RT-09 plaintext user_id). */
 export function pseudonymize(value, key = getTelemetryKey()) {
   return createHmac("sha256", key).update(String(value), "utf8").digest("hex").slice(0, 32);
 }
@@ -105,7 +105,7 @@ export function getCartridgeSigningKeys() {
 }
 
 // Recursively key-sorted JSON. The replacer-array form of JSON.stringify only
-// keeps listed keys at EVERY level, which silently drops nested objects — so we
+// keeps listed keys at EVERY level, which silently drops nested objects - so we
 // serialize by hand to guarantee every field is covered by the signature.
 function canonical(value) {
   if (value === null || typeof value !== "object") return JSON.stringify(value);

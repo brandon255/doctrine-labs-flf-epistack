@@ -56,7 +56,7 @@
       "from": "eggs-primary-jama-cholesterol-adjust-2",
       "to": "eggs-primary-jama-half-egg-1",
       "relation": "qualifies",
-      "note": "Cholesterol adjustment nullifies half-egg association — load-bearing crux"
+      "note": "Cholesterol adjustment nullifies half-egg association, load-bearing crux"
     },
     {
       "from": "eggs-primary-dga-2015-3",
@@ -74,25 +74,25 @@
       "from": "eggs-seed-001",
       "to": "eggs-seed-002",
       "relation": "same_cluster",
-      "note": "Shared root_source_id flf-epistemic-competition-case-eggs — 2 blocks, not independent"
+      "note": "Shared root_source_id flf-epistemic-competition-case-eggs, 2 blocks, not independent"
     },
     {
       "from": "eggs-primary-jama-cholesterol-adjust-2",
       "to": "eggs-primary-jama-half-egg-1",
       "relation": "same_cluster",
-      "note": "Shared root_source_id zhong-jama-2019-2728487 — 3 blocks, not independent"
+      "note": "Shared root_source_id zhong-jama-2019-2728487, 3 blocks, not independent"
     },
     {
       "from": "eggs-primary-jama-cholesterol-adjust-2",
       "to": "eggs-primary-jama-pooled-cohort-5",
       "relation": "same_cluster",
-      "note": "Shared root_source_id zhong-jama-2019-2728487 — 3 blocks, not independent"
+      "note": "Shared root_source_id zhong-jama-2019-2728487, 3 blocks, not independent"
     },
     {
       "from": "eggs-primary-jama-half-egg-1",
       "to": "eggs-primary-jama-pooled-cohort-5",
       "relation": "same_cluster",
-      "note": "Shared root_source_id zhong-jama-2019-2728487 — 3 blocks, not independent"
+      "note": "Shared root_source_id zhong-jama-2019-2728487, 3 blocks, not independent"
     }
   ]
 }

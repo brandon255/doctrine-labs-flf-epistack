@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Run epistemic case study ingest — FLF judge demo. */
+/** Run epistemic case study ingest - FLF judge demo. */
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";

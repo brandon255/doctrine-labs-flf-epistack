@@ -1,5 +1,5 @@
 /**
- * Epistemic ingest steering log — human review trail (FLF D5).
+ * Epistemic ingest steering log - human review trail (FLF D5).
  */
 
 import { appendFileSync, existsSync, readFileSync } from "node:fs";

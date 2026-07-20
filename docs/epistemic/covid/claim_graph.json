@@ -110,7 +110,7 @@
       "from": "covid-seed-001",
       "to": "covid-seed-002",
       "relation": "same_cluster",
-      "note": "Shared source.identifier flf-epistemic-competition-case-covid — correlated container, not independent evidence (genealogy gap demo)"
+      "note": "Shared source.identifier flf-epistemic-competition-case-covid, correlated container, not independent evidence (genealogy gap demo)"
     },
     {
       "from": "covid-primary-weissman-oom-spread-9",
@@ -128,7 +128,7 @@
       "from": "covid-primary-eric-decision-pdf-4",
       "to": "covid-seed-001",
       "relation": "qualifies",
-      "note": "Eric vs Will — judges diverge; outcome not single voice"
+      "note": "Eric vs Will, judges diverge; outcome not single voice"
     },
     {
       "from": "covid-primary-rootclaim-format-critique-1-14",
@@ -146,19 +146,19 @@
       "from": "covid-primary-will-decision-bayes-2",
       "to": "covid-primary-weissman-conclusion-10",
       "relation": "qualifies",
-      "note": "Will ~1/300 LL vs Weissman favoring LL after discounting — judge/analyst tension"
+      "note": "Will ~1/300 LL vs Weissman favoring LL after discounting, judge/analyst tension"
     },
     {
       "from": "covid-seed-001",
       "to": "covid-seed-004",
       "relation": "same_cluster",
-      "note": "Shared root_source_id flf-epistemic-competition-case-covid — 3 blocks, not independent"
+      "note": "Shared root_source_id flf-epistemic-competition-case-covid, 3 blocks, not independent"
     },
     {
       "from": "covid-seed-002",
       "to": "covid-seed-004",
       "relation": "same_cluster",
-      "note": "Shared root_source_id flf-epistemic-competition-case-covid — 3 blocks, not independent"
+      "note": "Shared root_source_id flf-epistemic-competition-case-covid, 3 blocks, not independent"
     }
   ]
 }

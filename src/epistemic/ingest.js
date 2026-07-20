@@ -1,5 +1,5 @@
 /**
- * Epistemic case-study ingest — load seeds, validate, resolve genealogy, emit report.
+ * Epistemic case-study ingest - load seeds, validate, resolve genealogy, emit report.
  */
 
 import { readFileSync, existsSync, writeFileSync } from "node:fs";

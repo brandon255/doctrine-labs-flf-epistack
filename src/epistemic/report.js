@@ -36,14 +36,14 @@ export function formatCaseReport({ caseDir, loadedFrom, genealogy, mergedGraph }
 
   for (const c of clusters) {
     lines.push(
-      `- **${c.cluster_id}** — \`${c.root_source_id}\` — ${c.independence_class} — ${c.block_count} block(s): ${c.member_ids.join(", ")}`,
+      `- **${c.cluster_id}** | root \`${c.root_source_id}\` | ${c.independence_class} | ${c.block_count} block(s): ${c.member_ids.join(", ")}`,
     );
   }
 
   lines.push(``, `## Blocks`, ``);
   for (const b of blocks) {
     lines.push(
-      `- \`${b.evidence_id}\` — ${b.confidence_label} — ${b.provenance.independence_class} — ${b.claim.slice(0, 120)}${b.claim.length > 120 ? "…" : ""}`,
+      `- \`${b.evidence_id}\` | ${b.confidence_label} | ${b.provenance.independence_class} | ${b.claim.slice(0, 120)}${b.claim.length > 120 ? "..." : ""}`,
     );
   }
 
@@ -51,7 +51,7 @@ export function formatCaseReport({ caseDir, loadedFrom, genealogy, mergedGraph }
   if (sameClusterEdges.length) {
     lines.push(``, `## same_cluster edges (genealogy)`, ``);
     for (const e of sameClusterEdges) {
-      lines.push(`- ${e.from} ↔ ${e.to}${e.note ? ` — ${e.note}` : ""}`);
+      lines.push(`- ${e.from} <-> ${e.to}${e.note ? ` (${e.note})` : ""}`);
     }
   }
 
@@ -61,7 +61,7 @@ export function formatCaseReport({ caseDir, loadedFrom, genealogy, mergedGraph }
     ``,
     `- Blocks with confidence FLAGGED or LOW need promotion before use in argument.`,
     `- Correlated clusters must not be counted as independent confirmations.`,
-    `- See INVARIANTS_AND_MISSING.md for MISSING protocol.`,
+    `- Missing or unverifiable sources should be demoted, not silently dropped.`,
     ``,
     `## Steering log`,
     ``,

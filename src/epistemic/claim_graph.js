@@ -1,5 +1,5 @@
 /**
- * Claim graph helpers — sync nodes from blocks, merge discourse + genealogy edges.
+ * Claim graph helpers - sync nodes from blocks, merge discourse + genealogy edges.
  */
 
 import { mergeGenealogyEdges } from "./genealogy.js";

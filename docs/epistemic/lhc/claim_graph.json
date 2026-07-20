@@ -86,25 +86,25 @@
       "from": "lhc-seed-001",
       "to": "lhc-seed-002",
       "relation": "same_cluster",
-      "note": "Shared root_source_id flf-epistemic-competition-case-lhc — 2 blocks, not independent"
+      "note": "Shared root_source_id flf-epistemic-competition-case-lhc, 2 blocks, not independent"
     },
     {
       "from": "lhc-primary-lsag-conclusion-2",
       "to": "lhc-primary-lsag-cosmic-1",
       "relation": "same_cluster",
-      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+      "note": "Shared root_source_id lsag-arxiv-0806.3414, 3 blocks, not independent"
     },
     {
       "from": "lhc-primary-lsag-conclusion-2",
       "to": "lhc-primary-lsag-mbh-3",
       "relation": "same_cluster",
-      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+      "note": "Shared root_source_id lsag-arxiv-0806.3414, 3 blocks, not independent"
     },
     {
       "from": "lhc-primary-lsag-cosmic-1",
       "to": "lhc-primary-lsag-mbh-3",
       "relation": "same_cluster",
-      "note": "Shared root_source_id lsag-arxiv-0806.3414 — 3 blocks, not independent"
+      "note": "Shared root_source_id lsag-arxiv-0806.3414, 3 blocks, not independent"
     }
   ]
 }

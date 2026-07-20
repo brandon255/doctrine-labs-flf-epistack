@@ -3,7 +3,7 @@ import { dirname } from "node:path";
 import { sha256 } from "./crypto.js";
 import { PATHS } from "./paths.js";
 
-// Fixes RT-15: "verifiable" archives now have a real integrity mechanism — an
+// Fixes RT-15: "verifiable" archives now have a real integrity mechanism - an
 // append-only, hash-chained ledger. Each entry hashes (prevHash + canonical
 // payload), so any retroactive edit breaks the chain and is detectable.
 // This is the cross-platform replacement for `chattr +a` (fixes RT-09/RT-13).
@@ -11,7 +11,7 @@ import { PATHS } from "./paths.js";
 const GENESIS = "0".repeat(64);
 
 // Stable, recursively key-sorted JSON so the same logical entry always hashes
-// identically — and so nested fields are actually covered by the hash (the
+// identically - and so nested fields are actually covered by the hash (the
 // replacer-array form drops them).
 function canonical(value) {
   if (value === null || typeof value !== "object") return JSON.stringify(value);
