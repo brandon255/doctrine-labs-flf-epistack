@@ -81,11 +81,39 @@ Here is the exact human judgment in each case, so you can see my work:
 
 And it is all here to try. Open any of the three cases and run it. If you are curious, change a root tag and run it again to see how the count shifts. There is also a small worked example you can copy: run `npm run epistemic:sample`, then open `docs/epistemic/sample/evidence_blocks.json` and edit it to point the tool at evidence of your own.
 
+## Scaling the judgment, and standing up to relabeling
+
+The one weakness in the plain version above is this: the correlation is only caught if a person tags two blocks with the same `root_source_id` when the evidence goes in. That does not scale, and it is exactly the move an adversary would make to inflate independence. Give the same underlying report a fresh identifier and it slips through as a new source.
+
+So there is a second, optional layer: an alias map. A file named `aliases.json` in a case folder declares that two different-looking identifiers trace to the same root:
+
+```json
+{ "trade-magazine-writeup": "acme-coating-report-2024" }
+```
+
+The resolver applies that map before it counts, so the relabeled source collapses back into the one it actually came from. You do not have to touch the evidence blocks to do it. That matters for three reasons:
+
+- **It scales.** One alias declaration fixes every block that used that identifier, and it can grow independently of the evidence. As models get better at spotting "this is the same source under a new name," that judgment can be proposed automatically and written straight into `aliases.json`. The tool stays the same; the map gets smarter.
+- **It resists relabeling.** An adversary cannot manufacture independence just by renaming a source, once that alias is declared.
+- **It compounds and travels.** The alias map is a small, portable artifact. One person's work identifying shared roots can be handed to the next person, or merged, without re-reading the underlying evidence.
+
+You can watch it work in the sample case. `sample-2` carries its own identifier, so on its own it counts as a separate source:
+
+```
+# with docs/epistemic/sample/aliases.json in place
+3 blocks cited; 2 distinct roots; 1 correlated cluster(s) detected. Treat as 2 independent sources, not 3.
+
+# delete aliases.json and run again
+3 blocks cited; 3 distinct roots; 0 correlated cluster(s) detected. Treat as 3 independent sources, not 3.
+```
+
+The alias map is what turned three "independent" sources back into two.
+
 ## What this is not
 
 I want to be straight about the limits, because that matters more than any pitch.
 
-- It matches on an explicit id (`root_source_id`), not on meaning. If two sources are secretly related but tagged as different roots, this will not catch it on its own. A human still assigns the roots when the evidence goes in.
+- It matches on an explicit id (`root_source_id`), optionally routed through an alias map, not on meaning. It will not read two articles and infer on its own that they came from the same place. A person or a model still has to declare the roots and the aliases. What the alias map buys you is that the declaration is made once, scales, and cannot be undone by a simple rename.
 - The case data is hand-curated, not scraped. This is a reasoning tool, not a crawler.
 - It does not settle COVID origins, black-hole risk, or egg nutrition. It tells you how independent your evidence really is for whatever side you hold.
 - Any em-dashes you see in the output are inside the cited claims and source excerpts. That is evidence text, and I left it as written. In a competition about evidence, editing a source to make it look tidier is the one thing I will not do.

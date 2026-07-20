@@ -40,6 +40,24 @@ export function loadClaimGraph(caseDir) {
 }
 
 /**
+ * Load an optional alias map (aliases.json) declaring that different source
+ * identifiers trace to the same root. Human-declared or model-proposed. Keys
+ * and values are normalized to lowercase. Missing file returns an empty map,
+ * so behavior is unchanged when no aliases are provided.
+ * @param {string} caseDir
+ */
+export function loadAliases(caseDir) {
+  const p = join(caseDir, "aliases.json");
+  if (!existsSync(p)) return {};
+  const raw = JSON.parse(readFileSync(p, "utf8"));
+  const out = {};
+  for (const [k, v] of Object.entries(raw)) {
+    out[String(k).trim().toLowerCase()] = String(v).trim().toLowerCase();
+  }
+  return out;
+}
+
+/**
  * Run full ingest pipeline for a case study directory.
  * @param {string} caseDir
  * @param {{ emitJson?: boolean }} opts
@@ -47,7 +65,8 @@ export function loadClaimGraph(caseDir) {
 export function runCaseStudy(caseDir, { emitJson = false, syncGraph = false } = {}) {
   const { blocks, loadedFrom } = loadCaseBlocks(caseDir);
   const seedGraph = loadClaimGraph(caseDir);
-  const genealogy = resolveGenealogy(blocks);
+  const aliases = loadAliases(caseDir);
+  const genealogy = resolveGenealogy(blocks, { aliases });
   const mergedGraph = seedGraph
     ? buildMergedClaimGraph(blocks, seedGraph, genealogy.edges)
     : buildMergedClaimGraph(blocks, { subquestion: "unknown", edges: [] }, genealogy.edges);

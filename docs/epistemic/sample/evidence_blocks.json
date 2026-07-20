@@ -21,13 +21,12 @@
     "claim": "EXAMPLE ONLY. A news article repeats the twenty-year figure for the bridge coating.",
     "source": {
       "type": "external_source",
-      "identifier": "trade-magazine-writeup",
-      "root_source_id": "acme-coating-report-2024"
+      "identifier": "trade-magazine-writeup"
     },
     "provenance": {
       "captured_by": "user",
       "captured_at": "2026-07-19T00:00:00.000Z",
-      "context": "Looks like a second source, but it traces back to the same report, so it shares the root tag."
+      "context": "Carries its own identifier, so on its own it would count as a separate source. aliases.json declares it traces back to the same report."
     },
     "confidence_label": "MEDIUM"
   },

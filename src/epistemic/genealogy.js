@@ -12,10 +12,12 @@ import { createHash } from "node:crypto";
  * Explicit root_source_id wins; else identifier string.
  * @param {object} block
  */
-export function rootKeyForBlock(block) {
+export function rootKeyForBlock(block, aliases = {}) {
   const id = block.source?.root_source_id ?? block.source?.identifier;
   if (!id || typeof id !== "string") return "unknown-root";
-  return id.trim().toLowerCase();
+  const norm = id.trim().toLowerCase();
+  const canonical = aliases[norm] ?? aliases[id] ?? norm;
+  return String(canonical).trim().toLowerCase();
 }
 
 /**
@@ -32,14 +34,14 @@ export function clusterIdFromRoot(rootKey) {
  * @param {object[]} blocks
  * @returns {{ blocks: object[], clusters: object[], edges: object[], summary: object }}
  */
-export function resolveGenealogy(blocks) {
+export function resolveGenealogy(blocks, { aliases = {} } = {}) {
   if (!Array.isArray(blocks)) throw new Error("REJECTED: blocks must be an array.");
 
   const rootToIds = new Map();
   const annotated = blocks.map((block) => {
-    const rootKey = rootKeyForBlock(block);
+    const rootKey = rootKeyForBlock(block, aliases);
     const cluster_id = clusterIdFromRoot(rootKey);
-    const root_source_id = block.source?.root_source_id ?? block.source?.identifier ?? "unknown-root";
+    const root_source_id = rootKey;
 
     if (!rootToIds.has(rootKey)) rootToIds.set(rootKey, []);
     rootToIds.get(rootKey).push(block.evidence_id);
@@ -66,7 +68,7 @@ export function resolveGenealogy(blocks) {
       block_count: memberIds.length,
     });
     for (const block of annotated) {
-      if (rootKeyForBlock(block) === rootKey) {
+      if (rootKeyForBlock(block, aliases) === rootKey) {
         block.provenance.independence_class = independence_class;
       }
     }
