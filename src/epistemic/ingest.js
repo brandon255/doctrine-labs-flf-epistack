@@ -58,6 +58,40 @@ export function loadAliases(caseDir) {
 }
 
 /**
+ * Load the case source registry, which declares document- and lineage-level
+ * identity for each source URL. Without it, independence is counted at the
+ * excerpt level and is overstated. Missing file returns an empty map.
+ * @param {string} caseDir
+ */
+export function loadSourceRegistry(caseDir) {
+  const p = join(caseDir, "source_registry.json");
+  if (!existsSync(p)) return {};
+  const raw = JSON.parse(readFileSync(p, "utf8"));
+  return raw.documents ?? {};
+}
+
+/**
+ * Symbolic directory names that measurement blocks in this case may run in.
+ *
+ * Kept separate from loadSourceRegistry because that function's return value is
+ * the document map, which genealogy consumes directly. Roots live in the same
+ * file because they are a property of the case, and a case author editing
+ * provenance should see the directories the case can reach in the same place.
+ *
+ * Absent file or absent key returns {}, which makes every rooted measurement
+ * fail closed rather than silently running somewhere unintended.
+ * @param {string} caseDir
+ */
+export function loadMeasurementRoots(caseDir) {
+  const p = join(caseDir, "source_registry.json");
+  if (!existsSync(p)) return {};
+  const raw = JSON.parse(readFileSync(p, "utf8"));
+  const roots = raw.measurement_roots;
+  if (!roots || typeof roots !== "object") return {};
+  return roots;
+}
+
+/**
  * Run full ingest pipeline for a case study directory.
  * @param {string} caseDir
  * @param {{ emitJson?: boolean }} opts
@@ -66,7 +100,8 @@ export function runCaseStudy(caseDir, { emitJson = false, syncGraph = false } = 
   const { blocks, loadedFrom } = loadCaseBlocks(caseDir);
   const seedGraph = loadClaimGraph(caseDir);
   const aliases = loadAliases(caseDir);
-  const genealogy = resolveGenealogy(blocks, { aliases });
+  const registry = loadSourceRegistry(caseDir);
+  const genealogy = resolveGenealogy(blocks, { aliases, registry });
   const mergedGraph = seedGraph
     ? buildMergedClaimGraph(blocks, seedGraph, genealogy.edges)
     : buildMergedClaimGraph(blocks, { subquestion: "unknown", edges: [] }, genealogy.edges);
@@ -99,6 +134,11 @@ export function runCaseStudy(caseDir, { emitJson = false, syncGraph = false } = 
     summary: genealogy.summary,
     claim_graph: mergedGraph,
     report_markdown: report,
+    // Symbolic directory names measurement blocks in this case may run in.
+    // Surfaced here so callers can pass them to adjudicate(); a block names a
+    // root, never a path, so it cannot reach a directory the case author has
+    // not declared.
+    measurement_roots: loadMeasurementRoots(caseDir),
   };
 
   if (emitJson) return result;

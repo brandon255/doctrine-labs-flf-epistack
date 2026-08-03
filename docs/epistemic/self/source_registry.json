@@ -1,0 +1,111 @@
+{
+  "case": "self",
+  "version": "1.0",
+  "measurement_roots": {
+    "coreos": "/Users/BrandonMonicFlores/Desktop/doctrine-labs",
+    "epistack": "$REPO"
+  },
+  "measurement_roots_note": "Symbolic names a measurement block may run in. Blocks reference these by name and cannot name a path directly — that is what keeps a block from pointing a command at an arbitrary directory. `$REPO` means this repository, so those measurements run correctly on any checkout. `coreos` is a separate private repository and will not be present on your machine: those measurements report `unverifiable_here`, which is deliberately distinct from a failed check. Set EPISTACK_ROOT_COREOS=/path/to/doctrine-labs to run them if you have it.",
+  "note": "The recursive case: this tool adjudicating claims about its own author. Lineage grouping is doing real work here — five measurement blocks resolve to two repository-state lineages, because a commit count and a test count read from one working tree at one commit are one observation of the world read two ways. The two deliberately flawed blocks resolve to a single subject-assertion lineage, because a rarity claim and the funnel supporting it were written by the same person and are not two pieces of evidence.",
+  "lineages": {
+    "coreos-repo-state": {
+      "label": "Core OS repository, working tree at time of capture",
+      "description": "One system state. Commit count, test count, and first-commit date are three readings of it, not three independent observations. Independently re-runnable by anyone with the repo.",
+      "kind": "measurement"
+    },
+    "epistack-repo-state": {
+      "label": "FLF Epistemic Stack repository, working tree at time of capture",
+      "description": "A second system state, genuinely independent of Core OS: different repository, different history, separately checkable.",
+      "kind": "measurement"
+    },
+    "provider-timestamps": {
+      "label": "Third-party provider timestamps (Perplexity, git)",
+      "description": "Clocks owned by parties other than the subject. The nineteen-day span is bracketed by two of them, which is why it is the strongest claim in the case and not merely the most flattering.",
+      "kind": "independent_analysis"
+    },
+    "subject-assertion": {
+      "label": "The subject asserting things about himself",
+      "description": "Both deliberately flawed blocks resolve here. This is the lineage the case exists to expose: an assertion restated in a second form is still one assertion.",
+      "kind": "participant"
+    }
+  },
+  "documents": {
+    "coreos-repo:git-log": {
+      "document_id": "coreos-repo-commit-count",
+      "title": "Core OS commit count",
+      "author": "git",
+      "date": "2026-08-03",
+      "medium": "Command output",
+      "lineage_id": "coreos-repo-state",
+      "lineage_role": "measurement",
+      "derives_from": [],
+      "independence_note": "Re-runnable. Grouped with the other Core OS readings because they share one working tree."
+    },
+    "coreos-repo:npm-test": {
+      "document_id": "coreos-repo-test-count",
+      "title": "Core OS test count",
+      "author": "node --test",
+      "date": "2026-08-03",
+      "medium": "Command output",
+      "lineage_id": "coreos-repo-state",
+      "lineage_role": "measurement",
+      "derives_from": ["coreos-repo-commit-count"],
+      "independence_note": "Same working tree as the commit count. Counting these as two independent facts about productivity would be the exact error this tool detects."
+    },
+    "coreos-repo:git-log-reverse": {
+      "document_id": "coreos-repo-first-commit",
+      "title": "Core OS first-commit date",
+      "author": "git",
+      "date": "2026-08-03",
+      "medium": "Command output",
+      "lineage_id": "coreos-repo-state",
+      "lineage_role": "measurement",
+      "derives_from": ["coreos-repo-commit-count"],
+      "independence_note": "Third reading of the same repository state."
+    },
+    "epistack-repo:git-log": {
+      "document_id": "epistack-repo-commit-count",
+      "title": "Epistemic Stack commit count",
+      "author": "git",
+      "date": "2026-08-03",
+      "medium": "Command output",
+      "lineage_id": "epistack-repo-state",
+      "lineage_role": "measurement",
+      "derives_from": [],
+      "independence_note": "A separate repository from Core OS, so a separate lineage."
+    },
+    "epistack-repo:npm-test": {
+      "document_id": "epistack-repo-test-count",
+      "title": "Epistemic Stack test count",
+      "author": "node --test",
+      "date": "2026-08-03",
+      "medium": "Command output",
+      "lineage_id": "epistack-repo-state",
+      "lineage_role": "measurement",
+      "derives_from": ["epistack-repo-commit-count"],
+      "independence_note": "Same working tree as the epistack commit count."
+    },
+    "perplexity-export-2026-08-03": {
+      "document_id": "provider-issued-timestamps",
+      "title": "Provider-issued activity timestamps",
+      "author": "Perplexity AI, git",
+      "date": "2026-08-03",
+      "medium": "Data export",
+      "lineage_id": "provider-timestamps",
+      "lineage_role": "independent_analysis",
+      "derives_from": [],
+      "independence_note": "Two providers bracket the nineteen-day interval. Neither timestamp is revisable by the subject, which is what makes this tamper-evident rather than self-reported."
+    },
+    "builder-self-assertion": {
+      "document_id": "builder-self-assertion",
+      "title": "The subject's claims about his own rarity",
+      "author": "Brandon Flores",
+      "date": "2026-08-03",
+      "medium": "Self-assertion",
+      "lineage_id": "subject-assertion",
+      "lineage_role": "participant",
+      "derives_from": [],
+      "independence_note": "Both flawed blocks resolve here on purpose. The rarity funnel and the correlation companion are one person's assertion stated twice — the same shape as one debate producing six documents in the COVID case."
+    }
+  }
+}

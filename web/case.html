@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case view — FLFBuild</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="/">FLFBuild</a>
+        <span class="brand-meta" id="brand-meta">…</span>
+      </div>
+      <nav class="nav">
+        <a href="/">All cases</a>
+        <a href="/about.html">What else is Brandon building</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="case-header">
+      <div class="case-id" id="case-id">loading…</div>
+      <h1 id="case-title">…</h1>
+      <div id="subquestion" style="color:var(--text-dim);font-size:14px;max-width:680px;"></div>
+      <div class="count-line" id="count-line">…</div>
+      <div class="metrics" id="metrics"></div>
+    </div>
+
+    <section>
+      <h2 style="font-size:18px;font-weight:600;margin:0 0 8px;">Evidence graph</h2>
+      <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px;max-width:640px;">
+        Each node is one evidence block. Solid lines join excerpts from the same document.
+        Faint lines join documents that trace to the same underlying event — those are the
+        ones that look independent and are not.
+      </p>
+      <div class="graph-wrap">
+        <svg id="graph" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="graph-legend">
+          <span><span class="legend-dot" style="background:var(--independent);"></span>independent lineage</span>
+          <span><span class="legend-dot" style="background:var(--correlated);"></span>shares a lineage with another block</span>
+          <span><span class="legend-line solid"></span>same document</span>
+          <span><span class="legend-line faint"></span>same lineage</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size:18px;font-weight:600;margin:24px 0 8px;">Blocks</h2>
+      <div class="blocks" id="blocks"></div>
+    </section>
+
+    <section id="llm-section" hidden>
+      <h2 style="font-size:18px;font-weight:600;margin:32px 0 8px;">Adjudicated assessment</h2>
+      <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px;max-width:640px;">
+        Pick a question. The model proposes an answer with cited work, every citation is
+        checked against the corpus mechanically, and a second model that cannot see the
+        reasoning argues against the conclusion. You decide what stands.
+      </p>
+      <div class="panel">
+        <div class="job-picker" id="job-picker"></div>
+        <div id="adjudication" style="margin-top:16px;"></div>
+      </div>
+
+      <h2 style="font-size:18px;font-weight:600;margin:32px 0 8px;">Ask this case a question</h2>
+      <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px;max-width:640px;">
+        The model answers only from the evidence in this case. If the answer isn't here, it says so.
+        It will not invent sources or claims.
+      </p>
+      <div class="panel">
+        <div class="chat-log" id="chat-log"></div>
+        <div class="chat-input">
+          <input id="chat-input" type="text" placeholder="e.g. why are these three blocks counted as one?" autocomplete="off">
+          <button id="chat-send">Ask</button>
+        </div>
+      </div>
+
+      <h2 style="font-size:18px;font-weight:600;margin:32px 0 8px;">Suggest hidden correlations</h2>
+      <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px;max-width:640px;">
+        The model looks at the evidence and proposes pairs that might trace to the same root
+        even though they have different IDs. Every proposal is a suggestion — nothing is written until you click Accept.
+      </p>
+      <div class="panel">
+        <button id="propose-btn" class="btn secondary">Scan for hidden correlations</button>
+        <div id="proposals" style="margin-top:14px;"></div>
+      </div>
+    </section>
+
+    <div id="llm-missing" hidden>
+      <div class="banner info" style="margin:32px 0;">
+        Chat and alias-proposal features use a local LLM. Install <a href="https://ollama.com">Ollama</a> and run
+        <code>ollama pull llama3.1</code>, then refresh this page. The tool works fully without it — the static case view above is the gift.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="/">← all cases</a> · built by Brandon Flores, Doctrine Labs
+    </div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const caseId = params.get('case') || 'covid';
+    document.getElementById('brand-meta').textContent = `case: ${caseId}`;
+    document.getElementById('case-id').textContent = caseId;
+
+    const titles = {
+      covid: 'COVID-19 origins',
+      lhc: 'Could the LHC create a dangerous black hole?',
+      eggs: 'Are eggs bad for you?',
+      sample: 'Worked example (editable)',
+    };
+    document.getElementById('case-title').textContent = titles[caseId] || caseId;
+
+    let caseData = null;
+    let llmReady = false;
+
+    async function loadCase() {
+      const res = await fetch(`/api/case/${encodeURIComponent(caseId)}`);
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'failed to load case');
+      caseData = data;
+
+      const s = data.summary;
+      document.getElementById('count-line').innerHTML =
+        `<strong>${s.claim_count}</strong> excerpts → <strong>${s.document_count}</strong> documents → ` +
+        `<strong>${s.lineage_count}</strong> independent lineage(s). ` +
+        `Looks ${s.claim_count} sources deep; it is ${s.lineage_count}.`;
+      document.getElementById('metrics').innerHTML = `
+        <div class="metric"><div class="label">Excerpts (L1)</div><div class="value">${s.claim_count}</div></div>
+        <div class="metric"><div class="label">Documents (L2)</div><div class="value">${s.document_count}</div></div>
+        <div class="metric"><div class="label">Lineages (L3)</div><div class="value">${s.lineage_count}</div></div>
+        <div class="metric"><div class="label">Inflation</div><div class="value">${s.inflation_factor}x</div></div>
+      `;
+      if (data.subquestion) {
+        renderSubquestion(data.subquestion);
+      }
+
+      renderGraph(data);
+      renderBlocks(data.blocks);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    /** Inline markdown only: bold, code, and links. Enough for these docs. */
+    function inlineMd(s) {
+      return escapeHtml(s)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    }
+
+    /**
+     * The sub-question doc is a full markdown file. Lead with the blockquote
+     * under "## Sub-question", which is the actual question, and tuck the rest
+     * behind a disclosure so the header stays readable.
+     */
+    function renderSubquestion(md) {
+      const el = document.getElementById('subquestion');
+      const lines = md.split('\n');
+
+      let question = '';
+      const sectionIdx = lines.findIndex((l) => /^##\s+Sub-question/i.test(l));
+      if (sectionIdx !== -1) {
+        for (let i = sectionIdx + 1; i < lines.length; i++) {
+          if (/^##\s/.test(lines[i])) break;
+          if (lines[i].startsWith('>')) question += lines[i].replace(/^>\s?/, '') + ' ';
+        }
+      }
+      question = question.trim();
+
+      const rest = lines
+        .filter((l) => l.trim() && !/^#\s/.test(l))
+        .join('\n');
+
+      el.innerHTML = question
+        ? `<blockquote class="subq">${inlineMd(question)}</blockquote>
+           <details class="subq-more"><summary>Full sub-question brief</summary><pre>${escapeHtml(rest)}</pre></details>`
+        : `<pre>${escapeHtml(md)}</pre>`;
+    }
+
+    function renderGraph(data) {
+      const svg = document.getElementById('graph');
+      svg.innerHTML = '';
+      const W = 800, H = 420;
+      const blocks = data.blocks;
+      const allEdges = data.claim_graph?.edges ?? [];
+
+      // Block-level edges join two excerpts directly.
+      const docEdges = allEdges.filter((e) => e.relation === 'same_document');
+
+      // Lineage and derivation edges are declared between *documents*, so their
+      // endpoints are document ids and cannot be plotted on a graph of blocks.
+      // Map each document to one representative block and draw between those.
+      const repOf = new Map();
+      for (const b of blocks) {
+        const doc = b.provenance?.document_id;
+        if (doc && !repOf.has(doc)) repOf.set(doc, b.evidence_id);
+      }
+      const lineageEdges = allEdges
+        .filter((e) => e.level === 'document' &&
+          (e.relation === 'same_lineage' || e.relation === 'derives_from'))
+        .map((e) => ({ from: repOf.get(e.from), to: repOf.get(e.to) }))
+        .filter((e) => e.from && e.to && e.from !== e.to);
+
+      // cluster lookup
+      const clusters = new Map();
+      for (const b of blocks) {
+        const cid = b.provenance?.cluster_id || 'none';
+        if (!clusters.has(cid)) clusters.set(cid, []);
+        clusters.get(cid).push(b);
+      }
+
+      // place blocks on a circle
+      const positions = new Map();
+      const cx = W / 2, cy = H / 2;
+      const R = Math.min(W, H) / 2 - 60;
+      blocks.forEach((b, i) => {
+        const a = (i / blocks.length) * Math.PI * 2;
+        positions.set(b.evidence_id, { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) });
+      });
+
+      // edges
+      const svgns = 'http://www.w3.org/2000/svg';
+      const drawEdges = (list, opacity, width, dash) => {
+        for (const e of list) {
+          const a = positions.get(e.from);
+          const b = positions.get(e.to);
+          if (!a || !b) continue;
+          const line = document.createElementNS(svgns, 'line');
+          line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
+          line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
+          line.setAttribute('stroke', 'var(--correlated)');
+          line.setAttribute('stroke-opacity', opacity);
+          line.setAttribute('stroke-width', width);
+          if (dash) line.setAttribute('stroke-dasharray', dash);
+          svg.appendChild(line);
+        }
+      };
+      drawEdges(lineageEdges, '0.22', '1', '3 3');
+      drawEdges(docEdges, '0.6', '1.5', null);
+
+      // nodes
+      blocks.forEach((b) => {
+        const p = positions.get(b.evidence_id);
+        const cls = b.provenance?.independence_class || 'unknown';
+        const fill = cls === 'correlated' ? 'var(--correlated)' : cls === 'independent' ? 'var(--independent)' : 'var(--text-faint)';
+        const c = document.createElementNS(svgns, 'circle');
+        c.setAttribute('cx', p.x); c.setAttribute('cy', p.y);
+        c.setAttribute('r', '7');
+        c.setAttribute('fill', fill);
+        c.setAttribute('stroke', 'var(--bg)');
+        c.setAttribute('stroke-width', '1.5');
+        const title = document.createElementNS(svgns, 'title');
+        title.textContent = `${b.evidence_id} — ${b.provenance?.independence_class || 'unknown'}`;
+        c.appendChild(title);
+        svg.appendChild(c);
+      });
+    }
+
+    function renderBlocks(blocks) {
+      const el = document.getElementById('blocks');
+      el.innerHTML = '';
+      for (const b of blocks) {
+        const cls = b.provenance?.independence_class === 'correlated' ? 'block correlated' : 'block';
+        const claim = escapeHtml((b.claim || '').slice(0, 180));
+        const conf = b.confidence_label ? `<span class="pill">${escapeHtml(b.confidence_label)}</span>` : '';
+        const doc = b.provenance?.document_id || '(unresolved)';
+        const lineage = b.provenance?.lineage_id || '(unresolved)';
+        const div = document.createElement('div');
+        div.className = cls;
+        div.innerHTML = `
+          <div class="block-id">${escapeHtml(b.evidence_id)} ${conf}</div>
+          <div class="block-claim">${claim}${(b.claim||'').length > 180 ? '…' : ''}</div>
+          <div class="block-source">
+            <span>document: <code>${escapeHtml(doc)}</code></span>
+            <span>lineage: <code>${escapeHtml(lineage)}</code></span>
+          </div>
+        `;
+        el.appendChild(div);
+      }
+    }
+
+    async function checkLlm() {
+      try {
+        const r = await fetch('/api/llm/status');
+        const d = await r.json();
+        llmReady = !!d.ready;
+        if (llmReady) {
+          document.getElementById('llm-section').hidden = false;
+        } else {
+          document.getElementById('llm-missing').hidden = false;
+        }
+      } catch {
+        document.getElementById('llm-missing').hidden = false;
+      }
+    }
+
+    // ---- Adjudication ----
+    const JOBS = [
+      { id: 'lineage',  label: 'Correlated evidence', blurb: 'What traces back to the same source?' },
+      { id: 'crux',     label: 'Crux',                blurb: 'What disagreement has the most leverage?' },
+      { id: 'gap',      label: 'Missing evidence',    blurb: 'What is absent that should be here?' },
+      { id: 'rhetoric', label: 'Rhetoric vs evidence',blurb: 'What persuades more than it establishes?' },
+      { id: 'settled',  label: 'Settled vs performed',blurb: 'What was resolved vs merely closed?' },
+    ];
+
+    const VERDICT_COPY = {
+      verified: ['good', 'Verified', 'Citations check out and no challenger found a material objection. Check the panel\u2019s independence grade before reading that as strong.'],
+      verified_with_caveat: ['warn', 'Verified with caveat', 'Citations check out, but one lineage of challenge thinks the conclusion is overstated.'],
+      contested: ['warn', 'Contested', 'Citations check out, but the objection is either serious or came from two independent lineages. Read both.'],
+      verified_unchallenged: ['warn', 'Verified but unchallenged', 'Citations check out, but no challenge completed \u2014 so nothing has argued against this. Not the same as surviving a challenge.'],
+      unsubstantiated: ['warn', 'Unsubstantiated', 'Every cited block is real, but the model quoted nothing from any of them. It pointed at evidence without showing what in it supports the claim.'],
+      unverified: ['bad', 'Unverified', 'One or more citations could not be confirmed against the corpus. The conclusion may still be right — but it has not shown its work.'],
+      unparseable: ['bad', 'Unparseable', 'The model did not return usable structured output.'],
+    };
+
+    const jobPicker = document.getElementById('job-picker');
+    const adjEl = document.getElementById('adjudication');
+
+    for (const job of JOBS) {
+      const b = document.createElement('button');
+      b.className = 'btn secondary job-btn';
+      b.innerHTML = `<span class="job-label">${job.label}</span><span class="job-blurb">${job.blurb}</span>`;
+      b.addEventListener('click', () => runJob(job, b));
+      jobPicker.appendChild(b);
+    }
+
+    async function runJob(job, btn) {
+      document.querySelectorAll('.job-btn').forEach((b) => { b.disabled = true; b.classList.remove('active'); });
+      btn.classList.add('active');
+      adjEl.innerHTML = `<div class="adj-running"><span class="spinner"></span>
+        Proposing, verifying citations mechanically, then running the challenge panel.
+        Two model calls on different weight lineages — this takes a minute or two.</div>`;
+      try {
+        const res = await fetch('/api/adjudicate', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ case: caseId, job: job.id }),
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'failed');
+        renderAdjudication(data.record, job);
+      } catch (e) {
+        adjEl.innerHTML = `<div class="chat-msg error">error: ${escapeHtml(e.message)}</div>`;
+      } finally {
+        document.querySelectorAll('.job-btn').forEach((b) => { b.disabled = false; });
+      }
+    }
+
+    // How much independence the panel actually had. A `verified` at grade none
+    // and a `verified` at grade strong must never look the same.
+    const GRADE_COPY = {
+      none: ['bad', 'No independence', 'Nothing on this panel is independent of the proposer. Two calls, one source.'],
+      weak: ['warn', 'Weak independence', 'One independent lineage of challenge.'],
+      moderate: ['good', 'Moderate independence', 'Two independent lineages, arguing from different places.'],
+      strong: ['good', 'Strong independence', 'Three independent lineages \u2014 deterministic, a different model lineage, and you.'],
+    };
+
+    const ROUTE_COPY = {
+      mechanical: ['Deterministic challenger', 'computed from the corpus \u2014 no model, so it shares no weights, no training data and no priors'],
+      cross_lineage_model: ['Blind model challenger', 'a model from a different weight lineage saw the conclusion but not the reasoning'],
+      blind_same_lineage_model: ['Blind model challenger', 'saw the conclusion but not the reasoning \u2014 but runs on the proposer\u2019s own weights'],
+      human: ['You', 'the only lineage in this stack that is not another instance of the thing being checked'],
+    };
+
+    function renderPanel(rec) {
+      const panel = rec.challenge_panel;
+      const head = (note) =>
+        `<div class="adj-stage-head"><span class="stage-num">3</span> Challenge panel` +
+        (note ? `<span class="stage-note">${note}</span>` : '') + `</div>`;
+
+      if (!panel?.challenges?.length) {
+        return `<div class="adj-stage">${head('')}
+          <p class="challenge-body">No challenge ran${rec.challenge_error ? `: ${escapeHtml(rec.challenge_error)}` : '.'}
+          That is not the same as passing one.</p></div>`;
+      }
+
+      const [gTone, gLabel, gMeaning] = GRADE_COPY[panel.independence_grade] ?? ['warn', panel.independence_grade, ''];
+
+      const cards = panel.challenges.map((c) => {
+        const [rLabel, rNote] = ROUTE_COPY[c.route] ?? [c.route, ''];
+        const objections = (c.objections || []).map((o) => `
+          <li class="obj ${escapeHtml(o.severity)}">
+            <span class="obj-check">${escapeHtml(o.check)}</span>
+            <span class="obj-name">${escapeHtml(o.name)}</span>
+            <span class="obj-sev">${escapeHtml(o.severity)}</span>
+            <div class="obj-text">${escapeHtml(o.objection)}</div>
+          </li>`).join('');
+
+        return `
+        <div class="chal ${c.independent ? 'independent' : 'correlated'}">
+          <div class="chal-head">
+            <span class="chal-tag">${c.independent ? 'independent' : 'correlated'}</span>
+            <strong>${escapeHtml(rLabel)}</strong>
+            ${c.model ? `<code>${escapeHtml(c.model)}</code>` : ''}
+            ${c.verdict ? `<span class="chal-verdict">${escapeHtml(c.verdict)}</span>` : '<span class="chal-verdict pending">awaiting you</span>'}
+          </div>
+          ${rNote ? `<div class="chal-note">${rNote}</div>` : ''}
+          ${c.lineage_id ? `<div class="chal-lineage">lineage <code>${escapeHtml(c.lineage_id)}</code></div>` : ''}
+          ${c.strongest_objection ? `<p class="challenge-body">${escapeHtml(c.strongest_objection)}</p>` : ''}
+          ${objections ? `<ul class="objs">${objections}</ul>` : ''}
+          ${c.independence_note ? `<div class="chal-warn">${escapeHtml(c.independence_note)}</div>` : ''}
+          ${c.raw ? `<pre class="challenge-raw">${escapeHtml(c.raw)}</pre>` : ''}
+        </div>`;
+      }).join('');
+
+      return `
+      <div class="adj-stage">
+        ${head(`${panel.documents} challenge${panel.documents === 1 ? '' : 's'} · ${panel.independent_lineages ?? 0} independent lineage${panel.independent_lineages === 1 ? '' : 's'}`)}
+        <div class="banner verdict ${gTone}" style="margin:0 0 12px;">
+          <strong>${gLabel}.</strong> ${gMeaning}
+          ${panel.inflation_factor > 1 ? ` <em>${panel.inflation_factor}x inflation within the panel itself.</em>` : ''}
+        </div>
+        ${cards}
+        ${rec.challenge_error ? `<div class="chal-warn">Model challenge failed: ${escapeHtml(rec.challenge_error)}</div>` : ''}
+        <div class="chal-note" style="margin-top:10px;">
+          ${escapeHtml(panel.unresolvable || '')}
+        </div>
+      </div>`;
+    }
+
+    function renderAdjudication(rec, job) {
+      const [tone, label, meaning] = VERDICT_COPY[rec.verdict] ?? ['warn', rec.verdict, ''];
+
+      if (rec.verdict === 'unparseable') {
+        adjEl.innerHTML = `<div class="banner verdict ${tone}"><strong>${label}.</strong> ${meaning}</div>`;
+        return;
+      }
+
+      const v = rec.verification;
+      const steps = (rec.reasoning || []).map((s) => {
+        const state = !s.ok ? 'fail' : s.weak ? 'weak' : 'ok';
+        const flag = !s.ok ? 'unverified' : s.weak ? 'no quote' : 'verified';
+        const located = (s.checks || []).find((c) => c.ok && /^quote located in/.test(c.reason || ''));
+        return `
+        <li class="step ${state}">
+          <div class="step-head">
+            <span class="step-flag">${flag}</span>
+            <span>${escapeHtml(s.step)}</span>
+          </div>
+          ${s.cites?.length ? `<div class="step-cites">cites ${s.cites.map((c) => `<code>${escapeHtml(c)}</code>`).join(', ')}</div>` : ''}
+          ${s.quote ? `<div class="step-quote">“${escapeHtml(s.quote)}”</div>` : ''}
+          ${located ? `<div class="step-located">${escapeHtml(located.reason)}</div>` : ''}
+          ${(s.checks || []).filter((c) => !c.ok).map((c) => `<div class="step-problem">${escapeHtml(c.reason)}</div>`).join('')}
+        </li>`;
+      }).join('');
+
+      const weakNote = v.weak_steps
+        ? ` · ${v.weak_steps} cited without quoting`
+        : '';
+
+      const challengeHtml = renderPanel(rec);
+
+      adjEl.innerHTML = `
+        <div class="banner verdict ${tone}" style="margin:0 0 16px;"><strong>${label}.</strong> ${meaning}</div>
+
+        <div class="adj-stage">
+          <div class="adj-stage-head"><span class="stage-num">1</span> Proposal</div>
+          <p class="adj-conclusion">${escapeHtml(rec.conclusion || '(none returned)')}</p>
+          ${rec.confidence ? `<div class="adj-meta">Model confidence: ${escapeHtml(String(rec.confidence))}</div>` : ''}
+          ${rec.assumption ? `<div class="adj-assumption"><strong>Load-bearing assumption:</strong> ${escapeHtml(rec.assumption)}</div>` : ''}
+        </div>
+
+        <div class="adj-stage">
+          <div class="adj-stage-head">
+            <span class="stage-num">2</span> Shown work
+            <span class="stage-note">${v.verified_steps}/${v.total_steps} steps verified mechanically — no model involved${weakNote}</span>
+          </div>
+          <ol class="steps">${steps || '<li class="step fail">The model gave no reasoning steps.</li>'}</ol>
+          ${v.failures?.length ? `<div class="step-problem" style="margin-top:8px;">${v.failures.map(escapeHtml).join('<br>')}</div>` : ''}
+        </div>
+
+        ${challengeHtml}
+
+        ${renderYourCall(rec)}
+      `;
+
+      wireYourCall(rec, job);
+    }
+
+    // Stage 4. Never blocks: Accept works with or without an answer. Recording a
+    // position is an offer with a visible payoff — it is the only route to
+    // independence grade `strong`, because you are the one lineage on the panel
+    // that is not another instance of the thing being checked.
+    //
+    // Every question below is about the STRUCTURE of the argument, never about the
+    // subject matter. A tool that refuses to take a position on COVID origins has
+    // no business extracting one from you.
+    function renderYourCall(rec) {
+      const panel = rec.challenge_panel;
+      const grade = panel?.independence_grade ?? 'none';
+      const next = panel?.grade_with_your_position ?? null;
+      const objections = (panel?.challenges ?? [])
+        .flatMap((c) => (c.objections ?? []).map((o) => ({ ...o, from: c.route })));
+
+      const objectionOpts = objections.map((o) => `
+        <label class="pos-opt">
+          <input type="radio" name="pos-objection" value="${escapeHtml(o.check)}">
+          <span><code>${escapeHtml(o.check)}</code> ${escapeHtml(o.name)}
+          <span class="pos-opt-detail">${escapeHtml(o.objection)}</span></span>
+        </label>`).join('');
+
+      return `
+        <div class="adj-stage">
+          <div class="adj-stage-head">
+            <span class="stage-num">4</span> Your call
+            <span class="stage-note">you are the only challenger here that is not a model</span>
+          </div>
+
+          ${next ? `
+          <div class="pos-offer">
+            This verdict is at <strong>${escapeHtml(grade)}</strong> independence. Recording your
+            own position takes it to <strong>${escapeHtml(next)}</strong> — not because we want to
+            make you work, but because you are the only lineage on this panel that shares nothing
+            with any model. Two clicks is enough, and skipping is fine.
+          </div>` : ''}
+
+          <div class="pos-q">
+            <div class="pos-q-head">The conclusion rests on this assumption:</div>
+            <blockquote class="pos-assumption">${escapeHtml(rec.assumption || '(the model declared none)')}</blockquote>
+            <div class="pos-opts">
+              <label class="pos-opt"><input type="radio" name="pos-assumption" value="accept"><span>I accept it</span></label>
+              <label class="pos-opt"><input type="radio" name="pos-assumption" value="unsure"><span>Not sure</span></label>
+              <label class="pos-opt"><input type="radio" name="pos-assumption" value="reject"><span>I don't accept it</span></label>
+            </div>
+          </div>
+
+          ${objections.length ? `
+          <div class="pos-q">
+            <div class="pos-q-head">Which objection do you find most serious?</div>
+            <div class="pos-opts stacked">
+              ${objectionOpts}
+              <label class="pos-opt"><input type="radio" name="pos-objection" value="none"><span>None of them land for me</span></label>
+            </div>
+          </div>` : ''}
+
+          <div class="pos-q">
+            <div class="pos-q-head">What would change your mind? <span class="pos-optional">optional</span></div>
+            <textarea id="pos-text" rows="2" placeholder="The evidence that would move you off this conclusion."></textarea>
+          </div>
+
+          <div class="adj-actions">
+            <button class="btn" id="adj-accept">Accept</button>
+            <button class="btn secondary" id="adj-reject">Reject</button>
+            <button class="btn secondary" id="adj-rerun">Run again</button>
+          </div>
+          <p class="adj-meta" style="margin:10px 0 0;">Accepting writes a file under <code>decisions/</code> and touches nothing in the corpus. Re-running is fair game — the model is sampled, not deterministic.</p>
+          <div id="adj-decision" style="margin-top:10px;"></div>
+        </div>`;
+    }
+
+    function wireYourCall(rec, job) {
+      const decisionEl = document.getElementById('adj-decision');
+      const pick = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value ?? null;
+
+      async function submit(decision) {
+        const position = {
+          decision,
+          assumption: pick('pos-assumption'),
+          strongest_objection: pick('pos-objection'),
+          what_would_change_my_mind: document.getElementById('pos-text')?.value ?? '',
+        };
+        document.getElementById('adj-accept').disabled = true;
+        document.getElementById('adj-reject').disabled = true;
+        decisionEl.innerHTML = `<div class="adj-meta"><span class="spinner"></span> recording…</div>`;
+        try {
+          const res = await fetch('/api/decision', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ case: caseId, job: job.id, record: rec, position }),
+          });
+          const data = await res.json();
+          if (!data.ok) throw new Error(data.error || 'failed');
+          renderAdjudication(data.record, job);
+          const el = document.getElementById('adj-decision');
+          const g = data.record.challenge_panel?.independence_grade;
+          const engaged = data.record.human_engaged;
+          el.innerHTML = `
+            <div class="banner ${decision === 'accepted' ? 'good' : ''}" style="margin:0;">
+              <strong>${decision === 'accepted' ? 'Accepted' : 'Rejected'}, and written to <code>${escapeHtml(data.saved_to)}</code>.</strong>
+              ${engaged
+                ? ` Your position is on the panel as its own lineage — independence is now <strong>${escapeHtml(g)}</strong>.`
+                : ` No position recorded, so independence stays <strong>${escapeHtml(g)}</strong>. You can answer above and decide again.`}
+            </div>`;
+        } catch (e) {
+          document.getElementById('adj-accept').disabled = false;
+          document.getElementById('adj-reject').disabled = false;
+          decisionEl.innerHTML = `<div class="chat-msg error">error: ${escapeHtml(e.message)}</div>`;
+        }
+      }
+
+      document.getElementById('adj-accept').addEventListener('click', () => submit('accepted'));
+      document.getElementById('adj-reject').addEventListener('click', () => submit('rejected'));
+      document.getElementById('adj-rerun').addEventListener('click', () =>
+        runJob(job, document.querySelector('.job-btn.active'))
+      );
+    }
+
+    // ---- Chat ----
+    const chatLog = document.getElementById('chat-log');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    let chatHistory = [];
+
+    async function sendChat() {
+      const q = chatInput.value.trim();
+      if (!q) return;
+      chatInput.value = '';
+      chatSend.disabled = true;
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-msg user';
+      userMsg.textContent = q;
+      chatLog.appendChild(userMsg);
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-msg bot';
+      botMsg.innerHTML = '<span class="spinner"></span>';
+      chatLog.appendChild(botMsg);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ case: caseId, question: q, history: chatHistory }),
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'failed');
+        botMsg.textContent = data.answer;
+        chatHistory.push({ role: 'user', content: q });
+        chatHistory.push({ role: 'assistant', content: data.answer });
+      } catch (e) {
+        botMsg.className = 'chat-msg bot error';
+        botMsg.textContent = `error: ${e.message}`;
+      } finally {
+        chatSend.disabled = false;
+        chatInput.focus();
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }
+    }
+    chatSend.addEventListener('click', sendChat);
+    chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendChat(); });
+
+    // ---- Alias proposer ----
+    const proposeBtn = document.getElementById('propose-btn');
+    const proposalsEl = document.getElementById('proposals');
+
+    proposeBtn.addEventListener('click', async () => {
+      proposeBtn.disabled = true;
+      proposalsEl.innerHTML = '<div><span class="spinner"></span> scanning…</div>';
+      try {
+        const res = await fetch('/api/aliases/propose', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ case: caseId }),
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'failed');
+        renderProposals(data.proposals || []);
+      } catch (e) {
+        proposalsEl.innerHTML = `<div class="chat-msg error">error: ${escapeHtml(e.message)}</div>`;
+      } finally {
+        proposeBtn.disabled = false;
+      }
+    });
+
+    function renderProposals(list) {
+      if (!list.length) {
+        proposalsEl.innerHTML = '<div style="color:var(--text-dim);font-size:14px;">No hidden correlations proposed. (The model did not find pairs with strong enough signal.)</div>';
+        return;
+      }
+      proposalsEl.innerHTML = '';
+      for (const p of list) {
+        const div = document.createElement('div');
+        div.className = 'proposal';
+        div.innerHTML = `
+          <div class="proposal-pair">${escapeHtml(p.from_id)} ↔ ${escapeHtml(p.to_id)} → <strong>${escapeHtml(p.proposed_root)}</strong></div>
+          <div class="proposal-reason">${escapeHtml(p.reason)}</div>
+          <div class="proposal-actions">
+            <button class="btn accept-btn">Accept &amp; collapse count</button>
+            <button class="btn secondary dismiss-btn">Dismiss</button>
+          </div>
+        `;
+        div.querySelector('.accept-btn').addEventListener('click', () => acceptProposal(p, div));
+        div.querySelector('.dismiss-btn').addEventListener('click', () => div.remove());
+        proposalsEl.appendChild(div);
+      }
+    }
+
+    async function acceptProposal(p, row) {
+      const btn = row.querySelector('.accept-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+      try {
+        const res = await fetch('/api/aliases/accept', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ case: caseId, proposal: p }),
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'failed');
+        row.innerHTML = `<div class="banner good" style="margin:0;">Accepted. Aliases written. Re-run the case to see the count collapse — the engine reads aliases.json on every run.</div>`;
+        // reload the case so the new count + graph show
+        await loadCase();
+      } catch (e) {
+        btn.disabled = false;
+        btn.textContent = 'Accept';
+        row.querySelector('.proposal-reason').insertAdjacentHTML('beforebegin', `<div class="chat-msg error">error: ${escapeHtml(e.message)}</div>`);
+      }
+    }
+
+    // boot
+    loadCase().then(checkLlm).catch((e) => {
+      document.getElementById('count-line').textContent = `error: ${e.message}`;
+    });
+  </script>
+</body>
+</html>

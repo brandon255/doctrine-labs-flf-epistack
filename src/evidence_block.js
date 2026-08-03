@@ -23,7 +23,17 @@ export function loadEvidenceBlockSchema() {
   return JSON.parse(readFileSync(SCHEMA_PATH, "utf8"));
 }
 
-/** Validate required Schema D fields (deterministic, no external validator dep). */
+/**
+ * Validate required Schema D fields (deterministic, no external validator dep).
+ *
+ * Two evidence kinds share this shape. Text evidence carries an excerpt that a
+ * verifier checks a quote against. Measurement evidence carries a command and a
+ * declared value that a verifier re-runs. Both still require `source`, because
+ * source is what the three-level independence model resolves identity from —
+ * and measurements need that just as much as excerpts do. Two `git log` counts
+ * taken from one repository at one commit are one observation of the world read
+ * two ways, which is the same error this whole engine exists to catch.
+ */
 export function validateEvidenceBlock(block) {
   if (!block || typeof block !== "object") throw new Error("REJECTED: EvidenceBlock must be an object.");
   for (const k of ["evidence_id", "timestamp", "claim", "source", "provenance", "confidence_label"]) {
@@ -41,6 +51,16 @@ export function validateEvidenceBlock(block) {
   if (!block.provenance.captured_at) throw new Error("REJECTED: provenance.captured_at required.");
   if (!isValidLabel(block.confidence_label)) {
     throw new Error(`REJECTED: invalid confidence_label "${block.confidence_label}".`);
+  }
+  if (block.evidence_kind === "measurement") {
+    const m = block.measurement;
+    if (!m || typeof m !== "object") {
+      throw new Error(`REJECTED: measurement block "${block.evidence_id}" missing "measurement".`);
+    }
+    if (!m.command) throw new Error(`REJECTED: measurement.command required.`);
+    if (m.value === undefined || m.value === null || m.value === "") {
+      throw new Error(`REJECTED: measurement.value required — a measurement with no declared value cannot be falsified.`);
+    }
   }
   return block;
 }

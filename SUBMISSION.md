@@ -6,6 +6,24 @@ Live demo: https://github.com/brandon255/doctrine-labs-flf-epistack
 
 ---
 
+> **Historical document — preserved unedited. Its central number is wrong.**
+>
+> This is the original July submission. It claims the COVID corpus contains
+> **19 independent sources**. It contains three.
+>
+> The tool was counting excerpts and calling them roots, so a 27-page decision
+> quoted three times became three independent sources. I found it later by running
+> the tool against my own evidence base and not believing the answer.
+>
+> I am keeping this file rather than fixing it, because a claim about
+> over-counted independence is easier to trust from someone who can show you the
+> document where they over-counted. The corrected model, the numbers it produces,
+> and how the error was found are in [`SPEC.md`](SPEC.md).
+>
+> Everything below is as submitted.
+
+---
+
 ## 1. Core contribution
 
 The way my brain works comes from the shop. For sixteen years I ran a vertically integrated design studio, with CNC machining, laser cutting, injection molding, casting, and RF welding under one roof, so we could take an idea to a finished part fast. A recruiter once asked me for my most successful project. It was helping a new inventor with a radio-frequency welding and tooling job. Done the usual way it would have cost him a hundred to two hundred thousand dollars and a year or more. We did it for around fifteen thousand in three to five weeks. The real win was not the money. It was that he found out fast whether it was a bad idea, instead of burning a year to learn the same thing.

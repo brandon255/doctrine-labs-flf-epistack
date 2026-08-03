@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What else is Brandon building — FLFBuild</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="/">FLFBuild</a>
+        <span class="brand-meta">about</span>
+      </div>
+      <nav class="nav">
+        <a href="/">Cases</a>
+        <a href="https://github.com/brandon255/doctrine-labs-flf-epistack">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding:48px 0 32px;">
+      <h1>This is one slice of a larger thing I'm building.</h1>
+      <p class="lede">
+        I'm Brandon Flores. Sixteen years of shipped physical product (Original Nomad), about six months into software.
+        I started Core OS because building with cloud AI tools was costing too much — so I built a local-first system
+        that runs on my own machine. The FLF slice you just opened is one cartridge on that chassis.
+      </p>
+      <p class="byline">
+        <strong>An open door.</strong>
+        I'm looking for collaborators, advisors, and people who'll tell me where this is wrong.
+        Reach me at <a href="mailto:brandon@doctrinelabs.com">brandon@doctrinelabs.com</a>.
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>The thesis, in plain language</h2>
+      <p>
+        AI should strengthen the human, not replace them. A tool that absorbs cognitive overhead and points you back at
+        what makes you human — judgment, relationships, generosity — is more valuable than one that optimizes you for throughput.
+      </p>
+      <p>
+        Three principles make that real in code: data stays local, writes go through human gates, and every claim the system makes
+        carries an honest label (PROVED / BUILT / HYPOTHESIS / PLANNED). No quiet cloud calls, no rubber-stamp approvals, no aspirational claims dressed as facts.
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>What's already built (the larger system)</h2>
+      <p>Every claim below is labeled honestly. "Built" means it runs today in the master repo.</p>
+      <div class="claim-list">
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Integrity ledger.</strong> Hash-chained audit trail. If any stored claim is edited, the chain breaks visibly.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Human approval gates.</strong> Writes require an Approve token + a one-sentence "why." Stops rubber-stamping in code, not in prose.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Vault pipeline.</strong> Redact → confidence-label → encrypt → write → integrity-check, at the write boundary.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Local LLM adapter.</strong> Provider-agnostic OpenAI-compat client. Refuses non-local endpoints by default (<code>require_local: true</code>).</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Provenance genealogy layer.</strong> The thing you just opened. Counts distinct source roots behind a pile of evidence blocks.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label built">Built</span>
+          <span class="claim-text"><strong>Core OS runtime.</strong> Zero runtime npm deps. Node ≥20. Local server on 127.0.0.1. 451+ tests.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>What's in progress</h2>
+      <div class="claim-list">
+        <div class="claim-row">
+          <span class="claim-label planned">Planned</span>
+          <span class="claim-text"><strong>Autonomous alias proposal at scale.</strong> The FLF slice lets a human accept model-proposed aliases one at a time. The larger system proposes them continuously and learns from accept/reject patterns.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label planned">Planned</span>
+          <span class="claim-text"><strong>Career OS.</strong> A hosted SaaS cartridge — resume, portfolio, interview simulator — on the same chassis. Separate product, separate buyer.</span>
+        </div>
+        <div class="claim-row">
+          <span class="claim-label hypothesis">Hypothesis</span>
+          <span class="claim-text"><strong>Local-first beats token-metered cloud AI for the user.</strong> Flat pricing ($199/yr), unlimited local inference, governance in code. Untested as a business, but the wedge is clear.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>What this is not</h2>
+      <p>
+        It is not a productivity app. It does not promise to make you faster. It is a reconnection tool —
+        it absorbs cognitive overhead so you get capacity back, then points you at what makes you human.
+        North star: learning how to be a good person again.
+      </p>
+      <p>
+        It is also not a model. We do not train LLMs. We build guardrails, orchestration, and a vault around local or hosted models.
+        The intelligence is rented; the judgment is yours.
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>An open door</h2>
+      <p>
+        If you're at FLF and reading this: thank you for running the competition. It forced me to finish a slice I'd been circling.
+        If any of the above resonates — the local-first posture, the human-gates thesis, the dignity framing — I'd value a conversation.
+        Not a pitch. A real one.
+      </p>
+      <p>
+        Reach me at <a href="mailto:brandon@doctrinelabs.com">brandon@doctrinelabs.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="/">← back to the cases</a> · Brandon Flores, Doctrine Labs
+    </div>
+  </footer>
+</body>
+</html>

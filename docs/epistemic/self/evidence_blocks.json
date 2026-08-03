@@ -1,0 +1,274 @@
+[
+  {
+    "evidence_id": "self-commits-coreos",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "Core OS has 94 commits under version control.",
+    "source": {
+      "type": "calculation",
+      "identifier": "coreos-repo:git-log",
+      "root_source_id": "coreos-repo-state"
+    },
+    "measurement": {
+      "root": "coreos",
+      "command": "git",
+      "args": [
+        "log",
+        "--oneline"
+      ],
+      "extract": "line_count",
+      "value": 94,
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "git log on the Core OS repository; count of lines is the commit count"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "commits",
+      "core-os",
+      "verifiable"
+    ]
+  },
+  {
+    "evidence_id": "self-tests-coreos",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "Core OS has 536 passing automated tests.",
+    "source": {
+      "type": "calculation",
+      "identifier": "coreos-repo:npm-test",
+      "root_source_id": "coreos-repo-state"
+    },
+    "measurement": {
+      "root": "coreos",
+      "command": "npm",
+      "args": [
+        "test",
+        "--silent"
+      ],
+      "extract": "tap_pass",
+      "value": 536,
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "npm test in the Core OS repository; the TAP summary reports the test count. NOTE: same repository state as self-commits-coreos \u2014 one lineage, two readings.",
+      "correlated_with": [
+        "self-commits-coreos"
+      ]
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "tests",
+      "core-os",
+      "verifiable"
+    ]
+  },
+  {
+    "evidence_id": "self-first-commit",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "The first Core OS commit is dated 2026-05-31.",
+    "source": {
+      "type": "calculation",
+      "identifier": "coreos-repo:git-log-reverse",
+      "root_source_id": "coreos-repo-state"
+    },
+    "measurement": {
+      "root": "coreos",
+      "command": "git",
+      "args": [
+        "log",
+        "--reverse",
+        "--format=%ad",
+        "--date=short"
+      ],
+      "extract": "first_line",
+      "value": "2026-05-31",
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "git log --reverse returns commits oldest-first; the first line is the first commit date",
+      "correlated_with": [
+        "self-commits-coreos"
+      ]
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "timeline",
+      "core-os",
+      "verifiable"
+    ]
+  },
+  {
+    "evidence_id": "self-commits-epistack",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "The FLF Epistemic Stack has 8 commits under version control.",
+    "source": {
+      "type": "calculation",
+      "identifier": "epistack-repo:git-log",
+      "root_source_id": "epistack-repo-state"
+    },
+    "measurement": {
+      "root": "epistack",
+      "command": "git",
+      "args": [
+        "log",
+        "--oneline"
+      ],
+      "extract": "line_count",
+      "value": 8,
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "git log on this repository; count of lines is the commit count"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "commits",
+      "epistack",
+      "verifiable"
+    ]
+  },
+  {
+    "evidence_id": "self-tests-epistack",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "The FLF Epistemic Stack has 188 passing automated tests with zero runtime dependencies.",
+    "source": {
+      "type": "calculation",
+      "identifier": "epistack-repo:npm-test",
+      "root_source_id": "epistack-repo-state"
+    },
+    "measurement": {
+      "root": "epistack",
+      "command": "npm",
+      "args": [
+        "test",
+        "--silent"
+      ],
+      "extract": "tap_pass",
+      "value": 188,
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "npm test in this repository; the TAP summary reports the test count. Same repository state as self-commits-epistack \u2014 one lineage, two readings.",
+      "correlated_with": [
+        "self-commits-epistack"
+      ]
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "tests",
+      "epistack",
+      "verifiable"
+    ]
+  },
+  {
+    "evidence_id": "self-19-day-span",
+    "evidence_kind": "text",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "Nineteen days elapsed between the first dated user-attested artifact and the first Core OS commit.",
+    "source": {
+      "type": "external_source",
+      "identifier": "perplexity-export-2026-08-03",
+      "root_source_id": "provider-timestamps",
+      "excerpt": "2026-05-12 17:10 \u2014 first dated user-attested artifact in the project record. The first Core OS commit is timestamped 2026-05-31 12:13."
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "Two independent providers bracket the interval: Perplexity issued the first timestamp, git the second. Neither is revisable by the subject."
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "timeline",
+      "tamper-evident",
+      "two-providers"
+    ]
+  },
+  {
+    "evidence_id": "self-rarity-funnel-FLAWED",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "The builder ranks in the single digits globally via eleven multiplicative prevalence layers.",
+    "source": {
+      "type": "user_statement",
+      "identifier": "builder-self-assertion",
+      "root_source_id": "subject-assertion"
+    },
+    "measurement": {
+      "root": "epistack",
+      "command": "git",
+      "args": [
+        "log",
+        "--oneline"
+      ],
+      "extract": "line_count",
+      "value": "RARITY_PHRASE",
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "DELIBERATELY FLAWED BLOCK for the recursive demo. 'Single digits globally' is not a measurable quantity; no whitelisted command returns a percentile. The eleven prevalence layers also multiply correlated quantities as if independent. C8 should object on both grounds.",
+      "correlated_with": [
+        "self-lineage-correlation-FLAWED"
+      ]
+    },
+    "confidence_label": "LOW",
+    "tags": [
+      "DELIBERATELY_FLAWED",
+      "rarity",
+      "funnel",
+      "test-of-tool"
+    ]
+  },
+  {
+    "evidence_id": "self-lineage-correlation-FLAWED",
+    "evidence_kind": "measurement",
+    "timestamp": "2026-08-03T13:50:00.000Z",
+    "claim": "Trait A (prevalence ~3%) multiplied by correlated Trait B within that group (300% more likely) yields a joint prevalence under 1%.",
+    "source": {
+      "type": "user_statement",
+      "identifier": "builder-self-assertion",
+      "root_source_id": "subject-assertion"
+    },
+    "measurement": {
+      "root": "epistack",
+      "command": "git",
+      "args": [
+        "log",
+        "--oneline"
+      ],
+      "extract": "line_count",
+      "value": 1,
+      "expectNonZero": true
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2026-08-03T13:50:00.000Z",
+      "context": "DELIBERATELY FLAWED companion. The 300% figure is itself evidence of correlation, not an independent filter. Multiplying 3% by the reciprocal treats correlated quantities as independent.",
+      "correlated_with": [
+        "self-rarity-funnel-FLAWED"
+      ]
+    },
+    "confidence_label": "LOW",
+    "tags": [
+      "DELIBERATELY_FLAWED",
+      "correlation",
+      "multiplication"
+    ]
+  }
+]

@@ -12,6 +12,7 @@ const CASE_DIRS = {
   lhc: join(ROOT, "docs/epistemic/lhc"),
   eggs: join(ROOT, "docs/epistemic/eggs"),
   sample: join(ROOT, "docs/epistemic/sample"),
+  self: join(ROOT, "docs/epistemic/self"),
 };
 
 const caseDir = CASE_DIRS[caseArg] ?? resolve(caseArg);

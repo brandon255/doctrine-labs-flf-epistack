@@ -1,0 +1,11 @@
+{
+  "case_id": "self",
+  "edges": [],
+  "declared_correlations": [
+    {
+      "from": "self-rarity-funnel-FLAWED",
+      "to": "self-lineage-correlation-FLAWED",
+      "reason": "The companion block's 300% figure is itself evidence of correlation with the funnel's Trait A layer, not an independent filter on it."
+    }
+  ]
+}

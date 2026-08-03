@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLFBuild — a gift</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="/">FLFBuild</a>
+        <span class="brand-meta">v1.1 · local-first</span>
+      </div>
+      <nav class="nav">
+        <a href="/">Cases</a>
+        <a href="/about.html">What else is Brandon building</a>
+        <a href="https://github.com/brandon255/doctrine-labs-flf-epistack">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>How many times was the world actually observed here?</h1>
+      <p class="lede">
+        Not how many things were cited. Those are different numbers, and they differ by more
+        than people expect. This runs in one command on your machine, with or without a local
+        model, and tells you the gap between the two.
+      </p>
+      <p class="byline">
+        <strong>A gift to the Future of Life Foundation.</strong>
+        You asked who would keep building this. I did. Here it is. You own it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Reviewing this? Start here — nothing to install</h2>
+      <p class="section-lede">
+        The engine that does the epistemic work runs with <strong>Node and nothing else</strong>:
+        the three-level independence model, mechanical citation verification, and all eight
+        challenger checks. A local model is optional, and only drives the proposal step and one
+        of the two challengers.
+      </p>
+      <table class="levels">
+        <tr>
+          <td><strong>Read the transcripts</strong></td>
+          <td>Full adjudication runs — propose, verify, challenge, resolve — captured verbatim,
+              including the ones that failed</td>
+          <td><strong>nothing installed · ~5 min</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Run the cold engine</strong></td>
+          <td>Every case report, every mechanical check, the full test suite</td>
+          <td>Node 20+ · ~30 sec</td>
+        </tr>
+        <tr>
+          <td><strong>Run the full protocol</strong></td>
+          <td>Adds the model proposal and the model challenger</td>
+          <td>+ Ollama, ~5 GB</td>
+        </tr>
+      </table>
+      <p class="section-lede">
+        We split it this way on purpose. The interesting half should not sit behind a
+        five-gigabyte download.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>The three cases</h2>
+      <p class="section-lede">
+        Same resolver, same report format, three deliberately different shapes of question.
+        Click any one to open the live case view.
+      </p>
+      <div class="cards" id="case-cards">
+        <div class="card"><span class="case-id">loading…</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Independence has three levels</h2>
+      <p class="section-lede">
+        Counting citations overstates what you know. Counting documents still overstates it,
+        because two judges watching the same debate are not two independent witnesses.
+      </p>
+      <table class="levels">
+        <tr><td><strong>1 — claim</strong></td><td>one excerpt</td><td>every quotation counts as a source</td></tr>
+        <tr><td><strong>2 — document</strong></td><td>one PDF, one post</td><td>two accounts of one event look independent</td></tr>
+        <tr><td><strong>3 — lineage</strong></td><td>one underlying event</td><td>—</td></tr>
+      </table>
+      <p class="section-lede">
+        The headline number is level 3, the most conservative count available. The other two
+        stay visible underneath, because the gap between them is the interesting part.
+      </p>
+      <p class="section-lede">
+        Adjudication layers on top: a model proposes an answer with cited work, every citation is
+        checked against the corpus <em>mechanically, with no model involved</em>, and a challenge
+        panel argues against the conclusion. The deterministic challenger on that panel — eight
+        structural checks — always runs, with or without a model installed. You decide what stands.
+      </p>
+      <div id="llm-banner"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Run it yourself</h2>
+      <p class="section-lede">No build step. No dependencies. Just Node 20+.</p>
+      <pre style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;color:var(--text);"><code># from the repo root
+npm run epistemic:covid   # → 21 excerpts, 8 documents, 3 lineages  (7x inflation)
+npm run epistemic:lhc     # →  9 excerpts, 5 documents, 3 lineages  (3x)
+npm run epistemic:eggs    # →  9 excerpts, 5 documents, 5 lineages  (1.8x)
+npm run epistemic:all     # → run all three
+npm test                  # → 188 tests, no network
+npm start                 # → open http://127.0.0.1:4318</code></pre>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Built by Brandon Flores, Doctrine Labs. Local-first, zero cloud.
+      <a href="/about.html">What else I'm building →</a>
+    </div>
+  </footer>
+
+  <script>
+    async function load() {
+      try {
+        const res = await fetch('/api/cases');
+        const data = await res.json();
+        const grid = document.getElementById('case-cards');
+        grid.innerHTML = '';
+        for (const c of data.cases) {
+          const a = document.createElement('a');
+          a.className = 'card';
+          a.href = `/case.html?case=${encodeURIComponent(c.id)}`;
+          const summary = c.summary || {};
+          const count = summary.assessment_line || (c.error ? 'error' : '—');
+          a.innerHTML = `
+            <span class="case-id">${c.id}</span>
+            <span class="case-title">${escapeHtml(c.title || c.id)}</span>
+            <span class="case-count"><strong>${summary.claim_count ?? '?'}</strong> excerpts → <strong>${summary.document_count ?? '?'}</strong> documents → <strong>${summary.lineage_count ?? '?'}</strong> lineages</span>
+            ${summary.inflation_factor > 1 ? `<span class="pill warn">${summary.inflation_factor}x citation inflation</span>` : ''}
+          `;
+          grid.appendChild(a);
+        }
+      } catch (e) {
+        document.getElementById('case-cards').innerHTML = `<div class="card"><span class="case-id">failed to load: ${escapeHtml(e.message)}</span></div>`;
+      }
+
+      try {
+        const r = await fetch('/api/llm/status');
+        const d = await r.json();
+        const b = document.getElementById('llm-banner');
+        if (d.ready) {
+          b.innerHTML = `<div class="banner good">Local LLM ready — model <code>${escapeHtml(d.model)}</code>. Adjudicated assessment, chat, and alias proposals are live. Open a case to run one.</div>`;
+        } else if (d.ok) {
+          b.innerHTML = `<div class="banner warn">Ollama is up but model '${escapeHtml(d.model || '')}' is not pulled. Run: <code>ollama pull ${escapeHtml(d.model || 'llama3.1')}</code></div>`;
+        } else {
+          b.innerHTML = `<div class="banner info"><strong>No local model — that's a supported way to run this.</strong> The counts, the graphs, the reports, and all eight mechanical challenger checks need no model at all. To add the model proposal and the model challenger: <a href="https://ollama.com">Ollama</a> + <code>ollama pull llama3.1</code>. To see those steps without installing anything, read <code>docs/transcripts/</code>.</div>`;
+        }
+      } catch (e) {
+        /* silent */
+      }
+    }
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+    load();
+  </script>
+</body>
+</html>
