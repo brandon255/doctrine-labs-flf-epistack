@@ -3,5 +3,21 @@ node_modules/
 USER/
 secure_vault/
 
-# Generated when you run a case. Regenerated every run, contains local paths.
-docs/epistemic/*/RUN_OUTPUT.md
+# RUN_OUTPUT.md is generated but deliberately committed: the point of the tool
+# is a shareable artifact, so a reader should see the output without running it.
+# Reports are path-relative and timestamp-free so they diff cleanly.
+
+# Aliases created by human-accepted model proposals. Local state, not source.
+docs/epistemic/*/aliases.json
+
+# Your recorded positions on adjudicated conclusions. Yours, local, and not
+# something a cloned repo should carry back upstream.
+decisions/*.json
+
+# Local preview / scratch
+.preview-*.png
+*.log
+
+# FLF's own competition brief and judging criteria. Kept locally for reference;
+# not ours to republish from a public repository.
+docs/competition/

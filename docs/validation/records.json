@@ -1,0 +1,1675 @@
+[
+  {
+    "case": "covid",
+    "job": "crux",
+    "record": {
+      "job_type": "crux",
+      "question": "What is the single crux in this corpus — the specific factual or inferential disagreement that, if resolved, would most change the overall picture?",
+      "started_at": "2026-08-02T18:44:41.488Z",
+      "completed_at": "2026-08-02T18:45:40.150Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The crux of the debate is whether prior choice on geographic clustering of early cases shifts posterior odds by orders of magnitude, with implications for how evidence is weighted and interpreted.",
+      "confidence": "HIGH",
+      "assumption": "That the crux of the debate can be identified through a careful analysis of the judges' decisions and analysts' interpretations",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Judge Will's Bayesian computation placed the lab leak probability at approximately 1-in-300 (~0.3%), while Judge Eric's prior probabilities placed the annual lab-leak risk roughly twice as high as the annual zoonotic-at-HSM risk, but location evidence subsequently drove his posterior to ~0.03% lab leak.",
+          "cites": [
+            "covid-primary-will-decision-doc-1",
+            "covid-primary-eric-decision-probability-6"
+          ],
+          "quote": "I concluded P(LL) / P(ZO) = 2.125... I concluded that there is approximately a 1 in 300 chance that SARS-CoV-2 was the result of a lab leak.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-will-decision-doc-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-primary-eric-decision-probability-6",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "Weissman's analysis highlights the importance of prior uncertainty and its potential to render large Bayes factors irrelevant, with implications for how evidence is weighted.",
+          "cites": [
+            "covid-primary-weissman-prior-sensitivity-7"
+          ],
+          "quote": "Uncertainty in the priors leads to discounting both. Thus observations with uncertain implications leave the priors untouched but highly uncertain priors can make fairly large likelihood ratios irrelevant.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-weissman-prior-sensitivity-7",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-weissman-prior-sensitivity-7"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "The debate record shows that judges and analysts have vastly different interpretations of the same evidence, with some placing lab leak probabilities as high as 1-in-300 and others as low as ~0.03%.",
+          "cites": [
+            "covid-primary-will-decision-bayes-2",
+            "covid-primary-eric-decision-probability-6"
+          ],
+          "quote": "I concluded P(LL) / P(ZO) = 2.125... Overall this gives P(Z) = 1 / 32000, which is to say that HSM should produce a pandemic akin to sars-cov-2 every 32000 years.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-will-decision-bayes-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-primary-eric-decision-probability-6",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "step": "The crux of the debate lies in how evidence is weighted and interpreted, rather than the evidence itself.",
+          "cites": [
+            "covid-primary-sa-rootclaim-method-13"
+          ],
+          "quote": "Unfortunately, the reason nobody else is trying this is because it doesn't work. There's too much evidence, and it's too hard to figure out how to quantify it.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-sa-rootclaim-method-13",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-sa-rootclaim-method-13"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 2,
+        "weak_steps": 0,
+        "total_steps": 4,
+        "failures": [
+          "step 1: quote does not appear in any cited block",
+          "step 3: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The crux of the debate is whether prior choice on geographic clustering of early cases shifts posterior odds by orders of magnitude, but this conclusion may be overstated given that multiple judges and analysts have reached different conclusions despite using similar Bayesian frameworks.",
+        "cites": [
+          "covid-primary-weissman-oom-spread-9",
+          "covid-primary-sa-verdict-11"
+        ],
+        "what_would_change_my_mind": "If a single, widely accepted prior were to be established that could reconcile the disparate results of different analysts and judges, this would provide strong evidence for the conclusion.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "covid",
+    "job": "gap",
+    "record": {
+      "job_type": "gap",
+      "question": "What important source, perspective, or kind of evidence is MISSING from this corpus, such that its absence could distort the conclusion?",
+      "started_at": "2026-08-02T18:45:40.150Z",
+      "completed_at": "2026-08-02T18:46:35.815Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The corpus is missing an important source of evidence: the actual debate transcripts or recordings, which could provide direct insight into the arguments and reasoning used by the debaters and judges.",
+      "confidence": "MEDIUM",
+      "assumption": "The absence of debate transcripts or recordings would significantly impact our understanding of the evidence and reasoning used in the COVID origins debate.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "The absence of debate transcripts or recordings would distort our understanding of how the judges made their decisions and what evidence they relied on.",
+          "cites": [
+            "covid-seed-001",
+            "covid-primary-will-decision-doc-1"
+          ],
+          "quote": "Two expert judges ruled decisively for zoonosis in the Wilf–Miller COVID origins debate (FLF case summary).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-primary-will-decision-doc-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-seed-001"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "Judge Will's decision was based on his own Bayesian analysis, but without access to the actual debate transcripts or recordings, we cannot know how he weighed different pieces of evidence.",
+          "cites": [
+            "covid-primary-will-decision-bayes-2"
+          ],
+          "quote": "In my Bayesian analysis, modeled after Michael Weissman's analysis I concluded P0(LL) / P0(ZO) = 1.7E-3.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-will-decision-bayes-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-will-decision-bayes-2"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "The judges' reliance on probabilistic thinking and their use of specific evidence, such as the HSM workers example, is not fully understood without access to the debate transcripts or recordings.",
+          "cites": [
+            "covid-primary-rootclaim-probabilistic-failure-16"
+          ],
+          "quote": "This is confusing two different things. The judges indeed had reservations about doing a full probabilistic analysis.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-rootclaim-probabilistic-failure-16",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-rootclaim-probabilistic-failure-16"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 3,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that the corpus is missing an important source of evidence (debate transcripts or recordings) assumes a specific type of debate and discussion, but the provided corpus includes multiple sources indicating that the debate was structured in a way that favored memorized knowledge over probabilistic reasoning. This suggests that the debate's format may have been designed to highlight certain aspects of the argument rather than provide a comprehensive examination of the evidence.",
+        "cites": [
+          "covid-primary-rootclaim-format-critique-1-14",
+          "covid-primary-sa-rootclaim-method-13"
+        ],
+        "what_would_change_my_mind": "Evidence showing that the debate transcripts or recordings would have significantly altered the outcome or provided new insights not present in the existing corpus.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "verified_with_caveat",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "covid",
+    "job": "lineage",
+    "record": {
+      "job_type": "lineage",
+      "question": "Which evidence blocks in this corpus trace back to the same underlying source or event, and should therefore NOT be counted as independent confirmations of each other?",
+      "started_at": "2026-08-02T18:44:13.818Z",
+      "completed_at": "2026-08-02T18:44:41.487Z",
+      "model": "llama3.1:8b",
+      "conclusion": "Blocks covid-seed-001 and covid-seed-002 should not be counted as independent confirmations of each other, as they both come from the same document (FLF epistack competition brief) and report on the same underlying datum.",
+      "confidence": "HIGH",
+      "assumption": "The document_id field accurately reflects the source of each block's claim",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "covid-seed-001 and covid-seed-002 share a document",
+          "cites": [
+            "covid-seed-001",
+            "covid-seed-002"
+          ],
+          "quote": "Both blocks have the same document_id, 'flf-epistack-competition-brief'.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The shared document reports on the same underlying datum",
+          "cites": [
+            "covid-seed-001",
+            "covid-seed-002"
+          ],
+          "quote": "Both blocks quote from the FLF case summary, which discusses the Wilf–Miller COVID origins debate.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 0,
+        "weak_steps": 0,
+        "total_steps": 2,
+        "failures": [
+          "step 1: quote does not appear in any cited block",
+          "step 2: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The claim that blocks covid-seed-001 and covid-seed-002 should not be counted as independent confirmations of each other is overstated because it relies on an implicit assumption about the nature of evidence in a debate, which may not hold true for all debates.",
+        "cites": [
+          "covid-primary-sa-rootclaim-method-13"
+        ],
+        "what_would_change_my_mind": "Evidence that demonstrates how judges can effectively incorporate iterative feedback during debates to correct probabilistic reasoning errors and ensure the accuracy of their final rulings.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "covid",
+    "job": "rhetoric",
+    "record": {
+      "job_type": "rhetoric",
+      "question": "Which claims in this corpus carry more persuasive weight than evidential weight — that is, which are doing rhetorical work disproportionate to what they actually establish?",
+      "started_at": "2026-08-02T18:46:35.815Z",
+      "completed_at": "2026-08-02T18:47:35.075Z",
+      "model": "llama3.1:8b",
+      "conclusion": "Some claims in the corpus carry more persuasive weight than evidential weight, doing rhetorical work disproportionate to what they actually establish. Specifically, Rootclaim's critique of debate structure and their identification of a probabilistic inference error by the judges are examples of this.",
+      "confidence": "HIGH",
+      "assumption": "The judges' decisions are based on a reasonable interpretation of the evidence presented during the debate.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Rootclaim argues that live oral debate systematically advantages the side with superior recall, which is orthogonal to which hypothesis is correct.",
+          "cites": [
+            "covid-primary-rootclaim-format-critique-1-14"
+          ],
+          "quote": "While Peter's victory was well earned within the parameters of the debate, we believe it was also due to our failure to structure an effective debate. [...] First, the debate structure provided a major advantage to the debater with more memorized knowledge of the issue.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-rootclaim-format-critique-1-14",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-rootclaim-format-critique-1-14"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "Rootclaim identifies a probabilistic inference error by the judges that was sufficient to flip the outcome.",
+          "cites": [
+            "covid-primary-rootclaim-probabilistic-failure-16"
+          ],
+          "quote": "This is confusing two different things. The judges indeed had reservations about doing a full probabilistic analysis. But they definitely relied heavily on probabilistic thinking when evaluating the strength of specific evidence, most notably in wrongfully concluding HSM is strong evidence by calculating the probability of the index case being in a group of 1000 HSM workers out of 10 million Wuhan residents.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-rootclaim-probabilistic-failure-16",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-rootclaim-probabilistic-failure-16"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "Scott Alexander identifies Rootclaim's systematic Bayesian quantification as not replicably workable in practice due to evidence complexity.",
+          "cites": [
+            "covid-primary-sa-rootclaim-method-13"
+          ],
+          "quote": "Unfortunately, the reason nobody else is trying this is because it doesn't work. There's too much evidence, and it's too hard to figure out how to quantify it.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-sa-rootclaim-method-13",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-sa-rootclaim-method-13"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 3,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that some claims in the corpus carry more persuasive weight than evidential weight relies on an implicit assumption about the relationship between persuasion and evidence, but this is not supported by explicit evidence. In fact, Judge Will's decision explicitly frames his vote as a truth-seeking determination, not a procedural debate judgment (covid-primary-will-decision-doc-1), suggesting that persuasion was not the primary consideration.",
+        "cites": [
+          "covid-primary-will-decision-doc-1"
+        ],
+        "what_would_change_my_mind": "Evidence showing that judges' decisions are influenced by factors unrelated to evidence, such as personal biases or external pressures.",
+        "verdict": "unsupported",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "contested",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "covid",
+    "job": "settled",
+    "record": {
+      "job_type": "settled",
+      "question": "Which questions in this corpus were actually settled by evidence, and which merely had the appearance of settlement — closed by authority, exhaustion, or rhetorical victory rather than by resolving the underlying uncertainty?",
+      "started_at": "2026-08-02T18:47:35.075Z",
+      "completed_at": "2026-08-02T18:48:43.658Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The questions that were actually settled by evidence in the corpus are those where the judges' decisions were based on explicit consideration of the underlying uncertainty, as evidenced by their discussion of prior probabilities and likelihood ratios. In contrast, some questions merely had the appearance of settlement due to factors such as rhetorical victory or exhaustion.",
+      "confidence": "MEDIUM",
+      "assumption": "That the judges' decisions were based on a genuine attempt to resolve the underlying uncertainty, rather than simply following established authority or convention.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Judge Will's decision was based on a Bayesian computation that placed the posterior probability of lab leak at approximately 1-in-300 (~0.3%).",
+          "cites": [
+            "covid-primary-will-decision-bayes-2"
+          ],
+          "quote": "In my Bayesian analysis, modeled after Michael Weissman's analysis I concluded P0(LL) / P0(ZO) = 1.7E-3. The product of my updates, I concluded P(LL) / P(ZO) = 2.125. The final, then is P0(LL) / P0(ZO) * P(LL) / P(ZO) = 3.6E-3.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-will-decision-bayes-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-will-decision-bayes-2"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "Judge Eric's decision was based on epidemiological proximity of the earliest cases to the Huanan Seafood Market rather than WIV.",
+          "cites": [
+            "covid-primary-eric-decision-pdf-4"
+          ],
+          "quote": "On the basis of the evidence and arguments presented during the debate, I find with high confidence that zoonotic spillover is the more likely origin of sars-cov-2. The most important basis for this decision is the relative epidemiological proximity of the earliest indicators of covid to a plausible animal source rather than a potential laboratory source.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-eric-decision-pdf-4",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-eric-decision-pdf-4"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "Weissman's analysis highlighted the importance of prior probabilities in Bayesian inference, and showed that large Bayes factors can be rendered irrelevant by spread in the prior.",
+          "cites": [
+            "covid-primary-weissman-prior-sensitivity-7"
+          ],
+          "quote": "Our prior is then equivalent to L 0 = -4.2 ± 2.3. [...] Uncertainty in the likelihoods leads to discounting the likelihood ratios but not to discounting the priors. Uncertainty in the priors leads to discounting both.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-weissman-prior-sensitivity-7",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-weissman-prior-sensitivity-7"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "step": "The judges' decisions were often based on superficial consideration of the evidence, rather than explicit consideration of the underlying uncertainty.",
+          "cites": [
+            "covid-primary-will-decision-inconsistency-3",
+            "covid-primary-rootclaim-probabilistic-failure-16"
+          ],
+          "quote": "I ended up being more skeptical of the evidence that LL provided for two reasons. First, there were multiple instances of internal inconsistency. LL would assume truth claim A in one part of the debate, and then assume not A in another part of the debate, depending on the strategic utility of A/¬A.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "covid-primary-will-decision-inconsistency-3",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "covid-primary-rootclaim-probabilistic-failure-16",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in covid-primary-will-decision-inconsistency-3"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 4,
+        "weak_steps": 0,
+        "total_steps": 4,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion may be overstated because it relies on an overly narrow definition of 'settled' that does not account for the complexity and nuance of the evidence presented. Specifically, the judges' decisions were often influenced by factors beyond explicit consideration of uncertainty, such as rhetorical victory or exhaustion.",
+        "cites": [
+          "covid-primary-sa-rootclaim-method-13",
+          "covid-primary-will-decision-inconsistency-3"
+        ],
+        "what_would_change_my_mind": "If the judges' decisions could be shown to have been influenced primarily by explicit consideration of uncertainty, and if this was consistent across all relevant cases.",
+        "verdict": "overstated",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "contested",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "eggs",
+    "job": "crux",
+    "record": {
+      "job_type": "crux",
+      "question": "What is the single crux in this corpus — the specific factual or inferential disagreement that, if resolved, would most change the overall picture?",
+      "started_at": "2026-08-02T20:34:42.331Z",
+      "completed_at": "2026-08-02T20:35:09.669Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The crux in this corpus is the relationship between egg consumption and cardiovascular outcomes, specifically whether the association found by Zhong et al. (JAMA 2019) holds after adjusting for total dietary cholesterol consumption.",
+      "confidence": "MEDIUM",
+      "assumption": "The assumption is that the relationship between egg consumption and cardiovascular outcomes is influenced by other factors, such as total dietary cholesterol consumption.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Zhong et al. found a significant association between egg consumption and CVD in pooled US cohorts.",
+          "cites": [
+            "eggs-primary-jama-half-egg-1"
+          ],
+          "quote": "Each additional half an egg consumed per day was significantly associated with higher risk of incident CVD (adjusted HR, 1.06 [95% CI, 1.03-1.10]) and all-cause mortality (adjusted HR, 1.08 [95% CI, 1.04-1.11]).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-half-egg-1"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "However, this association disappeared after adjusting for total dietary cholesterol consumption.",
+          "cites": [
+            "eggs-primary-jama-cholesterol-adjust-2"
+          ],
+          "quote": "The associations between egg consumption and incident CVD (adjusted HR, 0.99 [95% CI, 0.93-1.05]) and all-cause mortality (adjusted HR, 1.03 [95% CI, 0.97-1.09]) were no longer significant after adjusting for dietary cholesterol consumption.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-cholesterol-adjust-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-cholesterol-adjust-2"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "This suggests that the relationship between egg consumption and CVD is complex and may be influenced by other factors.",
+          "cites": [
+            "eggs-primary-jama-pooled-cohort-5"
+          ],
+          "quote": "This analysis included 29 615 participants ... During a median follow-up of 17.5 years ... there were 5400 incident CVD events and 6132 all-cause deaths.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-pooled-cohort-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-pooled-cohort-5"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 3,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The relationship between egg consumption and cardiovascular outcomes is confounded by the fact that observational studies often share overlapping cohorts, which may lead to biased estimates of association (eggs-seed-002). This concern is particularly relevant given the industry-funded nature of some research in this area (eggs-primary-funding-plos-4), which may correlate with favorable outcomes for funded foods.",
+        "cites": [
+          "eggs-seed-002",
+          "eggs-primary-funding-plos-4"
+        ],
+        "what_would_change_my_mind": "If Zhong et al. had used a more robust method to account for cohort overlap, such as propensity score matching or instrumental variables analysis, and if the associations between egg consumption and cardiovascular outcomes remained significant after adjusting for total dietary cholesterol consumption (eggs-primary-jama-cholesterol-adjust-2).",
+        "verdict": "unsupported",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "contested",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "eggs",
+    "job": "gap",
+    "record": {
+      "job_type": "gap",
+      "question": "What important source, perspective, or kind of evidence is MISSING from this corpus, such that its absence could distort the conclusion?",
+      "started_at": "2026-08-02T20:35:09.669Z",
+      "completed_at": "2026-08-02T20:35:31.714Z",
+      "model": "llama3.1:8b",
+      "conclusion": "A crucial source of evidence is missing from this corpus, specifically the original observational studies that linked egg consumption to cardiovascular outcomes. The absence of these studies could distort the conclusion by not providing a direct link between eggs and health risks.",
+      "confidence": "MEDIUM",
+      "assumption": "The absence of the original observational studies would distort the conclusion by not providing a direct link between eggs and health risks.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "The genealogy hypothesis suggests overlapping cohorts in observational studies linking egg consumption to cardiovascular outcomes.",
+          "cites": [
+            "eggs-seed-002"
+          ],
+          "quote": "...Observational studies linking egg consumption to cardiovascular outcomes often share overlapping cohorts (genealogy hypothesis).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-seed-002"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The general epidemiology concern highlights the potential for industry-funded research to correlate with favorable outcomes for funded foods.",
+          "cites": [
+            "eggs-seed-003"
+          ],
+          "quote": "...Industry-funded nutrition research may correlate with favorable outcomes for funded foods (general epidemiology concern).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-seed-003"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "The former MISSING validation task notes the gap in evidence, but does not provide a direct link between eggs and health risks.",
+          "cites": [
+            "eggs-seed-004"
+          ],
+          "quote": "...Gap closed: JAMA 2019 and related primaries ingested as eggs-primary-* (former MISSING validation task).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-004",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-seed-004"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 3,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that the absence of original observational studies distorts the conclusion is overstated because it relies on a hypothetical scenario rather than empirical evidence from this corpus. The corpus does provide multiple lines of evidence (e.g., eggs-primary-jama-half-egg-1, eggs-primary-jama-pooled-cohort-5) that directly link egg consumption to cardiovascular outcomes and mortality risks.",
+        "cites": [
+          "eggs-primary-jama-half-egg-1",
+          "eggs-primary-jama-pooled-cohort-5"
+        ],
+        "what_would_change_my_mind": "If the corpus contained a study or meta-analysis explicitly stating that observational studies are necessary for establishing causality between egg consumption and cardiovascular outcomes, I would reconsider my objection.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "verified_with_caveat",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "eggs",
+    "job": "lineage",
+    "record": {
+      "job_type": "lineage",
+      "question": "Which evidence blocks in this corpus trace back to the same underlying source or event, and should therefore NOT be counted as independent confirmations of each other?",
+      "started_at": "2026-08-02T20:34:11.634Z",
+      "completed_at": "2026-08-02T20:34:42.331Z",
+      "model": "llama3.1:8b",
+      "conclusion": "Blocks 'eggs-seed-001' and 'eggs-primary-jama-half-egg-1', as well as blocks 'eggs-seed-002' and 'eggs-primary-jama-pooled-cohort-5', should not be counted as independent confirmations of each other because they report the same underlying event from different vantage points.",
+      "confidence": "HIGH",
+      "assumption": "It is assumed that the same underlying event or document can be reported from different vantage points, but still share a common underlying claim.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Blocks 'eggs-seed-001' and 'eggs-primary-jama-half-egg-1' share a common underlying event, which is the publication of Zhong et al. (JAMA 2019) on egg consumption and cardiovascular outcomes.",
+          "cites": [
+            "eggs-seed-001",
+            "eggs-primary-jama-half-egg-1"
+          ],
+          "quote": "Gap closed: JAMA 2019 and related primaries ingested as eggs-primary-* (former MISSING validation task).",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "Blocks 'eggs-seed-002' and 'eggs-primary-jama-pooled-cohort-5' also share a common underlying event, which is the same pooled analysis of NHANES and REGARDS cohorts by Zhong et al. (JAMA 2019).",
+          "cites": [
+            "eggs-seed-002",
+            "eggs-primary-jama-pooled-cohort-5"
+          ],
+          "quote": "This analysis included 29 615 participants ... During a median follow-up of 17.5 years ... there were 5400 incident CVD events and 6132 all-cause deaths.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-pooled-cohort-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-pooled-cohort-5"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "Blocks 'eggs-seed-001' and 'eggs-primary-jama-pooled-cohort-5' do not report the same underlying event, but rather different aspects of it.",
+          "cites": [
+            "eggs-seed-001",
+            "eggs-primary-jama-pooled-cohort-5"
+          ],
+          "quote": "Dietary guidelines have shifted egg recommendations multiple times over decades (FLF case framing).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-pooled-cohort-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-seed-001"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 2,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": [
+          "step 1: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that blocks 'eggs-seed-001' and 'eggs-primary-jama-half-egg-1', as well as blocks 'eggs-seed-002' and 'eggs-primary-jama-pooled-cohort-5', should not be counted as independent confirmations of each other because they report the same underlying event from different vantage points, is overstated. The evidence suggests that these studies are actually complementary, with 'eggs-seed-001' providing context on shifting dietary guidelines and 'eggs-primary-jama-half-egg-1' offering specific findings on egg consumption and cardiovascular outcomes.",
+        "cites": [
+          "eggs-seed-001",
+          "eggs-primary-jama-half-egg-1"
+        ],
+        "what_would_change_my_mind": "Evidence that directly compares the methodologies, results, or conclusions of these studies to demonstrate a clear conflict or contradiction would change my mind. For example, if 'eggs-seed-002' and 'eggs-primary-jama-pooled-cohort-5' were found to have significantly different findings on the relationship between egg consumption and cardiovascular outcomes, it would suggest that they are not complementary but rather conflicting studies.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "eggs",
+    "job": "rhetoric",
+    "record": {
+      "job_type": "rhetoric",
+      "question": "Which claims in this corpus carry more persuasive weight than evidential weight — that is, which are doing rhetorical work disproportionate to what they actually establish?",
+      "started_at": "2026-08-02T20:35:31.714Z",
+      "completed_at": "2026-08-02T20:35:54.346Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The claim that 'Dietary guidelines have shifted egg recommendations multiple times over decades' (eggs-seed-001) carries more persuasive weight than evidential weight, as it frames the issue without providing concrete evidence to support this assertion.",
+      "confidence": "HIGH",
+      "assumption": "That persuasive weight is not equivalent to evidential weight, and that claims carrying more persuasive weight than evidential weight are doing rhetorical work disproportionate to what they actually establish",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "This claim is made without citing any specific evidence or studies that demonstrate a shift in egg recommendations over time.",
+          "cites": [
+            "eggs-seed-001"
+          ],
+          "quote": "Dietary guidelines have shifted egg recommendations multiple times over decades (FLF case framing).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-seed-001"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "In contrast, other claims in the corpus provide specific evidence and analysis to support their assertions.",
+          "cites": [
+            "eggs-primary-jama-half-egg-1",
+            "eggs-primary-jama-cholesterol-adjust-2"
+          ],
+          "quote": "Zhong et al. (JAMA 2019) found each additional half egg per day associated with higher incident CVD (adjusted HR 1.06) and all-cause mortality (HR 1.08) in pooled US cohorts.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-cholesterol-adjust-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-half-egg-1"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 2,
+        "weak_steps": 0,
+        "total_steps": 2,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The claim that dietary guidelines have shifted egg recommendations multiple times over decades relies on the assumption that changes in recommendations are a direct result of new evidence, but this is not necessarily the case. The 2015 Dietary Guidelines Advisory Committee's decision to drop the specific dietary cholesterol limit may reflect a shift in understanding of the relationship between dietary cholesterol and serum cholesterol, rather than a response to new evidence.",
+        "cites": [
+          "eggs-primary-dga-2015-3"
+        ],
+        "what_would_change_my_mind": "Evidence showing that changes in egg recommendations are consistently preceded by significant new research findings or shifts in scientific consensus on the relationship between dietary cholesterol and serum cholesterol would strengthen this claim. For example, if multiple studies were published around the same time as a change in guidelines, demonstrating a clear link between the new evidence and the updated recommendations.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "verified_with_caveat",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "eggs",
+    "job": "settled",
+    "record": {
+      "job_type": "settled",
+      "question": "Which questions in this corpus were actually settled by evidence, and which merely had the appearance of settlement — closed by authority, exhaustion, or rhetorical victory rather than by resolving the underlying uncertainty?",
+      "started_at": "2026-08-02T20:35:54.346Z",
+      "completed_at": "2026-08-02T20:36:31.685Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The questions that were actually settled by evidence are those related to the JAMA 2019 analysis, which found associations between egg consumption and cardiovascular outcomes. The other questions merely had the appearance of settlement.",
+      "confidence": "HIGH",
+      "assumption": "The JAMA 2019 analysis is a reliable source of evidence for the association between egg consumption and cardiovascular outcomes.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "The JAMA 2019 analysis was a pooled cohort study with a large sample size (29,615 participants).",
+          "cites": [
+            "eggs-primary-jama-half-egg-1",
+            "eggs-primary-jama-pooled-cohort-5"
+          ],
+          "quote": "This analysis included 29 615 participants ... During a median follow-up of 17.5 years ... there were 5400 incident CVD events and 6132 all-cause deaths.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-pooled-cohort-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-pooled-cohort-5"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The JAMA 2019 analysis found associations between egg consumption and cardiovascular outcomes, but these associations were no longer significant after adjusting for total dietary cholesterol consumption.",
+          "cites": [
+            "eggs-primary-jama-half-egg-1",
+            "eggs-primary-jama-cholesterol-adjust-2"
+          ],
+          "quote": "The associations between egg consumption and incident CVD (adjusted HR, 0.99 [95% CI, 0.93-1.05]) and all-cause mortality (adjusted HR, 1.03 [95% CI, 0.97-1.09]) were no longer significant after adjusting for dietary cholesterol consumption.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-cholesterol-adjust-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-cholesterol-adjust-2"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "The Dietary Guidelines Advisory Committee's recommendation to drop the specific dietary cholesterol limit reflects weakened evidence tying dietary cholesterol to serum cholesterol.",
+          "cites": [
+            "eggs-primary-dga-2015-3"
+          ],
+          "quote": "Cholesterol is not considered a nutrient of concern for overconsumption.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-dga-2015-3",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-dga-2015-3"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "step": "The Lesser et al. study found industry-funded articles were more likely to reach conclusions favorable to sponsors, but this does not directly relate to the question of whether egg consumption is associated with cardiovascular outcomes.",
+          "cites": [
+            "eggs-primary-funding-plos-4"
+          ],
+          "quote": "Scientific articles about commonly consumed beverages funded entirely by industry were approximately four to eight times more likely to be favorable to the financial interests of the sponsors than articles without industry-related funding.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-funding-plos-4",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-funding-plos-4"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "step": "The Zhong et al. study found associations between egg consumption and cardiovascular outcomes, but this does not directly relate to the question of whether these associations are significant after adjusting for total dietary cholesterol consumption.",
+          "cites": [
+            "eggs-primary-jama-half-egg-1",
+            "eggs-primary-jama-pooled-cohort-5"
+          ],
+          "quote": "This analysis included 29 615 participants ... During a median follow-up of 17.5 years ... there were 5400 incident CVD events and 6132 all-cause deaths.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "eggs-primary-jama-half-egg-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-primary-jama-pooled-cohort-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in eggs-primary-jama-pooled-cohort-5"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "step": "The other questions in the corpus do not provide direct evidence for or against the association between egg consumption and cardiovascular outcomes.",
+          "cites": [
+            "eggs-seed-001",
+            "eggs-seed-002",
+            "eggs-seed-003",
+            "eggs-seed-004"
+          ],
+          "quote": null,
+          "ok": true,
+          "weak": true,
+          "checks": [
+            {
+              "cite": "eggs-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "eggs-seed-004",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "weak": true,
+              "reason": "no quote given — citation asserted, not shown"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 6,
+        "weak_steps": 1,
+        "total_steps": 6,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that only the JAMA 2019 analysis has settled questions related to egg consumption and cardiovascular outcomes overlooks the fact that other studies, such as those mentioned in eggs-primary-dga-2015-3, have also contributed to a shift in dietary guidelines.",
+        "cites": [
+          "eggs-seed-001",
+          "eggs-primary-dga-2015-3"
+        ],
+        "what_would_change_my_mind": "If the JAMA 2019 analysis was replicated with similar results and if the Dietary Guidelines Advisory Committee's recommendation to drop the specific dietary cholesterol limit was solely based on the JAMA 2019 findings.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "verified_with_caveat",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "lhc",
+    "job": "crux",
+    "record": {
+      "job_type": "crux",
+      "question": "What is the single crux in this corpus — the specific factual or inferential disagreement that, if resolved, would most change the overall picture?",
+      "started_at": "2026-08-02T18:49:12.044Z",
+      "completed_at": "2026-08-02T18:49:44.115Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The crux in this corpus is whether cosmic-ray analogy can be applied to controlled collider conditions, with implications for the safety of LHC collisions.",
+      "confidence": "MEDIUM",
+      "assumption": "The safety assessment of the LHC relies on the validity of the cosmic-ray analogy",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "LSAG argues that cosmic rays have bombarded Earth for billions of years without causing harm, but critics argue that this analogy may not transfer to controlled collider conditions.",
+          "cites": [
+            "lhc-primary-lsag-cosmic-1",
+            "lhc-seed-003"
+          ],
+          "quote": "The LHC reproduces in the laboratory, under controlled conditions, collisions at centre-of-mass energies less than those reached in the atmosphere by some of the cosmic rays that have been bombarding the Earth for billions of years. Critics argued cosmic-ray analogy may not transfer to controlled collider conditions (hypothesis — needs primary cite).",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-primary-lsag-cosmic-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "LSAG concludes there is no basis for any conceivable threat from the LHC, but astrophysicist Rainer Plaga argues that a residual risk from micro-black-hole production at colliders is not excluded.",
+          "cites": [
+            "lhc-primary-lsag-conclusion-2",
+            "lhc-primary-plaga-residual-4"
+          ],
+          "quote": "We conclude by reiterating the conclusion of the LHC Safety Group in 2003 [1]: there is no basis for any conceivable threat from the LHC. Indeed, theoretical and experimental developments since 2003 have reinforced this conclusion. Thus, at the present stage of knowledge there is a residual risk from mBH production at colliders.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-primary-lsag-conclusion-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-primary-plaga-residual-4",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 0,
+        "weak_steps": 0,
+        "total_steps": 2,
+        "failures": [
+          "step 1: quote does not appear in any cited block",
+          "step 2: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The cosmic-ray analogy may not transfer to controlled collider conditions, as argued by critics (lhc-seed-003). This objection is supported by the fact that LSAG's primary excerpts do not provide a clear basis for applying the analogy to LHC collisions (lhc-primary-lsag-cosmic-1, lhc-primary-lsag-conclusion-2)",
+        "cites": [
+          "lhc-seed-001",
+          "lhc-seed-003"
+        ],
+        "what_would_change_my_mind": "Evidence that shows a clear and direct link between cosmic-ray collisions in the atmosphere and LHC collisions, such as a detailed comparison of collision energies or particle production rates.",
+        "verdict": "unsupported",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "lhc",
+    "job": "gap",
+    "record": {
+      "job_type": "gap",
+      "question": "What important source, perspective, or kind of evidence is MISSING from this corpus, such that its absence could distort the conclusion?",
+      "started_at": "2026-08-02T18:49:44.115Z",
+      "completed_at": "2026-08-02T18:50:15.985Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The corpus is missing primary evidence from critics who argued that cosmic-ray analogy may not transfer to controlled collider conditions, which could distort the conclusion by presenting an incomplete picture of safety concerns.",
+      "confidence": "HIGH",
+      "assumption": "The corpus assumes that critics' views on cosmic-ray analogy are not relevant to the safety assessment",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Critics' arguments on cosmic-ray analogy are absent",
+          "cites": [
+            "lhc-seed-003"
+          ],
+          "quote": "Critics argued cosmic-ray analogy may not transfer to controlled collider conditions (hypothesis — needs primary cite).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-seed-003"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The absence of critics' views is problematic because it assumes the safety assessment is complete without independent analysis",
+          "cites": [
+            "lhc-seed-002"
+          ],
+          "quote": "Public summaries of LHC safety often restate the same official risk assessment without independent analysis (FLF framing).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-seed-002"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "The document 'plaga-residual-risk-2008' shares a document_id with lhc-primary-plaga-residual-4, suggesting that Plaga's views on residual risks are related to cosmic-ray analogy",
+          "cites": [
+            "lhc-seed-003",
+            "lhc-primary-plaga-residual-4"
+          ],
+          "quote": "Astrophysicist Rainer Plaga argued that at the present stage of knowledge a residual risk from micro-black-hole production at colliders is not excluded, challenging the definitiveness of cosmic-ray safety arguments.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-primary-plaga-residual-4",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-primary-plaga-residual-4"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 3,
+        "weak_steps": 0,
+        "total_steps": 3,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that the corpus is missing primary evidence from critics who argued that cosmic-ray analogy may not transfer to controlled collider conditions assumes that such criticism exists and has been omitted. However, lhc-seed-003 indicates that this hypothesis was proposed by critics, but it lacks a primary cite. Furthermore, lhc-primary-plaga-residual-4 suggests that at least one astrophysicist, Rainer Plaga, argued against the definitiveness of cosmic-ray safety arguments due to residual risks from micro-black-hole production.",
+        "cites": [
+          "lhc-seed-003",
+          "lhc-primary-plaga-residual-4"
+        ],
+        "what_would_change_my_mind": "Evidence that directly addresses and refutes Plaga's concerns about the residual risk of micro-black-hole production at colliders would strengthen the conclusion. Specifically, a primary source from critics that explicitly argues against the cosmic-ray analogy being applicable to controlled collider conditions would be needed.",
+        "verdict": "unsupported",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "contested",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "lhc",
+    "job": "lineage",
+    "record": {
+      "job_type": "lineage",
+      "question": "Which evidence blocks in this corpus trace back to the same underlying source or event, and should therefore NOT be counted as independent confirmations of each other?",
+      "started_at": "2026-08-02T18:48:43.661Z",
+      "completed_at": "2026-08-02T18:49:12.044Z",
+      "model": "llama3.1:8b",
+      "conclusion": "Blocks lhc-seed-001 and lhc-seed-002 should not be counted as independent confirmations of each other, as they both quote the same document (flf-epistack-competition-brief-lhc) and report on the same official risk assessment without independent analysis.",
+      "confidence": "HIGH",
+      "assumption": "The same document implies a shared underlying source or event, but does not necessarily imply identical conclusions.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "Blocks lhc-seed-001 and lhc-seed-002 share a document",
+          "cites": [
+            "lhc-seed-001",
+            "lhc-seed-002"
+          ],
+          "quote": "No conceivable danger from LHC collisions. Public summaries of LHC safety often restate the same official risk assessment without independent analysis (FLF framing).",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The shared document is flf-epistack-competition-brief-lhc",
+          "cites": [
+            "lhc-seed-001"
+          ],
+          "quote": "...CERN and the LHC Safety Assessment Group concluded that LHC collisions pose no conceivable danger (FLF case summary).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-seed-001"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 1,
+        "weak_steps": 0,
+        "total_steps": 2,
+        "failures": [
+          "step 1: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that blocks lhc-seed-001 and lhc-seed-002 should not be counted as independent confirmations of each other is overstated. While it is true that both blocks quote the same document (flf-epistack-competition-brief-lhc) and report on the same official risk assessment, this does not necessarily mean they are redundant or lack independence.",
+        "cites": [
+          "lhc-seed-001",
+          "lhc-primary-lsag-cosmic-1"
+        ],
+        "what_would_change_my_mind": "Evidence that shows both blocks provide unique insights or analysis beyond what is presented in the shared document, such as independent calculations or experimental results.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "lhc",
+    "job": "rhetoric",
+    "record": {
+      "job_type": "rhetoric",
+      "question": "Which claims in this corpus carry more persuasive weight than evidential weight — that is, which are doing rhetorical work disproportionate to what they actually establish?",
+      "started_at": "2026-08-02T18:50:15.986Z",
+      "completed_at": "2026-08-02T18:50:50.029Z",
+      "model": "llama3.1:8b",
+      "conclusion": "Claims lhc-seed-002 and lhc-primary-plaga-residual-4 carry more persuasive weight than evidential weight, doing rhetorical work disproportionate to what they actually establish.",
+      "confidence": "HIGH",
+      "assumption": "The LSAG's safety report and other primary sources provide a more reliable basis for assessing the risks associated with the LHC than public summaries or secondary critiques.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "The claim in lhc-seed-002 relies on a restatement of the official risk assessment without independent analysis.",
+          "cites": [
+            "lhc-seed-001",
+            "lhc-primary-lsag-cosmic-1"
+          ],
+          "quote": "No conceivable danger from LHC collisions. The LHC reproduces in the laboratory, under controlled conditions, collisions at centre-of-mass energies less than those reached in the atmosphere by some of the cosmic rays that have been bombarding the Earth for billions of years.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-001",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-primary-lsag-cosmic-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "The claim in lhc-primary-plaga-residual-4 relies on a challenge to the definitiveness of cosmic-ray safety arguments without providing sufficient evidence.",
+          "cites": [
+            "lhc-seed-003",
+            "lhc-primary-lsag-conclusion-2"
+          ],
+          "quote": "Critics argued cosmic-ray analogy may not transfer to controlled collider conditions. We conclude by reiterating the conclusion of the LHC Safety Group in 2003 [1]: there is no basis for any conceivable threat from the LHC.",
+          "ok": false,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-003",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "cite": "lhc-primary-lsag-conclusion-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": false,
+              "reason": "quote does not appear in any cited block"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": false,
+        "verified_steps": 0,
+        "weak_steps": 0,
+        "total_steps": 2,
+        "failures": [
+          "step 1: quote does not appear in any cited block",
+          "step 2: quote does not appear in any cited block"
+        ]
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that lhc-seed-002 and lhc-primary-plaga-residual-4 carry more persuasive weight than evidential weight is overstated because it relies on a subjective interpretation of the documents' content without considering the objective confidence levels assigned to each claim.",
+        "cites": [
+          "lhc-seed-001",
+          "lhc-primary-lsag-cosmic-1"
+        ],
+        "what_would_change_my_mind": "If lhc-primary-plaga-residual-4 were assigned a higher confidence level (e.g., HIGH) and if the LSAG's arguments in lhc-primary-lsag-cosmic-1, lhc-primary-lsag-conclusion-2, and lhc-primary-lsag-mbh-3 were shown to be flawed or incomplete.",
+        "verdict": "overstated",
+        "severity": "high"
+      },
+      "challenge_error": null,
+      "verdict": "unverified",
+      "human_decision": null
+    }
+  },
+  {
+    "case": "lhc",
+    "job": "settled",
+    "record": {
+      "job_type": "settled",
+      "question": "Which questions in this corpus were actually settled by evidence, and which merely had the appearance of settlement — closed by authority, exhaustion, or rhetorical victory rather than by resolving the underlying uncertainty?",
+      "started_at": "2026-08-02T18:50:50.030Z",
+      "completed_at": "2026-08-02T18:51:29.818Z",
+      "model": "llama3.1:8b",
+      "conclusion": "The questions that were actually settled by evidence are those related to the LSAG's conclusions, while the appearance of settlement is seen in public summaries and CERN's safety page.",
+      "confidence": "HIGH",
+      "assumption": "That LSAG's primary excerpts were indeed ingested as lhc-primary-lsag-* and that their conclusions are based on evidence.",
+      "reasoning": [
+        {
+          "index": 1,
+          "step": "LSAG's primary excerpts were ingested as lhc-primary-lsag-*",
+          "cites": [
+            "lhc-seed-004"
+          ],
+          "quote": "Gap closed: LSAG primary excerpts ingested as lhc-primary-lsag-* (former MISSING validation task).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-004",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-seed-004"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "step": "LSAG states the LHC reproduces collisions at energies less than those reached in the atmosphere by cosmic rays",
+          "cites": [
+            "lhc-primary-lsag-cosmic-1"
+          ],
+          "quote": "The LHC reproduces in the laboratory, under controlled conditions, collisions at centre-of-mass energies less than those reached in the atmosphere by some of the cosmic rays that have been bombarding the Earth for billions of years.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-primary-lsag-cosmic-1",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-primary-lsag-cosmic-1"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "step": "LSAG concludes there is no basis for any conceivable threat from the LHC",
+          "cites": [
+            "lhc-primary-lsag-conclusion-2"
+          ],
+          "quote": "We conclude by reiterating the conclusion of the LHC Safety Group in 2003 [1]: there is no basis for any conceivable threat from the LHC. Indeed, theoretical and experimental developments since 2003 have reinforced this conclusion.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-primary-lsag-conclusion-2",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-primary-lsag-conclusion-2"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "step": "CERN's public safety page states Nature has already performed LHC-like collision rates on Earth and astronomical bodies without hazardous consequences",
+          "cites": [
+            "lhc-primary-cern-popular-5"
+          ],
+          "quote": "Whatever the LHC will do, Nature has already done many times over during the lifetime of the Earth and other astronomical bodies.",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-primary-cern-popular-5",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-primary-cern-popular-5"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "step": "Public summaries of LHC safety often restate the same official risk assessment without independent analysis",
+          "cites": [
+            "lhc-seed-002"
+          ],
+          "quote": "Public summaries of LHC safety often restate the same official risk assessment without independent analysis (FLF framing).",
+          "ok": true,
+          "weak": false,
+          "checks": [
+            {
+              "cite": "lhc-seed-002",
+              "ok": true,
+              "reason": "block exists"
+            },
+            {
+              "ok": true,
+              "reason": "quote located in lhc-seed-002"
+            }
+          ]
+        }
+      ],
+      "verification": {
+        "verified": true,
+        "verified_steps": 5,
+        "weak_steps": 0,
+        "total_steps": 5,
+        "failures": []
+      },
+      "challenge": {
+        "strongest_objection": "The conclusion that only LSAG's conclusions are actually settled by evidence is overstated because it ignores the fact that CERN's public safety page and public summaries of LHC safety also provide evidence for the safety of the LHC, even if they do not offer independent analysis.",
+        "cites": [
+          "lhc-seed-002",
+          "lhc-primary-cern-popular-5"
+        ],
+        "what_would_change_my_mind": "If it could be shown that CERN's public safety page and public summaries of LHC safety are not based on any actual evidence, but rather on speculation or assumptions.",
+        "verdict": "overstated",
+        "severity": "medium"
+      },
+      "challenge_error": null,
+      "verdict": "verified_with_caveat",
+      "human_decision": null
+    }
+  }
+]

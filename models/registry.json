@@ -1,0 +1,222 @@
+{
+  "_README": {
+    "purpose": "Model lineage registry. Same shape and same job as docs/epistemic/*/source_registry.json, because it is the same problem: two things that look independent may share a root. Here the 'documents' are model tags and the 'lineage' is a set of base weights.",
+    "why_it_exists": "Adjudication stage 3 challenges stage 1. If both run on the same weights we have two calls and one lineage, which is the exact error this stack was built to detect. Choosing a challenger honestly requires knowing which model tags actually differ.",
+    "levels": {
+      "1_call": "one model invocation (a proposal, a challenge)",
+      "2_model": "one model tag, e.g. hermes3:latest",
+      "3_lineage": "one set of base weights, e.g. llama-3.1",
+      "4_pretraining": "shared pretraining corpora across all open models. REAL, MATTERS, NOT RESOLVABLE — no major open model discloses its training data. Never let a lineage count imply independent minds."
+    },
+    "rules": [
+      "derives_from is human-declared with a cited basis. Never inferred from a name.",
+      "Architectural similarity is NOT derivation. llama.cpp reports Mistral as architecture 'llama'; Mistral was pretrained independently by a different organisation.",
+      "Unknown model -> its own lineage, but lineage_verified false. Unlike the evidence registry we do NOT grant an unverified model full independent standing, because here we are counting OUR OWN independence and the incentive runs toward overstating it.",
+      "Matching is longest-prefix on the tag before ':', so llama3.1:8b, llama3.1:70b and llama3.1 all resolve through the llama3.1 entry."
+    ]
+  },
+
+  "llama3.1": {
+    "model_id": "llama3.1",
+    "publisher": "Meta",
+    "lineage_id": "llama-3.1",
+    "lineage_role": "base",
+    "derives_from": [],
+    "basis": "Meta Llama 3.1 herd. ollama show: architecture llama, 8.0B, 131072 ctx, 4096 embed, LLAMA 3.1 COMMUNITY LICENSE."
+  },
+  "llama3.2": {
+    "model_id": "llama3.2",
+    "publisher": "Meta",
+    "lineage_id": "llama-3.2",
+    "lineage_role": "base",
+    "derives_from": [],
+    "independence_note": "Distinct release from 3.1, but a Meta-internal successor. Treated as its own lineage; corroboration between 3.1 and 3.2 is weak."
+  },
+  "llama3.3": {
+    "model_id": "llama3.3",
+    "publisher": "Meta",
+    "lineage_id": "llama-3.3",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+  "llama3": {
+    "model_id": "llama3",
+    "publisher": "Meta",
+    "lineage_id": "llama-3",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+
+  "hermes3": {
+    "model_id": "hermes3",
+    "publisher": "NousResearch",
+    "lineage_id": "llama-3.1",
+    "lineage_role": "fine-tune",
+    "derives_from": ["llama3.1"],
+    "basis": "Hermes 3 Technical Report (NousResearch, Aug 2024): 'Hermes 3 are highly steerable instruct and chat tuned models created by fine-tuning Llama 3.1 8B, 70B and 405B.' SFT then DPO. Confirmed locally: ollama show hermes3:latest reports architecture llama, 8.0B, 131072 ctx, 4096 embed, and ships under META LLAMA 3 COMMUNITY LICENSE.",
+    "independence_note": "NOT independent of llama3.1 at the weight level. A plausible-looking but wrong choice of challenger against llama3.1 — different publisher, different name, same weights underneath. This entry is why the registry exists."
+  },
+  "nous-hermes2": {
+    "model_id": "nous-hermes2",
+    "publisher": "NousResearch",
+    "lineage_id": "unknown-nous-hermes2",
+    "lineage_role": "fine-tune",
+    "derives_from": [],
+    "lineage_verified": false,
+    "independence_note": "Nous Hermes 2 ships in Mistral- and SOLAR-based variants depending on tag. Base not verified here, so it does not earn independent standing."
+  },
+  "dolphin-llama3": {
+    "model_id": "dolphin-llama3",
+    "publisher": "Cognitive Computations",
+    "lineage_id": "llama-3",
+    "lineage_role": "fine-tune",
+    "derives_from": ["llama3"],
+    "basis": "Named as a Llama 3 fine-tune by its publisher."
+  },
+  "codellama": {
+    "model_id": "codellama",
+    "publisher": "Meta",
+    "lineage_id": "llama-2",
+    "lineage_role": "continued-pretrain",
+    "derives_from": ["llama2"],
+    "basis": "Code Llama is initialised from Llama 2 weights and further trained on code."
+  },
+
+  "mistral": {
+    "model_id": "mistral",
+    "publisher": "Mistral AI",
+    "lineage_id": "mistral-7b",
+    "lineage_role": "base",
+    "derives_from": [],
+    "basis": "ollama show mistral:7b-instruct: 7.2B, 32768 ctx, 4096 embed, Apache 2.0.",
+    "independence_note": "ollama reports architecture 'llama'. That is llama.cpp's architecture FAMILY label, not a weight lineage — Mistral uses a Llama-style transformer but was pretrained independently by a different organisation. Merging these two would be the mirror-image error of the one this registry prevents."
+  },
+  "mixtral": {
+    "model_id": "mixtral",
+    "publisher": "Mistral AI",
+    "lineage_id": "mixtral-moe",
+    "lineage_role": "base",
+    "derives_from": [],
+    "independence_note": "Same publisher as mistral-7b and likely overlapping data pipeline. Distinct weights, weak mutual corroboration."
+  },
+  "zephyr": {
+    "model_id": "zephyr",
+    "publisher": "HuggingFace H4",
+    "lineage_id": "mistral-7b",
+    "lineage_role": "fine-tune",
+    "derives_from": ["mistral"],
+    "basis": "Zephyr 7B is a DPO fine-tune of Mistral 7B."
+  },
+  "openhermes": {
+    "model_id": "openhermes",
+    "publisher": "NousResearch / Teknium",
+    "lineage_id": "mistral-7b",
+    "lineage_role": "fine-tune",
+    "derives_from": ["mistral"],
+    "basis": "OpenHermes 2.5 is a Mistral 7B fine-tune."
+  },
+  "dolphin-mistral": {
+    "model_id": "dolphin-mistral",
+    "publisher": "Cognitive Computations",
+    "lineage_id": "mistral-7b",
+    "lineage_role": "fine-tune",
+    "derives_from": ["mistral"],
+    "basis": "Named as a Mistral fine-tune by its publisher."
+  },
+
+  "qwen2.5": {
+    "model_id": "qwen2.5",
+    "publisher": "Alibaba Cloud",
+    "lineage_id": "qwen-2.5",
+    "lineage_role": "base",
+    "derives_from": [],
+    "basis": "ollama show qwen2.5:14b: architecture qwen2, 14.8B, 32768 ctx, 5120 embed, Apache 2.0."
+  },
+  "qwen2.5-14b-64k": {
+    "model_id": "qwen2.5-14b-64k",
+    "publisher": "local Modelfile",
+    "lineage_id": "qwen-2.5",
+    "lineage_role": "context-retag",
+    "derives_from": ["qwen2.5"],
+    "basis": "Local tag. ollama show reports an identical fingerprint to qwen2.5:14b — architecture qwen2, 14.8B, 32768 ctx, 5120 embed, Q4_K_M. Same weights with a different num_ctx parameter.",
+    "independence_note": "Zero weight independence from qwen2.5. A context-window retag is not a second opinion."
+  },
+  "qwen3": {
+    "model_id": "qwen3",
+    "publisher": "Alibaba Cloud",
+    "lineage_id": "qwen-3",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+  "qwen2": {
+    "model_id": "qwen2",
+    "publisher": "Alibaba Cloud",
+    "lineage_id": "qwen-2",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+
+  "gemma4": {
+    "model_id": "gemma4",
+    "publisher": "Google",
+    "lineage_id": "gemma-4",
+    "lineage_role": "base",
+    "derives_from": [],
+    "basis": "ollama show gemma4:e4b: architecture gemma4, 8.0B, 131072 ctx, 2560 embed."
+  },
+  "gemma4e-64k": {
+    "model_id": "gemma4e-64k",
+    "publisher": "local Modelfile",
+    "lineage_id": "gemma-4",
+    "lineage_role": "context-retag",
+    "derives_from": ["gemma4"],
+    "basis": "Local tag. ollama show reports an identical fingerprint to gemma4:e4b — architecture gemma4, 8.0B, 131072 ctx, 2560 embed, Q4_K_M.",
+    "independence_note": "Zero weight independence from gemma4."
+  },
+  "gemma3": {
+    "model_id": "gemma3",
+    "publisher": "Google",
+    "lineage_id": "gemma-3",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+  "gemma2": {
+    "model_id": "gemma2",
+    "publisher": "Google",
+    "lineage_id": "gemma-2",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+
+  "phi4": {
+    "model_id": "phi4",
+    "publisher": "Microsoft",
+    "lineage_id": "phi-4",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+  "phi3": {
+    "model_id": "phi3",
+    "publisher": "Microsoft",
+    "lineage_id": "phi-3",
+    "lineage_role": "base",
+    "derives_from": []
+  },
+
+  "deepseek-r1": {
+    "model_id": "deepseek-r1",
+    "publisher": "DeepSeek",
+    "lineage_id": "unknown-deepseek-r1",
+    "lineage_role": "distill-or-base",
+    "derives_from": [],
+    "lineage_verified": false,
+    "independence_note": "DELIBERATELY UNVERIFIED. Most deepseek-r1 tags under ~70B are distillations into Qwen or Llama base models, so the tag's real lineage depends on which size you pulled — a 7B may sit on Qwen 2.5 and an 8B on Llama 3.1. We will not guess per tag, and an unverified model does not earn independent standing. Verify your specific tag and add an entry before relying on it as an independent challenger."
+  },
+  "deepseek-v3": {
+    "model_id": "deepseek-v3",
+    "publisher": "DeepSeek",
+    "lineage_id": "deepseek-v3",
+    "lineage_role": "base",
+    "derives_from": []
+  }
+}
