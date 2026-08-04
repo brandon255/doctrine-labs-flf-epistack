@@ -56,7 +56,7 @@
     "provenance": {
       "captured_by": "user",
       "captured_at": "2026-08-03T13:50:00.000Z",
-      "context": "npm test in the Core OS repository; the TAP summary reports the test count. NOTE: same repository state as self-commits-coreos \u2014 one lineage, two readings.",
+      "context": "npm test in the Core OS repository; the TAP summary reports the test count. NOTE: same repository state as self-commits-coreos — one lineage, two readings.",
       "correlated_with": [
         "self-commits-coreos"
       ]
@@ -166,7 +166,7 @@
     "provenance": {
       "captured_by": "user",
       "captured_at": "2026-08-03T13:50:00.000Z",
-      "context": "npm test in this repository; the TAP summary reports the test count. Same repository state as self-commits-epistack \u2014 one lineage, two readings.",
+      "context": "npm test in this repository; the TAP summary reports the test count. Same repository state as self-commits-epistack — one lineage, two readings.",
       "correlated_with": [
         "self-commits-epistack"
       ]
@@ -187,7 +187,7 @@
       "type": "external_source",
       "identifier": "perplexity-export-2026-08-03",
       "root_source_id": "provider-timestamps",
-      "excerpt": "2026-05-12 17:10 \u2014 first dated user-attested artifact in the project record. The first Core OS commit is timestamped 2026-05-31 12:13."
+      "excerpt": "2026-05-12 17:10 — first dated user-attested artifact in the project record. The first Core OS commit is timestamped 2026-05-31 12:13."
     },
     "provenance": {
       "captured_by": "user",

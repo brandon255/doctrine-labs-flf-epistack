@@ -255,7 +255,7 @@ a specific line rather than in the air.
   Automated ingestion is the biggest thing not built — see `SPEC.md` §8.
 - Four of the five assessment jobs run and produce verified output but have not had
   their output quality reviewed case by case. Wired is not the same as done, and
-  `docs/SHIP_STATUS.md` tracks the difference honestly.
+  gaps are listed in `SPEC.md` §8 and `docs/DEFECT_REGISTER.md`.
 
 ## Where to look
 
@@ -274,18 +274,13 @@ a specific line rather than in the air.
 | Assessment jobs | `src/epistemic/jobs.js` |
 | Lineage judgments (COVID) | `docs/epistemic/covid/source_registry.json` |
 | Generated reports | `docs/epistemic/*/RUN_OUTPUT.md` |
-| Build status, including gaps | `docs/SHIP_STATUS.md` |
+| Known defects and what caught them | `docs/DEFECT_REGISTER.md` |
 
 ## Who built this
 
-Brandon Flores a Industrial Designer of Sixteen years, with a vertically integrated manufacturing, concept to consumer. I specialize in processes and materials, human factors, and shipping physical products.
-I'm into my 6th month of building software. Not a senior engineer, not a virologist. What I bring is a
-designer's habit: take a fuzzy worry — *"are these sources really independent?"* —
-and turn it into one command that asks as little interpretation as possible of the
-person reading the output.
+Brandon Flores — industrial designer, 16 years shipping physical products (concept to consumer); ~6 months building software. Not a senior engineer, not a virologist. What I bring is a designer's habit: take a fuzzy worry — *"are these sources really independent?"* — and turn it into one command that asks as little interpretation as possible of the person reading the output.
 
-This is one slice of a larger local-first system called Core OS.
-[What else I'm building →](http://127.0.0.1:4318/about.html)
+This repo is a Doctrine Labs gift: one epistemic slice, given freely.
 
 brandon@doctrinelabs.com
 
