@@ -1,0 +1,506 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 2185 >>
+stream
+BT
+/F1 16 Tf
+1 0 0 1 50 728 Tm
+(How the FLF Epistemic Stack works) Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(Attachment for Ali  follow-up to early feedback \(Jun 30\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Brandon Flores · Doctrine Labs · brandon@bmflores.com) Tj
+0 -3 Td
+(Repo \(public\): https://github.com/brandon255/doctrine-labs-flf-epistack) Tj
+0 -3 Td
+(What this is: A short, human-written explanation of how the current build works. Not a prize) Tj
+0 -3 Td
+(claim. Not a slide deck.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(Co-writing \(straight\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(This note was co-written with Cursor, the coding agent I work with daily. I call it Rivet.) Tj
+0 -3 Td
+(Same division of labor I named in the Jun 21 early-feedback note: I set the architecture and) Tj
+0 -3 Td
+(what "done" means. Rivet drafts and implements. I reverse-engineer every piece until I can) Tj
+0 -3 Td
+(defend it, run the tests, and revise when something is wrong.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(I don't hide that. Depth on every line is uneven. I'm about six months into software,) Tj
+0 -3 Td
+(sixteen years of industrial design before that. If a line here is wrong, the error is mine.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(1. The problem \(same bug as Jun 21 / Jul 19\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Three claims can cite one brochure and still get counted as three independent sources.) Tj
+0 -3 Td
+(That's the bug.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(The version you saw counted roots under a pile of citations. That was the navigation layer.) Tj
+0 -3 Td
+(It was real, and you named the contribution accurately: distinguishing repeat claims from) Tj
+0 -3 Td
+(the same ultimate source vs novel evidence.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(This build still does that, then goes one step further. It asks whether a conclusion drawn) Tj
+0 -3 Td
+(from that pile survives scrutiny from something that cannot share the author's blind spots.) Tj
+0 -3 Td
+(Navigation plus assessment.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Out of scope \(unchanged\): settling COVID origins, LHC safety, or egg nutrition.) Tj
+0 -3 Td
+(Infrastructure and evidential support only.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1984 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 728 Tm
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(2. What the system does, in four stages) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Four stages. Separate modules. Run in order.) Tj
+0 -4 Td
+() Tj
+0 -6 Td
+(Stage 1  Resolve identity \(genealogy\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Code: src/epistemic/ingest.js, genealogy.js, source_identity.js) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Load a case folder \(evidence_blocks.json, source_registry.json\). Map every block to three) Tj
+0 -3 Td
+(levels:) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Level  ·  Counts  ·  Example) Tj
+0 -3 Td
+(Claim  ·  One excerpt  ·  One quote in the JSON) Tj
+0 -3 Td
+(Document  ·  One bibliographic unit  ·  One paper, one report) Tj
+0 -3 Td
+(Lineage  ·  One underlying observation  ·  One experiment, one dataset, one generative event) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Headline number is always lineage. Counting claims overstates by how many excerpts you) Tj
+0 -3 Td
+(pulled. Counting documents still treats two follow-on papers from one dataset as two) Tj
+0 -3 Td
+(sources. Lineage is the conservative count. Overstating independence is the failure mode we) Tj
+0 -3 Td
+(care about.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Live shape \(COVID, after this build\): excerpts ’ documents ’ lineages, with a citation) Tj
+0 -3 Td
+(inflation factor printed on the report.) Tj
+0 -4 Td
+() Tj
+0 -6 Td
+(Stage 2  Propose) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Code: src/epistemic/adjudicate.js \(propose\), llm.js) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Ask a question of the corpus. A local model \(Ollama\) returns JSON: conclusion, confidence,) Tj
+0 -3 Td
+(optional assumption, and reasoning steps. Each step must cite a block and quote the passage) Tj
+0 -3 Td
+(it relies on.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(That output is a proposal. Not a verdict.) Tj
+0 -4 Td
+() Tj
+0 -6 Td
+(Stage 3  Verify \(deterministic\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Code: verifyCitations\(\) in adjudicate.js, measure.js) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(No model in this stage. For each reasoning step:) Tj
+0 -4 Td
+() Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 2430 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 728 Tm
+(1. Cited block IDs must exist in the corpus.) Tj
+0 -3 Td
+(2. Text quotes must appear verbatim in the cited block.) Tj
+0 -3 Td
+(3. Measurement blocks: re-run a whitelisted read-only command and compare declared value to measured value. Exact match only.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Cite without quote ’ flagged weak. All weak ’ verdict unsubstantiated \(not a pass\).) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(If a measurement can't run on this machine \(repo not present\), result is unverifiable_here.) Tj
+0 -3 Td
+(Third state. Not the same as failed. Unchecked never counts as verified.) Tj
+0 -4 Td
+() Tj
+0 -6 Td
+(Stage 4  Challenge panel + verdict) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Code: mechanical_challenge.js, rest of adjudicate.js, model_identity.js) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Two seats on the panel.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Seat A  mechanical challenger. Always runs. Zero models. Eight checks \(C1C8\): coverage,) Tj
+0 -3 Td
+(lineage span, single-lineage concentration, uncited contradiction, confidence mismatch, weak) Tj
+0 -3 Td
+(steps, quote concentration, measurement validity. Shares no weights or training data with) Tj
+0 -3 Td
+(the proposer because it isn't a model. Independence is a property of the code, not a) Tj
+0 -3 Td
+(calibration. This is the only seat whose independence we can guarantee.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Seat B  model challenger \(optional\). Sees the conclusion, not the reasoning \(blind\). Picked) Tj
+0 -3 Td
+(via models/registry.json. Only counts as independent if weight lineage is verified different) Tj
+0 -3 Td
+(from the proposer's. Same family = second call, not second source.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Verdicts \(computed, not declared\):) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Verdict  ·  Meaning) Tj
+0 -3 Td
+(`unverified`  ·  Citation check failed. Done.) Tj
+0 -3 Td
+(`unsubstantiated`  ·  Every step cited without quoting.) Tj
+0 -3 Td
+(`verified_unchallenged`  ·  Citations ok; no challenge ran.) Tj
+0 -3 Td
+(`verified`  ·  Citations ok; challenges found nothing.) Tj
+0 -3 Td
+(`contested`  ·  Two or more independent lineages objected.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Human is the last lineage on the panel. Recording a position raises independence to strong.) Tj
+0 -3 Td
+(Positions write to decisions/*.json. "On the record" is real, not copy.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(3. How that answers the bug) Tj
+0 -4 Td
+() Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 2271 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 728 Tm
+(Overcounting. Stage 1 reports lineages, not citation counts. Cochrane's Handbook \(Ch. 5\)) Tj
+0 -3 Td
+(still says there is no fully automated recommended tool for reconciling multiple reports of) Tj
+0 -3 Td
+(one study. We didn't invent that problem. We shipped tooling for the half that stays manual) Tj
+0 -3 Td
+(in most workflows.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Unchallenged conclusions. Stages 24 force shown work, mechanical citation checks, then a) Tj
+0 -3 Td
+(panel that includes a challenger that cannot share the proposer's blind spots. Same-model) Tj
+0 -3 Td
+(self-preference is documented \(Panickssery et al., NeurIPS 2024\). Seat A is the structural) Tj
+0 -3 Td
+(answer.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Self-check. Case self points the tool at claims about me. Mechanical challenger catches) Tj
+0 -3 Td
+(overstatement in my own evidence. Same shape as one lineage counted several times in COVID.) Tj
+0 -3 Td
+(docs/DEFECT_REGISTER.md lists bugs I shipped. Every entry names a test. npm run) Tj
+0 -3 Td
+(verify:register fails if a claimed guard is missing.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(4. What it does / doesn't \(honest\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Does:) Tj
+0 -3 Td
+(" Resolve claim ’ document ’ lineage and print the conservative count) Tj
+0 -3 Td
+(" Require cited, quoted reasoning on every judgment) Tj
+0 -3 Td
+(" Re-run measurement claims from a whitelist) Tj
+0 -3 Td
+(" Run a model-free mechanical challenge every time) Tj
+0 -3 Td
+(" Persist human positions) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Doesn't:) Tj
+0 -3 Td
+(" Find papers \(Elicit\)) Tj
+0 -3 Td
+(" Index citation statements at web scale \(Scite\)) Tj
+0 -3 Td
+(" Verify fabricated/misquoted references at corpus scale \(CiteAudit, CiteTracer, and related tools\)) Tj
+0 -3 Td
+(" Settle the underlying scientific questions) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Uplift claim stays narrow: structure and checkable independence, not better prose and not) Tj
+0 -3 Td
+(domain expertise.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(5. What's in the repo now \(verify, don't trust me\)) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(As of this build: npm test ’ 188 passing in the epistack repo \(no network\). Re-run before) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 2022 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 728 Tm
+(you review.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Piece  ·  Where) Tj
+0 -3 Td
+(Cover note  ·  `COVER_NOTE_TO_FLF.md`) Tj
+0 -3 Td
+(Methodology  ·  `SPEC.md`) Tj
+0 -3 Td
+(Defect register  ·  `docs/DEFECT_REGISTER.md`) Tj
+0 -3 Td
+(Prior art \(incl. blanks in our row\)  ·  `docs/PRIOR_ART.md`) Tj
+0 -3 Td
+(Frozen demos \(no install\)  ·  `docs/transcripts/` \(26 runs\)) Tj
+0 -3 Td
+(Genealogy + adjudication  ·  `src/epistemic/`) Tj
+0 -3 Td
+(Mechanical checks C1C8  ·  `src/epistemic/mechanical_challenge.js`) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(```bash) Tj
+0 -3 Td
+(git clone https://github.com/brandon255/doctrine-labs-flf-epistack.git) Tj
+0 -3 Td
+(cd doctrine-labs-flf-epistack) Tj
+0 -3 Td
+(npm test) Tj
+0 -3 Td
+(npm run epistemic:covid) Tj
+0 -3 Td
+(```) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(No install beyond Node 20. No API key. Mechanical half runs cold. Local model optional for) Tj
+0 -3 Td
+(live propose/challenge. Prefer not to clone: open docs/transcripts/ on GitHub.) Tj
+0 -4 Td
+() Tj
+0 -8 Td
+() Tj
+0 -4 Td
+() Tj
+0 -6 Td
+() Tj
+0 -8 Td
+(6. What I claim / what I don't) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(What I claim: I found a real gap while dogfooding, built the navigation layer you reviewed,) Tj
+0 -3 Td
+(then built the assessment layer on top. It runs. Tests pass. Failures are named. I'm) Tj
+0 -3 Td
+(learning the domain in public.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(What I do not claim: first to notice the problem \(Greenberg 2009; Cochrane handbook\). Senior) Tj
+0 -3 Td
+(engineer credentials. That every adjacent tool is worse. That COVID/LHC/eggs are settled.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(I'm not submitting as an epistemologist. I'm submitting as a builder who found an) Tj
+0 -3 Td
+(infrastructure gap while doing your homework, then kept building after your early read.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(Thanks again for the Jun 30 feedback. It moved the work.) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+( Brandon) Tj
+0 -4 Td
+() Tj
+0 -3 Td
+(*Doctrine Labs · co-written with Cursor \(Rivet\) · Brandon Flores*) Tj
+0 -4 Td
+() Tj
+ET
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000141 00000 n 
+0000000211 00000 n 
+0000000337 00000 n 
+0000002570 00000 n 
+0000002696 00000 n 
+0000004714 00000 n 
+0000004840 00000 n 
+0000007304 00000 n 
+0000007432 00000 n 
+0000009730 00000 n 
+0000009858 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R /Info << /Title (How the FLF Epistemic Stack works) >> >>
+startxref
+11919
+%%EOF
