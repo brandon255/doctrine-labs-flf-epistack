@@ -281,11 +281,10 @@ their mind.** That answer goes on the record next to the model's.
 - **Stops sharing:** everything. Different substrate entirely
 - **Cost:** small — UI plus a record field
 - **Independence:** **maximal**
-- **Why this is the right call for us specifically:** it is already Core OS doctrine.
-  `CLAUDE.md`: *"Stage advancement happens only via the engine's approve() control channel
-  after an anti-passivity answer."* The epistemic stack currently does not honour the
-  house rule. Gate 1 of `NORTH_STAR.md` — does this prepare the human to think better —
-  and the whole "educate, don't direct" doctrine from `MISSION.md` both point here.
+- **Why this is the right call for us specifically:** it matches sibling Core OS doctrine —
+  stage advancement only after an anti-passivity answer on the approve path; prepare the
+  human to think better; educate, don't direct. The epistemic stack currently does not
+  honour that house rule.
 
 This is the route most aligned with what Doctrine Labs claims to be, and it is the
 cheapest one on the list.
@@ -534,7 +533,7 @@ still open and are genuinely his call.
    reaches stage 4 — the exposed surface is one moment, for the subset who installed
    something. Second, anti-passivity does not require prose. *Which objection is most
    serious* cannot be answered without reading the objections, so two clicks satisfy the
-   house rule from `CLAUDE.md` where a blank text box would mostly just stall people.
+   house rule from sibling Core OS docs where a blank text box would mostly just stall people.
 
    Every question is about the **structure of the argument** — the load-bearing
    assumption, which objection bites, what would change your mind — and never about the

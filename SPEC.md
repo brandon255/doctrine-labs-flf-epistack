@@ -479,4 +479,4 @@ position at all — by design.
 | Baseline ablation | `docs/validation/BASELINE_COMPARISON.md` |
 | Injection red team | `docs/validation/REDTEAM_INJECTION.md` |
 | Where this breaks | `docs/FAILURE_MODES.md` |
-| Full build status, including gaps | `docs/SHIP_STATUS.md` |
+| Known defects and failure modes | `docs/DEFECT_REGISTER.md` · `docs/FAILURE_MODES.md` |

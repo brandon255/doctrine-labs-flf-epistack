@@ -129,7 +129,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "bac7916 chore: make sync .command scripts executable\nd0fe0b1 WIP: here.now research notes (corrected: it's a sites platform, not maps)\na88e08d WIP: Doctrine Labs architecture blueprint + Mac/Win hardware recommendation for Adam\nb2b9c57 WIP: Dell pickup prompt + archivist recap + customer pipeline + here.com research notes\n991de42 WIP: CAD agents (sw + fusion) + archivist check-off\n749f181 feat(cad): intake pipeline + VANCLIEF ledger + Dell pickup guide\n5dbb719 feat(jake): VIP Leaf Notes read-onl"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
         },
         {
           "id": "self-tests-coreos",
@@ -186,7 +186,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "bac7916 chore: make sync .command scripts executable\nd0fe0b1 WIP: here.now research notes (corrected: it's a sites platform, not maps)\na88e08d WIP: Doctrine Labs architecture blueprint + Mac/Win hardware recommendation for Adam\nb2b9c57 WIP: Dell pickup prompt + archivist recap + customer pipeline + here.com research notes\n991de42 WIP: CAD agents (sw + fusion) + archivist check-off\n749f181 feat(cad): intake pipeline + VANCLIEF ledger + Dell pickup guide\n5dbb719 feat(jake): VIP Leaf Notes read-onl"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
         },
         {
           "id": "self-tests-coreos",
@@ -243,7 +243,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "bac7916 chore: make sync .command scripts executable\nd0fe0b1 WIP: here.now research notes (corrected: it's a sites platform, not maps)\na88e08d WIP: Doctrine Labs architecture blueprint + Mac/Win hardware recommendation for Adam\nb2b9c57 WIP: Dell pickup prompt + archivist recap + customer pipeline + here.com research notes\n991de42 WIP: CAD agents (sw + fusion) + archivist check-off\n749f181 feat(cad): intake pipeline + VANCLIEF ledger + Dell pickup guide\n5dbb719 feat(jake): VIP Leaf Notes read-onl"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
         },
         {
           "id": "self-tests-coreos",

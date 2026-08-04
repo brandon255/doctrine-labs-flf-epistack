@@ -245,9 +245,7 @@ async function main() {
   );
   idx.push("");
   idx.push(
-    "**Prefer to watch it?** There is a three-minute walkthrough: " +
-      "Screencast not uploaded yet. Shot list and narration: " +
-      "[`../SCREENCAST_SCRIPT.md`](../SCREENCAST_SCRIPT.md)."
+    "No screencast in this gift; transcripts are the demo."
   );
   idx.push("");
   idx.push("## What you're looking at");

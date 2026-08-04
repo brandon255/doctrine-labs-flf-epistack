@@ -99,14 +99,6 @@ export async function routeRequest({ method, pathname, search, body = {} }) {
     }
   }
 
-  if (method === "GET" && (pathname === "/about" || pathname === "/about.html")) {
-    try {
-      const html = await readFile(join(WEB_DIR, "about.html"), "utf8");
-      return { status: 200, headers: { "content-type": "text/html; charset=utf-8" }, body: html };
-    } catch {
-      return { status: 404, headers: { "content-type": "text/plain" }, body: "about.html missing" };
-    }
-  }
 
   if (method === "GET" && pathname === "/case.html") {
     try {

@@ -18,8 +18,7 @@ to end — the model's proposal, the mechanical citation check, the challenge pa
 verdict. Verbatim, including the runs that failed. Five minutes of reading, nothing
 installed, no 5GB model download.
 
-(Screencast is still planned — shot list in `docs/SCREENCAST_SCRIPT.md`. Until then,
-the transcripts are the no-install demo.)
+The transcripts are the no-install demo — read them instead of installing anything.
 
 And if you do want to run it: the half of the tool that does the actual epistemic work
 — the three-level independence model, citation verification, and all eight mechanical
@@ -164,7 +163,7 @@ position deliberately. It describes the structure of an evidence base, not the w
 Evidence blocks are still hand-curated — automated ingestion is the largest gap and I
 say so in the spec rather than letting you find it. Four of five assessment jobs run and
 produce verified output but have not had their output reviewed case by case; I call
-those wired rather than done, and track the difference in `docs/SHIP_STATUS.md`.
+those wired rather than done, and track the difference in `SPEC.md` §8 and `docs/DEFECT_REGISTER.md`.
 
 `docs/FAILURE_MODES.md` lists eight ways this breaks, with severities.
 
