@@ -41,6 +41,24 @@ anyone who doesn't want to pull a 5GB model.
 
 ---
 
+## Side-by-side
+
+Post-retrieval verification layer — not a competitor to the finders. Blanks in our
+row are real. Full comparison and sources: [`docs/PRIOR_ART.md`](docs/PRIOR_ART.md).
+
+| Capability | Elicit | Scite | Iris.ai | Scriptorium | **FLF Epistemic Stack** |
+|---|---|---|---|---|---|
+| Find papers | ✓ (138M) | – | ✓ | uses others | – |
+| Classify citations | – | ✓ (1.2B) | – | – | – |
+| Link claim → source sentence | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Refuse unsupported output | partial | – | – | ✓ | ✓ |
+| Resolve lineage (claim/doc/observation) | – | – | – | – | ✓ |
+| Report independent count, not citation count | – | – | – | – | ✓ |
+| Challenger structurally independent of proposer | – | – | – | – | ✓ |
+| Local-first, zero-network | – | – | – | partial | ✓ |
+
+---
+
 ## Run it
 
 ```bash
