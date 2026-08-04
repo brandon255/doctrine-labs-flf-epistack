@@ -172,7 +172,7 @@ When output appears, scroll to the **Challenge panel** section.
 1. **Watch it once, all the way through.** If a notification appeared or audio dropped,
    re-record — it is three minutes.
 2. Upload to YouTube, visibility **Unlisted**.
-3. Title: `FLFBuild — a three-minute walkthrough`
+3. Title: `FLF Epistemic Stack — a three-minute walkthrough`
 4. Paste the URL into the three places listed at the top of this file.
 
 **IF STUCK:** if a live run fails on camera, keep it and say so out loud — *"that's an

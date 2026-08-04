@@ -1,15 +1,18 @@
-# Email draft to Ali — v2, in Brandon's voice
+# Email reply draft — for Brandon to edit and send
 
 **Subject:** Re: early feedback on the epistack submission
 
+**Attach:** `docs/outreach/FLF_HOW_IT_WORKS.pdf`  
+(Human-written how-it-works note for FLF. No named recipient in the PDF.)
+
 ---
 
-Ali,
+Hi,
 
 Thanks for the early look. The feedback landed. Three things you said, and
 where each one is now.
 
-Attached: a short PDF, "How the FLF Epistemic Stack works," written in the
+Attached: a short PDF, *How the FLF Epistemic Stack works*, written in the
 same voice as the Jun 21 / Jul 19 packets. Co-written with Cursor (I call it
 Rivet). Same trade as before: I architect and verify; the agent implements;
 I own the result.
@@ -88,47 +91,21 @@ Brandon
 
 ## Notes for Brandon before you send
 
-**This is in your voice now, not mine.** The structure is mine; the sentences
-are shaped to match how you write in `FLF_JUN21_EARLY_FEEDBACK.md`: short
-declarative lines, no em dashes, owns the trade, names what you don't claim.
+**Attachment name:** `FLF_HOW_IT_WORKS.pdf` — FLF-facing, no personal name in
+the file or the PDF body. Attach that. Do not attach anything named for a
+person.
 
-**Read it out loud.** Change any word that doesn't sound like you. The goal is
-that if Ali quoted a sentence back to you on a call, you'd recognize it as
-yours.
+**Greeting:** This draft says "Hi," on purpose so the repo copy stays generic.
+When you paste into your mail client, put the recipient's name yourself if you
+want. Do not commit that name back into the repo.
 
-**Three things I want to flag about the tone match:**
+**Read it out loud.** Change any word that doesn't sound like you.
 
-1. **The "my fault" line about the private repo.** This matches how you write
-   in the Jun 21 doc ("I'm not going to pretend otherwise"). Owning the access
-   mistake plainly, without groveling, is the move. Don't soften it to "sorry
-   about that" — keep it factual.
+**Tone flags:**
+1. Own the private-repo miss factually. Don't grovel.
+2. "Written fast under pressure" owns the nervousness without apologizing for
+   the tool.
+3. Six-months paragraph is continuity with Jun 21 / the cover letter, not a
+   confession.
 
-2. **The "written fast under pressure" line.** This is you owning the
-   nervousness you mentioned. It's not an apology. It's the same posture as
-   the Jun 21 doc: name the trade, don't dress it up. Ali's feedback already
-   named the consequence ("difficult to follow"); you're naming the cause.
-
-3. **The "six months into software" paragraph.** This was already in the Jun 21
-   doc and the cover letter PDF. Ali knows. Saying it again, in your voice,
-   isn't confession — it's continuity. It tells him you haven't retreated from
-   it.
-
-**On cohesion with what you already sent.** The email names the evolution
-honestly: "the version you saw was the genealogy layer; this is the assessment
-layer." That's the right framing. Don't pretend the new repo is just a cleaner
-version of the old PDF — it's materially bigger. Ali will respect the honesty
-more than a pretense of continuity.
-
-**On length.** This is longer than the first draft. That's deliberate: you're
-showing Ali his feedback was heard and acted on, point by point. A short email
-would signal you didn't engage with what he said. This length signals respect.
-
-**Subject line.** "Re:" keeps it in the thread he already started. If you start
-fresh, use: "Updated epistack submission — public repo, your-name docs, working
-demos."
-
-**Send from the address he replied to.** brandon@bmflores.com based on the
-prior correspondence.
-
-**After you send: stop checking for 72 hours.** The most likely response is
-slow. Refreshing won't make it faster. The gift is given.
+**After you send: stop checking for 72 hours.** The gift is given.

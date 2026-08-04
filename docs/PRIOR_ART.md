@@ -1,4 +1,4 @@
-# Prior art — what exists, and where FLFBuild sits
+# Prior art — what exists, and where FLF Epistemic Stack sits
 
 Honest comparison, not marketing. Every claim labeled per
 [`docs/claims/DISCIPLINE.md`](claims/DISCIPLINE.md) — PROVED (cited), BUILT (in this
@@ -11,7 +11,7 @@ There is almost none for **counting how many independent observations actually s
 pile of citations**, and none at all that does it with a challenger whose independence from
 the proposer is structurally guaranteed rather than assumed.
 
-FLFBuild sits at the **conclusion** end of the pipeline, not the **retrieval** end. It is
+FLF Epistemic Stack sits at the **conclusion** end of the pipeline, not the **retrieval** end. It is
 not a competitor to Elicit, Scite, or Iris.ai. It is the layer you run *after* those tools
 hand you a corpus and *before* you trust the conclusion drawn from it.
 
@@ -101,20 +101,70 @@ verify that **a citation resolves**. None of them verify that **the things being
 independent of each other**, which is a strictly harder problem and the one Greenberg
 named.
 
+## The two halves of the problem — and where the field actually stands
+
+This matters more than a feature table, and it corrects a temptation in the
+rest of this document. The problem of "are these citations actually independent"
+is not unsolved. It is split in two, and one half is heavily worked while the
+other is not.
+
+**Half one — "is the citation real and accurately quoted."** Heavily worked,
+active field. Cochrane-affiliated deduplicators (Deduplicator, ASySD,
+Deduklick) handle the easy case: the same record showing up twice in a search.
+[PROVED — [doi.org/10.1186/s13643-024-02619-9](https://doi.org/10.1186/s13643-024-02619-9)]
+On the harder end, multi-agent systems verify that cited references exist,
+match their metadata, and actually support the claim attributed to them:
+CiteAudit (benchmark + framework, 2026), CiteTracer (12-code error taxonomy),
+paper-verify (multi-judge LLM fact-checking), CiteScreener (JCDL 2025).
+[PROVED — [arxiv.org/pdf/2602.23452](https://www.arxiv.org/pdf/2602.23452),
+[github.com/aaFrostnova/CiteTracer](https://github.com/aaFrostnova/CiteTracer),
+[github.com/nolainjin/paper-verify](https://github.com/nolainjin/paper-verify),
+[doi.org/10.1109/jcdl67857.2025.00027](https://doi.org/10.1109/jcdl67857.2025.00027)]
+
+We do not compete with any of these. They solve the problem of whether a
+citation is honest; we solve the problem of whether honest citations are
+independent.
+
+**Half two — "how many independent observations sit under the citations that
+are all real and all accurately quoted."** Named, acknowledged, and not
+solved by automation. The Cochrane Handbook, Chapter 5, states the doctrine
+directly: "systematic reviews have studies, rather than reports, as the unit
+of interest, and so multiple reports of the same study need to be identified
+and linked together." It then names the tooling gap without flinching: "there
+is currently no fully automated, recommended tool for extracting and
+reconciling data across multiple reports."
+[PROVED — [cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-05](https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-05)]
+
+A 2022 public-health paper calls double-counting of populations in evidence
+synthesis "a call for awareness and future methodological development," which
+is the academic phrasing for "this is unsolved and someone should build it."
+[PROVED — [wrap.warwick.ac.uk/id/eprint/170246](https://wrap.warwick.ac.uk/id/eprint/170246/)]
+
+**This is the precise shape of our contribution, stated honestly.** We did
+not discover the problem; Cochrane and Greenberg (2009) had it before us. We
+did not invent citation verification; half the field above is building it.
+What we built is the automation of the specific layer Cochrane names as
+unsolved — three-level independence resolution that collapses many reports to
+the observations underneath them — plus an adjudication layer that asks
+whether a conclusion drawn from that resolved corpus survives a challenge
+whose independence from the author is structural.
+
 ## The one we are doing that nobody else does
 
-This is the part I want to be careful about, because claiming novelty is exactly the shape
-of assertion this tool exists to challenge.
+A section heading phrased as a claim invites the test, so here is the test and
+its honest outcome.
 
-**The challenger-independence layer.** Every tool above uses one model, or models from one
-family, to both propose and verify. The self-preference bias this introduces is documented:
-Panickssery et al. (2024), "LLM Evaluators Recognize and Favor Their Own Generations,"
-*NeurIPS*, show a linear correlation between an LLM's ability to recognize its own output
-and its tendency to score it higher. [PROVED — [arxiv.org/abs/2404.13076](https://arxiv.org/abs/2404.13076)]
+**The challenger-independence layer.** Every tool above uses one model, or
+models from one family, to both propose and verify. The self-preference bias
+this introduces is documented: Panickssery et al. (2024), "LLM Evaluators
+Recognize and Favor Their Own Generations," *NeurIPS*, show a linear
+correlation between an LLM's ability to recognize its own output and its
+tendency to score it higher. [PROVED — [arxiv.org/abs/2404.13076](https://arxiv.org/abs/2404.13076)]
 
-Our mechanical challenger shares no weights, no training data, and no priors with the
-proposer — because it is not a model. It is deterministic code. Its independence is not
-a hypothesis we calibrated; it is a property of the implementation. [BUILT]
+Our mechanical challenger shares no weights, no training data, and no priors
+with the proposer — because it is not a model. It is deterministic code. Its
+independence is not a hypothesis we calibrated; it is a property of the
+implementation. [BUILT]
 
 I cannot find another tool in this space that makes that claim, and the reason is
 structural: most of them run on one hosted model and cannot materially do otherwise. We
@@ -129,7 +179,7 @@ literature search, not an exhaustive audit, and "I could not find one" is weaker
 
 ## Side-by-side
 
-| Capability | Elicit | Scite | Iris.ai | Scriptorium | **FLFBuild** |
+| Capability | Elicit | Scite | Iris.ai | Scriptorium | **FLF Epistemic Stack** |
 |---|---|---|---|---|---|
 | Find papers | ✓ (138M) | – | ✓ | uses others | – |
 | Classify citations (support/contradict) | – | ✓ (1.2B) | – | – | – |
@@ -149,7 +199,7 @@ because the capabilities are nearly disjoint.
 
 ## The defensible one-sentence position
 
-> Elicit and Scite will tell you what was said and who said it. FLFBuild tells you how many
+> Elicit and Scite will tell you what was said and who said it. FLF Epistemic Stack tells you how many
 > of those somebodies were actually independent, and whether the conclusion survives a
 > challenge from something that cannot share the author's blind spots.
 
