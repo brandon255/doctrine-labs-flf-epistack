@@ -17,6 +17,9 @@ same voice as the Jun 21 / Jul 19 packets. Co-written with Cursor (I call it
 Rivet). Same trade as before: I architect and verify; the agent implements;
 I own the result.
 
+How to run it (three paths: read-only, double-click, terminal):
+`docs/outreach/FLF_INSTRUCTIONS.md` in the repo.
+
 **"Couldn't access the linked git repo."**
 
 That was my fault. The repo was private and I sent a link, not access. It's

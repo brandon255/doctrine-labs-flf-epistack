@@ -14,6 +14,8 @@ Treat as 3 independent source(s), not 21.
 A gift to the Future of Life Foundation, with an open offer to keep working on it
 together.
 
+**Instructions (three paths):** [`docs/outreach/FLF_INSTRUCTIONS.md`](docs/outreach/FLF_INSTRUCTIONS.md).
+
 **Read the frozen transcripts first — no install required.** Every case, every job,
 and the recursive self-audit are captured as readable transcripts in
 [`docs/transcripts/`](docs/transcripts/). That is the primary artifact for a reviewer
