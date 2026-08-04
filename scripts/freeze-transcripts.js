@@ -246,7 +246,7 @@ async function main() {
   idx.push("");
   idx.push(
     "**Prefer to watch it?** There is a three-minute walkthrough: " +
-      "[screencast](SCREENCAST_URL_PENDING). Shot list and narration: " +
+      "Screencast not uploaded yet. Shot list and narration: " +
       "[`../SCREENCAST_SCRIPT.md`](../SCREENCAST_SCRIPT.md)."
   );
   idx.push("");

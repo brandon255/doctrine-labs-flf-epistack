@@ -132,7 +132,7 @@ Uplift claim stays narrow: structure and checkable independence, not better pros
 | Methodology | `SPEC.md` |
 | Defect register | `docs/DEFECT_REGISTER.md` |
 | Prior art (incl. blanks in our row) | `docs/PRIOR_ART.md` |
-| Frozen demos (no install) | `docs/transcripts/` (26 runs) |
+| Frozen demos (no install) | `docs/transcripts/` (25 runs + README) |
 | Genealogy + adjudication | `src/epistemic/` |
 | Mechanical checks C1–C8 | `src/epistemic/mechanical_challenge.js` |
 

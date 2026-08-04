@@ -28,7 +28,7 @@ public now, and it clones clean from a fresh checkout:
   https://github.com/brandon255/doctrine-labs-flf-epistack
 
 If you'd rather not clone anything, the no-install path is
-`docs/transcripts/`. 26 frozen runs of the full protocol, readable as plain
+`docs/transcripts/`. 25 frozen runs of the full protocol, readable as plain
 markdown on GitHub. Nothing to install, nothing to break.
 
 **"Fully LM-written and difficult to follow."**

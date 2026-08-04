@@ -392,7 +392,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<< /Length 1899 >>
+<< /Length 1908 >>
 stream
 BT
 /F1 9 Tf
@@ -409,7 +409,7 @@ BT
 0 -3 Td
 (Prior art \(incl. blanks in our row\)  ·  `docs/PRIOR_ART.md`) Tj
 0 -3 Td
-(Frozen demos \(no install\)  ·  `docs/transcripts/` \(26 runs\)) Tj
+(Frozen demos \(no install\)  ·  `docs/transcripts/` \(25 runs + README\)) Tj
 0 -3 Td
 (Genealogy + adjudication  ·  `src/epistemic/`) Tj
 0 -3 Td
@@ -496,5 +496,5 @@ xref
 trailer
 << /Size 14 /Root 1 0 R /Info << /Title (How the FLF Epistemic Stack works) >> >>
 startxref
-11883
+11892
 %%EOF

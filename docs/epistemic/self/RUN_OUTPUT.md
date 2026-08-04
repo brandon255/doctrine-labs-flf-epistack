@@ -30,7 +30,7 @@ Citation inflation factor: **2x** — the corpus *looks* 8 sources deep and is 4
   - `coreos-repo-test-count` (measurement)
   - `coreos-repo-first-commit` (measurement)
 - **`epistack-repo-state`** — 2 excerpt(s) across 2 document(s)
-  - `epistack-repo-commit-count` (measurement)
+  - `epistack-repo-transcript-file-count` (measurement)
   - `epistack-repo-test-count` (measurement)
 - **`provider-timestamps`** — 1 excerpt(s) across 1 document(s)
   - `provider-issued-timestamps` (independent_analysis)
@@ -42,7 +42,7 @@ Citation inflation factor: **2x** — the corpus *looks* 8 sources deep and is 4
 - `coreos-repo-commit-count` | independent: self-commits-coreos
 - `coreos-repo-test-count` | independent: self-tests-coreos
 - `coreos-repo-first-commit` | independent: self-first-commit
-- `epistack-repo-commit-count` | independent: self-commits-epistack
+- `epistack-repo-transcript-file-count` | independent: self-commits-epistack
 - `epistack-repo-test-count` | independent: self-tests-epistack
 - `provider-issued-timestamps` | independent: self-19-day-span
 - `builder-self-assertion` | correlated — **2 excerpts, one source**: self-rarity-funnel-FLAWED, self-lineage-correlation-FLAWED
@@ -55,7 +55,7 @@ Where one document's reasoning is built on another's. These are not independent.
   - Declared derivation.
 - `coreos-repo-first-commit` derives from `coreos-repo-commit-count`
   - Declared derivation.
-- `epistack-repo-test-count` derives from `epistack-repo-commit-count`
+- `epistack-repo-test-count` derives from `epistack-repo-transcript-file-count`
   - Declared derivation.
 
 ## Blocks
@@ -63,8 +63,8 @@ Where one document's reasoning is built on another's. These are not independent.
 - `self-commits-coreos` | HIGH | independent | Core OS has 94 commits under version control.
 - `self-tests-coreos` | HIGH | independent | Core OS has 536 passing automated tests.
 - `self-first-commit` | HIGH | independent | The first Core OS commit is dated 2026-05-31.
-- `self-commits-epistack` | HIGH | independent | The FLF Epistemic Stack has 8 commits under version control.
-- `self-tests-epistack` | HIGH | independent | The FLF Epistemic Stack has 165 passing automated tests with zero runtime dependencies.
+- `self-commits-epistack` | HIGH | independent | docs/transcripts/ contains 26 files (25 frozen adjudication runs plus the README index).
+- `self-tests-epistack` | HIGH | independent | The FLF Epistemic Stack has 188 passing automated tests with zero runtime dependencies.
 - `self-19-day-span` | HIGH | independent | Nineteen days elapsed between not knowing how to use GitHub and the first Core OS commit.
 - `self-rarity-funnel-FLAWED` | LOW | correlated | The builder ranks in the single digits globally via eleven multiplicative prevalence layers.
 - `self-lineage-correlation-FLAWED` | LOW | correlated | ADHD combined type (prevalence ~3%) multiplied by entrepreneurial drive among ADHD adults (300% more likely) yields a jo...
@@ -78,7 +78,7 @@ Where one document's reasoning is built on another's. These are not independent.
 - coreos-repo-commit-count <-> coreos-repo-first-commit (Both draw on coreos-repo-state. Agreement between them is weak corroboration.)
 - coreos-repo-commit-count <-> coreos-repo-test-count (Both draw on coreos-repo-state. Agreement between them is weak corroboration.)
 - coreos-repo-first-commit <-> coreos-repo-test-count (Both draw on coreos-repo-state. Agreement between them is weak corroboration.)
-- epistack-repo-commit-count <-> epistack-repo-test-count (Both draw on epistack-repo-state. Agreement between them is weak corroboration.)
+- epistack-repo-test-count <-> epistack-repo-transcript-file-count (Both draw on epistack-repo-state. Agreement between them is weak corroboration.)
 
 ## Human review required
 

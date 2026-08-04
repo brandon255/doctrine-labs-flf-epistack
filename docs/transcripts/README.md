@@ -2,7 +2,7 @@
 
 A reviewer with a stack of submissions should not have to pull a five-gigabyte model to see whether this works. These are complete adjudication runs, captured verbatim from a real machine, including the ones that failed.
 
-**Prefer to watch it?** There is a three-minute walkthrough: [screencast](SCREENCAST_URL_PENDING). Shot list and narration: [`../SCREENCAST_SCRIPT.md`](../SCREENCAST_SCRIPT.md).
+**Prefer to watch it?** Screencast not uploaded yet. Shot list and narration: [`../SCREENCAST_SCRIPT.md`](../SCREENCAST_SCRIPT.md).
 
 ## What you're looking at
 

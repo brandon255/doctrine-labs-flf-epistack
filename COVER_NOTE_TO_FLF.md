@@ -18,8 +18,8 @@ to end — the model's proposal, the mechanical citation check, the challenge pa
 verdict. Verbatim, including the runs that failed. Five minutes of reading, nothing
 installed, no 5GB model download.
 
-If you'd rather watch it than read it, there's a short screen recording linked at the
-top of that folder.
+(Screencast is still planned — shot list in `docs/SCREENCAST_SCRIPT.md`. Until then,
+the transcripts are the no-install demo.)
 
 And if you do want to run it: the half of the tool that does the actual epistemic work
 — the three-level independence model, citation verification, and all eight mechanical
