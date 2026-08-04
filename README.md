@@ -1,4 +1,4 @@
-# FLFBuild — a gift
+# FLF Epistemic Stack — a gift
 
 A small, runnable tool that answers one question about a pile of evidence:
 **how many times was the world actually observed here?**

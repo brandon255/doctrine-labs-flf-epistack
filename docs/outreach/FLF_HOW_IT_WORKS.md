@@ -1,5 +1,4 @@
 # How the FLF Epistemic Stack works
-## Attachment for Ali — follow-up to early feedback (Jun 30)
 
 **Brandon Flores** · Doctrine Labs · brandon@bmflores.com  
 **Repo (public):** https://github.com/brandon255/doctrine-labs-flf-epistack  
@@ -19,7 +18,7 @@ I don't hide that. Depth on every line is uneven. I'm about six months into soft
 
 Three claims can cite one brochure and still get counted as three independent sources. That's the bug.
 
-The version you saw counted **roots** under a pile of citations. That was the navigation layer. It was real, and you named the contribution accurately: distinguishing repeat claims from the same ultimate source vs novel evidence.
+The early packets shipped a **provenance genealogy layer**: count **roots** under a pile of citations. That was the navigation layer. Real contribution: distinguishing repeat claims from the same ultimate source vs novel evidence.
 
 This build still does that, then goes one step further. It asks whether a **conclusion** drawn from that pile survives scrutiny from something that cannot share the author's blind spots. Navigation plus assessment.
 
@@ -75,9 +74,9 @@ If a measurement can't run on this machine (repo not present), result is **`unve
 
 Two seats on the panel.
 
-**Seat A — mechanical challenger.** Always runs. Zero models. Eight checks (C1–C8): coverage, lineage span, single-lineage concentration, uncited contradiction, confidence mismatch, weak steps, quote concentration, measurement validity. Shares no weights or training data with the proposer because it isn't a model. Independence is a property of the code, not a calibration. This is the only seat whose independence we can guarantee.
+**Seat 1 — mechanical challenger.** Always runs. Zero models. Eight checks (C1–C8): coverage, lineage span, single-lineage concentration, uncited contradiction, confidence mismatch, weak steps, quote concentration, measurement validity. Shares no weights or training data with the proposer because it isn't a model. Independence is a property of the code, not a calibration. This is the only seat whose independence we can guarantee.
 
-**Seat B — model challenger (optional).** Sees the conclusion, not the reasoning (blind). Picked via `models/registry.json`. Only counts as independent if weight lineage is verified different from the proposer's. Same family = second call, not second source.
+**Seat 2 — model challenger (optional).** Sees the conclusion, not the reasoning (blind). Picked via `models/registry.json`. Only counts as independent if weight lineage is verified different from the proposer's. Same family = second call, not second source.
 
 **Verdicts** (computed, not declared):
 
@@ -97,7 +96,7 @@ Human is the last lineage on the panel. Recording a position raises independence
 
 **Overcounting.** Stage 1 reports lineages, not citation counts. Cochrane's Handbook (Ch. 5) still says there is no fully automated recommended tool for reconciling multiple reports of one study. We didn't invent that problem. We shipped tooling for the half that stays manual in most workflows.
 
-**Unchallenged conclusions.** Stages 2–4 force shown work, mechanical citation checks, then a panel that includes a challenger that cannot share the proposer's blind spots. Same-model self-preference is documented (Panickssery et al., NeurIPS 2024). Seat A is the structural answer.
+**Unchallenged conclusions.** Stages 2–4 force shown work, mechanical citation checks, then a panel that includes a challenger that cannot share the proposer's blind spots. Same-model self-preference is documented (Panickssery et al., NeurIPS 2024). Seat 1 is the structural answer.
 
 **Self-check.** Case `self` points the tool at claims about me. Mechanical challenger catches overstatement in my own evidence. Same shape as one lineage counted several times in COVID. `docs/DEFECT_REGISTER.md` lists bugs I shipped. Every entry names a test. `npm run verify:register` fails if a claimed guard is missing.
 
@@ -124,7 +123,7 @@ Uplift claim stays narrow: structure and checkable independence, not better pros
 
 ## 5. What's in the repo now (verify, don't trust me)
 
-**As of this build:** `npm test` → **188 passing** in the epistack repo (no network). Re-run before you review.
+**As of this build:** `npm test` → **188 passing** in the epistack repo (no network). Re-run before review.
 
 | Piece | Where |
 |-------|--------|
@@ -149,13 +148,11 @@ No install beyond Node 20. No API key. Mechanical half runs cold. Local model op
 
 ## 6. What I claim / what I don't
 
-**What I claim:** I found a real gap while dogfooding, built the navigation layer you reviewed, then built the assessment layer on top. It runs. Tests pass. Failures are named. I'm learning the domain in public.
+**What I claim:** I found a real gap while dogfooding, built the navigation layer in the early packets, then built the assessment layer on top. It runs. Tests pass. Failures are named. I'm learning the domain in public.
 
 **What I do not claim:** first to notice the problem (Greenberg 2009; Cochrane handbook). Senior engineer credentials. That every adjacent tool is worse. That COVID/LHC/eggs are settled.
 
-I'm not submitting as an epistemologist. I'm submitting as a builder who found an infrastructure gap while doing your homework, then kept building after your early read.
-
-Thanks again for the Jun 30 feedback. It moved the work.
+I'm not submitting as an epistemologist. I'm submitting as a builder who found an infrastructure gap while doing FLF's homework, then kept building.
 
 — Brandon
 

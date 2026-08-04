@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Export HOW_IT_WORKS_FOR_ALI.md → PDF for email attachment.
+ * Export FLF_HOW_IT_WORKS.md → PDF attachment (FLF-facing, no named recipient).
  * Uses doctrine-labs zero-dep multipage PDF builder (sibling repo).
  *
  *   node scripts/export-how-it-works-pdf.js
@@ -11,8 +11,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SRC_MD = join(ROOT, "docs/outreach/HOW_IT_WORKS_FOR_ALI.md");
-const OUT_PDF = join(ROOT, "docs/outreach/HOW_IT_WORKS_FOR_ALI.pdf");
+const SRC_MD = join(ROOT, "docs/outreach/FLF_HOW_IT_WORKS.md");
+const OUT_PDF = join(ROOT, "docs/outreach/FLF_HOW_IT_WORKS.pdf");
 const DL_PDF = join(ROOT, "..", "doctrine-labs", "src", "pdf_multipage.js");
 
 if (!existsSync(DL_PDF)) {

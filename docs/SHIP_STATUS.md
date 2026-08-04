@@ -1,4 +1,4 @@
-# Ship status — FLFBuild
+# Ship status — FLF Epistemic Stack
 
 Status of the gift build against the Future of Life Foundation competition brief.
 Source of truth for scope. Update as items land.
