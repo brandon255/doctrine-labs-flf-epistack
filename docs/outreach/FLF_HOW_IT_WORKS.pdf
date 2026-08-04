@@ -202,7 +202,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<< /Length 2512 >>
+<< /Length 2563 >>
 stream
 BT
 /F1 10 Tf
@@ -267,6 +267,8 @@ BT
 0 -3 Td
 (`verified`  ·  Citations ok; challenges found nothing.) Tj
 0 -3 Td
+(`verified_with_caveat`  ·  Citations ok; a single lineage objected at medium/caveat level \(e.g. overstated, not high-severity unsupported\).) Tj
+0 -3 Td
 (`contested`  ·  Two or more independent lineages objected.) Tj
 0 -4 Td
 () Tj
@@ -288,8 +290,6 @@ BT
 () Tj
 0 -3 Td
 (Overcounting. Stage 1 reports lineages, not citation counts. Cochrane's Handbook \(Ch. 5\)) Tj
-0 -3 Td
-(still says there is no fully automated recommended tool for reconciling multiple reports of) Tj
 ET
 endstream
 endobj
@@ -297,11 +297,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<< /Length 2097 >>
+<< /Length 2188 >>
 stream
 BT
 /F1 10 Tf
 1 0 0 1 50 728 Tm
+(still says there is no fully automated recommended tool for reconciling multiple reports of) Tj
+0 -3 Td
 (one study. We didn't invent that problem. We shipped tooling for the half that stays manual) Tj
 0 -3 Td
 (in most workflows.) Tj
@@ -383,8 +385,6 @@ BT
 (As of this build: npm test ’ 188 passing in the epistack repo \(no network\). Re-run before) Tj
 0 -3 Td
 (review.) Tj
-0 -4 Td
-() Tj
 ET
 endstream
 endobj
@@ -392,11 +392,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<< /Length 1885 >>
+<< /Length 1899 >>
 stream
 BT
 /F1 9 Tf
 1 0 0 1 50 728 Tm
+() Tj
+0 -3 Td
 (Piece  ·  Where) Tj
 0 -3 Td
 (Cover note  ·  `COVER_NOTE_TO_FLF.md`) Tj
@@ -487,12 +489,12 @@ xref
 0000002634 00000 n 
 0000004752 00000 n 
 0000004878 00000 n 
-0000007424 00000 n 
-0000007552 00000 n 
-0000009676 00000 n 
-0000009804 00000 n 
+0000007474 00000 n 
+0000007602 00000 n 
+0000009817 00000 n 
+0000009945 00000 n 
 trailer
 << /Size 14 /Root 1 0 R /Info << /Title (How the FLF Epistemic Stack works) >> >>
 startxref
-11728
+11883
 %%EOF
