@@ -86,6 +86,7 @@ Two seats on the panel.
 | `unsubstantiated` | Every step cited without quoting. |
 | `verified_unchallenged` | Citations ok; no challenge ran. |
 | `verified` | Citations ok; challenges found nothing. |
+| `verified_with_caveat` | Citations ok; a single lineage objected at medium/caveat level (e.g. overstated, not high-severity unsupported). |
 | `contested` | Two or more independent lineages objected. |
 
 Human is the last lineage on the panel. Recording a position raises independence to **strong**. Positions write to `decisions/*.json`. "On the record" is real, not copy.

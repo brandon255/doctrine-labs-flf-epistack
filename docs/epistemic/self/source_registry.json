@@ -2,11 +2,11 @@
   "case": "self",
   "version": "1.0",
   "measurement_roots": {
-    "coreos": "/Users/BrandonMonicFlores/Desktop/doctrine-labs",
+    "coreos": "/.epistack-absent/coreos-set-EPISTACK_ROOT_COREOS",
     "epistack": "$REPO"
   },
-  "measurement_roots_note": "Symbolic names a measurement block may run in. Blocks reference these by name and cannot name a path directly — that is what keeps a block from pointing a command at an arbitrary directory. `$REPO` means this repository, so those measurements run correctly on any checkout. `coreos` is a separate private repository and will not be present on your machine: those measurements report `unverifiable_here`, which is deliberately distinct from a failed check. Set EPISTACK_ROOT_COREOS=/path/to/doctrine-labs to run them if you have it.",
-  "note": "The recursive case: this tool adjudicating claims about its own author. Lineage grouping is doing real work here — five measurement blocks resolve to two repository-state lineages, because a commit count and a test count read from one working tree at one commit are one observation of the world read two ways. The two deliberately flawed blocks resolve to a single subject-assertion lineage, because a rarity claim and the funnel supporting it were written by the same person and are not two pieces of evidence.",
+  "measurement_roots_note": "Symbolic names a measurement block may run in. Blocks reference these by name and cannot name a path directly \u2014 that is what keeps a block from pointing a command at an arbitrary directory. `$REPO` means this repository, so those measurements run correctly on any checkout. `coreos` is a separate private repository and will not be present on your machine: those measurements report `unverifiable_here`, which is deliberately distinct from a failed check. Set EPISTACK_ROOT_COREOS=/path/to/doctrine-labs to run them if you have it.",
+  "note": "The recursive case: this tool adjudicating claims about its own author. Lineage grouping is doing real work here \u2014 five measurement blocks resolve to two repository-state lineages, because a commit count and a test count read from one working tree at one commit are one observation of the world read two ways. The two deliberately flawed blocks resolve to a single subject-assertion lineage, because a rarity claim and the funnel supporting it were written by the same person and are not two pieces of evidence.",
   "lineages": {
     "coreos-repo-state": {
       "label": "Core OS repository, working tree at time of capture",
@@ -49,7 +49,9 @@
       "medium": "Command output",
       "lineage_id": "coreos-repo-state",
       "lineage_role": "measurement",
-      "derives_from": ["coreos-repo-commit-count"],
+      "derives_from": [
+        "coreos-repo-commit-count"
+      ],
       "independence_note": "Same working tree as the commit count. Counting these as two independent facts about productivity would be the exact error this tool detects."
     },
     "coreos-repo:git-log-reverse": {
@@ -60,7 +62,9 @@
       "medium": "Command output",
       "lineage_id": "coreos-repo-state",
       "lineage_role": "measurement",
-      "derives_from": ["coreos-repo-commit-count"],
+      "derives_from": [
+        "coreos-repo-commit-count"
+      ],
       "independence_note": "Third reading of the same repository state."
     },
     "epistack-repo:git-log": {
@@ -82,7 +86,9 @@
       "medium": "Command output",
       "lineage_id": "epistack-repo-state",
       "lineage_role": "measurement",
-      "derives_from": ["epistack-repo-commit-count"],
+      "derives_from": [
+        "epistack-repo-commit-count"
+      ],
       "independence_note": "Same working tree as the epistack commit count."
     },
     "perplexity-export-2026-08-03": {
@@ -105,7 +111,7 @@
       "lineage_id": "subject-assertion",
       "lineage_role": "participant",
       "derives_from": [],
-      "independence_note": "Both flawed blocks resolve here on purpose. The rarity funnel and the correlation companion are one person's assertion stated twice — the same shape as one debate producing six documents in the COVID case."
+      "independence_note": "Both flawed blocks resolve here on purpose. The rarity funnel and the correlation companion are one person's assertion stated twice \u2014 the same shape as one debate producing six documents in the COVID case."
     }
   }
 }

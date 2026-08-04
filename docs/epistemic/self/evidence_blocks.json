@@ -110,7 +110,7 @@
     "evidence_id": "self-commits-epistack",
     "evidence_kind": "measurement",
     "timestamp": "2026-08-03T13:50:00.000Z",
-    "claim": "The FLF Epistemic Stack has 8 commits under version control.",
+    "claim": "The FLF Epistemic Stack has 15 commits under version control.",
     "source": {
       "type": "calculation",
       "identifier": "epistack-repo:git-log",
@@ -124,7 +124,7 @@
         "--oneline"
       ],
       "extract": "line_count",
-      "value": 8,
+      "value": 15,
       "expectNonZero": true
     },
     "provenance": {
