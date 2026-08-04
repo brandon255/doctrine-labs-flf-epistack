@@ -260,8 +260,8 @@ a specific line rather than in the air.
 
 ## Who built this
 
-Brandon Flores. Sixteen years of shipped physical product (Original Nomad), about six
-months into software. Not a senior engineer, not a virologist. What I bring is a
+Brandon Flores a Industrial Designer of Sixteen years, with a vertically integrated manufacturing, concept to consumer. I specialize in processes and materials, human factors, and shipping physical products.
+I'm into my 6th month of building software. Not a senior engineer, not a virologist. What I bring is a
 designer's habit: take a fuzzy worry — *"are these sources really independent?"* —
 and turn it into one command that asks as little interpretation as possible of the
 person reading the output.
