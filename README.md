@@ -11,8 +11,7 @@ more than people expect.
 Treat as 3 independent source(s), not 21.
 ```
 
-A gift to the Future of Life Foundation, with an open offer to keep working on it
-together.
+A gift to the Future of Life Foundation.
 
 **Instructions (three paths):** [`docs/outreach/FLF_INSTRUCTIONS.md`](docs/outreach/FLF_INSTRUCTIONS.md).
 
