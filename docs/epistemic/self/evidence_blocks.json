@@ -110,7 +110,7 @@
     "evidence_id": "self-commits-epistack",
     "evidence_kind": "measurement",
     "timestamp": "2026-08-03T13:50:00.000Z",
-    "claim": "The FLF Epistemic Stack ships 26 frozen transcript markdown files under docs/transcripts/.",
+    "claim": "docs/transcripts/ contains 26 files (25 frozen adjudication runs plus the README index).",
     "source": {
       "type": "calculation",
       "identifier": "epistack-repo:git-log",
@@ -133,7 +133,7 @@
     "provenance": {
       "captured_by": "user",
       "captured_at": "2026-08-03T13:50:00.000Z",
-      "context": "find docs/transcripts -maxdepth 1 -type f in this repository; non-empty line count is the frozen transcript file count (stable across commits, unlike git log --oneline)."
+      "context": "find docs/transcripts -maxdepth 1 -type f in this repository; value 26 = 25 frozen run transcripts + README.md (stable across commits, unlike git log --oneline)."
     },
     "confidence_label": "HIGH",
     "tags": [

@@ -6,7 +6,7 @@
     "epistack": "$REPO"
   },
   "measurement_roots_note": "Symbolic names a measurement block may run in. Blocks reference these by name and cannot name a path directly \u2014 that is what keeps a block from pointing a command at an arbitrary directory. `$REPO` means this repository, so those measurements run correctly on any checkout. `coreos` is a separate private repository and will not be present on your machine: those measurements report `unverifiable_here`, which is deliberately distinct from a failed check. Set EPISTACK_ROOT_COREOS=/path/to/doctrine-labs to run them if you have it.",
-  "note": "The recursive case: this tool adjudicating claims about its own author. Lineage grouping is doing real work here \u2014 five measurement blocks resolve to two repository-state lineages, because a commit count and a test count read from one working tree at one commit are one observation of the world read two ways. The two deliberately flawed blocks resolve to a single subject-assertion lineage, because a rarity claim and the funnel supporting it were written by the same person and are not two pieces of evidence.",
+  "note": "The recursive case: this tool adjudicating claims about its own author. Lineage grouping is doing real work here \u2014 measurement blocks resolve to two repository-state lineages, because a transcript-folder file count and a test count read from one working tree at one commit are one observation of the world read two ways. The two deliberately flawed blocks resolve to a single subject-assertion lineage, because a rarity claim and the funnel supporting it were written by the same person and are not two pieces of evidence.",
   "lineages": {
     "coreos-repo-state": {
       "label": "Core OS repository, working tree at time of capture",
@@ -68,15 +68,15 @@
       "independence_note": "Third reading of the same repository state."
     },
     "epistack-repo:git-log": {
-      "document_id": "epistack-repo-commit-count",
-      "title": "Epistemic Stack commit count",
-      "author": "git",
+      "document_id": "epistack-repo-transcript-file-count",
+      "title": "Epistemic Stack transcript folder file count",
+      "author": "find",
       "date": "2026-08-03",
       "medium": "Command output",
       "lineage_id": "epistack-repo-state",
       "lineage_role": "measurement",
       "derives_from": [],
-      "independence_note": "A separate repository from Core OS, so a separate lineage."
+      "independence_note": "A separate repository from Core OS, so a separate lineage. Counts files under docs/transcripts/ (runs + README), not git commit count."
     },
     "epistack-repo:npm-test": {
       "document_id": "epistack-repo-test-count",
@@ -87,9 +87,9 @@
       "lineage_id": "epistack-repo-state",
       "lineage_role": "measurement",
       "derives_from": [
-        "epistack-repo-commit-count"
+        "epistack-repo-transcript-file-count"
       ],
-      "independence_note": "Same working tree as the epistack commit count."
+      "independence_note": "Same working tree as the epistack transcript folder count."
     },
     "perplexity-export-2026-08-03": {
       "document_id": "provider-issued-timestamps",

@@ -16,7 +16,7 @@ https://github.com/brandon255/doctrine-labs-flf-epistack/tree/main/docs/transcri
 
 **HOW TO OPEN:** Click any `*.md` file in that folder (e.g. `covid-lineage.md`, `self-lineage.md`).
 
-**WHAT YOU GET:** Verbatim propose → verify → challenge → resolve records. 26 files. Index in `docs/transcripts/README.md`.
+**WHAT YOU GET:** Verbatim propose → verify → challenge → resolve records. 25 frozen runs plus the folder index (`docs/transcripts/README.md`).
 
 **VERIFY:** You can read a complete run in the browser. No clone, no Node, no model.
 
