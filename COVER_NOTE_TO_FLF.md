@@ -236,4 +236,4 @@ Thank you for running the competition. It made me finish a slice I had been circ
 months, and then it made me find a real bug in my own work. Whatever you do with this, I
 hope it's useful.
 
-— Brandon
+Brandon
