@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FLF Epistemic Stack — a gift</title>
+  <title>FLF Epistemic Stack</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -29,8 +29,7 @@
         model, and tells you the gap between the two.
       </p>
       <p class="byline">
-        <strong>A gift to the Future of Life Foundation.</strong>
-        You asked who would keep building this. I did. Here it is. You own it.
+        Built for the Future of Life Foundation's Epistack contest.
       </p>
     </div>
   </section>
@@ -117,8 +116,53 @@ npm run epistemic:covid   # → 21 excerpts, 8 documents, 3 lineages  (7x inflat
 npm run epistemic:lhc     # →  9 excerpts, 5 documents, 3 lineages  (3x)
 npm run epistemic:eggs    # →  9 excerpts, 5 documents, 5 lineages  (1.8x)
 npm run epistemic:all     # → run all three
-npm test                  # → 188 tests, no network
+npm test                  # → 210 tests, no network
 npm start                 # → open http://127.0.0.1:4318</code></pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Try your own evidence</h2>
+      <p class="section-lede">
+        Drop a file or paste text below. The same engine that scored the cases above will
+        score what you give it — three-level independence, document and lineage resolution,
+        inflation factor. Nothing leaves the server.
+      </p>
+
+      <div id="dropzone" class="dropzone">
+        <div class="dropzone-inner">
+          <strong>Drop a file here</strong>
+          <span class="dropzone-hint">JSON · Markdown · PDF &nbsp;·&nbsp; or paste below</span>
+        </div>
+        <input type="file" id="file-input" accept=".json,.md,.pdf,application/pdf,application/json,text/markdown" hidden>
+      </div>
+
+      <textarea id="paste-input" class="paste-input" rows="8" placeholder='Paste JSON, Markdown, or PDF text here.
+
+JSON:    [ { "claim": "...", "source": {...} } ]
+Markdown: - Claim one https://example.com/a
+          - Claim two https://example.com/b'></textarea>
+
+      <div class="upload-actions">
+        <button id="analyze-btn" class="btn primary">Analyze</button>
+        <button id="sample-btn" class="btn ghost">Load sample</button>
+        <span id="status" class="status"></span>
+      </div>
+
+      <div id="results" class="results" hidden>
+        <div class="result-summary">
+          <div class="stat"><div class="stat-label">Excerpts cited</div><div class="stat-value" id="r-block">—</div></div>
+          <div class="stat"><div class="stat-label">Documents</div><div class="stat-value" id="r-doc">—</div></div>
+          <div class="stat primary"><div class="stat-label">Independent lineages</div><div class="stat-value" id="r-lin">—</div></div>
+          <div class="stat warn"><div class="stat-label">Inflation factor</div><div class="stat-value" id="r-inf">—</div></div>
+        </div>
+        <p class="result-line" id="r-line"></p>
+        <details class="result-details">
+          <summary>Raw response</summary>
+          <pre id="r-raw"></pre>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -170,6 +214,78 @@ npm start                 # → open http://127.0.0.1:4318</code></pre>
     }
     function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
     load();
+
+    // ---------- Try-your-own-evidence dropzone ----------
+    const dz = document.getElementById('dropzone');
+    const fi = document.getElementById('file-input');
+    const ta = document.getElementById('paste-input');
+    const btn = document.getElementById('analyze-btn');
+    const sampleBtn = document.getElementById('sample-btn');
+    const status = document.getElementById('status');
+    const results = document.getElementById('results');
+
+    let lastFile = null;
+
+    dz.addEventListener('click', () => fi.click());
+    dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragging'); });
+    dz.addEventListener('dragleave', () => dz.classList.remove('dragging'));
+    dz.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dz.classList.remove('dragging');
+      const f = e.dataTransfer.files?.[0];
+      if (f) { lastFile = f; ta.value = ''; status.textContent = `Selected: ${f.name}`; }
+    });
+    fi.addEventListener('change', () => {
+      const f = fi.files?.[0];
+      if (f) { lastFile = f; status.textContent = `Selected: ${f.name}`; }
+    });
+
+    sampleBtn.addEventListener('click', () => {
+      ta.value = `- **HIGH** The safety record holds under audit https://anthropic.com/safety
+- **HIGH** The same conclusion appears in the linked report https://anthropic.com/safety
+- **MEDIUM** An outside review concurs https://arxiv.org/abs/2401.00001
+- A second commentary repeats the first claim https://anthropic.com/safety
+- A third article quotes the second https://anthropic.com/safety`;
+      lastFile = null;
+      status.textContent = 'Loaded sample (5 excerpts, 3 unique hosts → expect 1.5–2x inflation).';
+    });
+
+    btn.addEventListener('click', async () => {
+      status.textContent = 'Analyzing…';
+      results.hidden = true;
+      try {
+        let res;
+        if (lastFile) {
+          const fd = new FormData();
+          fd.append('file', lastFile);
+          res = await fetch('/api/analyze', { method: 'POST', body: fd });
+        } else if (ta.value.trim()) {
+          res = await fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ text: ta.value }),
+          });
+        } else {
+          status.textContent = 'Drop a file or paste text first.';
+          return;
+        }
+        const payload = await res.json();
+        if (!payload.ok) {
+          status.innerHTML = `<span class="err">${escapeHtml(payload.error)}${payload.hint ? ' · ' + escapeHtml(payload.hint) : ''}</span>`;
+          return;
+        }
+        document.getElementById('r-block').textContent = payload.summary.block_count;
+        document.getElementById('r-doc').textContent = payload.summary.document_count;
+        document.getElementById('r-lin').textContent = payload.summary.lineage_count;
+        document.getElementById('r-inf').textContent = payload.summary.inflation_factor + 'x';
+        document.getElementById('r-line').textContent = payload.assessment_line;
+        document.getElementById('r-raw').textContent = JSON.stringify(payload, null, 2);
+        results.hidden = false;
+        status.textContent = `Done · source: ${payload.source}${payload.filename ? ' · ' + payload.filename : ''}`;
+      } catch (e) {
+        status.innerHTML = `<span class="err">${escapeHtml(e.message)}</span>`;
+      }
+    });
   </script>
 </body>
 </html>

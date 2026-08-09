@@ -30,6 +30,10 @@ import {
   pickChallenger,
   resolveModelLineage,
 } from "./src/epistemic/model_identity.js";
+import { resolveGenealogy } from "./src/epistemic/genealogy.js";
+import { parseJsonEvidence } from "./parsers/json.js";
+import { parseMarkdownEvidence } from "./parsers/markdown.js";
+import { parsePdfEvidence } from "./parsers/pdf.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)));
 const WEB_DIR = join(ROOT, "web");
@@ -38,7 +42,9 @@ const CASES_DIR = join(ROOT, "docs", "epistemic");
 // changing it stay separate acts.
 const DECISIONS_DIR = join(ROOT, "decisions");
 const PORT = Number(process.env.PORT) || 4318;
-const HOST = "127.0.0.1";
+// In production (Render, Railway, Fly, etc.) bind to 0.0.0.0 so the host's
+// reverse proxy can reach us. Local dev defaults to loopback only.
+const HOST = process.env.HOST ?? (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1");
 
 const KNOWN_CASES = ["covid", "lhc", "eggs", "sample"];
 
@@ -128,6 +134,66 @@ export async function routeRequest({ method, pathname, search, body = {} }) {
 
   if (method === "GET" && pathname === "/api/ping") {
     return json(200, { ok: true, ts: Date.now(), service: "flf-epistack" });
+  }
+
+  // ---- User-supplied analysis (drag-drop / paste / API) -------------------
+  // Accepts JSON, Markdown, or PDF. Dispatches to the appropriate parser,
+  // runs the genealogy engine, returns the three-level summary.
+  //
+  // Inputs:
+  //   POST /api/analyze
+  //     Content-Type: application/json  → body = { text, format?: "json"|"md" }
+  //     Content-Type: text/markdown      → body = markdown text
+  //     Content-Type: application/pdf    → body = raw PDF bytes
+  //     Content-Type: multipart/form-data → file field "file"
+  if (method === "POST" && pathname === "/api/analyze") {
+    // The router is pure — content-type is not in scope. PDF and multipart
+    // are handled in handle() before this router is invoked; this branch
+    // covers JSON and Markdown bodies (parsed text in body.text / body._raw).
+    // Anything else gets a 400.
+    let text = body?.text ?? "";
+    let format = body?.format ?? "auto";
+    if (!text && typeof body?._raw === "string") text = body._raw;
+    if (!text) {
+      return json(400, {
+        error: "empty body. POST JSON { text, format? }, markdown raw, or PDF/multipart directly.",
+      });
+    }
+
+    // If a markdown content-type was sent raw, routeRequest's readBody will
+    // have stored it in _raw. We auto-detect format.
+    if (format === "auto") {
+      const trimmed = text.trim();
+      if (trimmed.startsWith("{") || trimmed.startsWith("[")) format = "json";
+      else format = "md";
+    }
+
+    let parsed;
+    if (format === "json") {
+      parsed = parseJsonEvidence(text);
+    } else if (format === "md" || format === "markdown") {
+      parsed = parseMarkdownEvidence(text);
+    } else {
+      return json(400, { error: `unsupported format: ${format}` });
+    }
+
+    if (!parsed.ok) {
+      return json(400, { ok: false, error: parsed.error, hint: parsed.hint ?? null });
+    }
+
+    try {
+      const genealogy = resolveGenealogy(parsed.blocks, { aliases: {}, registry: {} });
+      const summary = summarise(genealogy, parsed.blocks.length);
+      return json(200, {
+        ok: true,
+        source: format,
+        block_count: parsed.blocks.length,
+        summary,
+        assessment_line: summary.assessment_line,
+      });
+    } catch (e) {
+      return json(500, { ok: false, error: e.message });
+    }
   }
 
   if (method === "GET" && pathname === "/api/cases") {
@@ -342,6 +408,37 @@ export async function routeRequest({ method, pathname, search, body = {} }) {
   return json(404, { error: `not found: ${method} ${pathname}` });
 }
 
+/**
+ * Build the user-facing summary from a resolveGenealogy() result. Mirrors
+ * the shape of runCaseStudy().summary so the UI is consistent across the
+ * built-in cases and user uploads.
+ */
+function summarise(genealogy, blockCount) {
+  const document_clusters = genealogy.documentClusters ?? [];
+  const lineage_clusters = genealogy.lineageClusters ?? [];
+  const document_count = document_clusters.length;
+  const lineage_count = lineage_clusters.length;
+  const inflation_factor =
+    blockCount > 0 ? Number((blockCount / Math.max(lineage_count, 1)).toFixed(3)) : 0;
+  const correlated_document_count = document_clusters.filter((c) => c.block_count > 1).length;
+
+  return {
+    block_count: blockCount,
+    claim_count: blockCount,
+    document_count,
+    lineage_count,
+    independent_root_count: lineage_count,
+    correlated_document_count,
+    correlated_lineage_count: 0,
+    inflation_factor,
+    assessment_line:
+      `${blockCount} excerpt${blockCount === 1 ? "" : "s"} cited, drawn from ` +
+      `${document_count} document${document_count === 1 ? "" : "s"}, tracing to ` +
+      `${lineage_count} independent lineage${lineage_count === 1 ? "" : "s"}. ` +
+      `Treat as ${lineage_count} independent source${lineage_count === 1 ? "" : "s"}, not ${blockCount}.`,
+  };
+}
+
 function caseTitle(id) {
   return {
     covid: "COVID-19 origins",
@@ -361,9 +458,100 @@ function readSubquestion(caseDir) {
   }
 }
 
+/**
+ * Read the request body as a raw Buffer (for PDF upload).
+ * Caps at 25 MB to keep memory bounded on the Render free tier.
+ */
+function readRawBody(req, maxBytes = 25 * 1024 * 1024) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let total = 0;
+    req.on("data", (chunk) => {
+      total += chunk.length;
+      if (total > maxBytes) {
+        req.destroy();
+        reject(new Error(`request body exceeds ${maxBytes} bytes`));
+        return;
+      }
+      chunks.push(chunk);
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks, total)));
+    req.on("error", reject);
+  });
+}
+
+/**
+ * Parse a multipart/form-data body and return the first file part.
+ * Tiny purpose-built parser — no dependencies. Looks for a part with a
+ * filename; returns { filename, contentType, bytes } or null.
+ */
+function parseMultipartForFile(buffer, boundary) {
+  const sep = Buffer.from(`--${boundary}`);
+  const parts = [];
+  let start = 0;
+  while (start < buffer.length) {
+    const idx = buffer.indexOf(sep, start);
+    if (idx === -1) break;
+    const next = buffer.indexOf(sep, idx + sep.length);
+    const slice = next === -1 ? buffer.slice(idx + sep.length) : buffer.slice(idx + sep.length, next);
+    parts.push(slice);
+    if (next === -1) break;
+    start = next;
+  }
+  for (const part of parts) {
+    const headerEnd = part.indexOf("\r\n\r\n");
+    if (headerEnd === -1) continue;
+    const headerText = part.slice(0, headerEnd).toString("utf8");
+    if (!/filename=/i.test(headerText)) continue;
+    const filenameMatch = headerText.match(/filename="?([^";\r\n]+)"?/i);
+    const ctMatch = headerText.match(/content-type:\s*([^\r\n]+)/i);
+    // Strip the trailing \r\n before the next boundary.
+    let body = part.slice(headerEnd + 4);
+    if (body.length >= 2 && body[body.length - 2] === 0x0d && body[body.length - 1] === 0x0a) {
+      body = body.slice(0, -2);
+    }
+    return {
+      filename: filenameMatch?.[1] ?? "uploaded.bin",
+      contentType: ctMatch?.[1]?.trim() ?? "application/octet-stream",
+      bytes: body,
+    };
+  }
+  return null;
+}
+
 async function handle(req, res) {
   try {
     const url = new URL(req.url, `http://${HOST}`);
+    const ctype = String(req.headers["content-type"] ?? "").toLowerCase();
+
+    // ----- PDF or multipart: handle here, never as parsed JSON. -----
+    if (req.method === "POST" && url.pathname === "/api/analyze") {
+      if (ctype.startsWith("multipart/form-data")) {
+        const m = ctype.match(/boundary=(?:"([^"]+)"|([^;]+))/i);
+        const boundary = m?.[1] ?? m?.[2];
+        if (!boundary) {
+          res.writeHead(400, { "content-type": "application/json" });
+          res.end(JSON.stringify({ ok: false, error: "multipart boundary missing" }));
+          return;
+        }
+        const raw = await readRawBody(req);
+        const file = parseMultipartForFile(raw, boundary);
+        if (!file) {
+          res.writeHead(400, { "content-type": "application/json" });
+          res.end(JSON.stringify({ ok: false, error: "no file part in multipart body" }));
+          return;
+        }
+        await handleAnalyze(res, file.bytes, file.filename, file.contentType);
+        return;
+      }
+      if (ctype === "application/pdf") {
+        const bytes = await readRawBody(req);
+        await handleAnalyze(res, bytes, "uploaded.pdf", "application/pdf");
+        return;
+      }
+      // else fall through to JSON parsing.
+    }
+
     const body = ["POST", "PUT", "PATCH"].includes(req.method) ? await readBody(req) : {};
     const result = await routeRequest({
       method: req.method,
@@ -373,6 +561,55 @@ async function handle(req, res) {
     });
     res.writeHead(result.status, result.headers);
     res.end(result.body);
+  } catch (e) {
+    res.writeHead(500, { "content-type": "application/json" });
+    res.end(JSON.stringify({ ok: false, error: e.message }));
+  }
+}
+
+async function handleAnalyze(res, bytes, filename, contentType) {
+  let parsed;
+  if (contentType === "application/pdf" || filename.toLowerCase().endsWith(".pdf")) {
+    parsed = await parsePdfEvidence(bytes, filename);
+  } else if (contentType.startsWith("text/markdown") || filename.toLowerCase().endsWith(".md")) {
+    parsed = parseMarkdownEvidence(bytes.toString("utf8"));
+  } else if (contentType.startsWith("application/json") || filename.toLowerCase().endsWith(".json")) {
+    parsed = parseJsonEvidence(bytes.toString("utf8"));
+  } else {
+    // Fall back: try JSON first, then markdown.
+    const text = bytes.toString("utf8");
+    const trimmed = text.trim();
+    if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+      parsed = parseJsonEvidence(text);
+    } else {
+      parsed = parseMarkdownEvidence(text);
+    }
+  }
+  if (!parsed.ok) {
+    res.writeHead(400, { "content-type": "application/json" });
+    res.end(JSON.stringify({ ok: false, error: parsed.error, hint: parsed.hint ?? null }));
+    return;
+  }
+  try {
+    const genealogy = resolveGenealogy(parsed.blocks, { aliases: {}, registry: {} });
+    const summary = summarise(genealogy, parsed.blocks.length);
+    const source = contentType === "application/pdf" || filename.toLowerCase().endsWith(".pdf")
+      ? "pdf"
+      : filename.toLowerCase().endsWith(".md") || contentType.startsWith("text/markdown")
+      ? "md"
+      : "json";
+    res.writeHead(200, { "content-type": "application/json; charset=utf-8" });
+    res.end(
+      JSON.stringify({
+        ok: true,
+        source,
+        filename,
+        block_count: parsed.blocks.length,
+        summary,
+        assessment_line: summary.assessment_line,
+        text_excerpt: parsed.text_excerpt ?? null,
+      })
+    );
   } catch (e) {
     res.writeHead(500, { "content-type": "application/json" });
     res.end(JSON.stringify({ ok: false, error: e.message }));

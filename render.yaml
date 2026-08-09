@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: doctrine-labs-flf-epistack
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/ping
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        sync: false
+    autoDeploy: true
