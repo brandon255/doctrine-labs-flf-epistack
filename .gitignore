@@ -21,3 +21,4 @@ decisions/*.json
 # FLF's own competition brief and judging criteria. Kept locally for reference;
 # not ours to republish from a public repository.
 docs/competition/
+.git-replace-text.txt

@@ -67,7 +67,7 @@ Where one document's reasoning is built on another's. These are not independent.
 - `self-tests-epistack` | HIGH | independent | The FLF Epistemic Stack has 188 passing automated tests with zero runtime dependencies.
 - `self-19-day-span` | HIGH | independent | Nineteen days elapsed between the first dated user-attested artifact and the first Core OS commit.
 - `self-rarity-funnel-FLAWED` | LOW | correlated | The builder ranks in the single digits globally via eleven multiplicative prevalence layers.
-- `self-lineage-correlation-FLAWED` | LOW | correlated | Trait A (prevalence ~3%) multiplied by correlated Trait B within that group (300% more likely) yields a jo...
+- `self-lineage-correlation-FLAWED` | LOW | correlated | Trait A (prevalence ~3%) multiplied by correlated Trait B within that group (300% more likely) yields a joint prevalence...
 
 ## same_document edges (one source, restated)
 
