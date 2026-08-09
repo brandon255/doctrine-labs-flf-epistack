@@ -13,7 +13,7 @@ Treat as 3 independent source(s), not 21.
 
 Submitted to the Future of Life Foundation.
 
-**Instructions (three paths):** [`docs/outreach/FLF_INSTRUCTIONS.md`](docs/outreach/FLF_INSTRUCTIONS.md).
+**Instructions (three paths):** see [`docs/transcripts/README.md`](docs/transcripts/README.md) for the review-by-reading lane, [`SPEC.md`](SPEC.md) for the design rationale, and the [`RUN-EPISTACK.command`](RUN-EPISTACK.command) / [`RUN-EPISTACK.bat`](RUN-EPISTACK.bat) launchers for one-click local runs.
 
 **Read the frozen transcripts first — no install required.** Every case, every job,
 and the recursive self-audit are captured as readable transcripts in
@@ -282,7 +282,7 @@ Brandon Flores — industrial designer, 16 years shipping physical products (con
 
 This repo is one Doctrine Labs build: an epistemic slice, given freely.
 
-brandon@doctrinelabs.com
+brandon@bmflores.com
 
 ## License
 

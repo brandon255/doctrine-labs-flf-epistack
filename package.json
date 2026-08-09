@@ -1,7 +1,7 @@
 {
   "name": "doctrine-labs-flf-epistack",
   "version": "1.1.0",
-  "description": "Provenance genealogy layer. A runnable epistemic demo that counts distinct source roots behind a set of evidence blocks so correlated sources stop masquerading as independent confirmation. A gift to the Future of Life Foundation.",
+  "description": "Provenance genealogy layer. A runnable epistemic demo that counts distinct source roots behind a set of evidence blocks so correlated sources stop masquerading as independent confirmation. Submitted to the Future of Life Foundation.",
   "type": "module",
   "engines": {
     "node": ">=20"

@@ -3,6 +3,11 @@ node_modules/
 USER/
 secure_vault/
 
+# Outreach / contact lists / Slack exports are intentionally NOT in this public
+# repo. A local-only copy lives at ~/Desktop/doctrine-labs/outreach-scratch/
+# for private use. The check-public-content.js hook will block any docs/outreach/
+# folder or contact-list content from being committed.
+
 # RUN_OUTPUT.md is generated but deliberately committed: the point of the tool
 # is a shareable artifact, so a reader should see the output without running it.
 # Reports are path-relative and timestamp-free so they diff cleanly.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Hard filter for this public gift repo.
- * Exit 0 = clean. Exit 1 = forbidden personal / self-incriminating patterns found.
+ * Exit 0 = clean. Exit 1 = forbidden personal / business-sensitive patterns found.
  *
  * Run: node scripts/check-public-content.js
  */
@@ -17,13 +17,27 @@ const FORBIDDEN = [
   { id: "hard-ban-names", re: /\bLynn\b|Who'?s Who|landlord thread/i },
   { id: "money-distress", re: /\bI'?m broke\b|\bbehind on rent\b|cannot afford|out of money/i },
   { id: "profanity-author", re: /\bfucking\b|\bbullshit\b|\bwtf\b/i },
+  // ── business / privacy ──────────────────────────────────────────────
+  // Wrong/typo'd business domain for the author
+  { id: "wrong-domain", re: /doctrinalabs\.com|doctrinelabs\.com/i },
+  // Outreach plans: contact lists, Slack exports, recruitment, internal comms
+  { id: "outreach-folder", re: /docs\/outreach\//i },
+  { id: "outreach-content", re: /\bslack[- ]export\b|\bcontact[- ]list\b|\bTEMPLATE_LAUNCH_DAY\b|\bFLF_HOW_IT_WORKS\b|\bFLF_INSTRUCTIONS\b/i },
+  // Recruiter / non-public business references
+  { id: "recruiter", re: /\bnaomi\b|\bJeremy\s+Kloth\b|\blandlord\s+thread\b/i },
+  // Author tooling — keep Cursor / IDE / agent brands private
+  { id: "cursor-tool", re: /\bCursor\s+(IDE|chat|agent)|Rivet\b|secret weapon/i },
+  // Brandon's Brain / private project / sibling private repo names
+  // (The engine's own "vault" module in src/ is a code-level term and not matched.)
+  { id: "private-repo", re: /\bbrandon[- ]brain\b|\bBrandon'?s\s+Brain\b|\buser\/USER\b/i },
 ];
 
 const SKIP_DIRS = new Set([".git", "node_modules"]);
 const SKIP_EXT = new Set([".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".DS_Store"]);
-/** This script and FLF-supplied competition briefs (third-party text). */
+/** This script, the .gitignore that lists the rules, and FLF-supplied competition briefs (third-party text). */
 const SKIP_FILES = new Set([
   "scripts/check-public-content.js",
+  ".gitignore",
   "docs/competition/FLF_JUDGING_CRITERIA.txt",
   "docs/competition/FLF_COMPETITION_BRIEF.txt",
 ]);

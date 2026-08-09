@@ -230,7 +230,7 @@ like to know where you think this approach breaks. There are four open questions
 challenge is actually better than an informed one. I reasoned my way there; I never
 measured it.
 
-**brandon@doctrinelabs.com**
+**brandon@bmflores.com**
 
 Thank you for running the competition. It made me finish a slice I had been circling for
 months, and then it made me find a real bug in my own work. Whatever you do with this, I

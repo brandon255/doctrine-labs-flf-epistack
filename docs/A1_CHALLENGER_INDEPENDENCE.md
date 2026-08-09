@@ -4,7 +4,7 @@
 
 Failure mode #1 in `FAILURE_MODES.md`. Was the highest-severity unmitigated flaw.
 
-Brandon's framing — *there is more than one way to arrive at the number 1* — is the right
+the author's framing — *there is more than one way to arrive at the number 1* — is the right
 one and it changed the design. The original proposal was "use a different model." That is
 one route of at least seven, it is not the strongest one, and on its own it would have let us
 overstate our independence in a new way rather than fix the old one.
@@ -505,12 +505,12 @@ the thing being checked.
 
 ## 9. Decisions
 
-Five of these got settled by Brandon's go-ahead on 2026-08-03 and by building. Three are
+Five of these got settled by the author's go-ahead on 2026-08-03 and by building. Three are
 still open and are genuinely his call.
 
 **Settled:**
 
-1. ~~**Is P0–P3 the right definition of "closed"?**~~ **Yes** — Brandon agreed. Built, plus
+1. ~~**Is P0–P3 the right definition of "closed"?**~~ **Yes** — the author agreed. Built, plus
    P4 and P8 because they turned out to be small once P1 existed.
 2. ~~**Does the mechanical challenger outrank the second model?**~~ **Yes**, and the first
    live run settled it empirically rather than by argument: four structural objections from
@@ -525,7 +525,7 @@ still open and are genuinely his call.
    limitations section with finding and fixing this, rather than confessing it unfixed.
 
 4. ~~**R5 human gate — required before accept, or optional?**~~ **Built as a
-   non-blocking offer** (Brandon, 2026-08-03). Accept always works; recording a position
+   non-blocking offer** (the author, 2026-08-03). Accept always works; recording a position
    is the route to a higher grade, and the UI names the grade it would actually reach.
 
    Two things made the friction argument mostly dissolve. First, the adjudication section
