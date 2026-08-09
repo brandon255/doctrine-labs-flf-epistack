@@ -10,16 +10,24 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <a href="/">FLF Epistemic Stack</a>
+        <a href="/">Doctrine Labs · Epistemic Methods</a>
         <span class="brand-meta">v1.1 · local-first</span>
       </div>
       <nav class="nav">
-        <a href="/">Cases</a>
+        <a href="/">Home</a>
         <a href="https://github.com/brandon255/doctrine-labs-flf-epistack">Source</a>
       </nav>
     </div>
   </header>
 
+  <nav class="tabs" id="problem-tabs" role="tablist">
+    <button class="tab active" data-tab="flf" role="tab">FLF Epistack</button>
+    <button class="tab" data-tab="aisi" role="tab">AISI Lineage</button>
+    <button class="tab disabled" data-tab="p3" role="tab" disabled>Problem 3 <span class="tab-soon">soon</span></button>
+    <button class="tab disabled" data-tab="p4" role="tab" disabled>Problem 4 <span class="tab-soon">soon</span></button>
+  </nav>
+
+  <main id="tab-flf" class="tab-panel active" role="tabpanel">
   <section class="hero">
     <div class="container">
       <h1>How many times was the world actually observed here?</h1>
@@ -166,6 +174,111 @@ Markdown: - Claim one https://example.com/a
     </div>
   </section>
 
+  </main><!-- /tab-flf -->
+
+  <main id="tab-aisi" class="tab-panel" role="tabpanel" hidden>
+    <section class="hero">
+      <div class="container">
+        <h1>Hidden correlations in the FLI AI Safety Index</h1>
+        <p class="lede">
+          The same three-level independence method, applied to the evidence base of the
+          Future of Life Institute's AI Safety Index. Nine AI labs analyzed — Anthropic, OpenAI,
+          Google DeepMind, Meta, Mistral, xAI, DeepSeek, Alibaba, Z.ai. For each, the engine reports
+          the citation inflation factor, the panel-dependency structure, and the temporal lineage.
+        </p>
+        <p class="byline">
+          <strong>A companion artifact to the FLF Epistack method.</strong>
+          Same engine. Different evidence base. Different problem.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>What's in the toolkit</h2>
+        <p class="section-lede">
+          A complete, runnable CLI + reports. Every number on this page is reproducible
+          from the public repo with one command.
+        </p>
+        <table class="levels">
+          <tr><td><strong>9-company analysis</strong></td><td>Per-company evidence blocks, source registry, lineage resolution, citation-inflation factor</td><td><code>npm run aisi:run -- &lt;company&gt;</code></td></tr>
+          <tr><td><strong>Cross-company</strong></td><td>Reviewer-dependency map, panel cluster analysis, shared-infrastructure framing</td><td><code>npm run aisi:cross-company</code></td></tr>
+          <tr><td><strong>Temporal</strong></td><td>Lineage evolution across the 2025 → 2026 Index cycles</td><td><code>npm run aisi:temporal</code></td></tr>
+          <tr><td><strong>Validation</strong></td><td>Defect register, baseline comparison, prior-art survey, challenger independence</td><td><code>npm run aisi:verify</code></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Headline findings</h2>
+        <p class="section-lede">
+          Full report at <code>docs/AISI_LINEAGE_REPORT.md</code> in the repo.
+          A few headline numbers, in plain English:
+        </p>
+        <ul class="findings">
+          <li><strong>Citation inflation factor</strong> ranges from <strong>1×</strong> (each citation is a distinct source) to <strong>~12×</strong> for labs whose publications cluster around shared infrastructure.</li>
+          <li><strong>Panel independence is structural, not random.</strong> Multiple FLI Index reviewers share institutional lineages that the published "7 independent reviewers" framing does not surface.</li>
+          <li><strong>Publication lineage accumulates.</strong> Labs that publish more get cited more by themselves and by aligned labs — a finding the index scoring currently treats as positive signal.</li>
+        </ul>
+        <p class="section-lede">
+          The toolkit ships with a complete red-team review and a security/safety review.
+          Both are in <code>docs/RED_TEAM_REVIEW.md</code> and <code>docs/SECURITY_SAFETY_REVIEW.md</code>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Get the toolkit</h2>
+        <p class="section-lede">
+          The AISI Lineage Toolkit is a public, MIT-licensed companion repo. It uses the same
+          engine as this FLF Epistack site — different problem, identical methodology.
+        </p>
+        <pre style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;color:var(--text);"><code># clone + run
+git clone https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit
+cd doctrine-labs-aisi-lineage-toolkit
+npm install
+npm test                  # 52 tests, no network
+npm run aisi:run -- anthropic
+npm run aisi:report       # full report across all 9 companies</code></pre>
+        <p class="section-lede">
+          <a class="btn primary" href="https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit" target="_blank" rel="noopener">Open AISI toolkit repo →</a>
+        </p>
+      </div>
+    </section>
+  </main><!-- /tab-aisi -->
+
+  <main id="tab-p3" class="tab-panel" role="tabpanel" hidden>
+    <section class="hero">
+      <div class="container">
+        <h1>Problem 3 · coming soon</h1>
+        <p class="lede">
+          Reserved for the next epistemic problem we build for FLF or FLI.
+          When it's ready, this tab will host it alongside FLF Epistack and AISI Lineage.
+        </p>
+        <p class="byline">
+          Same engine, same methodology, applied to whatever problem is next on the list.
+        </p>
+      </div>
+    </section>
+  </main><!-- /tab-p3 -->
+
+  <main id="tab-p4" class="tab-panel" role="tabpanel" hidden>
+    <section class="hero">
+      <div class="container">
+        <h1>Problem 4 · coming soon</h1>
+        <p class="lede">
+          Reserved for the next epistemic problem we build for FLF or FLI.
+          When it's ready, this tab will host it alongside FLF Epistack and AISI Lineage.
+        </p>
+        <p class="byline">
+          Same engine, same methodology, applied to whatever problem is next on the list.
+        </p>
+      </div>
+    </section>
+  </main><!-- /tab-p4 -->
+
   <footer>
     <div class="container">
       Built by Brandon Flores, Doctrine Labs. Local-first, zero cloud.
@@ -173,6 +286,20 @@ Markdown: - Claim one https://example.com/a
   </footer>
 
   <script>
+    // ---------- Tab switching ----------
+    document.querySelectorAll('.tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        if (btn.disabled) return;
+        document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.tab-panel').forEach((p) => {
+          const match = p.id === `tab-${target}`;
+          p.hidden = !match;
+          p.classList.toggle('active', match);
+        });
+      });
+    });
+  </script>
     async function load() {
       try {
         const res = await fetch('/api/cases');
