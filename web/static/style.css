@@ -908,3 +908,49 @@ blockquote.subq {
   font-size: 14px;
   line-height: 1.55;
 }
+
+/* ---------- AISI tab ---------- */
+.card-button {
+  cursor: pointer;
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: inherit;
+  font: inherit;
+  padding: 18px;
+  width: 100%;
+  border-radius: 10px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.card-button:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.card-button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pill.ok   { background: rgba(80, 200, 120, 0.15); color: #4ea36b; border-color: rgba(80, 200, 120, 0.4); }
+.pill.soft { background: rgba(220, 180, 70, 0.15); color: #c4a045; border-color: rgba(220, 180, 70, 0.4); }
+.pill.hot  { background: rgba(220, 90, 70, 0.15); color: #d76a52; border-color: rgba(220, 90, 70, 0.5); }
+
+.shared-roots {
+  margin-top: 8px;
+}
+.shared-roots .levels {
+  font-size: 13px;
+}
+
+.aisi-detail {
+  margin-top: 8px;
+}
+.aisi-detail h3 {
+  margin-top: 24px;
+  font-size: 16px;
+  color: var(--text);
+}
+.muted {
+  color: var(--text-dim);
+  font-size: 13px;
+}

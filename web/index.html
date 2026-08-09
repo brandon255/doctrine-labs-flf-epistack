@@ -177,76 +177,99 @@ Markdown: - Claim one https://example.com/a
   </main><!-- /tab-flf -->
 
   <main id="tab-aisi" class="tab-panel" role="tabpanel" hidden>
-    <section class="hero">
-      <div class="container">
-        <h1>Hidden correlations in the FLI AI Safety Index</h1>
-        <p class="lede">
-          The same three-level independence method, applied to the evidence base of the
-          Future of Life Institute's AI Safety Index. Nine AI labs analyzed — Anthropic, OpenAI,
-          Google DeepMind, Meta, Mistral, xAI, DeepSeek, Alibaba, Z.ai. For each, the engine reports
-          the citation inflation factor, the panel-dependency structure, and the temporal lineage.
-        </p>
-        <p class="byline">
-          <strong>A companion artifact to the FLF Epistack method.</strong>
-          Same engine. Different evidence base. Different problem.
-        </p>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="container">
+      <h1>Hidden correlations in the FLI AI Safety Index</h1>
+      <p class="lede">
+        The same three-level independence method, applied to the evidence base of the
+        Future of Life Institute's AI Safety Index. Nine AI labs analyzed — Anthropic, OpenAI,
+        Google DeepMind, Meta, Mistral, xAI, DeepSeek, Alibaba, Z.ai. For each, the engine reports
+        the citation inflation factor, the panel-dependency structure, and the temporal lineage.
+      </p>
+      <p class="byline">
+        <strong>A companion artifact to the FLF Epistack method.</strong>
+        Same engine. Different evidence base. Different problem.
+      </p>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>What's in the toolkit</h2>
-        <p class="section-lede">
-          A complete, runnable CLI + reports. Every number on this page is reproducible
-          from the public repo with one command.
-        </p>
-        <table class="levels">
-          <tr><td><strong>9-company analysis</strong></td><td>Per-company evidence blocks, source registry, lineage resolution, citation-inflation factor</td><td><code>npm run aisi:run -- &lt;company&gt;</code></td></tr>
-          <tr><td><strong>Cross-company</strong></td><td>Reviewer-dependency map, panel cluster analysis, shared-infrastructure framing</td><td><code>npm run aisi:cross-company</code></td></tr>
-          <tr><td><strong>Temporal</strong></td><td>Lineage evolution across the 2025 → 2026 Index cycles</td><td><code>npm run aisi:temporal</code></td></tr>
-          <tr><td><strong>Validation</strong></td><td>Defect register, baseline comparison, prior-art survey, challenger independence</td><td><code>npm run aisi:verify</code></td></tr>
-        </table>
+  <section class="section">
+    <div class="container">
+      <h2>The nine labs</h2>
+      <p class="section-lede">
+        Live numbers below — each card reflects the engine run against that company's
+        evidence blocks. Cards with the highest inflation factor are where the index
+        panel is most exposed to correlated evidence.
+      </p>
+      <div class="cards" id="aisi-cards">
+        <div class="card"><span class="case-id">loading…</span></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Headline findings</h2>
-        <p class="section-lede">
-          Full report at <code>docs/AISI_LINEAGE_REPORT.md</code> in the repo.
-          A few headline numbers, in plain English:
-        </p>
-        <ul class="findings">
-          <li><strong>Citation inflation factor</strong> ranges from <strong>1×</strong> (each citation is a distinct source) to <strong>~12×</strong> for labs whose publications cluster around shared infrastructure.</li>
-          <li><strong>Panel independence is structural, not random.</strong> Multiple FLI Index reviewers share institutional lineages that the published "7 independent reviewers" framing does not surface.</li>
-          <li><strong>Publication lineage accumulates.</strong> Labs that publish more get cited more by themselves and by aligned labs — a finding the index scoring currently treats as positive signal.</li>
-        </ul>
-        <p class="section-lede">
-          The toolkit ships with a complete red-team review and a security/safety review.
-          Both are in <code>docs/RED_TEAM_REVIEW.md</code> and <code>docs/SECURITY_SAFETY_REVIEW.md</code>.
-        </p>
+  <section class="section">
+    <div class="container">
+      <h2>Shared roots across companies</h2>
+      <p class="section-lede">
+        Hosts cited by two or more companies. This is where cross-company comparison
+        assumes independence that the evidence base does not actually have — shared
+        benchmarks (SWE-bench, MMLU, HumanEval), shared industry surveys, shared
+        regulatory templates.
+      </p>
+      <div id="aisi-shared-roots" class="shared-roots">
+        <p class="muted">loading…</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Get the toolkit</h2>
-        <p class="section-lede">
-          The AISI Lineage Toolkit is a public, MIT-licensed companion repo. It uses the same
-          engine as this FLF Epistack site — different problem, identical methodology.
-        </p>
-        <pre style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;color:var(--text);"><code># clone + run
+  <section class="section">
+    <div class="container">
+      <h2>Drill into a single lab</h2>
+      <p class="section-lede">
+        Click any lab card above, or load one explicitly. The engine shows the
+        correlated-document structure and the lineage groups the registry declared.
+      </p>
+      <div id="aisi-detail" class="aisi-detail">
+        <p class="muted">Click a lab card to inspect.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What's in the toolkit</h2>
+      <p class="section-lede">
+        A complete, runnable CLI + reports. Every number on this page is reproducible
+        from the public repo with one command.
+      </p>
+      <table class="levels">
+        <tr><td><strong>9-company analysis</strong></td><td>Per-company evidence blocks, source registry, lineage resolution, citation-inflation factor</td><td><code>npm run aisi:run -- &lt;company&gt;</code></td></tr>
+        <tr><td><strong>Cross-company</strong></td><td>Reviewer-dependency map, panel cluster analysis, shared-infrastructure framing</td><td><code>npm run aisi:cross-company</code></td></tr>
+        <tr><td><strong>Temporal</strong></td><td>Lineage evolution across the 2025 → 2026 Index cycles</td><td><code>npm run aisi:temporal</code></td></tr>
+        <tr><td><strong>Validation</strong></td><td>Defect register, baseline comparison, prior-art survey, challenger independence</td><td><code>npm run aisi:verify</code></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Get the toolkit</h2>
+      <p class="section-lede">
+        The AISI Lineage Toolkit is a public, MIT-licensed companion repo. It uses the same
+        engine as this FLF Epistack site — different problem, identical methodology.
+      </p>
+      <pre style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;color:var(--text);"><code># clone + run
 git clone https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit
 cd doctrine-labs-aisi-lineage-toolkit
 npm install
 npm test                  # 52 tests, no network
 npm run aisi:run -- anthropic
 npm run aisi:report       # full report across all 9 companies</code></pre>
-        <p class="section-lede">
-          <a class="btn primary" href="https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit" target="_blank" rel="noopener">Open AISI toolkit repo →</a>
-        </p>
-      </div>
-    </section>
+      <p class="section-lede">
+        <a class="btn primary" href="https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit" target="_blank" rel="noopener">Open AISI toolkit repo →</a>
+      </p>
+    </div>
+  </section>
   </main><!-- /tab-aisi -->
 
   <main id="tab-p3" class="tab-panel" role="tabpanel" hidden>
@@ -413,6 +436,120 @@ npm run aisi:report       # full report across all 9 companies</code></pre>
         status.innerHTML = `<span class="err">${escapeHtml(e.message)}</span>`;
       }
     });
+
+    // ---------- AISI tab ----------
+    async function loadAisi() {
+      // Render the 9 lab cards
+      const grid = document.getElementById('aisi-cards');
+      try {
+        const res = await fetch('/api/aisi/companies');
+        const data = await res.json();
+        if (!data.ok) {
+          grid.innerHTML = `<div class="card"><span class="case-id">failed to load AISI: ${escapeHtml(data.error)}</span></div>`;
+          return;
+        }
+        grid.innerHTML = '';
+        // Sort by inflation factor desc — most exposed first
+        const sorted = [...data.companies].sort((a, b) => (b.summary?.inflation_factor ?? 0) - (a.summary?.inflation_factor ?? 0));
+        for (const c of sorted) {
+          const a = document.createElement('button');
+          a.type = 'button';
+          a.className = 'card card-button';
+          a.dataset.company = c.id;
+          if (c.error) {
+            a.innerHTML = `<span class="case-id">${escapeHtml(c.id)}</span><span class="case-title">error: ${escapeHtml(c.error)}</span>`;
+          } else {
+            const s = c.summary;
+            const pill = s.inflation_factor >= 3
+              ? `<span class="pill hot">${s.inflation_factor}x inflation</span>`
+              : s.inflation_factor >= 1.5
+              ? `<span class="pill soft">${s.inflation_factor}x inflation</span>`
+              : `<span class="pill ok">${s.inflation_factor}x inflation</span>`;
+            a.innerHTML = `
+              <span class="case-id">${escapeHtml(c.id)}</span>
+              <span class="case-title">${escapeHtml(c.title)}</span>
+              <span class="case-count"><strong>${s.block_count}</strong> excerpts → <strong>${s.document_count}</strong> docs → <strong>${s.lineage_count}</strong> lineages</span>
+              ${pill}
+            `;
+            a.addEventListener('click', () => loadAisiCompany(c.id));
+          }
+          grid.appendChild(a);
+        }
+      } catch (e) {
+        grid.innerHTML = `<div class="card"><span class="case-id">failed to load: ${escapeHtml(e.message)}</span></div>`;
+      }
+
+      // Render shared roots
+      const shared = document.getElementById('aisi-shared-roots');
+      try {
+        const res = await fetch('/api/aisi/cross-company');
+        const data = await res.json();
+        if (!data.ok) {
+          shared.innerHTML = `<p class="err">failed to load shared roots: ${escapeHtml(data.error)}</p>`;
+          return;
+        }
+        if (!data.shared_roots.length) {
+          shared.innerHTML = `<p class="muted">No hosts cited by 2+ companies — strong independence.</p>`;
+          return;
+        }
+        shared.innerHTML = '<table class="levels"><thead><tr><th>Host</th><th>Companies</th><th>Total blocks</th></tr></thead><tbody>'
+          + data.shared_roots.slice(0, 25).map((r) => `
+            <tr>
+              <td><code>${escapeHtml(r.host)}</code></td>
+              <td>${r.company_count} (${escapeHtml(r.companies.join(', '))})</td>
+              <td>${r.block_count}</td>
+            </tr>
+          `).join('')
+          + '</tbody></table>';
+      } catch (e) {
+        shared.innerHTML = `<p class="err">${escapeHtml(e.message)}</p>`;
+      }
+    }
+
+    async function loadAisiCompany(id) {
+      const detail = document.getElementById('aisi-detail');
+      detail.innerHTML = `<p class="muted">Loading ${escapeHtml(id)}…</p>`;
+      try {
+        const res = await fetch(`/api/aisi/company/${encodeURIComponent(id)}`);
+        const data = await res.json();
+        if (!data.ok) {
+          detail.innerHTML = `<p class="err">${escapeHtml(data.error || 'failed')}</p>`;
+          return;
+        }
+        const s = data.summary;
+        const pill = s.inflation_factor >= 3
+          ? `<span class="pill hot">${s.inflation_factor}x inflation</span>`
+          : s.inflation_factor >= 1.5
+          ? `<span class="pill soft">${s.inflation_factor}x inflation</span>`
+          : `<span class="pill ok">${s.inflation_factor}x inflation</span>`;
+        const lineageList = Object.entries(data.lineages || {}).map(([k, v]) => `
+          <li><strong>${escapeHtml(v.label || k)}</strong><span class="muted"> — ${escapeHtml(v.kind || '')}</span></li>
+        `).join('');
+        const corrList = (data.correlated_documents || []).map((c) => `
+          <li><code>${escapeHtml(c.document_id || c.id || 'document')}</code> — ${c.block_count} excerpts collapse to 1 source</li>
+        `).join('') || '<li class="muted">No correlated documents (1 excerpt per source).</li>';
+        detail.innerHTML = `
+          <div class="result-summary">
+            <div class="stat"><div class="stat-label">Excerpts cited</div><div class="stat-value">${s.block_count}</div></div>
+            <div class="stat"><div class="stat-label">Documents</div><div class="stat-value">${s.document_count}</div></div>
+            <div class="stat primary"><div class="stat-label">Independent lineages</div><div class="stat-value">${s.lineage_count}</div></div>
+            <div class="stat warn"><div class="stat-label">Inflation factor</div><div class="stat-value">${pill}</div></div>
+          </div>
+          <p class="result-line">${escapeHtml(s.assessment_line)}</p>
+          <h3>Lineage groups (from the registry)</h3>
+          <ul class="findings">${lineageList || '<li class="muted">No registry loaded.</li>'}</ul>
+          <h3>Correlated documents</h3>
+          <ul class="findings">${corrList}</ul>
+          <details class="result-details">
+            <summary>Raw response</summary>
+            <pre>${escapeHtml(JSON.stringify(data, null, 2))}</pre>
+          </details>
+        `;
+      } catch (e) {
+        detail.innerHTML = `<p class="err">${escapeHtml(e.message)}</p>`;
+      }
+    }
+    loadAisi();
   </script>
 </body>
 </html>

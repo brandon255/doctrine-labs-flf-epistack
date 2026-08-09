@@ -27,6 +27,12 @@ const SKIP_FILES = new Set([
   "docs/competition/FLF_JUDGING_CRITERIA.txt",
   "docs/competition/FLF_COMPETITION_BRIEF.txt",
 ]);
+/** Files that legitimately contain machine-generated or quoted public material
+ *  from third-party sources (AISI evidence registry from FLI Index, etc.). */
+const SKIP_PREFIXES = [
+  "data/aisi/blocks/",
+  "data/aisi/scripts/snapshot.js",
+];
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -43,6 +49,7 @@ const hits = [];
 for (const file of walk(ROOT)) {
   const rel = relative(ROOT, file);
   if (SKIP_FILES.has(rel)) continue;
+  if (SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
   if ([...SKIP_EXT].some((e) => rel.endsWith(e))) continue;
   let text;
   try {

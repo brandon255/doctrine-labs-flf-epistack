@@ -1,0 +1,58 @@
+{
+  "case": "mistral",
+  "version": "1.0",
+  "note": "Closed-form evidence-block corpus for Mistral. The 3 excerpts are derived from the FLI AI Safety Index Summer 2026 evidence base disclosure and publicly available materials. Per-company analysis: docs/epistemic/mistral/per-company.md.",
+  "blocks": [
+    {
+      "evidence_id": "mistral-mistral-safety-statement-0",
+      "claim": "Mistral Safety Statement defines the mistral safety framework structure.",
+      "excerpt": "Document: Mistral Safety Statement (2026-01). Claim: Mistral Safety Statement defines the mistral safety framework structure. This excerpt is a closed-form representation derived from the FLI AI Safety Index Summer 2026 evidence base disclosure.",
+      "source": {
+        "title": "Mistral Safety Statement",
+        "author": "mistral",
+        "date": "2026-01",
+        "url": "https://mistral.ai/safety-statement",
+        "identifier": "mistral-mistral-safety-statement-0"
+      },
+      "provenance": {
+        "context": "URL: https://mistral.ai/safety-statement",
+        "confidence": "HIGH",
+        "url": "https://mistral.ai/safety-statement"
+      }
+    },
+    {
+      "evidence_id": "mistral-fli-ai-safety-index-summer-2026-mistral-column-1",
+      "claim": "FLI graded mistral at the published grade.",
+      "excerpt": "Document: FLI AI Safety Index Summer 2026 — Mistral Column (2026-07-01). Claim: FLI graded mistral at the published grade. This excerpt is a closed-form representation derived from the FLI AI Safety Index Summer 2026 evidence base disclosure.",
+      "source": {
+        "title": "FLI AI Safety Index Summer 2026 — Mistral Column",
+        "author": "mistral",
+        "date": "2026-07-01",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+        "identifier": "mistral-fli-ai-safety-index-summer-2026-mistral-column-1"
+      },
+      "provenance": {
+        "context": "URL: https://futureoflife.org/ai-safety-index-summer-2026/",
+        "confidence": "HIGH",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/"
+      }
+    },
+    {
+      "evidence_id": "mistral-fli-ai-safety-index-summer-2026-mistral-column-2",
+      "claim": "FLI graded mistral on a specific domain.",
+      "excerpt": "Document: FLI AI Safety Index Summer 2026 — Mistral Column (2026-07-01). Claim: FLI graded mistral on a specific domain. This excerpt is a closed-form representation derived from the FLI AI Safety Index Summer 2026 evidence base disclosure.",
+      "source": {
+        "title": "FLI AI Safety Index Summer 2026 — Mistral Column",
+        "author": "mistral",
+        "date": "2026-07-01",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+        "identifier": "mistral-fli-ai-safety-index-summer-2026-mistral-column-2"
+      },
+      "provenance": {
+        "context": "URL: https://futureoflife.org/ai-safety-index-summer-2026/",
+        "confidence": "HIGH",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/"
+      }
+    }
+  ]
+}

@@ -22,3 +22,6 @@ decisions/*.json
 # not ours to republish from a public repository.
 docs/competition/
 .git-replace-text.txt
+
+# AISI snapshot — generated, not edited. Regenerate via:
+#   node data/aisi/scripts/snapshot.js

@@ -1,0 +1,69 @@
+{
+  "case": "xai",
+  "version": "1.0",
+  "note": "Document- and lineage-level identity for the xai safety corpus. Lineages group documents that draw on the same underlying generative event. Derived from the FLI AI Safety Index Summer 2026 disclosure and publicly available materials. See SUBQUESTION.md for the curation defect and the closed-form lineage analysis.",
+  "lineages": {
+    "xai-framework-lineage": {
+      "label": "xai Safety Framework",
+      "description": "The framework document that defines xai's safety approach. The framework is the policy root for all later xai safety artifacts.",
+      "kind": "policy"
+    },
+    "xai-models-lineage": {
+      "label": "xai Model Cards",
+      "description": "Model cards for xai's frontier models. The model cards inherit the framework's category structure.",
+      "kind": "model_card"
+    },
+    "xai-blog-lineage": {
+      "label": "xai Public Blog",
+      "description": "Public blog posts that discuss the framework and the model cards.",
+      "kind": "blog_post"
+    },
+    "fli-ai-safety-index-2026-summer": {
+      "label": "FLI AI Safety Index — Summer 2026 Edition",
+      "description": "Future of Life Institute's expert review. The xai column grades the framework and the model cards.",
+      "kind": "derivative_summary"
+    }
+  },
+  "documents": {
+    "https://xai.example/framework": {
+      "document_id": "xai-framework",
+      "title": "xai Safety Framework",
+      "author": "xai",
+      "date": "2025-2026",
+      "medium": "Web page",
+      "lineage_id": "xai-framework-lineage",
+      "lineage_role": "policy",
+      "derives_from": []
+    },
+    "https://xai.example/model-card-1": {
+      "document_id": "xai-model-card-1",
+      "title": "xai Model Card",
+      "author": "xai",
+      "date": "2025-2026",
+      "medium": "Model card",
+      "lineage_id": "xai-models-lineage",
+      "lineage_role": "model_card",
+      "derives_from": ["xai-framework"]
+    },
+    "https://xai.example/blog": {
+      "document_id": "xai-blog",
+      "title": "xai Public Blog",
+      "author": "xai",
+      "date": "2025-2026",
+      "medium": "Web blog",
+      "lineage_id": "xai-blog-lineage",
+      "lineage_role": "blog_post",
+      "derives_from": ["xai-framework"]
+    },
+    "https://futureoflife.org/ai-safety-index-summer-2026/": {
+      "document_id": "fli-ai-safety-index-xai-column",
+      "title": "FLI AI Safety Index Summer 2026 — xai Column",
+      "author": "Future of Life Institute",
+      "date": "2026-07-01",
+      "medium": "Web page",
+      "lineage_id": "fli-ai-safety-index-2026-summer",
+      "lineage_role": "derivative_summary",
+      "derives_from": ["xai-framework", "xai-model-card-1", "xai-blog"]
+    }
+  }
+}
