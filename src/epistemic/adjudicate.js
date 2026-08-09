@@ -65,11 +65,11 @@ export function quoteAppearsIn(quote, haystack) {
     .filter((f) => f.length >= 8);
   if (fragments.length === 0) return false;
 
-  let cursor = 0;
+  let searchPos = 0;
   for (const fragment of fragments) {
-    const at = haystack.indexOf(fragment, cursor);
+    const at = haystack.indexOf(fragment, searchPos);
     if (at === -1) return false;
-    cursor = at + fragment.length;
+    searchPos = at + fragment.length;
   }
   return true;
 }

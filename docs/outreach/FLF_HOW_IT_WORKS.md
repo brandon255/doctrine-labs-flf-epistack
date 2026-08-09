@@ -1,14 +1,15 @@
 # How the FLF Epistemic Stack works
 
-**Brandon Flores** · Doctrine Labs · brandon@bmflores.com  
+**Brandon Flores** · Doctrine Labs  
 **Repo (public):** https://github.com/brandon255/doctrine-labs-flf-epistack  
+**Contact:** open an issue on the repo, or reach me via the FLF Epistack contest channel.  
 **What this is:** A short, human-written explanation of how the current build works. Not a prize claim. Not a slide deck.
 
 ---
 
 ## Co-writing (straight)
 
-This note was co-written with Cursor, the coding agent I work with daily. I call it Rivet. Same division of labor I named in the Jun 21 early-feedback note: I set the architecture and what "done" means. Rivet drafts and implements. I reverse-engineer every piece until I can defend it, run the tests, and revise when something is wrong.
+This note was drafted with an AI coding assistant. Same division of labor I named in the Jun 21 early-feedback note: I set the architecture and what "done" means. The assistant drafts and implements. I reverse-engineer every piece until I can defend it, run the tests, and revise when something is wrong.
 
 I don't hide that. Depth on every line is uneven. I'm about six months into software, sixteen years of industrial design before that. If a line here is wrong, the error is mine.
 
@@ -157,4 +158,4 @@ I'm not submitting as an epistemologist. I'm submitting as a builder who found a
 
 — Brandon
 
-*Doctrine Labs · co-written with Cursor (Rivet) · Brandon Flores*
+*Doctrine Labs · Brandon Flores*

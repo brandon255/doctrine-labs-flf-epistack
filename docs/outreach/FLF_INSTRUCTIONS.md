@@ -1,7 +1,8 @@
 # FLF Epistemic Stack — how to run it
 
-**Brandon Flores** · Doctrine Labs · brandon@bmflores.com  
+**Brandon Flores** · Doctrine Labs  
 **Repo:** https://github.com/brandon255/doctrine-labs-flf-epistack  
+**Contact:** open an issue on the repo, or reach me via the FLF Epistack contest channel.  
 
 Three paths. Pick one. You do not need all three.
 
@@ -102,6 +103,6 @@ Other cases: `lhc` · `eggs` · `self` · or `npm run epistemic:all`.
 
 ## Contact
 
-brandon@bmflores.com  
+Open an issue on the repo, or reach me via the FLF Epistack contest channel.
 
 *Doctrine Labs · FLF Epistemic Stack*
