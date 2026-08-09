@@ -129,7 +129,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public repo]"
         },
         {
           "id": "self-tests-coreos",
@@ -186,7 +186,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public repo]"
         },
         {
           "id": "self-tests-coreos",
@@ -243,7 +243,7 @@ UI at 'npm start', stage 4.
           "reason": "numeric match",
           "declared": 94,
           "actual": 94,
-          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public gift]"
+          "output": "[redacted: git log --oneline excerpt; personal/ops commit subjects removed for public repo]"
         },
         {
           "id": "self-tests-coreos",

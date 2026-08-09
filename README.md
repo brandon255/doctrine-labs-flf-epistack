@@ -1,4 +1,4 @@
-# FLF Epistemic Stack — a gift
+# FLF Epistemic Stack
 
 A small, runnable tool that answers one question about a pile of evidence:
 **how many times was the world actually observed here?**
@@ -11,7 +11,7 @@ more than people expect.
 Treat as 3 independent source(s), not 21.
 ```
 
-A gift to the Future of Life Foundation.
+Submitted to the Future of Life Foundation.
 
 **Instructions (three paths):** [`docs/outreach/FLF_INSTRUCTIONS.md`](docs/outreach/FLF_INSTRUCTIONS.md).
 
@@ -280,7 +280,7 @@ a specific line rather than in the air.
 
 Brandon Flores — industrial designer, 16 years shipping physical products (concept to consumer); ~6 months building software. Not a senior engineer, not a virologist. What I bring is a designer's habit: take a fuzzy worry — *"are these sources really independent?"* — and turn it into one command that asks as little interpretation as possible of the person reading the output.
 
-This repo is a Doctrine Labs gift: one epistemic slice, given freely.
+This repo is one Doctrine Labs build: an epistemic slice, given freely.
 
 brandon@doctrinelabs.com
 

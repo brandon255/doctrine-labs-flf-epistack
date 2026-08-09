@@ -3,7 +3,7 @@
 **A methodology for provenance genealogy and audited model judgment in epistemic investigation.**
 
 Doctrine Labs · Brandon Flores · August 2026
-Submitted to the Future of Life Foundation as a gift, with an open offer to collaborate.
+Submitted to the Future of Life Foundation.
 
 ---
 

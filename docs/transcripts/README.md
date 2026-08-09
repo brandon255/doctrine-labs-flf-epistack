@@ -2,7 +2,7 @@
 
 A reviewer with a stack of submissions should not have to pull a five-gigabyte model to see whether this works. These are complete adjudication runs, captured verbatim from a real machine, including the ones that failed.
 
-No screencast in this gift; transcripts are the demo.
+No screencast here; transcripts are the demo.
 
 ## What you're looking at
 

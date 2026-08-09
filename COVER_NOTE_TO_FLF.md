@@ -1,4 +1,4 @@
-# A finished build, as a gift
+# A finished build, for FLF
 
 **To:** Future of Life Foundation — Epistemic Case Study team
 **From:** Brandon Flores, Doctrine Labs
@@ -211,7 +211,7 @@ particle physics it deliberately says nothing.
 
 ## Why I'm sending it
 
-**It's a gift.** No strings. MIT, public repo — fork it, change it, fold it into your
+**No strings.** MIT, public repo — fork it, change it, fold it into your
 own work, ignore it. Whatever serves the mission.
 
 **And it's one slice of something larger.** I call it Core OS: local-first AI
