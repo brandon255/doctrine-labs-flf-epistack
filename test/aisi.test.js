@@ -165,6 +165,19 @@ test("aisi: /api/aisi/cross-company is sorted by company_count desc", async () =
   }
 });
 
+test("aisi: cross-company extracts hostname from descriptive-context strings", async () => {
+  if (!existsSync(AISI_DIR)) return;
+  // Some AISI blocks have provenance.context like:
+  //   "FLI AI Safety Index Summer 2026. URL: https://futureoflife.org/..."
+  // The endpoint must extract the URL, not silently skip the block.
+  const r = await getRequest("/api/aisi/cross-company");
+  const payload = JSON.parse(r.body);
+  if (!payload.ok) return;
+  for (const root of payload.shared_roots) {
+    assert.ok(root.host && root.host.length > 0, `host should not be empty: ${JSON.stringify(root)}`);
+  }
+});
+
 // ---------------- filesystem sanity ----------------
 
 test("aisi: data/aisi/blocks/ contains one folder per company (when snapshot exists)", () => {

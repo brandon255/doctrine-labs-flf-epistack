@@ -300,8 +300,18 @@ export async function routeRequest({ method, pathname, search, body = {} }) {
         const raw = JSON.parse(readFileSync(file, "utf8"));
         const blocks = Array.isArray(raw) ? raw : (raw.blocks ?? []);
         for (const b of blocks) {
-          const url = b?.provenance?.context;
-          if (typeof url !== "string") continue;
+          const ctx = b?.provenance?.context;
+          // Accept string or {url:string}; some AISI blocks have descriptive
+          // text like "FLI AI Safety Index Summer 2026. URL: https://..."
+          // before the actual URL, so we extract the first https?:// match.
+          let url = null;
+          if (typeof ctx === "string") {
+            const m = ctx.match(/https?:\/\/\S+/);
+            url = m ? m[0].replace(/[.,)\]]+$/, "") : null;
+          } else if (ctx && typeof ctx === "object" && typeof ctx.url === "string") {
+            url = ctx.url;
+          }
+          if (!url) continue;
           try {
             const u = new URL(url);
             const host = u.hostname.replace(/^www\./, "");
