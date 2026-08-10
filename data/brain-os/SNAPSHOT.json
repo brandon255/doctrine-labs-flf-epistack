@@ -1,7 +1,7 @@
 {
   "service": "brain-os",
   "source": "doctrine-labs-brain-os",
-  "generated_at": "2026-08-10T03:44:53.296Z",
+  "generated_at": "2026-08-10T07:27:28.537Z",
   "files": [
     "icm-index.json",
     "agents-snapshot.json",

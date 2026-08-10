@@ -30,6 +30,97 @@ function copyFile(from, to) {
   }
 }
 
+// Patterns to scrub from any text content before writing to public snapshot.
+const SCRUB_PATTERNS = [
+  // Profanity (case-insensitive).
+  [/\bfucking\b/gi, "[redacted]"],
+  [/\bshit\b/gi, "[redacted]"],
+  [/\bdamn\b/gi, "[redacted]"],
+  [/\bbullshit\b/gi, "[redacted]"],
+  [/\bbitch\b/gi, "[redacted]"],
+  [/\bass\b/gi, "[redacted]"],
+  // Recruiters / people.
+  [/\bNaomi\s+H\.?/gi, "[recruiter]"],
+  [/\bNaomi\b/gi, "[recruiter]"],
+  [/\bJeremy\s+Kloth\b/gi, "[recruiter]"],
+  [/\bBrandonMonicFlores\b/gi, "[user]"],
+  [/\bBrandon\s+Flores\b/gi, "[user]"],
+  // Domains / paths.
+  [/doctrinalabs\.com/gi, "example.com"],
+  [/\/Users\/[^\s)\]"]+/g, "[path]"],
+  // People — soft bans.
+  [/\bLynn\s+Brokaw\b/gi, "[private]"],
+  [/\bLynn\b/gi, "[private]"],
+  // Personal medical / hard bans.
+  [/\bsobriety\b/gi, "[private]"],
+  [/\bADHD\b/gi, "[private]"],
+  [/\balcoholic\b/gi, "[private]"],
+  [/\bAA meeting\b/gi, "[private]"],
+  // Money-distress / private project names.
+  [/\bI'?m broke\b/gi, "[private]"],
+  [/\bbehind on rent\b/gi, "[private]"],
+  [/\bcannot afford\b/gi, "[private]"],
+  // Author tooling / project names.
+  [/\bRivet\b/g, "[project]"],
+  [/\brivet\b/g, "[project]"],
+  [/\bWolf'?s\s+Garage\b/gi, "[project]"],
+  [/\bWolf'?s?\b/gi, "[project]"],
+  [/\bCursor\s+(IDE|chat|agent)\b/gi, "an editor"],
+  // Hard-ban names from user rules.
+  [/Who'?s\s+Who/gi, "[private]"],
+  [/\blandlord\s+thread\b/gi, "[private]"],
+  // "Competence-vent" / not-knowing patterns.
+  [/I don'?t know shit/gi, "[redacted]"],
+  [/I don'?t know how to use GitHub/gi, "[redacted]"],
+  [/not knowing how to use GitHub/gi, "[redacted]"],
+  [/did not yet know how to use GitHub/gi, "[redacted]"],
+  [/GitHub learning moment/gi, "[redacted]"],
+  [/asked how to save repos/gi, "[redacted]"],
+];
+
+function scrubText(text) {
+  if (typeof text !== "string") return text;
+  let out = text;
+  for (const [re, replacement] of SCRUB_PATTERNS) out = out.replace(re, replacement);
+  return out;
+}
+
+function scrubClaimPreview(preview) {
+  if (typeof preview !== "string") return preview;
+  // Truncate aggressively + scrub profanity/names.
+  let out = preview.slice(0, 60);
+  return scrubText(out);
+}
+
+function scrubIcmIndex(raw) {
+  // Scrub claim_preview fields in every block. Tags + source_ids stay
+  // because they're already non-sensitive (e.g. perplexity:<uuid>).
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed && parsed.blocks && typeof parsed.blocks === "object") {
+      for (const id of Object.keys(parsed.blocks)) {
+        const b = parsed.blocks[id];
+        if (b && typeof b.claim_preview === "string") {
+          b.claim_preview = scrubClaimPreview(b.claim_preview);
+        }
+      }
+    }
+    return JSON.stringify(parsed, null, 2);
+  } catch {
+    return raw;
+  }
+}
+
+function copyIcmIndexSanitized(from, to) {
+  try {
+    const raw = readFileSync(from, "utf8");
+    writeFileSync(to, scrubIcmIndex(raw));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function listDaily(ideDir) {
   if (!existsSync(ideDir)) return [];
   return readdirSync(ideDir).filter((f) => f.endsWith(".md")).sort();
@@ -42,11 +133,12 @@ function main() {
   }
   if (!existsSync(DEST)) mkdirSync(DEST, { recursive: true });
 
-  // 1. Memory index
+  // 1. Memory index (sanitized — claim_preview fields are scrubbed of
+  // profanity / personal names / paths before writing to public snapshot).
   const indexPath = join(SRC, "data/index/icm-index.json");
   if (existsSync(indexPath)) {
-    copyFile(indexPath, join(DEST, "icm-index.json"));
-    console.log("  ✓ copied icm-index.json");
+    copyIcmIndexSanitized(indexPath, join(DEST, "icm-index.json"));
+    console.log("  ✓ copied icm-index.json (sanitized)");
   }
 
   // 2. Most recent daily report

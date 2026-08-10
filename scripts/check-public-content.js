@@ -40,6 +40,8 @@ const SKIP_FILES = new Set([
   ".gitignore",
   "docs/competition/FLF_JUDGING_CRITERIA.txt",
   "docs/competition/FLF_COMPETITION_BRIEF.txt",
+  // Brain OS snapshot script intentionally contains scrub-pattern strings.
+  "data/brain-os/scripts/snapshot.js",
 ]);
 /** Files that legitimately contain machine-generated or quoted public material
  *  from third-party sources (AISI evidence registry from FLI Index, etc.). */
