@@ -42,10 +42,8 @@ const SKIP_FILES = new Set([
   "docs/competition/FLF_COMPETITION_BRIEF.txt",
 ]);
 /** Files that legitimately contain machine-generated or quoted public material
- *  from third-party sources (AISI evidence registry from FLI Index, etc.). */
+ *  from third-party sources. Currently none — this repo is Epistack-only. */
 const SKIP_PREFIXES = [
-  "data/aisi/blocks/",
-  "data/aisi/scripts/snapshot.js",
 ];
 
 function walk(dir, out = []) {

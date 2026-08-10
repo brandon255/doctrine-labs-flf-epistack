@@ -11,18 +11,25 @@
 
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="/" class="brand">
-      <span class="brand-mark">◆</span>
-      <span class="brand-name">Doctrine Labs · Epistemic Stack</span>
-    </a>
-    <nav class="nav">
-      <a href="#tool" class="nav-link">Try it</a>
-      <a href="#how" class="nav-link">How it works</a>
-      <a href="#cases" class="nav-link">Cases</a>
-      <a href="#aisi" class="nav-link">AISI</a>
-      <a href="#eval" class="nav-link">Eval</a>
-      <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="nav-link nav-link-ghost">Source ↗</a>
-    </nav>
+    <div class="brand-stack">
+
+      <div class="brand-card">
+        <a href="#epistack" class="brand brand-heading">
+          <span class="brand-mark">◆</span>
+          <span class="brand-text">
+            <span class="brand-name">FLF Epistack submission</span>
+            <span class="brand-sub">Count the citations that are actually independent.</span>
+          </span>
+        </a>
+        <nav class="brand-links" aria-label="FLF Epistack navigation">
+          <a href="#tool" class="brand-link">Try it</a>
+          <a href="#how" class="brand-link">How it works</a>
+          <a href="#cases" class="brand-link">Cases</a>
+          <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="brand-link brand-link-source">Source ↗</a>
+        </nav>
+      </div>
+
+    </div>
   </div>
 </header>
 
@@ -53,6 +60,8 @@
 <!-- ============================================================= -->
 <!-- THE TOOL — drop, paste, sample, see results                   -->
 <!-- ============================================================= -->
+
+<a id="epistack"></a>
 
 <section id="tool" class="tool">
   <div class="container">
@@ -239,52 +248,6 @@ Markdown: - Claim one https://example.com/a
 </section>
 
 <!-- ============================================================= -->
-<!-- AISI — secondary lane callout                                  -->
-<!-- ============================================================= -->
-
-<section id="aisi" class="section section-alt">
-  <div class="container">
-    <div class="section-eyebrow">Same engine, second problem</div>
-    <h2 class="section-title">AISI Lineage Toolkit — hidden correlations in the FLI AI Safety Index.</h2>
-    <p class="section-lede">
-      Nine AI labs analyzed with the same three-level method.
-      Anthropic's 20 excerpts collapse to 3 lineages — that's a 6.7× citation
-      inflation factor. Click any lab to drill in.
-    </p>
-
-    <div class="aisi-grid" id="aisi-cards">
-      <div class="case-card case-card-loading">
-        <span class="case-loading-text">loading…</span>
-      </div>
-    </div>
-
-    <div class="aisi-shared">
-      <h3 class="subhead">Shared roots across companies</h3>
-      <p class="muted">
-        Hosts cited by two or more companies. This is where cross-company comparison
-        assumes independence that the evidence base does not actually have — shared benchmarks
-        (SWE-bench, MMLU, HumanEval), the FLI Index survey template itself, shared regulatory documents.
-      </p>
-      <div id="aisi-shared-roots" class="shared-roots-table">
-        <p class="muted">loading…</p>
-      </div>
-    </div>
-
-    <div class="aisi-detail-wrap" id="aisi-detail-wrap" hidden>
-      <h3 class="subhead">Drill into a lab</h3>
-      <div id="aisi-detail" class="aisi-detail"></div>
-    </div>
-
-    <div class="aisi-cta">
-      <a class="btn btn-secondary" href="https://github.com/brandon255/doctrine-labs-aisi-lineage-toolkit" target="_blank" rel="noopener">
-        Open the AISI toolkit repo ↗
-      </a>
-      <span class="muted">Public, MIT, forkable.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================= -->
 <!-- BOTTOM                                                        -->
 <!-- ============================================================= -->
 
@@ -292,7 +255,7 @@ Markdown: - Claim one https://example.com/a
   <div class="container">
     <h2 class="section-title">Built for the Future of Life Foundation's Epistack contest.</h2>
     <p class="section-lede">
-      The engine is open source, MIT-licensed, and tested — 219 automated tests,
+      The engine is open source, MIT-licensed, and tested — 210 automated tests,
       zero network calls, runs on Node 20+. The hosted site is the same engine
       served locally for reviewers.
     </p>
@@ -303,77 +266,11 @@ Markdown: - Claim one https://example.com/a
   </div>
 </section>
 
-<!-- ============================================================= -->
-<!-- PROBLEM 3 — Eval Contamination & Reviewer Independence (v2)   -->
-<!-- ============================================================= -->
-
-<section id="eval" class="section">
-  <div class="container">
-    <div class="hero-eyebrow">
-      <span class="dot dot-accent"></span>
-      Problem 3 · v2 toolkit · live
-    </div>
-    <h2 class="section-title">Evaluation contamination & reviewer independence</h2>
-    <p class="section-lede">
-      The 2026 FLI AI Safety Index, both cycles. Same engine as
-      <a href="#aisi">AISI</a>, applied at indicator-level resolution
-      across two publication cycles. Three new analysis surfaces:
-      benchmark-citation audit, reviewer-panel graph, and cross-cycle delta.
-    </p>
-
-    <div class="eval-summary" id="eval-summary">
-      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-companies">—</div><div class="eval-stat-label">Companies</div></div>
-      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-cycles">2</div><div class="eval-stat-label">Cycles</div></div>
-      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-blocks">—</div><div class="eval-stat-label">Evidence blocks</div></div>
-      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-reviewers">—</div><div class="eval-stat-label">Reviewers</div></div>
-    </div>
-
-    <div id="eval-companies" class="eval-companies-grid"></div>
-
-    <h3 class="subhead">Contamination audit — benchmark-citation independence</h3>
-    <p class="section-lede">
-      Top hosts by citation count vs. distinct underlying URLs. A high
-      contamination ratio (right column) means many "independent"
-      citations collapse to a single underlying measurement.
-    </p>
-    <table class="shared-roots" id="eval-contam-table">
-      <thead><tr><th>Host</th><th>Cited blocks</th><th>Distinct URLs</th><th>Contamination</th></tr></thead>
-      <tbody><tr><td colspan="4" class="empty-state">Loading…</td></tr></tbody>
-    </table>
-
-    <h3 class="subhead">Reviewer-panel structure</h3>
-    <p class="section-lede">
-      The FLI Index describes its reviewers as "independent." The graph
-      below tests that claim using only the domain assignments
-      published in the methodology. Edges connect reviewers who share
-      a domain assignment.
-    </p>
-    <div id="eval-reviewer-grid" class="reviewer-grid"></div>
-
-    <h3 class="subhead">Cross-cycle delta (Winter 2025 → Summer 2026)</h3>
-    <p class="section-lede">
-      How did the FLI Index evidence base change between cycles? A
-      high URL overlap percentage means the Summer 2026 evidence
-      reuses most of the same URLs as Winter 2025 — even when the
-      block count grew.
-    </p>
-    <table class="shared-roots" id="eval-cross-table">
-      <thead><tr><th>Company</th><th>Winter blocks</th><th>Summer blocks</th><th>Δ</th><th>Winter URLs</th><th>Summer URLs</th><th>URL overlap %</th></tr></thead>
-      <tbody><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
-    </table>
-
-    <div class="cta-row">
-      <a href="https://github.com/brandon255/doctrine-labs-eval-contamination-toolkit" target="_blank" rel="noopener" class="btn btn-primary">Open v2 toolkit repo →</a>
-      <a href="/api/eval/report" target="_blank" rel="noopener" class="btn btn-secondary">Read the full report</a>
-    </div>
-  </div>
-</section>
-
 <footer class="footer">
   <div class="container">
     <div class="footer-row">
       <span>Built by Brandon Flores, Doctrine Labs · local-first, zero cloud.</span>
-      <span class="footer-meta">v1.1 · 219 tests passing</span>
+      <span class="footer-meta">v1.2 · 210 tests passing</span>
     </div>
   </div>
 </footer>
@@ -567,268 +464,7 @@ Markdown: - Claim one https://example.com/a
       meta.textContent = 'failed';
     }
   });
-
-  /* ============================================================ */
-  /* AISI tab: cards + shared roots + drill-down                   */
-  /* ============================================================ */
-  async function loadAisi() {
-    const grid = document.getElementById('aisi-cards');
-    try {
-      const res = await fetch('/api/aisi/companies');
-      const data = await res.json();
-      if (!data.ok) {
-        grid.innerHTML = `<div class="case-card case-card-error"><span class="case-loading-text">failed to load AISI: ${escapeHtml(data.error)}</span></div>`;
-        return;
-      }
-      grid.innerHTML = '';
-      const sorted = [...data.companies].sort((a, b) =>
-        (b.summary?.inflation_factor ?? 0) - (a.summary?.inflation_factor ?? 0));
-      for (const c of sorted) {
-        const a = document.createElement('button');
-        a.type = 'button';
-        a.className = 'case-card case-card-button';
-        a.dataset.company = c.id;
-        if (c.error) {
-          a.innerHTML = `<div class="case-card-title">${escapeHtml(c.id)}</div><div class="case-card-error-msg">${escapeHtml(c.error)}</div>`;
-        } else {
-          const s = c.summary;
-          const inf = s.inflation_factor;
-          const pillClass = inf >= 3 ? 'pill-hot' : inf >= 1.5 ? 'pill-warm' : 'pill-cool';
-          a.innerHTML = `
-            <div class="case-card-head">
-              <span class="case-id">${escapeHtml(c.id)}</span>
-              <span class="case-pill ${pillClass}">${inf}×</span>
-            </div>
-            <div class="case-card-title">${escapeHtml(c.title)}</div>
-            <div class="case-card-counts">
-              <span><strong>${s.block_count}</strong> excerpts</span>
-              <span class="arrow">→</span>
-              <span><strong>${s.document_count}</strong> docs</span>
-              <span class="arrow">→</span>
-              <span><strong>${s.lineage_count}</strong> lineages</span>
-            </div>
-          `;
-          a.addEventListener('click', () => loadAisiCompany(c.id));
-        }
-        grid.appendChild(a);
-      }
-    } catch (e) {
-      grid.innerHTML = `<div class="case-card case-card-error"><span class="case-loading-text">failed to load: ${escapeHtml(e.message)}</span></div>`;
-    }
-
-    const shared = document.getElementById('aisi-shared-roots');
-    try {
-      const res = await fetch('/api/aisi/cross-company');
-      const data = await res.json();
-      if (!data.ok) {
-        shared.innerHTML = `<p class="status-err">failed: ${escapeHtml(data.error)}</p>`;
-        return;
-      }
-      if (!data.shared_roots.length) {
-        shared.innerHTML = `<p class="muted">No hosts cited by 2+ companies — strong independence.</p>`;
-        return;
-      }
-      shared.innerHTML = `
-        <table class="shared-roots">
-          <thead><tr><th>Host</th><th>Companies</th><th class="num">Total blocks</th></tr></thead>
-          <tbody>
-            ${data.shared_roots.slice(0, 15).map((r) => `
-              <tr>
-                <td><code>${escapeHtml(r.host)}</code></td>
-                <td>
-                  <span class="company-count">${r.company_count}</span>
-                  <span class="muted"> · ${escapeHtml(r.companies.join(', '))}</span>
-                </td>
-                <td class="num">${r.block_count}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>`;
-    } catch (e) {
-      shared.innerHTML = `<p class="status-err">${escapeHtml(e.message)}</p>`;
-    }
-  }
-
-  async function loadAisiCompany(id) {
-    const wrap = document.getElementById('aisi-detail-wrap');
-    const detail = document.getElementById('aisi-detail');
-    wrap.hidden = false;
-    detail.innerHTML = `<p class="muted">Loading ${escapeHtml(id)}…</p>`;
-    detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    try {
-      const res = await fetch(`/api/aisi/company/${encodeURIComponent(id)}`);
-      const data = await res.json();
-      if (!data.ok) {
-        detail.innerHTML = `<p class="status-err">${escapeHtml(data.error || 'failed')}</p>`;
-        return;
-      }
-      const s = data.summary;
-      const inf = s.inflation_factor;
-      const pillClass = inf >= 3 ? 'pill-hot' : inf >= 1.5 ? 'pill-warm' : 'pill-cool';
-      const lineageList = Object.entries(data.lineages || {}).map(([k, v]) => `
-        <li>
-          <strong>${escapeHtml(v.label || k)}</strong>
-          ${v.kind ? `<span class="muted"> · ${escapeHtml(v.kind)}</span>` : ''}
-          ${v.description ? `<div class="muted lineage-desc">${escapeHtml(v.description)}</div>` : ''}
-        </li>
-      `).join('') || '<li class="muted">No registry loaded.</li>';
-      const corrList = (data.correlated_documents || []).map((c) => `
-        <li>
-          <code>${escapeHtml(c.document_id || c.id || 'document')}</code>
-          <span class="muted"> — ${c.block_count} excerpts collapse to 1 source</span>
-        </li>
-      `).join('') || '<li class="muted">No correlated documents.</li>';
-
-      detail.innerHTML = `
-        <div class="result-summary">
-          <div class="stat">
-            <div class="stat-value">${s.block_count}</div>
-            <div class="stat-label">Excerpts cited</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">${s.document_count}</div>
-            <div class="stat-label">Documents</div>
-          </div>
-          <div class="stat stat-emphasis">
-            <div class="stat-value">${s.lineage_count}</div>
-            <div class="stat-label">Independent lineages</div>
-          </div>
-          <div class="stat stat-warn">
-            <div class="stat-value"><span class="case-pill ${pillClass}">${inf}×</span></div>
-            <div class="stat-label">Inflation</div>
-          </div>
-        </div>
-        <p class="result-line">${escapeHtml(s.assessment_line)}</p>
-
-        <h4 class="subhead">Lineage groups</h4>
-        <ul class="lineage-list">${lineageList}</ul>
-
-        <h4 class="subhead">Correlated documents</h4>
-        <ul class="lineage-list">${corrList}</ul>
-      `;
-    } catch (e) {
-      detail.innerHTML = `<p class="status-err">${escapeHtml(e.message)}</p>`;
-    }
-  }
-  loadAisi();
-
-  // ── Eval Contamination & Reviewer Independence Toolkit v2 ──
-  async function loadEval() {
-    // Per-company summary cards
-    try {
-      const res = await fetch('/api/eval/companies');
-      const data = await res.json();
-      if (data.ok) {
-        const grid = document.getElementById('eval-companies');
-        const byCompany = new Map();
-        for (const c of data.companies) {
-          if (!byCompany.has(c.id)) byCompany.set(c.id, []);
-          byCompany.get(c.id).push(c);
-        }
-        const totalBlocks = data.companies.reduce((s, c) => s + c.block_count, 0);
-        document.getElementById('eval-num-companies').textContent = byCompany.size;
-        document.getElementById('eval-num-blocks').textContent = totalBlocks;
-        const html = [...byCompany.entries()].map(([id, cycles]) => {
-          const summer = cycles.find((c) => c.cycle === 'summer-2026');
-          const winter = cycles.find((c) => c.cycle === 'winter-2025');
-          const blocks = summer ? summer.block_count : (winter ? winter.block_count : 0);
-          const cycleNote = summer && winter ? ' (both cycles)' : (summer ? ' (summer only)' : ' (winter only)');
-          return `<div class="case-card">
-            <div class="case-card-head">
-              <span class="case-id">${id}</span>
-              <span class="case-pill">${blocks} blocks</span>
-            </div>
-            <h3>${id.replace(/-/g, ' ')}</h3>
-            <p class="case-meta">${cycleNote}</p>
-          </div>`;
-        }).join('');
-        grid.innerHTML = html;
-      }
-    } catch (e) {
-      console.error('loadEval companies failed:', e);
-    }
-
-    // Reviewer panels (both cycles)
-    for (const cycle of ['winter-2025', 'summer-2026']) {
-      try {
-        const res = await fetch(`/api/eval/panel/${cycle}`);
-        const data = await res.json();
-        if (!data.ok) continue;
-        const grid = document.getElementById('eval-reviewer-grid');
-        const edgesHtml = data.edges.slice(0, 8).map((e) =>
-          `<li><code>${e.a}</code> ↔ <code>${e.b}</code> via ${e.shared_domains.join(', ')}</li>`
-        ).join('');
-        const domainsHtml = Object.entries(data.domain_counts)
-          .sort((a, b) => b[1] - a[1])
-          .map(([d, c]) => `<li>${d} <span class="case-pill">${c}</span></li>`)
-          .join('');
-        const card = document.createElement('div');
-        card.className = 'reviewer-card';
-        card.innerHTML = `
-          <div class="case-card-head">
-            <span class="case-id">${cycle}</span>
-            <span class="case-pill ${data.density > 0.3 ? 'case-pill-hot' : 'case-pill-cool'}">${(data.density * 100).toFixed(1)}% density</span>
-          </div>
-          <h3>${data.panel_size} reviewers · ${data.edges.length} edges</h3>
-          <p class="case-meta">${data.density > 0.3 ? 'High density: panel is structurally clustered beyond the “independent” threshold.' : 'Density within nominal independent range.'}</p>
-          <h4 class="subhead">Per-domain reviewer counts</h4>
-          <ul class="lineage-list">${domainsHtml}</ul>
-          <h4 class="subhead">Sample edges</h4>
-          <ul class="lineage-list">${edgesHtml}</ul>
-        `;
-        grid.appendChild(card);
-      } catch (e) {
-        console.error(`loadEval panel ${cycle} failed:`, e);
-      }
-    }
-    document.getElementById('eval-num-reviewers').textContent = '15';
-
-    // Contamination audit
-    try {
-      const res = await fetch('/api/eval/contamination');
-      const data = await res.json();
-      if (data.ok && data.host_rows) {
-        const tbody = document.querySelector('#eval-contam-table tbody');
-        tbody.innerHTML = data.host_rows.slice(0, 12).map((r) => {
-          const pillClass = r.contamination_ratio >= 4 ? 'case-pill-hot' : r.contamination_ratio >= 2 ? 'case-pill-warm' : 'case-pill-cool';
-          return `<tr>
-            <td><code>${r.host}</code></td>
-            <td>${r.total_blocks}</td>
-            <td>${r.distinct_urls}</td>
-            <td><span class="case-pill ${pillClass}">${r.contamination_ratio.toFixed(2)}×</span></td>
-          </tr>`;
-        }).join('');
-      }
-    } catch (e) {
-      console.error('loadEval contam failed:', e);
-    }
-
-    // Cross-cycle delta
-    try {
-      const res = await fetch('/api/eval/cross-cycle');
-      const data = await res.json();
-      if (data.ok && data.rows) {
-        const tbody = document.querySelector('#eval-cross-table tbody');
-        tbody.innerHTML = data.rows.map((r) => {
-          const pct = parseFloat(r.url_overlap_pct);
-          const pillClass = pct >= 70 ? 'case-pill-hot' : pct >= 40 ? 'case-pill-warm' : 'case-pill-cool';
-          return `<tr>
-            <td>${r.company}</td>
-            <td>${r.winter_blocks}</td>
-            <td>${r.summer_blocks}</td>
-            <td>${r.blocks_delta > 0 ? '+' : ''}${r.blocks_delta}</td>
-            <td>${r.winter_urls}</td>
-            <td>${r.summer_urls}</td>
-            <td><span class="case-pill ${pillClass}">${r.url_overlap_pct}%</span></td>
-          </tr>`;
-        }).join('');
-      }
-    } catch (e) {
-      console.error('loadEval cross-cycle failed:', e);
-    }
-  }
-  loadEval();
 </script>
+
 </body>
 </html>
