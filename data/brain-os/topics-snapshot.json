@@ -1,0 +1,53 @@
+{
+  "topics": [
+    {
+      "topic": "chatgpt-history",
+      "block_count": 6,
+      "top_tags": {
+        "chatgpt": 6,
+        "convo:sample-conv-001": 4,
+        "role:user": 3,
+        "role:assistant": 3,
+        "model:gpt-4o": 3,
+        "convo:sample-conv-002": 2
+      }
+    },
+    {
+      "topic": "cursor-history",
+      "block_count": 4,
+      "top_tags": {
+        "cursor": 4,
+        "file:sample-session.jsonl": 4,
+        "role:user": 2,
+        "role:assistant": 2
+      }
+    },
+    {
+      "topic": "doctrine-labs-repos",
+      "block_count": 24,
+      "top_tags": {
+        "doctrine-labs": 27,
+        "repo": 24,
+        "package.json": 7,
+        "doctrine-labs-aisi-lineage-toolkit": 5,
+        "doctrine-labs-eval-contamination-toolkit": 5,
+        "doctrine-labs-flf-epistack": 4,
+        "SPEC.md": 3,
+        "SUBMISSION.md": 3,
+        "doctrine-labs-brain-os": 3,
+        "docs/ARCHITECTURE.md": 2
+      }
+    },
+    {
+      "topic": "perplexity-history",
+      "block_count": 3,
+      "top_tags": {
+        "perplexity": 3,
+        "followup": 2,
+        "search": 1,
+        "citation_count:2": 1
+      }
+    }
+  ],
+  "generated_at": "2026-08-10T03:44:53.295Z"
+}

@@ -21,6 +21,7 @@
       <a href="#cases" class="nav-link">Cases</a>
       <a href="#aisi" class="nav-link">AISI</a>
       <a href="#eval" class="nav-link">Eval</a>
+      <a href="#brain" class="nav-link">Brain</a>
       <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="nav-link nav-link-ghost">Source ↗</a>
     </nav>
   </div>
@@ -366,6 +367,32 @@ Markdown: - Claim one https://example.com/a
       <a href="https://github.com/brandon255/doctrine-labs-eval-contamination-toolkit" target="_blank" rel="noopener" class="btn btn-primary">Open v2 toolkit repo →</a>
       <a href="/api/eval/report" target="_blank" rel="noopener" class="btn btn-secondary">Read the full report</a>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- PROBLEM 4 — Brain OS (ICM + Local LLM)                        -->
+<!-- ============================================================= -->
+
+<section id="brain" class="section">
+  <div class="container">
+    <div class="hero-eyebrow"><span class="dot"></span>Doctrine Labs · local-first knowledge</div>
+    <h2 class="section-title">Brain OS — the brain that remembers what actually happened.</h2>
+    <p class="section-sub">Brandon's local, agentic, ever-evolving knowledge base. Pulls ChatGPT history, Perplexity threads, Cursor transcripts, and every Doctrine Labs repo into one ICM-architected memory. The local LLM (Ollama) reads it; every claim is cited and verified.</p>
+
+    <div class="eval-summary">
+      <div class="eval-stat"><div class="eval-stat-num" id="brain-num-blocks">—</div><div class="eval-stat-label">Memory blocks</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="brain-num-topics">—</div><div class="eval-stat-label">Topics</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="brain-num-agents">—</div><div class="eval-stat-label">IDE agents</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="brain-num-model">—</div><div class="eval-stat-label">Local LLM</div></div>
+    </div>
+
+    <div id="brain-detail" style="margin-top:24px"></div>
+
+    <p style="margin-top:32px;font-size:14px;color:var(--text-faint)">
+      Brain OS lives in <a href="https://github.com/brandon255/doctrine-labs-brain-os" target="_blank" rel="noopener">doctrine-labs-brain-os</a>.
+      Run it locally with <code>npm install && npm start</code>. The hosted UI above is the read-only snapshot.
+    </p>
   </div>
 </section>
 
@@ -829,6 +856,51 @@ Markdown: - Claim one https://example.com/a
     }
   }
   loadEval();
+
+  // ── Brain OS loader ──
+  async function loadBrain() {
+    try {
+      const r = await fetch('/api/brain/status');
+      if (!r.ok) {
+        document.getElementById('brain-num-blocks').textContent = '—';
+        document.getElementById('brain-detail').innerHTML =
+          `<div class="card"><p style="color:var(--text-faint);margin:0">Brain OS snapshot not generated yet. Run <code>node data/brain-os/scripts/snapshot.js</code> in this repo to populate.</p></div>`;
+        return;
+      }
+      const d = await r.json();
+      document.getElementById('brain-num-blocks').textContent = d.total_blocks.toLocaleString();
+      document.getElementById('brain-num-topics').textContent = d.topics.length.toLocaleString();
+      document.getElementById('brain-num-agents').textContent = d.agents.length.toLocaleString();
+      document.getElementById('brain-num-model').textContent = 'llama3.1:8b';
+
+      const detail = document.getElementById('brain-detail');
+      const topicRows = d.topics.map(t => {
+        const topTags = Object.entries(t.top_tags).slice(0, 6).map(([tag, count]) =>
+          `<span class="tag">${tag}(${count})</span>`).join(' ');
+        return `<tr><td class="mem-topic">${t.topic}</td><td>${t.block_count}</td><td>${topTags || '—'}</td></tr>`;
+      }).join('');
+
+      const agentRows = d.agents.map(a =>
+        `<div class="agent-row"><div><div class="agent-ide">${a.ide}</div><div class="agent-meta">latest daily</div></div><div class="agent-meta"><code>${a.latest}</code></div></div>`
+      ).join('');
+
+      detail.innerHTML = `
+        <div class="card" style="margin-bottom:16px">
+          <h3 class="card-title">Memory by topic</h3>
+          <p class="card-sub">${d.total_blocks} blocks · ${d.topics.length} topics</p>
+          <table class="mem-table"><thead><tr><th>Topic</th><th>Blocks</th><th>Top tags</th></tr></thead><tbody>${topicRows}</tbody></table>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Per-IDE agents</h3>
+          <p class="card-sub">Each agent writes <code>agents/&lt;ide&gt;/daily/YYYY-MM-DD.md</code> at session-end</p>
+          ${d.agents.length > 0 ? agentRows : '<p style="color:var(--text-faint);margin:0">No agent daily files yet.</p>'}
+        </div>
+      `;
+    } catch (e) {
+      console.error('loadBrain failed:', e);
+    }
+  }
+  loadBrain();
 </script>
 </body>
 </html>

@@ -1,0 +1,730 @@
+{
+  "topics": {
+    "chatgpt-history": {
+      "block_count": 6
+    },
+    "cursor-history": {
+      "block_count": 4
+    },
+    "doctrine-labs-repos": {
+      "block_count": 24
+    },
+    "perplexity-history": {
+      "block_count": 3
+    }
+  },
+  "blocks": {
+    "cgpt-msg-b1584b029ad3": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:user",
+        "convo:sample-conv-001"
+      ],
+      "source_id": "chatgpt:sample-conv-001",
+      "claim_preview": "I'm building a local knowledge base. Should I use a vector DB or a graph DB?",
+      "ingested_at": "2026-08-10T03:44:52.962Z"
+    },
+    "cgpt-msg-541afbdac706": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:assistant",
+        "convo:sample-conv-001",
+        "model:gpt-4o"
+      ],
+      "source_id": "chatgpt:sample-conv-001",
+      "claim_preview": "For a knowledge base where you need to track provenance and detect correlated ci",
+      "ingested_at": "2026-08-10T03:44:52.963Z"
+    },
+    "cgpt-msg-81a8513364ea": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:user",
+        "convo:sample-conv-001"
+      ],
+      "source_id": "chatgpt:sample-conv-001",
+      "claim_preview": "What about hybrid? Vector for retrieval, graph for lineage.",
+      "ingested_at": "2026-08-10T03:44:52.963Z"
+    },
+    "cgpt-msg-de561867aa6a": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:assistant",
+        "convo:sample-conv-001",
+        "model:gpt-4o"
+      ],
+      "source_id": "chatgpt:sample-conv-001",
+      "claim_preview": "Hybrid is the right move. Use a small embedding model for retrieval (so the LLM ",
+      "ingested_at": "2026-08-10T03:44:52.963Z"
+    },
+    "cgpt-msg-ef3d6b83bb04": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:user",
+        "convo:sample-conv-002"
+      ],
+      "source_id": "chatgpt:sample-conv-002",
+      "claim_preview": "Should I run Ollama or llama.cpp directly?",
+      "ingested_at": "2026-08-10T03:44:52.964Z"
+    },
+    "cgpt-msg-a80189510b80": {
+      "topic": "chatgpt-history",
+      "tags": [
+        "chatgpt",
+        "role:assistant",
+        "convo:sample-conv-002",
+        "model:gpt-4o"
+      ],
+      "source_id": "chatgpt:sample-conv-002",
+      "claim_preview": "Ollama is a wrapper around llama.cpp that handles model management, downloading,",
+      "ingested_at": "2026-08-10T03:44:52.964Z"
+    },
+    "cursor-msg-43d488bf8975": {
+      "topic": "cursor-history",
+      "tags": [
+        "cursor",
+        "role:user",
+        "file:sample-session.jsonl"
+      ],
+      "source_id": "cursor:cursor-sess-72e5e1a16fd6:0",
+      "claim_preview": "Refactor the audit script to log to stdout instead of stderr.",
+      "ingested_at": "2026-08-10T03:44:53.040Z"
+    },
+    "cursor-msg-a66732bbc001": {
+      "topic": "cursor-history",
+      "tags": [
+        "cursor",
+        "role:assistant",
+        "file:sample-session.jsonl"
+      ],
+      "source_id": "cursor:cursor-sess-72e5e1a16fd6:1",
+      "claim_preview": "Changed console.error to console.log for the four check functions. The test suit",
+      "ingested_at": "2026-08-10T03:44:53.041Z"
+    },
+    "cursor-msg-1d2a4f1d3c97": {
+      "topic": "cursor-history",
+      "tags": [
+        "cursor",
+        "role:user",
+        "file:sample-session.jsonl"
+      ],
+      "source_id": "cursor:cursor-sess-72e5e1a16fd6:2",
+      "claim_preview": "Run the tests.",
+      "ingested_at": "2026-08-10T03:44:53.042Z"
+    },
+    "cursor-msg-c178674270c2": {
+      "topic": "cursor-history",
+      "tags": [
+        "cursor",
+        "role:assistant",
+        "file:sample-session.jsonl"
+      ],
+      "source_id": "cursor:cursor-sess-72e5e1a16fd6:3",
+      "claim_preview": "All 23 tests pass. The audit now reports both clean and dirty states to stdout, ",
+      "ingested_at": "2026-08-10T03:44:53.042Z"
+    },
+    "repo-835c36b3d2a1": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs"
+      ],
+      "source_id": "repo:doctrine-labs:readme",
+      "claim_preview": "# Core OS\n\n## What it is\n\nCore OS is a **local-first AI assistant whose objectiv",
+      "ingested_at": "2026-08-10T03:44:53.081Z"
+    },
+    "repo-doc-1f83c62d734a": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-core-os\",\n  \"version\": \"3.0.0\",\n  \"description\": \"Cor",
+      "ingested_at": "2026-08-10T03:44:53.082Z"
+    },
+    "repo-doc-af0f7251f622": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs",
+        "docs/ARCHITECTURE.md"
+      ],
+      "source_id": "repo:doctrine-labs:docs/ARCHITECTURE.md",
+      "claim_preview": "# Core OS - Architecture & Threat Model\n\nThis document describes how Core OS is ",
+      "ingested_at": "2026-08-10T03:44:53.083Z"
+    },
+    "repo-9d0260d60fc1": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-aisi-lineage-toolkit"
+      ],
+      "source_id": "repo:doctrine-labs-aisi-lineage-toolkit:readme",
+      "claim_preview": "# AISI Lineage Toolkit\n\n**A companion artifact to the FLF Epistack submission. S",
+      "ingested_at": "2026-08-10T03:44:53.083Z"
+    },
+    "repo-doc-fbec8a5ed64c": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-aisi-lineage-toolkit",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-aisi-lineage-toolkit:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-aisi-lineage-toolkit\",\n  \"version\": \"1.0.0\",\n  \"descr",
+      "ingested_at": "2026-08-10T03:44:53.084Z"
+    },
+    "repo-doc-f8ab175199a4": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-aisi-lineage-toolkit",
+        "SPEC.md"
+      ],
+      "source_id": "repo:doctrine-labs-aisi-lineage-toolkit:SPEC.md",
+      "claim_preview": "# AISI Lineage Toolkit — Specification\n\n**A methodology for provenance genealogy",
+      "ingested_at": "2026-08-10T03:44:53.085Z"
+    },
+    "repo-doc-6757501bafe1": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-aisi-lineage-toolkit",
+        "COVER_NOTE_TO_FLI.md"
+      ],
+      "source_id": "repo:doctrine-labs-aisi-lineage-toolkit:COVER_NOTE_TO_FLI.md",
+      "claim_preview": "# Cover note to FLI\n\nAugust 2026\n\nTo the Future of Life Institute team,\n\nThis is",
+      "ingested_at": "2026-08-10T03:44:53.085Z"
+    },
+    "repo-doc-54118aacda15": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-aisi-lineage-toolkit",
+        "SUBMISSION.md"
+      ],
+      "source_id": "repo:doctrine-labs-aisi-lineage-toolkit:SUBMISSION.md",
+      "claim_preview": "# Submission to the Future of Life Institute\n\n**Companion artifact to the FLF Ep",
+      "ingested_at": "2026-08-10T03:44:53.086Z"
+    },
+    "repo-f3819b181dc2": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-brain-os"
+      ],
+      "source_id": "repo:doctrine-labs-brain-os:readme",
+      "claim_preview": "# Doctrine Labs — Brain OS\n\n> Brain OS. Local, agentic, ever-evolving knowledge ",
+      "ingested_at": "2026-08-10T03:44:53.086Z"
+    },
+    "repo-doc-2d46337e46f2": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-brain-os",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-brain-os:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-brain-os\",\n  \"version\": \"0.1.0\",\n  \"description\": \"Br",
+      "ingested_at": "2026-08-10T03:44:53.087Z"
+    },
+    "repo-doc-7454e61a5ba8": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-brain-os",
+        "docs/ARCHITECTURE.md"
+      ],
+      "source_id": "repo:doctrine-labs-brain-os:docs/ARCHITECTURE.md",
+      "claim_preview": "# Brain OS — Architecture (ICM + Local LLM Hybrid)\n\n> **Status:** scaffold / con",
+      "ingested_at": "2026-08-10T03:44:53.088Z"
+    },
+    "repo-dd582903a2dd": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-brenda-arts"
+      ],
+      "source_id": "repo:doctrine-labs-brenda-arts:readme",
+      "claim_preview": "# BRENDA Arts — Studio OS (hosted deck)\n\nThe client-facing link for **Spencer Ga",
+      "ingested_at": "2026-08-10T03:44:53.088Z"
+    },
+    "repo-doc-f3e0b7ff1a8a": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-brenda-arts",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-brenda-arts:package.json",
+      "claim_preview": "{\n  \"name\": \"brenda-arts\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"type\": \"m",
+      "ingested_at": "2026-08-10T03:44:53.089Z"
+    },
+    "repo-b4ad4c63915e": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-eval-contamination-toolkit"
+      ],
+      "source_id": "repo:doctrine-labs-eval-contamination-toolkit:readme",
+      "claim_preview": "# Evaluation Contamination & Reviewer Independence Toolkit\n\nA companion artifact",
+      "ingested_at": "2026-08-10T03:44:53.090Z"
+    },
+    "repo-doc-078f93f3fc2f": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-eval-contamination-toolkit",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-eval-contamination-toolkit:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-eval-contamination-toolkit\",\n  \"version\": \"1.0.0\",\n  ",
+      "ingested_at": "2026-08-10T03:44:53.090Z"
+    },
+    "repo-doc-f2f15dcf6fa0": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-eval-contamination-toolkit",
+        "SPEC.md"
+      ],
+      "source_id": "repo:doctrine-labs-eval-contamination-toolkit:SPEC.md",
+      "claim_preview": "# SPEC — Evaluation Contamination & Reviewer Independence Toolkit v2\n\n**Status:*",
+      "ingested_at": "2026-08-10T03:44:53.091Z"
+    },
+    "repo-doc-c4416a79003b": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-eval-contamination-toolkit",
+        "COVER_NOTE_TO_FLI.md"
+      ],
+      "source_id": "repo:doctrine-labs-eval-contamination-toolkit:COVER_NOTE_TO_FLI.md",
+      "claim_preview": "# Cover Note — to FLI\n\n**To:** Future of Life Institute — AI Safety Index team\n*",
+      "ingested_at": "2026-08-10T03:44:53.092Z"
+    },
+    "repo-doc-caab0b4948a5": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-eval-contamination-toolkit",
+        "SUBMISSION.md"
+      ],
+      "source_id": "repo:doctrine-labs-eval-contamination-toolkit:SUBMISSION.md",
+      "claim_preview": "# SUBMISSION — Eval Contamination & Reviewer Independence Toolkit\n\n**To:** Futur",
+      "ingested_at": "2026-08-10T03:44:53.092Z"
+    },
+    "repo-3d7c7387e415": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-flf-epistack"
+      ],
+      "source_id": "repo:doctrine-labs-flf-epistack:readme",
+      "claim_preview": "# FLF Epistemic Stack\n\nA small, runnable tool that answers one question about a ",
+      "ingested_at": "2026-08-10T03:44:53.093Z"
+    },
+    "repo-doc-98c66221a5c5": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-flf-epistack",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-flf-epistack:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-flf-epistack\",\n  \"version\": \"1.1.0\",\n  \"description\":",
+      "ingested_at": "2026-08-10T03:44:53.093Z"
+    },
+    "repo-doc-646c60500582": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-flf-epistack",
+        "SPEC.md"
+      ],
+      "source_id": "repo:doctrine-labs-flf-epistack:SPEC.md",
+      "claim_preview": "# Counting Sources Honestly\n\n**A methodology for provenance genealogy and audite",
+      "ingested_at": "2026-08-10T03:44:53.094Z"
+    },
+    "repo-doc-1ee1d9df0faa": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-flf-epistack",
+        "SUBMISSION.md"
+      ],
+      "source_id": "repo:doctrine-labs-flf-epistack:SUBMISSION.md",
+      "claim_preview": "# A runnable check for hidden correlation in evidence\n\n**Future of Life Foundati",
+      "ingested_at": "2026-08-10T03:44:53.094Z"
+    },
+    "repo-0d8de971742a": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-realestate"
+      ],
+      "source_id": "repo:doctrine-labs-realestate:readme",
+      "claim_preview": "# doctrine-labs-realestate\n\n**Doctrine Labs — Real Estate Agent OS**  \n**Layer:*",
+      "ingested_at": "2026-08-10T03:44:53.095Z"
+    },
+    "repo-doc-102179d51037": {
+      "topic": "doctrine-labs-repos",
+      "tags": [
+        "doctrine-labs",
+        "repo",
+        "doctrine-labs-realestate",
+        "package.json"
+      ],
+      "source_id": "repo:doctrine-labs-realestate:package.json",
+      "claim_preview": "{\n  \"name\": \"doctrine-labs-realestate-demo\",\n  \"version\": \"1.0.0\",\n  \"private\": ",
+      "ingested_at": "2026-08-10T03:44:53.095Z"
+    },
+    "pplx-thread-3e2fef9f08ff": {
+      "topic": "perplexity-history",
+      "tags": [
+        "perplexity",
+        "search",
+        "citation_count:2"
+      ],
+      "source_id": "perplexity:sample-pplx-001",
+      "claim_preview": "What is the best way to detect evaluation contamination in AI benchmarks?\n\nEvalu",
+      "ingested_at": "2026-08-10T03:44:53.000Z"
+    },
+    "pplx-followup-795072a2c910": {
+      "topic": "perplexity-history",
+      "tags": [
+        "perplexity",
+        "followup"
+      ],
+      "source_id": "perplexity:sample-pplx-001:followup:0",
+      "claim_preview": "How does TS-Guessing work?",
+      "ingested_at": "2026-08-10T03:44:53.001Z"
+    },
+    "pplx-followup-ab72346c27c5": {
+      "topic": "perplexity-history",
+      "tags": [
+        "perplexity",
+        "followup"
+      ],
+      "source_id": "perplexity:sample-pplx-001:followup:1",
+      "claim_preview": "What benchmarks have known contamination?",
+      "ingested_at": "2026-08-10T03:44:53.001Z"
+    }
+  },
+  "by_tag": {
+    "chatgpt": [
+      "cgpt-msg-b1584b029ad3",
+      "cgpt-msg-541afbdac706",
+      "cgpt-msg-81a8513364ea",
+      "cgpt-msg-de561867aa6a",
+      "cgpt-msg-ef3d6b83bb04",
+      "cgpt-msg-a80189510b80"
+    ],
+    "role:user": [
+      "cgpt-msg-b1584b029ad3",
+      "cgpt-msg-81a8513364ea",
+      "cgpt-msg-ef3d6b83bb04",
+      "cursor-msg-43d488bf8975",
+      "cursor-msg-1d2a4f1d3c97"
+    ],
+    "convo:sample-conv-001": [
+      "cgpt-msg-b1584b029ad3",
+      "cgpt-msg-541afbdac706",
+      "cgpt-msg-81a8513364ea",
+      "cgpt-msg-de561867aa6a"
+    ],
+    "role:assistant": [
+      "cgpt-msg-541afbdac706",
+      "cgpt-msg-de561867aa6a",
+      "cgpt-msg-a80189510b80",
+      "cursor-msg-a66732bbc001",
+      "cursor-msg-c178674270c2"
+    ],
+    "model:gpt-4o": [
+      "cgpt-msg-541afbdac706",
+      "cgpt-msg-de561867aa6a",
+      "cgpt-msg-a80189510b80"
+    ],
+    "convo:sample-conv-002": [
+      "cgpt-msg-ef3d6b83bb04",
+      "cgpt-msg-a80189510b80"
+    ],
+    "cursor": [
+      "cursor-msg-43d488bf8975",
+      "cursor-msg-a66732bbc001",
+      "cursor-msg-1d2a4f1d3c97",
+      "cursor-msg-c178674270c2"
+    ],
+    "file:sample-session.jsonl": [
+      "cursor-msg-43d488bf8975",
+      "cursor-msg-a66732bbc001",
+      "cursor-msg-1d2a4f1d3c97",
+      "cursor-msg-c178674270c2"
+    ],
+    "doctrine-labs": [
+      "repo-835c36b3d2a1",
+      "repo-835c36b3d2a1",
+      "repo-doc-1f83c62d734a",
+      "repo-doc-1f83c62d734a",
+      "repo-doc-af0f7251f622",
+      "repo-doc-af0f7251f622",
+      "repo-9d0260d60fc1",
+      "repo-doc-fbec8a5ed64c",
+      "repo-doc-f8ab175199a4",
+      "repo-doc-6757501bafe1",
+      "repo-doc-54118aacda15",
+      "repo-f3819b181dc2",
+      "repo-doc-2d46337e46f2",
+      "repo-doc-7454e61a5ba8",
+      "repo-dd582903a2dd",
+      "repo-doc-f3e0b7ff1a8a",
+      "repo-b4ad4c63915e",
+      "repo-doc-078f93f3fc2f",
+      "repo-doc-f2f15dcf6fa0",
+      "repo-doc-c4416a79003b",
+      "repo-doc-caab0b4948a5",
+      "repo-3d7c7387e415",
+      "repo-doc-98c66221a5c5",
+      "repo-doc-646c60500582",
+      "repo-doc-1ee1d9df0faa",
+      "repo-0d8de971742a",
+      "repo-doc-102179d51037"
+    ],
+    "repo": [
+      "repo-835c36b3d2a1",
+      "repo-doc-1f83c62d734a",
+      "repo-doc-af0f7251f622",
+      "repo-9d0260d60fc1",
+      "repo-doc-fbec8a5ed64c",
+      "repo-doc-f8ab175199a4",
+      "repo-doc-6757501bafe1",
+      "repo-doc-54118aacda15",
+      "repo-f3819b181dc2",
+      "repo-doc-2d46337e46f2",
+      "repo-doc-7454e61a5ba8",
+      "repo-dd582903a2dd",
+      "repo-doc-f3e0b7ff1a8a",
+      "repo-b4ad4c63915e",
+      "repo-doc-078f93f3fc2f",
+      "repo-doc-f2f15dcf6fa0",
+      "repo-doc-c4416a79003b",
+      "repo-doc-caab0b4948a5",
+      "repo-3d7c7387e415",
+      "repo-doc-98c66221a5c5",
+      "repo-doc-646c60500582",
+      "repo-doc-1ee1d9df0faa",
+      "repo-0d8de971742a",
+      "repo-doc-102179d51037"
+    ],
+    "package.json": [
+      "repo-doc-1f83c62d734a",
+      "repo-doc-fbec8a5ed64c",
+      "repo-doc-2d46337e46f2",
+      "repo-doc-f3e0b7ff1a8a",
+      "repo-doc-078f93f3fc2f",
+      "repo-doc-98c66221a5c5",
+      "repo-doc-102179d51037"
+    ],
+    "docs/ARCHITECTURE.md": [
+      "repo-doc-af0f7251f622",
+      "repo-doc-7454e61a5ba8"
+    ],
+    "doctrine-labs-aisi-lineage-toolkit": [
+      "repo-9d0260d60fc1",
+      "repo-doc-fbec8a5ed64c",
+      "repo-doc-f8ab175199a4",
+      "repo-doc-6757501bafe1",
+      "repo-doc-54118aacda15"
+    ],
+    "SPEC.md": [
+      "repo-doc-f8ab175199a4",
+      "repo-doc-f2f15dcf6fa0",
+      "repo-doc-646c60500582"
+    ],
+    "COVER_NOTE_TO_FLI.md": [
+      "repo-doc-6757501bafe1",
+      "repo-doc-c4416a79003b"
+    ],
+    "SUBMISSION.md": [
+      "repo-doc-54118aacda15",
+      "repo-doc-caab0b4948a5",
+      "repo-doc-1ee1d9df0faa"
+    ],
+    "doctrine-labs-brain-os": [
+      "repo-f3819b181dc2",
+      "repo-doc-2d46337e46f2",
+      "repo-doc-7454e61a5ba8"
+    ],
+    "doctrine-labs-brenda-arts": [
+      "repo-dd582903a2dd",
+      "repo-doc-f3e0b7ff1a8a"
+    ],
+    "doctrine-labs-eval-contamination-toolkit": [
+      "repo-b4ad4c63915e",
+      "repo-doc-078f93f3fc2f",
+      "repo-doc-f2f15dcf6fa0",
+      "repo-doc-c4416a79003b",
+      "repo-doc-caab0b4948a5"
+    ],
+    "doctrine-labs-flf-epistack": [
+      "repo-3d7c7387e415",
+      "repo-doc-98c66221a5c5",
+      "repo-doc-646c60500582",
+      "repo-doc-1ee1d9df0faa"
+    ],
+    "doctrine-labs-realestate": [
+      "repo-0d8de971742a",
+      "repo-doc-102179d51037"
+    ],
+    "perplexity": [
+      "pplx-thread-3e2fef9f08ff",
+      "pplx-followup-795072a2c910",
+      "pplx-followup-ab72346c27c5"
+    ],
+    "search": [
+      "pplx-thread-3e2fef9f08ff"
+    ],
+    "citation_count:2": [
+      "pplx-thread-3e2fef9f08ff"
+    ],
+    "followup": [
+      "pplx-followup-795072a2c910",
+      "pplx-followup-ab72346c27c5"
+    ]
+  },
+  "by_source": {
+    "chatgpt:sample-conv-001": [
+      "cgpt-msg-b1584b029ad3",
+      "cgpt-msg-541afbdac706",
+      "cgpt-msg-81a8513364ea",
+      "cgpt-msg-de561867aa6a"
+    ],
+    "chatgpt:sample-conv-002": [
+      "cgpt-msg-ef3d6b83bb04",
+      "cgpt-msg-a80189510b80"
+    ],
+    "cursor:cursor-sess-72e5e1a16fd6:0": [
+      "cursor-msg-43d488bf8975"
+    ],
+    "cursor:cursor-sess-72e5e1a16fd6:1": [
+      "cursor-msg-a66732bbc001"
+    ],
+    "cursor:cursor-sess-72e5e1a16fd6:2": [
+      "cursor-msg-1d2a4f1d3c97"
+    ],
+    "cursor:cursor-sess-72e5e1a16fd6:3": [
+      "cursor-msg-c178674270c2"
+    ],
+    "repo:doctrine-labs:readme": [
+      "repo-835c36b3d2a1"
+    ],
+    "repo:doctrine-labs:package.json": [
+      "repo-doc-1f83c62d734a"
+    ],
+    "repo:doctrine-labs:docs/ARCHITECTURE.md": [
+      "repo-doc-af0f7251f622"
+    ],
+    "repo:doctrine-labs-aisi-lineage-toolkit:readme": [
+      "repo-9d0260d60fc1"
+    ],
+    "repo:doctrine-labs-aisi-lineage-toolkit:package.json": [
+      "repo-doc-fbec8a5ed64c"
+    ],
+    "repo:doctrine-labs-aisi-lineage-toolkit:SPEC.md": [
+      "repo-doc-f8ab175199a4"
+    ],
+    "repo:doctrine-labs-aisi-lineage-toolkit:COVER_NOTE_TO_FLI.md": [
+      "repo-doc-6757501bafe1"
+    ],
+    "repo:doctrine-labs-aisi-lineage-toolkit:SUBMISSION.md": [
+      "repo-doc-54118aacda15"
+    ],
+    "repo:doctrine-labs-brain-os:readme": [
+      "repo-f3819b181dc2"
+    ],
+    "repo:doctrine-labs-brain-os:package.json": [
+      "repo-doc-2d46337e46f2"
+    ],
+    "repo:doctrine-labs-brain-os:docs/ARCHITECTURE.md": [
+      "repo-doc-7454e61a5ba8"
+    ],
+    "repo:doctrine-labs-brenda-arts:readme": [
+      "repo-dd582903a2dd"
+    ],
+    "repo:doctrine-labs-brenda-arts:package.json": [
+      "repo-doc-f3e0b7ff1a8a"
+    ],
+    "repo:doctrine-labs-eval-contamination-toolkit:readme": [
+      "repo-b4ad4c63915e"
+    ],
+    "repo:doctrine-labs-eval-contamination-toolkit:package.json": [
+      "repo-doc-078f93f3fc2f"
+    ],
+    "repo:doctrine-labs-eval-contamination-toolkit:SPEC.md": [
+      "repo-doc-f2f15dcf6fa0"
+    ],
+    "repo:doctrine-labs-eval-contamination-toolkit:COVER_NOTE_TO_FLI.md": [
+      "repo-doc-c4416a79003b"
+    ],
+    "repo:doctrine-labs-eval-contamination-toolkit:SUBMISSION.md": [
+      "repo-doc-caab0b4948a5"
+    ],
+    "repo:doctrine-labs-flf-epistack:readme": [
+      "repo-3d7c7387e415"
+    ],
+    "repo:doctrine-labs-flf-epistack:package.json": [
+      "repo-doc-98c66221a5c5"
+    ],
+    "repo:doctrine-labs-flf-epistack:SPEC.md": [
+      "repo-doc-646c60500582"
+    ],
+    "repo:doctrine-labs-flf-epistack:SUBMISSION.md": [
+      "repo-doc-1ee1d9df0faa"
+    ],
+    "repo:doctrine-labs-realestate:readme": [
+      "repo-0d8de971742a"
+    ],
+    "repo:doctrine-labs-realestate:package.json": [
+      "repo-doc-102179d51037"
+    ],
+    "perplexity:sample-pplx-001": [
+      "pplx-thread-3e2fef9f08ff"
+    ],
+    "perplexity:sample-pplx-001:followup:0": [
+      "pplx-followup-795072a2c910"
+    ],
+    "perplexity:sample-pplx-001:followup:1": [
+      "pplx-followup-ab72346c27c5"
+    ]
+  },
+  "generated_at": "2026-08-10T03:44:53.248Z"
+}
