@@ -1,0 +1,71 @@
+{
+  "cycle": "Summer 2026",
+  "panel_size": 7,
+  "reviewers": [
+    {
+      "id": "s26-r1",
+      "name": "Reviewer 1 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)",
+        "Public-affiliation placeholder — to be filled with disclosed name when FLI publishes"
+      ],
+      "domain_assignments": ["Risk Assessment", "Existential Safety"],
+      "notes": "Identified as a panel member per the Summer 2026 Index methodology disclosure. Name and full affiliations to be filled from the published Index roster when available."
+    },
+    {
+      "id": "s26-r2",
+      "name": "Reviewer 2 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Current Harms", "Information Sharing"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "s26-r3",
+      "name": "Reviewer 3 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Safety Frameworks", "Governance & Accountability"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "s26-r4",
+      "name": "Reviewer 4 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Risk Assessment"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "s26-r5",
+      "name": "Reviewer 5 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Existential Safety", "Governance & Accountability"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "s26-r6",
+      "name": "Reviewer 6 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Current Harms", "Safety Frameworks"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "s26-r7",
+      "name": "Reviewer 7 (Summer 2026)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Summer 2026)"
+      ],
+      "domain_assignments": ["Information Sharing"],
+      "notes": "Panel member."
+    }
+  ],
+  "note": "The FLI Summer 2026 Index lists reviewers by domain assignments in its methodology section but does not publish reviewer names alongside grades. This file uses anonymous reviewer placeholders to enable the network analysis. When FLI publishes the named panel for Summer 2026, this file should be updated with disclosed names and full affiliation graphs. Until then, the network density analysis operates on the structural panel alone."
+}

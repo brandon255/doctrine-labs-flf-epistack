@@ -1,0 +1,76 @@
+{
+  "case": "anthropic",
+  "version": "1.0",
+  "note": "Document- and lineage-level identity for the Anthropic safety corpus. Lineages group documents that draw on the same underlying generative event. Hand-curated; see SUBQUESTION.md for the known limit. Keys are URLs so resolveDocumentId picks up lineage assignments.",
+  "lineages": {
+    "anthropic-rsp-v3-lineage": {
+      "label": "Anthropic Responsible Scaling Policy v3 (Feb 2026) — including v3.1, v3.2, v3.3, v3.4 redlines",
+      "description": "The single RSP document (currently v3.4 effective July 8, 2026; substantive rewrite is v3.0 effective Feb 24, 2026). Defines the four catastrophic-risk categories, the industry-wide recommendations table, the Frontier Safety Roadmap commitment, the Risk Reports, and the governance commitments (RSO, Board, LTBT). v3.1–v3.4 are redline updates that modify specific sections of v3.0; they do not redefine the lineage.",
+      "kind": "policy"
+    },
+    "anthropic-risk-report-feb-2026-lineage": {
+      "label": "Anthropic Risk Report: February 2026 (redacted)",
+      "description": "First Risk Report under RSP v3.0. Evaluates catastrophic risk across four categories (non-novel CBW, novel CBW, high-stakes sabotage, automated R&D) plus cross-cutting considerations. Issued May 26, 2026 (updated version). Implements the Risk Reports commitment from RSP v3.",
+      "kind": "risk_report"
+    },
+    "anthropic-sabotage-risk-report-opus-4-6-lineage": {
+      "label": "Anthropic Sabotage Risk Report for Claude Opus 4.6",
+      "description": "External-facing Sabotage Risk Report prepared for Claude Opus 4.6, published under the RSP commitment made at the launch of Claude Opus 4.5. Required by RSP v3.0 once a model crosses the AI R&D-4 capability threshold (Anthropic states Opus 4.6 does not cross that threshold).",
+      "kind": "risk_report"
+    },
+    "fli-ai-safety-index-2026-summer": {
+      "label": "FLI AI Safety Index — Summer 2026 Edition",
+      "description": "Future of Life Institute's expert review of nine leading AI companies across 37 indicators in 6 domains. Seven expert graders (UC Berkeley, U Montreal, U Wisconsin-Madison) score Anthropic at 2.66 / 4.0 (C+), the highest in the Index. Anthropic leads five of six domains; OpenAI leads Risk Assessment.",
+      "kind": "derivative_summary"
+    }
+  },
+  "documents": {
+    "https://www-cdn.anthropic.com/e670587677525f28df69b59e5fb4c22cc5461a17.pdf": {
+      "document_id": "anthropic-rsp-v3",
+      "title": "Responsible Scaling Policy v3.0 (effective Feb 24, 2026); v3.4 is the current effective version (July 8, 2026)",
+      "author": "Anthropic",
+      "date": "2026-02-24",
+      "medium": "PDF, 19 pages (v3.0); v3.1-v3.4 are redline updates",
+      "lineage_id": "anthropic-rsp-v3-lineage",
+      "lineage_role": "policy",
+      "derives_from": [],
+      "independence_note": "Origin document for Anthropic's safety commitments under v3. All Risk Reports, Sabotage Risk Reports, and FLI Index entries on Anthropic are downstream."
+    },
+    "https://www-cdn.anthropic.com/097c63b5fe7dd8b14866e1f15bb1910ec713658a.pdf": {
+      "document_id": "anthropic-risk-report-feb-2026",
+      "title": "Risk Report: February 2026 (updated May 26, 2026)",
+      "author": "Anthropic",
+      "date": "2026-02",
+      "medium": "PDF, redacted (1816 lines extracted)",
+      "lineage_id": "anthropic-risk-report-feb-2026-lineage",
+      "lineage_role": "risk_report",
+      "derives_from": ["anthropic-rsp-v3"],
+      "derivation_basis": "States explicitly: 'This report is part of our implementation of version 3 of our Responsible Scaling Policy, and is the first such Risk Report published under that policy.'",
+      "independence_note": "Implements the Risk Reports commitment from RSP v3 §3. The four catastrophic-risk categories analyzed (non-novel CBW, novel CBW, high-stakes sabotage, automated R&D) are the same categories from the RSP's recommendations table."
+    },
+    "anthropic-sabotage-risk-report-opus-4-6": {
+      "document_id": "anthropic-sabotage-risk-report-opus-4-6",
+      "title": "Sabotage Risk Report for Claude Opus 4.6 (external-facing)",
+      "author": "Anthropic",
+      "date": "2026",
+      "medium": "PDF",
+      "lineage_id": "anthropic-sabotage-risk-report-opus-4-6-lineage",
+      "lineage_role": "risk_report",
+      "derives_from": ["anthropic-rsp-v3", "anthropic-risk-report-feb-2026"],
+      "derivation_basis": "RSP v3.0 §3 states sabotage risk reports are required for 'all future frontier models clearly exceeding Opus 4.5's capabilities' once a model approaches AI R&D-4. Anthropic published this for Claude Opus 4.6.",
+      "independence_note": "Model-specific. Implements a specific RSP v3.0 commitment for one model. Not cited directly in this case's evidence blocks but referenced in the lineage declaration."
+    },
+    "https://futureoflife.org/ai-safety-index-summer-2026/": {
+      "document_id": "fli-ai-safety-index-anthropic-column",
+      "title": "FLI AI Safety Index Summer 2026 — Anthropic column (graded C+ / 2.66, leading five of six domains)",
+      "author": "Future of Life Institute (7 expert graders)",
+      "date": "2026-07-01",
+      "medium": "Web page + PDF evidence dossier",
+      "lineage_id": "fli-ai-safety-index-2026-summer",
+      "lineage_role": "derivative_summary",
+      "derives_from": ["anthropic-rsp-v3", "anthropic-risk-report-feb-2026"],
+      "derivation_basis": "The FLI panel's Anthropic column is graded against the same documents we curate here — the RSP, the Risk Reports. The Index evidence dossier is 'publicly available material, including related research papers, policy documents, news articles, and industry reports' drawn from the same set.",
+      "independence_note": "FLI's 7 graders add expert judgment over the same primary corpus. The judgment is independent; the underlying observations are not."
+    }
+  }
+}

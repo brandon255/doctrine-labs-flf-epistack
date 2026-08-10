@@ -1,0 +1,79 @@
+{
+  "cycle": "Winter 2025",
+  "panel_size": 8,
+  "reviewers": [
+    {
+      "id": "w25-r1",
+      "name": "Reviewer 1 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Risk Assessment"],
+      "notes": "Panel member. The Winter 2025 Index methodology disclosure lists reviewer counts per cycle but does not publicly identify all panel members by name. This file uses anonymous reviewer placeholders."
+    },
+    {
+      "id": "w25-r2",
+      "name": "Reviewer 2 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Risk Assessment", "Existential Safety"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r3",
+      "name": "Reviewer 3 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Current Harms"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r4",
+      "name": "Reviewer 4 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Current Harms", "Information Sharing"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r5",
+      "name": "Reviewer 5 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Safety Frameworks"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r6",
+      "name": "Reviewer 6 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Safety Frameworks", "Governance & Accountability"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r7",
+      "name": "Reviewer 7 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Existential Safety", "Governance & Accountability"],
+      "notes": "Panel member."
+    },
+    {
+      "id": "w25-r8",
+      "name": "Reviewer 8 (Winter 2025)",
+      "institutional_affiliations": [
+        "FLI AI Safety Index Review Panel (Winter 2025)"
+      ],
+      "domain_assignments": ["Information Sharing"],
+      "notes": "Panel member."
+    }
+  ],
+  "note": "Same anonymization note as the Summer 2026 panel file. The network density analysis here operates on the structural panel (domain assignments and overlap), not on named affiliations."
+}

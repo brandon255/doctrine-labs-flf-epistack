@@ -1,0 +1,187 @@
+{
+  "host_rows": [
+    {
+      "host": "futureoflife.org",
+      "total_blocks": 26,
+      "distinct_urls": 3,
+      "contamination_ratio": 8.666666666666666
+    },
+    {
+      "host": "cdn.openai.com",
+      "total_blocks": 17,
+      "distinct_urls": 3,
+      "contamination_ratio": 5.666666666666667
+    },
+    {
+      "host": "www-cdn.anthropic.com",
+      "total_blocks": 22,
+      "distinct_urls": 4,
+      "contamination_ratio": 5.5
+    },
+    {
+      "host": "deploymentsafety.openai.com",
+      "total_blocks": 4,
+      "distinct_urls": 1,
+      "contamination_ratio": 4
+    },
+    {
+      "host": "storage.googleapis.com",
+      "total_blocks": 15,
+      "distinct_urls": 4,
+      "contamination_ratio": 3.75
+    },
+    {
+      "host": "rivista.ai",
+      "total_blocks": 2,
+      "distinct_urls": 1,
+      "contamination_ratio": 2
+    },
+    {
+      "host": "qwen.alibaba.com",
+      "total_blocks": 6,
+      "distinct_urls": 3,
+      "contamination_ratio": 2
+    },
+    {
+      "host": "ai.meta.com",
+      "total_blocks": 12,
+      "distinct_urls": 7,
+      "contamination_ratio": 1.7142857142857142
+    },
+    {
+      "host": "z.ai",
+      "total_blocks": 9,
+      "distinct_urls": 6,
+      "contamination_ratio": 1.5
+    },
+    {
+      "host": "deepseek.com",
+      "total_blocks": 3,
+      "distinct_urls": 2,
+      "contamination_ratio": 1.5
+    },
+    {
+      "host": "openai.com",
+      "total_blocks": 7,
+      "distinct_urls": 5,
+      "contamination_ratio": 1.4
+    },
+    {
+      "host": "x.ai",
+      "total_blocks": 5,
+      "distinct_urls": 4,
+      "contamination_ratio": 1.25
+    },
+    {
+      "host": "anthropic.com",
+      "total_blocks": 2,
+      "distinct_urls": 2,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "arxiv.org",
+      "total_blocks": 2,
+      "distinct_urls": 2,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "ai.google",
+      "total_blocks": 2,
+      "distinct_urls": 2,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "seoulaisummit.com",
+      "total_blocks": 1,
+      "distinct_urls": 1,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "qwenlm.github.io",
+      "total_blocks": 2,
+      "distinct_urls": 2,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "deepseek.ai",
+      "total_blocks": 1,
+      "distinct_urls": 1,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "github.com",
+      "total_blocks": 1,
+      "distinct_urls": 1,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "deepmind.google",
+      "total_blocks": 2,
+      "distinct_urls": 2,
+      "contamination_ratio": 1
+    },
+    {
+      "host": "mistral.ai",
+      "total_blocks": 1,
+      "distinct_urls": 1,
+      "contamination_ratio": 1
+    }
+  ],
+  "company_rows": {
+    "anthropic": {
+      "company": "anthropic",
+      "total_blocks": 28,
+      "distinct_urls": 9,
+      "inflation": 3.111111111111111
+    },
+    "openai": {
+      "company": "openai",
+      "total_blocks": 33,
+      "distinct_urls": 12,
+      "inflation": 2.75
+    },
+    "google-deepmind": {
+      "company": "google-deepmind",
+      "total_blocks": 22,
+      "distinct_urls": 10,
+      "inflation": 2.2
+    },
+    "meta": {
+      "company": "meta",
+      "total_blocks": 16,
+      "distinct_urls": 10,
+      "inflation": 1.6
+    },
+    "xai": {
+      "company": "xai",
+      "total_blocks": 9,
+      "distinct_urls": 6,
+      "inflation": 1.5
+    },
+    "z-ai": {
+      "company": "z-ai",
+      "total_blocks": 12,
+      "distinct_urls": 8,
+      "inflation": 1.5
+    },
+    "alibaba-cloud": {
+      "company": "alibaba-cloud",
+      "total_blocks": 11,
+      "distinct_urls": 7,
+      "inflation": 1.5714285714285714
+    },
+    "deepseek": {
+      "company": "deepseek",
+      "total_blocks": 8,
+      "distinct_urls": 7,
+      "inflation": 1.1428571428571428
+    },
+    "mistral": {
+      "company": "mistral",
+      "total_blocks": 3,
+      "distinct_urls": 2,
+      "inflation": 1.5
+    }
+  },
+  "total_blocks": 142
+}

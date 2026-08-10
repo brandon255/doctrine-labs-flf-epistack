@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-10T02:53:51.279Z",
+  "source": "/Users/BrandonMonicFlores/Desktop/doctrine-labs-eval-contamination-toolkit",
+  "total_companies": 17,
+  "total_evidence_blocks": 142,
+  "cycles": [
+    "winter-2025",
+    "summer-2026"
+  ],
+  "companies": [
+    "anthropic",
+    "openai",
+    "google-deepmind",
+    "meta",
+    "xai",
+    "z-ai",
+    "alibaba-cloud",
+    "deepseek",
+    "mistral"
+  ]
+}

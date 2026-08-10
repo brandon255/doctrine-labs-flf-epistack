@@ -1,0 +1,32 @@
+{
+  "case": "meta-winter-2025",
+  "version": "1.0",
+  "note": "Document- and lineage-level identity for the meta safety corpus as of the Winter 2025 FLI AI Safety Index evidence cutoff (November 8, 2025).",
+  "lineages": {
+    "meta-faif-lineage": {
+      "label": "Meta Frontier AI Framework (Oct 2024)",
+      "description": "FAIF defining critical/high risk levels for CBRN and cyber, with mitigation escalation.",
+      "kind": "framework"
+    },
+    "meta-llama-4-safety-lineage": {
+      "label": "Meta Llama 4 safety reports (Feb 2025)",
+      "description": "Red-teaming outcomes for Llama 4 against FAIF thresholds.",
+      "kind": "safety_report"
+    },
+    "meta-policy-engagement-lineage": {
+      "label": "Meta policy engagement (Seoul Summit 2025)",
+      "description": "Signature of the Frontier AI Safety Commitments at Seoul.",
+      "kind": "policy"
+    },
+    "meta-open-weights-lineage": {
+      "label": "Meta open-weights policy (July 2024)",
+      "description": "Open-weights stance with safety-restricted release exception.",
+      "kind": "policy"
+    },
+    "fli-winter-2025-no-survey-lineage": {
+      "label": "FLI Winter 2025 voluntary industry survey (non-participant)",
+      "description": "Meta did not submit a survey response.",
+      "kind": "non_participation"
+    }
+  }
+}

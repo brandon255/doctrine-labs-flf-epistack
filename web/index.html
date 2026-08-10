@@ -20,6 +20,7 @@
       <a href="#how" class="nav-link">How it works</a>
       <a href="#cases" class="nav-link">Cases</a>
       <a href="#aisi" class="nav-link">AISI</a>
+      <a href="#eval" class="nav-link">Eval</a>
       <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="nav-link nav-link-ghost">Source ↗</a>
     </nav>
   </div>
@@ -298,6 +299,72 @@ Markdown: - Claim one https://example.com/a
     <div class="cta-row">
       <a href="#tool" class="btn btn-primary">Try it now</a>
       <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="btn btn-secondary">Read the code</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- PROBLEM 3 — Eval Contamination & Reviewer Independence (v2)   -->
+<!-- ============================================================= -->
+
+<section id="eval" class="section">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="dot dot-accent"></span>
+      Problem 3 · v2 toolkit · live
+    </div>
+    <h2 class="section-title">Evaluation contamination & reviewer independence</h2>
+    <p class="section-lede">
+      The 2026 FLI AI Safety Index, both cycles. Same engine as
+      <a href="#aisi">AISI</a>, applied at indicator-level resolution
+      across two publication cycles. Three new analysis surfaces:
+      benchmark-citation audit, reviewer-panel graph, and cross-cycle delta.
+    </p>
+
+    <div class="eval-summary" id="eval-summary">
+      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-companies">—</div><div class="eval-stat-label">Companies</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-cycles">2</div><div class="eval-stat-label">Cycles</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-blocks">—</div><div class="eval-stat-label">Evidence blocks</div></div>
+      <div class="eval-stat"><div class="eval-stat-num" id="eval-num-reviewers">—</div><div class="eval-stat-label">Reviewers</div></div>
+    </div>
+
+    <div id="eval-companies" class="eval-companies-grid"></div>
+
+    <h3 class="subhead">Contamination audit — benchmark-citation independence</h3>
+    <p class="section-lede">
+      Top hosts by citation count vs. distinct underlying URLs. A high
+      contamination ratio (right column) means many "independent"
+      citations collapse to a single underlying measurement.
+    </p>
+    <table class="shared-roots" id="eval-contam-table">
+      <thead><tr><th>Host</th><th>Cited blocks</th><th>Distinct URLs</th><th>Contamination</th></tr></thead>
+      <tbody><tr><td colspan="4" class="empty-state">Loading…</td></tr></tbody>
+    </table>
+
+    <h3 class="subhead">Reviewer-panel structure</h3>
+    <p class="section-lede">
+      The FLI Index describes its reviewers as "independent." The graph
+      below tests that claim using only the domain assignments
+      published in the methodology. Edges connect reviewers who share
+      a domain assignment.
+    </p>
+    <div id="eval-reviewer-grid" class="reviewer-grid"></div>
+
+    <h3 class="subhead">Cross-cycle delta (Winter 2025 → Summer 2026)</h3>
+    <p class="section-lede">
+      How did the FLI Index evidence base change between cycles? A
+      high URL overlap percentage means the Summer 2026 evidence
+      reuses most of the same URLs as Winter 2025 — even when the
+      block count grew.
+    </p>
+    <table class="shared-roots" id="eval-cross-table">
+      <thead><tr><th>Company</th><th>Winter blocks</th><th>Summer blocks</th><th>Δ</th><th>Winter URLs</th><th>Summer URLs</th><th>URL overlap %</th></tr></thead>
+      <tbody><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+    </table>
+
+    <div class="cta-row">
+      <a href="https://github.com/brandon255/doctrine-labs-eval-contamination-toolkit" target="_blank" rel="noopener" class="btn btn-primary">Open v2 toolkit repo →</a>
+      <a href="/api/eval/report" target="_blank" rel="noopener" class="btn btn-secondary">Read the full report</a>
     </div>
   </div>
 </section>
@@ -645,6 +712,123 @@ Markdown: - Claim one https://example.com/a
     }
   }
   loadAisi();
+
+  // ── Eval Contamination & Reviewer Independence Toolkit v2 ──
+  async function loadEval() {
+    // Per-company summary cards
+    try {
+      const res = await fetch('/api/eval/companies');
+      const data = await res.json();
+      if (data.ok) {
+        const grid = document.getElementById('eval-companies');
+        const byCompany = new Map();
+        for (const c of data.companies) {
+          if (!byCompany.has(c.id)) byCompany.set(c.id, []);
+          byCompany.get(c.id).push(c);
+        }
+        const totalBlocks = data.companies.reduce((s, c) => s + c.block_count, 0);
+        document.getElementById('eval-num-companies').textContent = byCompany.size;
+        document.getElementById('eval-num-blocks').textContent = totalBlocks;
+        const html = [...byCompany.entries()].map(([id, cycles]) => {
+          const summer = cycles.find((c) => c.cycle === 'summer-2026');
+          const winter = cycles.find((c) => c.cycle === 'winter-2025');
+          const blocks = summer ? summer.block_count : (winter ? winter.block_count : 0);
+          const cycleNote = summer && winter ? ' (both cycles)' : (summer ? ' (summer only)' : ' (winter only)');
+          return `<div class="case-card">
+            <div class="case-card-head">
+              <span class="case-id">${id}</span>
+              <span class="case-pill">${blocks} blocks</span>
+            </div>
+            <h3>${id.replace(/-/g, ' ')}</h3>
+            <p class="case-meta">${cycleNote}</p>
+          </div>`;
+        }).join('');
+        grid.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('loadEval companies failed:', e);
+    }
+
+    // Reviewer panels (both cycles)
+    for (const cycle of ['winter-2025', 'summer-2026']) {
+      try {
+        const res = await fetch(`/api/eval/panel/${cycle}`);
+        const data = await res.json();
+        if (!data.ok) continue;
+        const grid = document.getElementById('eval-reviewer-grid');
+        const edgesHtml = data.edges.slice(0, 8).map((e) =>
+          `<li><code>${e.a}</code> ↔ <code>${e.b}</code> via ${e.shared_domains.join(', ')}</li>`
+        ).join('');
+        const domainsHtml = Object.entries(data.domain_counts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([d, c]) => `<li>${d} <span class="case-pill">${c}</span></li>`)
+          .join('');
+        const card = document.createElement('div');
+        card.className = 'reviewer-card';
+        card.innerHTML = `
+          <div class="case-card-head">
+            <span class="case-id">${cycle}</span>
+            <span class="case-pill ${data.density > 0.3 ? 'case-pill-hot' : 'case-pill-cool'}">${(data.density * 100).toFixed(1)}% density</span>
+          </div>
+          <h3>${data.panel_size} reviewers · ${data.edges.length} edges</h3>
+          <p class="case-meta">${data.density > 0.3 ? 'High density: panel is structurally clustered beyond the “independent” threshold.' : 'Density within nominal independent range.'}</p>
+          <h4 class="subhead">Per-domain reviewer counts</h4>
+          <ul class="lineage-list">${domainsHtml}</ul>
+          <h4 class="subhead">Sample edges</h4>
+          <ul class="lineage-list">${edgesHtml}</ul>
+        `;
+        grid.appendChild(card);
+      } catch (e) {
+        console.error(`loadEval panel ${cycle} failed:`, e);
+      }
+    }
+    document.getElementById('eval-num-reviewers').textContent = '15';
+
+    // Contamination audit
+    try {
+      const res = await fetch('/api/eval/contamination');
+      const data = await res.json();
+      if (data.ok && data.host_rows) {
+        const tbody = document.querySelector('#eval-contam-table tbody');
+        tbody.innerHTML = data.host_rows.slice(0, 12).map((r) => {
+          const pillClass = r.contamination_ratio >= 4 ? 'case-pill-hot' : r.contamination_ratio >= 2 ? 'case-pill-warm' : 'case-pill-cool';
+          return `<tr>
+            <td><code>${r.host}</code></td>
+            <td>${r.total_blocks}</td>
+            <td>${r.distinct_urls}</td>
+            <td><span class="case-pill ${pillClass}">${r.contamination_ratio.toFixed(2)}×</span></td>
+          </tr>`;
+        }).join('');
+      }
+    } catch (e) {
+      console.error('loadEval contam failed:', e);
+    }
+
+    // Cross-cycle delta
+    try {
+      const res = await fetch('/api/eval/cross-cycle');
+      const data = await res.json();
+      if (data.ok && data.rows) {
+        const tbody = document.querySelector('#eval-cross-table tbody');
+        tbody.innerHTML = data.rows.map((r) => {
+          const pct = parseFloat(r.url_overlap_pct);
+          const pillClass = pct >= 70 ? 'case-pill-hot' : pct >= 40 ? 'case-pill-warm' : 'case-pill-cool';
+          return `<tr>
+            <td>${r.company}</td>
+            <td>${r.winter_blocks}</td>
+            <td>${r.summer_blocks}</td>
+            <td>${r.blocks_delta > 0 ? '+' : ''}${r.blocks_delta}</td>
+            <td>${r.winter_urls}</td>
+            <td>${r.summer_urls}</td>
+            <td><span class="case-pill ${pillClass}">${r.url_overlap_pct}%</span></td>
+          </tr>`;
+        }).join('');
+      }
+    } catch (e) {
+      console.error('loadEval cross-cycle failed:', e);
+    }
+  }
+  loadEval();
 </script>
 </body>
 </html>

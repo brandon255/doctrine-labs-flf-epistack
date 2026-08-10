@@ -853,6 +853,58 @@ code, .inline-code {
 .footer-meta { font-family: var(--mono); }
 
 /* ============================================================ */
+/* Eval Contamination & Reviewer Independence (Problem 3)         */
+/* ============================================================ */
+
+.eval-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.eval-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+.eval-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--mono);
+}
+.eval-stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+.eval-companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.reviewer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.reviewer-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+.case-pill-warm { background: rgba(245, 158, 11, 0.15); color: var(--accent-warm, #f59e0b); border: 1px solid rgba(245, 158, 11, 0.3); }
+.case-pill-cool { background: rgba(34, 197, 94, 0.15); color: var(--accent-cool, #22c55e); border: 1px solid rgba(34, 197, 94, 0.3); }
+.case-pill-hot  { background: rgba(239, 68, 68, 0.15); color: var(--accent-hot, #ef4444); border: 1px solid rgba(239, 68, 68, 0.3); }
+
+/* ============================================================ */
 /* Utility                                                        */
 /* ============================================================ */
 .muted { color: var(--text-faint); }

@@ -1,0 +1,88 @@
+{
+  "case": "google-deepmind",
+  "version": "1.0",
+  "note": "Document- and lineage-level identity for the Google DeepMind safety corpus. Lineages group documents that draw on the same underlying generative event. Derived from the FLI AI Safety Index Summer 2026 disclosure and publicly available materials. See SUBQUESTION.md for the curation defect and the closed-form lineage analysis.",
+  "lineages": {
+    "google-deepmind-frontier-safety-framework-v3-lineage": {
+      "label": "Google DeepMind Frontier Safety Framework v3 (January 2026)",
+      "description": "The framework document that defines Google DeepMind's safety thresholds, capability levels, and the SL-5 trigger. All later Google DeepMind safety documents derive from this lineage: the Gemini 2.5 model cards, the DeepMind blog posts, and the FLI Index column.",
+      "kind": "policy"
+    },
+    "google-deepmind-gemini-2-5-lineage": {
+      "label": "Google DeepMind Gemini 2.5 model cards (Dec 2025 + May 2026)",
+      "description": "Two model cards for the Gemini 2.5 family: the Pro model card (Dec 2025) and the Deep Think model card (May 2026). Both inherit the framework's category structure and threshold language.",
+      "kind": "model_card"
+    },
+    "google-deepmind-blog-lineage": {
+      "label": "Google DeepMind blog posts (2025-2026)",
+      "description": "Public blog posts that discuss the framework and the model cards. The blog is the public surface of the framework lineage.",
+      "kind": "blog_post"
+    },
+    "fli-ai-safety-index-2026-summer": {
+      "label": "FLI AI Safety Index — Summer 2026 Edition",
+      "description": "Future of Life Institute's expert review of nine leading AI companies across 37 indicators in 6 domains. Seven expert graders score Google DeepMind at 2.01 / 4.0 (C). The evidence base for the Google DeepMind column is drawn from the same primary documents.",
+      "kind": "derivative_summary"
+    }
+  },
+  "documents": {
+    "https://deepmind.google/discover/blog/frontier-safety-framework-v3/": {
+      "document_id": "google-deepmind-frontier-safety-framework-v3",
+      "title": "Frontier Safety Framework v3",
+      "author": "Google DeepMind",
+      "date": "2026-01",
+      "medium": "Web page",
+      "lineage_id": "google-deepmind-frontier-safety-framework-v3-lineage",
+      "lineage_role": "policy",
+      "derives_from": [],
+      "independence_note": "Origin document for the framework. All later Google DeepMind safety artifacts are downstream."
+    },
+    "https://deepmind.google/discover/gemini-2-5-pro-model-card": {
+      "document_id": "google-deepmind-gemini-2-5-pro-model-card",
+      "title": "Gemini 2.5 Pro Model Card",
+      "author": "Google DeepMind",
+      "date": "2025-12",
+      "medium": "Model card",
+      "lineage_id": "google-deepmind-gemini-2-5-lineage",
+      "lineage_role": "model_card",
+      "derives_from": ["google-deepmind-frontier-safety-framework-v3"],
+      "derivation_basis": "States that the model card implements the framework's category structure. The capability assessments inherit the framework's thresholds.",
+      "independence_note": "The model's capability is the framework applied; the safeguards are the framework's safeguards."
+    },
+    "https://deepmind.google/discover/gemini-2-5-deep-think-model-card": {
+      "document_id": "google-deepmind-gemini-2-5-deep-think-model-card",
+      "title": "Gemini 2.5 Deep Think Model Card",
+      "author": "Google DeepMind",
+      "date": "2026-05",
+      "medium": "Model card",
+      "lineage_id": "google-deepmind-gemini-2-5-lineage",
+      "lineage_role": "model_card",
+      "derives_from": ["google-deepmind-frontier-safety-framework-v3", "google-deepmind-gemini-2-5-pro-model-card"],
+      "derivation_basis": "Same model family, same framework applied. The Deep Think model card inherits the framework's category structure.",
+      "independence_note": "Same model family, same framework. Distinct excerpts but same lineage."
+    },
+    "https://deepmind.google/discover/blog/": {
+      "document_id": "google-deepmind-blog",
+      "title": "Google DeepMind Blog",
+      "author": "Google DeepMind",
+      "date": "2025-2026",
+      "medium": "Web blog",
+      "lineage_id": "google-deepmind-blog-lineage",
+      "lineage_role": "blog_post",
+      "derives_from": ["google-deepmind-frontier-safety-framework-v3"],
+      "derivation_basis": "Public surface of the framework lineage. Posts discuss the framework and its application.",
+      "independence_note": "Companion to the framework. Same lineage, different medium."
+    },
+    "https://futureoflife.org/ai-safety-index-summer-2026/": {
+      "document_id": "fli-ai-safety-index-google-deepmind-column",
+      "title": "FLI AI Safety Index Summer 2026 — Google DeepMind Column",
+      "author": "Future of Life Institute",
+      "date": "2026-07-01",
+      "medium": "Web page",
+      "lineage_id": "fli-ai-safety-index-2026-summer",
+      "lineage_role": "derivative_summary",
+      "derives_from": ["google-deepmind-frontier-safety-framework-v3", "google-deepmind-gemini-2-5-pro-model-card", "google-deepmind-gemini-2-5-deep-think-model-card", "google-deepmind-blog"],
+      "derivation_basis": "The FLI panel's Google DeepMind column is graded against the same documents we curate here — the FS3 framework, the Gemini 2.5 model cards, the DeepMind blog.",
+      "independence_note": "The Index grades Google DeepMind against Google DeepMind's own safety work. The Index column is derivative of the framework lineage."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "case": "openai-winter-2025",
+  "version": "1.0",
+  "note": "Document- and lineage-level identity for the openai safety corpus as of the Winter 2025 FLI AI Safety Index evidence cutoff (November 8, 2025).",
+  "lineages": {
+    "openai-preparedness-v1-lineage": {
+      "label": "OpenAI Preparedness Framework v1 (Dec 2024)",
+      "description": "Initial version of the Preparedness Framework tracking cybersecurity, CBRN, persuasion, autonomy. Established board-level review requirement for 'high' capabilities.",
+      "kind": "framework"
+    },
+    "openai-preparedness-v2-lineage": {
+      "label": "OpenAI Preparedness Framework v2 (Apr 2025 update)",
+      "description": "Updated framework adding 'critical' level and 2x compute re-evaluation cadence.",
+      "kind": "framework"
+    },
+    "openai-red-team-network-lineage": {
+      "label": "OpenAI Red Team Network (2024-2025)",
+      "description": "External red-team network with focus on jailbreaks and CBRN uplift.",
+      "kind": "team"
+    },
+    "openai-system-cards-lineage": {
+      "label": "OpenAI System Cards (o3 era, April 2025)",
+      "description": "System card lineage covering capability assessments for deployed models. Includes the o3 capability grade assessments.",
+      "kind": "system_card"
+    },
+    "fli-winter-2025-survey-lineage": {
+      "label": "FLI Winter 2025 voluntary industry survey",
+      "description": "OpenAI submitted a response.",
+      "kind": "survey"
+    },
+    "openai-superalignment-team-lineage": {
+      "label": "OpenAI Superalignment team dissolution (May 2024)",
+      "description": "Dissolution of the Superalignment team.",
+      "kind": "team_status"
+    }
+  }
+}

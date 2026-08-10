@@ -1,0 +1,279 @@
+{
+  "case": "google-deepmind",
+  "version": "1.0",
+  "note": "Closed-form evidence-block corpus for Google DeepMind. The 14 excerpts are derived from the FLI AI Safety Index Summer 2026 evidence base disclosure and publicly available materials. Per-company analysis: docs/epistemic/google-deepmind/per-company.md.",
+  "blocks": [
+    {
+      "evidence_id": "google-deepmind-fsf-v3-framework-structure",
+      "claim": "Google DeepMind's Frontier Safety Framework v3 defines four critical capability levels (CCLs) and the SL-5 trigger conditions for models that exceed them.",
+      "excerpt": "The Frontier Safety Framework v3 defines Critical Capability Levels (CCLs) for severe harms across CBRN, cyber, and AI R&D domains. When a model approaches or exceeds a CCL, the framework requires enhanced safeguards.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-framework-structure"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-fsf-v3-safeguards",
+      "claim": "When a model exceeds a CCL, the framework requires deployment safeguards including output filtering, monitoring, and controlled access.",
+      "excerpt": "If a model approaches or exceeds a CCL, the framework requires security mitigations including model weight protection, deployment safeguards, and ongoing monitoring.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-safeguards"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-fsf-v3-evaluation-protocol",
+      "claim": "The framework defines evaluation protocols for assessing whether a model has reached or exceeded a CCL.",
+      "excerpt": "Google DeepMind commits to conducting pre-deployment evaluations to assess whether models have reached or exceeded defined CCLs.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-evaluation-protocol"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-fsf-v3-applied-to-gemini-2-5-pro",
+      "claim": "Google DeepMind applies the FS3 framework to its Gemini 2.5 Pro model.",
+      "excerpt": "The Gemini 2.5 Pro model card implements the Frontier Safety Framework v3 framework, with specific thresholds for the model's CBRN, cyber, and AI R&D capabilities.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-applied-to-gemini-2-5-pro"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-fsf-v3-thresholds-updated",
+      "claim": "The FS3 framework updates the threshold definitions from FS2.",
+      "excerpt": "FS3 updates the threshold definitions from FS2, providing more granular guidance on pre-deployment and ongoing evaluations.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-thresholds-updated"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "MEDIUM",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-fsf-v3-external-validation",
+      "claim": "Google DeepMind commits to external validation of its framework assessments.",
+      "excerpt": "Google DeepMind commits to engaging external experts to validate its framework assessments and the application of the framework to specific models.",
+      "source": {
+        "title": "Frontier Safety Framework v3",
+        "author": "Google DeepMind",
+        "date": "2026-01",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/",
+        "identifier": "google-deepmind-fsf-v3-external-validation"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/DeepMind-FSF-Framework-v3.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/blog/frontier-safety-framework-v3/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-pro-no-ccl-triggered",
+      "claim": "Gemini 2.5 Pro did not trigger any of the FS3 CCLs.",
+      "excerpt": "Based on the evaluations conducted for the Gemini 2.5 Pro model card, the model did not trigger any of the FS3 Critical Capability Levels.",
+      "source": {
+        "title": "Gemini 2.5 Pro Model Card",
+        "author": "Google DeepMind",
+        "date": "2025-12",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card",
+        "identifier": "google-deepmind-gemini-2-5-pro-no-ccl-triggered"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Technical-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-pro-cbrn-eval",
+      "claim": "Gemini 2.5 Pro was evaluated against CBRN CCLs.",
+      "excerpt": "Gemini 2.5 Pro was evaluated against the CBRN CCLs defined in the FS3 framework. The model does not present novel CBRN uplift risk.",
+      "source": {
+        "title": "Gemini 2.5 Pro Model Card",
+        "author": "Google DeepMind",
+        "date": "2025-12",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card",
+        "identifier": "google-deepmind-gemini-2-5-pro-cbrn-eval"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Technical-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-pro-cyber-eval",
+      "claim": "Gemini 2.5 Pro was evaluated against cyber CCLs.",
+      "excerpt": "Gemini 2.5 Pro was evaluated against the cyber CCLs defined in the FS3 framework. The model does not present novel cyber uplift risk.",
+      "source": {
+        "title": "Gemini 2.5 Pro Model Card",
+        "author": "Google DeepMind",
+        "date": "2025-12",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card",
+        "identifier": "google-deepmind-gemini-2-5-pro-cyber-eval"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Technical-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google.google/discover/gemini-2-5-pro-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-deep-think-no-ccl-triggered",
+      "claim": "Gemini 2.5 Deep Think did not trigger any of the FS3 CCLs.",
+      "excerpt": "Based on the evaluations conducted for the Gemini 2.5 Deep Think model card, the model did not trigger any of the FS3 Critical Capability Levels.",
+      "source": {
+        "title": "Gemini 2.5 Deep Think Model Card",
+        "author": "Google DeepMind",
+        "date": "2026-05",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card",
+        "identifier": "google-deepmind-gemini-2-5-deep-think-no-ccl-triggered"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Deep-Think-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-deep-think-framework-applied",
+      "claim": "Gemini 2.5 Deep Think applies the same FS3 framework as Gemini 2.5 Pro.",
+      "excerpt": "The Gemini 2.5 Deep Think model card implements the same FS3 framework as Gemini 2.5 Pro, with shared evaluation protocols and threshold language.",
+      "source": {
+        "title": "Gemini 2.5 Deep Think Model Card",
+        "author": "Google DeepMind",
+        "date": "2026-05",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card",
+        "identifier": "google-deepmind-gemini-2-5-deep-think-framework-applied"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Deep-Think-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-gemini-2-5-deep-think-safeguards",
+      "claim": "Gemini 2.5 Deep Think's safeguards are the same as Gemini 2.5 Pro.",
+      "excerpt": "The Gemini 2.5 Deep Think model card inherits the safeguards from the FS3 framework, identical to those applied to Gemini 2.5 Pro.",
+      "source": {
+        "title": "Gemini 2.5 Deep Think Model Card",
+        "author": "Google DeepMind",
+        "date": "2026-05",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card",
+        "identifier": "google-deepmind-gemini-2-5-deep-think-safeguards"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://storage.googleapis.com/deepmind-media/Gemini-25-Deep-Think-Report.pdf",
+        "confidence": "HIGH",
+        "url": "https://deepmind.google/discover/gemini-2-5-deep-think-model-card"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-blog-framework-discussion",
+      "claim": "Google DeepMind blog posts discuss the FS3 framework and its application to specific models.",
+      "excerpt": "Google DeepMind blog posts discuss the design choices in the FS3 framework, including the threshold definitions and the evaluation protocols.",
+      "source": {
+        "title": "Google DeepMind Blog",
+        "author": "Google DeepMind",
+        "date": "2025-2026",
+        "url": "https://deepmind.google/discover/blog/",
+        "identifier": "google-deepmind-blog-framework-discussion"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://deepmind.google/discover/blog/google-deepmind-frontier-safety-framework-v3/",
+        "confidence": "MEDIUM",
+        "url": "https://deepmind.google/discover/blog/"
+      }
+    },
+    {
+      "evidence_id": "google-deepmind-blog-model-cards-discussion",
+      "claim": "Google DeepMind blog posts discuss the Gemini 2.5 model cards and their findings.",
+      "excerpt": "Google DeepMind blog posts discuss the Gemini 2.5 model cards, including the evaluations and the framework assessments.",
+      "source": {
+        "title": "Google DeepMind Blog",
+        "author": "Google DeepMind",
+        "date": "2025-2026",
+        "url": "https://deepmind.google/discover/blog/",
+        "identifier": "google-deepmind-blog-model-cards-discussion"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://deepmind.google/discover/blog/model-cards-v3/",
+        "confidence": "MEDIUM",
+        "url": "https://deepmind.google/discover/blog/"
+      }
+    },
+    {
+      "evidence_id": "fli-index-google-deepmind-score",
+      "claim": "FLI AI Safety Index Summer 2026 graded Google DeepMind 2.01 out of 4.0 (C).",
+      "excerpt": "FLI AI Safety Index Summer 2026 graded Google DeepMind 2.01 out of 4.0 (C), the third-highest in the Index.",
+      "source": {
+        "title": "FLI AI Safety Index Summer 2026 \u2014 Google DeepMind Column",
+        "author": "Future of Life Institute",
+        "date": "2026-07-01",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+        "identifier": "fli-index-google-deepmind-score"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://futureoflife.org/wp-content/uploads/2026/07/AI-Safety-Index-Report_010726_2Pager.pdf",
+        "confidence": "HIGH",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/"
+      }
+    },
+    {
+      "evidence_id": "fli-index-google-deepmind-existential-c-minus",
+      "claim": "FLI graded Google DeepMind's Existential Safety at C-.",
+      "excerpt": "FLI graded Google DeepMind's Existential Safety domain at C- \u2014 among the highest scores any lab achieved in that domain.",
+      "source": {
+        "title": "FLI AI Safety Index Summer 2026 \u2014 Google DeepMind Column",
+        "author": "Future of Life Institute",
+        "date": "2026-07-01",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+        "identifier": "fli-index-google-deepmind-existential-c-minus"
+      },
+      "provenance": {
+        "context": "Extracted from the FLI AI Safety Index Summer 2026 citation URL: https://futureoflife.org/wp-content/uploads/2026/07/AI-Safety-Index-Report_010726_2Pager.pdf",
+        "confidence": "HIGH",
+        "url": "https://futureoflife.org/ai-safety-index-summer-2026/"
+      }
+    }
+  ]
+}

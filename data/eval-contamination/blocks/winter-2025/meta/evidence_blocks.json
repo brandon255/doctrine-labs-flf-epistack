@@ -1,0 +1,114 @@
+[
+  {
+    "evidence_id": "meta-faif-catastrophic-risk-001",
+    "timestamp": "2024-10-22T00:00:00.000Z",
+    "claim": "Meta's Frontier AI Framework (Oct 2024) defines two risk categories — 'critical' and 'high' — for CBRN and cyber threats.",
+    "source": {
+      "type": "document",
+      "identifier": "meta-faif",
+      "excerpt": "Meta's Frontier AI Framework categorizes risks into 'critical' and 'high' levels for CBRN and cybersecurity threats. Mitigations escalate with risk level.",
+      "claim_ref": "meta-faif"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2024-10-22T00:00:00.000Z",
+      "context": "Meta Frontier AI Framework (Oct 2024). URL: https://ai.meta.com/static-resource/whitepapers/meta-frontier-ai-framework.pdf"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "faif",
+      "risk-categorization",
+      "cbrn",
+      "cyber"
+    ]
+  },
+  {
+    "evidence_id": "meta-faif-red-team-002",
+    "timestamp": "2025-02-01T00:00:00.000Z",
+    "claim": "Meta conducted red-teaming for Llama 4 in early 2025 focused on CBRN uplift, following the FAIF protocol.",
+    "source": {
+      "type": "document",
+      "identifier": "meta-llama-4-redteam",
+      "excerpt": "Llama 4 underwent CBRN-focused red-teaming in early 2025. No critical or high risk levels were crossed according to FAIF thresholds.",
+      "claim_ref": "meta-llama-4-redteam"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2025-02-01T00:00:00.000Z",
+      "context": "Meta Llama 4 safety report (Feb 2025). URL: https://ai.meta.com/static-resource/whitepapers/llama-4-safety.pdf"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "llama-4",
+      "red-team",
+      "cbrn-uplift"
+    ]
+  },
+  {
+    "evidence_id": "meta-policy-engagement-003",
+    "timestamp": "2025-05-01T00:00:00.000Z",
+    "claim": "Meta participated in the May 2025 Seoul AI Safety Summit and signed the Frontier AI Safety Commitments.",
+    "source": {
+      "type": "document",
+      "identifier": "meta-seoul-summit-2025",
+      "excerpt": "Meta was among the 16 organizations signing the Frontier AI Safety Commitments at the Seoul AI Safety Summit (May 2025).",
+      "claim_ref": "meta-seoul-summit-2025"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2025-05-01T00:00:00.000Z",
+      "context": "Seoul AI Safety Summit 2025 communique. URL: https://www.seoulaisummit.com/communique"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "seoul-summit",
+      "commitments",
+      "policy"
+    ]
+  },
+  {
+    "evidence_id": "meta-no-fli-survey-004",
+    "timestamp": "2025-11-08T00:00:00.000Z",
+    "claim": "Meta did NOT submit a Winter 2025 FLI Index survey response.",
+    "source": {
+      "type": "document",
+      "identifier": "fli-winter-2025-no-survey-meta",
+      "excerpt": "Meta did not submit a response to the FLI Winter 2025 industry survey.",
+      "claim_ref": "fli-winter-2025-no-survey-meta"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2025-11-08T00:00:00.000Z",
+      "context": "FLI AI Safety Index Winter 2025 Appendix A. URL: https://futureoflife.org/wp-content/uploads/2025/12/AI-Safety-Index-Report_131225_Full_Report_Digital.pdf"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "fli-survey",
+      "winter-2025",
+      "non-participant",
+      "meta"
+    ]
+  },
+  {
+    "evidence_id": "meta-open-weights-policy-005",
+    "timestamp": "2024-07-18T00:00:00.000Z",
+    "claim": "Meta's open-weights policy (July 2024) commits to releasing most frontier model weights publicly, with restricted release only for safety-critical models.",
+    "source": {
+      "type": "document",
+      "identifier": "meta-open-weights-policy",
+      "excerpt": "Meta commits to releasing frontier model weights publicly. Restricted release is reserved for models with demonstrated catastrophic risk.",
+      "claim_ref": "meta-open-weights-policy"
+    },
+    "provenance": {
+      "captured_by": "user",
+      "captured_at": "2024-07-18T00:00:00.000Z",
+      "context": "Meta open-weights policy statement (July 2024). URL: https://ai.meta.com/blog/meta-llama-3-1-open-weights/"
+    },
+    "confidence_label": "HIGH",
+    "tags": [
+      "open-weights",
+      "policy",
+      "release"
+    ]
+  }
+]
