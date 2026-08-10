@@ -152,8 +152,8 @@ _Regenerate with_ `node scripts/eval-contamination.js`.
 
 | Cycle | Panel size | Edges | Density |
 |-------|------------|-------|---------|
-| winter-2025 | 8 | 6 | **21.4%** |
-| summer-2026 | 7 | 6 | **28.6%** |
+| winter-2025 | 8 | 17 | **60.7%** |
+| summer-2026 | 7 | 12 | **57.1%** |
 
 ### What this means
 

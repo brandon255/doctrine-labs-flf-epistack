@@ -1,79 +1,102 @@
 {
   "cycle": "Winter 2025",
+  "publication_date": "2025-12-01",
   "panel_size": 8,
+  "panel_source": "FLI AI Safety Index Winter 2025 — Independent Review Panel",
+  "panel_source_url": "https://futureoflife.org/ai-safety-index-winter-2025/",
   "reviewers": [
     {
-      "id": "w25-r1",
-      "name": "Reviewer 1 (Winter 2025)",
+      "id": "w25-stuart-russell",
+      "name": "Stuart Russell",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Professor of Computer Science, UC Berkeley",
+        "Director, Center for Human-Compatible AI (CHAI), UC Berkeley",
+        "Director, Kavli Center for Ethics, Science, and the Public"
       ],
-      "domain_assignments": ["Risk Assessment"],
-      "notes": "Panel member. The Winter 2025 Index methodology disclosure lists reviewer counts per cycle but does not publicly identify all panel members by name. This file uses anonymous reviewer placeholders."
+      "domain_assignments": ["Existential Safety", "Safety Frameworks"],
+      "notes": "Confirmed panel member per FLI Winter 2025 Independent Review Panel section (https://futureoflife.org/ai-safety-index-winter-2025/). Member, National Academy of Engineering; Fellow of the Royal Society; OBE 2021; coauthor of the standard AI textbook used in 1500+ universities. Quoted in the report: 'AI CEOs claim they know how to build superhuman AI, yet none can show how they'll prevent us from losing control' — addressing existential safety."
     },
     {
-      "id": "w25-r2",
-      "name": "Reviewer 2 (Winter 2025)",
+      "id": "w25-david-krueger",
+      "name": "David Krueger",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Assistant Professor in Robust, Reasoning and Responsible AI, Department of Computer Science and Operations Research (DIRO), University of Montreal",
+        "Core Academic Member, Mila",
+        "Affiliated researcher, UC Berkeley Center for Human Compatible AI",
+        "Affiliated researcher, Centre for the Study of Existential Risk"
       ],
-      "domain_assignments": ["Risk Assessment", "Existential Safety"],
-      "notes": "Panel member."
+      "domain_assignments": ["Existential Safety", "Risk Assessment"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Work focuses on reducing the risk of human extinction from AI. Domain assignments derived from his existential-risk focus."
     },
     {
-      "id": "w25-r3",
-      "name": "Reviewer 3 (Winter 2025)",
+      "id": "w25-dylan-hadfield-menell",
+      "name": "Dylan Hadfield-Menell",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Assistant Professor, MIT CSAIL",
+        "Lead, Algorithmic Alignment Group, MIT CSAIL",
+        "Schmidt Sciences AI2050 Early Career Fellow"
       ],
-      "domain_assignments": ["Current Harms"],
-      "notes": "Panel member."
+      "domain_assignments": ["Risk Assessment", "Safety Frameworks"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Research on safe and trustworthy AI deployment with emphasis on multi-agent systems, human-AI teams, societal oversight of ML. DEPARTED the panel for Summer 2026."
     },
     {
-      "id": "w25-r4",
-      "name": "Reviewer 4 (Winter 2025)",
+      "id": "w25-jessica-newman",
+      "name": "Jessica Newman",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Founding Director, AI Security Initiative, Center for Long-Term Cybersecurity, UC Berkeley",
+        "Expert, OECD Expert Group on AI Risk and Accountability",
+        "Contributor, U.S. Center for AI Standards and Innovation working groups",
+        "Contributor, EU Code of Practice Plenaries"
       ],
-      "domain_assignments": ["Current Harms", "Information Sharing"],
-      "notes": "Panel member."
+      "domain_assignments": ["Governance & Accountability", "Safety Frameworks", "Information Sharing"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Domain assignments derived from her governance / standards-body remit. DEPARTED the panel for Summer 2026."
     },
     {
-      "id": "w25-r5",
-      "name": "Reviewer 5 (Winter 2025)",
+      "id": "w25-sneha-revanur",
+      "name": "Sneha Revanur",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Founder and President, Encode (youth-led AI accountability organization)"
       ],
-      "domain_assignments": ["Safety Frameworks"],
-      "notes": "Panel member."
+      "domain_assignments": ["Governance & Accountability", "Current Harms", "Information Sharing"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Featured on TIME's inaugural list of 100 most influential people in AI."
     },
     {
-      "id": "w25-r6",
-      "name": "Reviewer 6 (Winter 2025)",
+      "id": "w25-sharon-li",
+      "name": "Sharon Li",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Associate Professor, Department of Computer Sciences, University of Wisconsin-Madison"
       ],
-      "domain_assignments": ["Safety Frameworks", "Governance & Accountability"],
-      "notes": "Panel member."
+      "domain_assignments": ["Risk Assessment", "Current Harms"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Program Chair for ICML 2026; Sloan Fellowship (2025), NSF CAREER Award (2023), MIT Innovators Under 35 (2023), Forbes 30under30 in Science (2020), Outstanding Paper Award at NeurIPS 2022 and ICLR 2022."
     },
     {
-      "id": "w25-r7",
-      "name": "Reviewer 7 (Winter 2025)",
+      "id": "w25-tegan-maharaj",
+      "name": "Tegan Maharaj",
       "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
+        "Assistant Professor, Department of Decision Sciences, HEC Montréal",
+        "Lead, ERRATA lab on Ecological Risk and Responsible AI",
+        "Core academic member, Mila"
+      ],
+      "domain_assignments": ["Current Harms", "Risk Assessment"],
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Quoted in the report on 'ChatGPT-related incidents' under Current Harms. Previously Assistant Professor of Machine Learning at the University of Toronto."
+    },
+    {
+      "id": "w25-yi-zeng",
+      "name": "Yi Zeng",
+      "institutional_affiliations": [
+        "AI Professor, Chinese Academy of Sciences",
+        "Founding Dean, Beijing Institute of AI Safety and Governance",
+        "Director, Beijing Key Laboratory of Safe AI and Superalignment"
       ],
       "domain_assignments": ["Existential Safety", "Governance & Accountability"],
-      "notes": "Panel member."
-    },
-    {
-      "id": "w25-r8",
-      "name": "Reviewer 8 (Winter 2025)",
-      "institutional_affiliations": [
-        "FLI AI Safety Index Review Panel (Winter 2025)"
-      ],
-      "domain_assignments": ["Information Sharing"],
-      "notes": "Panel member."
+      "notes": "Confirmed panel member per FLI Winter 2025 panel. Serves on the UN High-level Advisory Body on AI, UNESCO Ad Hoc Expert Group on AI Ethics, WHO Expert Group on the Ethics/Governance of AI for Health, and the National Governance Committee of Next Generation AI in China. TIME100 AI list. The only panel member affiliated with a Chinese institution in both cycles."
     }
   ],
-  "note": "Same anonymization note as the Summer 2026 panel file. The network density analysis here operates on the structural panel (domain assignments and overlap), not on named affiliations."
+  "reviewer_continuity": {
+    "returning_to_summer_2026": ["w25-stuart-russell", "w25-david-krueger", "w25-sneha-revanur", "w25-sharon-li", "w25-tegan-maharaj", "w25-yi-zeng"],
+    "departed_for_summer_2026": ["w25-dylan-hadfield-menell", "w25-jessica-newman"],
+    "added_for_summer_2026": ["s26-robert-trager"],
+    "panel_size_change": "8 → 7 reviewers"
+  },
+  "note": "All eight names are taken verbatim from the published FLI Winter 2025 Independent Review Panel section (https://futureoflife.org/ai-safety-index-winter-2025/) and cross-confirmed against the FLI Winter 2025 2-pager (https://futureoflife.org/wp-content/uploads/2025/12/AI-Safety-Index-Report_011225_TwoPager_Digital.pdf). Domain assignments are derived judgments from each reviewer's published research focus; FLI does not publicly disclose which reviewer graded which domain."
 }
