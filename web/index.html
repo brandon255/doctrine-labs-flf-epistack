@@ -255,10 +255,25 @@ Markdown: - Claim one https://example.com/a
   <div class="container">
     <h2 class="section-title">Built for the Future of Life Foundation's Epistack contest.</h2>
     <p class="section-lede">
-      The engine is open source, MIT-licensed, and tested — 210 automated tests,
-      zero network calls, runs on Node 20+. The hosted site is the same engine
-      served locally for reviewers.
+      The engine is open source, MIT-licensed, and tested — 306 automated tests
+      across the three-repo FLF suite. Zero network calls in the test suite, zero
+      model required to reproduce the methodology. Runs on Node 20+. The hosted
+      site is the same engine served locally for reviewers.
     </p>
+    <div class="suite-summary">
+      <h3 class="suite-heading">The full test suite verifies</h3>
+      <ul class="suite-list">
+        <li><strong>210 Epistack engine tests</strong> — across the covid, lhc, eggs, anthropic, and openai case studies. Proven on the COVID case where the methodology found 19 → 3.</li>
+        <li><strong>51 AISI toolkit tests</strong> — all 9 companies extractable, the inflation pattern holds, the cross-company analysis surfaces all 4 shared roots, the reviewer-dependency analysis surfaces all 4 hidden correlations.</li>
+        <li><strong>45 Eval toolkit tests</strong> — two cycles (winter-2025, summer-2026), nine companies, 17 company×cycle pairs, contamination audit and cross-cycle delta reproducible end-to-end.</li>
+      </ul>
+      <p class="suite-note">
+        Nothing in the test suite requires a network. Nothing requires a model. The methodology is deterministic, auditable, and reproducible.
+      </p>
+      <p class="suite-coming">
+        <strong>More to come.</strong> Additional companion artifacts are being added to the suite.
+      </p>
+    </div>
     <div class="cta-row">
       <a href="#tool" class="btn btn-primary">Try it now</a>
       <a href="https://github.com/brandon255/doctrine-labs-flf-epistack" target="_blank" rel="noopener" class="btn btn-secondary">Read the code</a>
@@ -270,7 +285,7 @@ Markdown: - Claim one https://example.com/a
   <div class="container">
     <div class="footer-row">
       <span>Built by Brandon Flores, Doctrine Labs · local-first, zero cloud.</span>
-      <span class="footer-meta">v1.2 · 210 tests passing</span>
+      <span class="footer-meta">v1.2 · 210 Epistack tests · 306 across the FLF suite</span>
     </div>
   </div>
 </footer>

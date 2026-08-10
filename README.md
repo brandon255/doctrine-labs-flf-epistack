@@ -209,9 +209,9 @@ to evaluate this?" You do not.
 - All **eight** mechanical challenger checks (C1–C8), including the measurement-validity
   check that caught the author's own overstatement
 - Measurement evidence — commands re-run from a read-only whitelist, values compared
-- Every case report and the full test suite (188 tests, no network)
+- Every case report and the full test suite (210 Epistack tests, no network, no model required)
 
-**Needs a local model:**
+**Needs a local model (only when you call the LLM endpoints):**
 
 - Stage 1 (propose) and the *model* half of stage 3 (challenge)
 - The alias proposer and evidence chat

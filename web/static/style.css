@@ -720,6 +720,45 @@ code, .inline-code {
 .section { padding: 80px 0; border-top: 1px solid var(--border); }
 .section-alt { background: var(--bg-elev); }
 .section-cta { text-align: center; padding: 80px 0 100px; }
+
+.suite-summary {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: left;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 32px;
+}
+.suite-heading {
+  font-size: 16px;
+  margin: 0 0 16px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.suite-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+.suite-list li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.suite-list strong {
+  color: var(--accent);
+}
+.suite-note,
+.suite-coming {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.suite-coming strong {
+  color: var(--accent);
+}
 .section-eyebrow {
   display: inline-block;
   font-size: 12px;
