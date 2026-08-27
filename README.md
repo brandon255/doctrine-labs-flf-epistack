@@ -275,6 +275,7 @@ a specific line rather than in the air.
 | Lineage judgments (COVID) | `docs/epistemic/covid/source_registry.json` |
 | Generated reports | `docs/epistemic/*/RUN_OUTPUT.md` |
 | Known defects and what caught them | `docs/DEFECT_REGISTER.md` |
+| Groundless.ai vs this suite (archive) | `docs/GROUNDLESS_COMPARISON.md` |
 
 ## Who built this
 
