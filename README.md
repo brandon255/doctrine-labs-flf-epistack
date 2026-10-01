@@ -11,7 +11,7 @@ more than people expect.
 Treat as 3 independent source(s), not 21.
 ```
 
-Submitted to the Future of Life Foundation.
+Submitted to the Future of Life Foundation. Name stays. If someone handed you this repo, start at [`HANDOFF.md`](HANDOFF.md).
 
 **Instructions (three paths):** see [`docs/transcripts/README.md`](docs/transcripts/README.md) for the review-by-reading lane, [`SPEC.md`](SPEC.md) for the design rationale, and the [`RUN-EPISTACK.command`](RUN-EPISTACK.command) / [`RUN-EPISTACK.bat`](RUN-EPISTACK.bat) launchers for one-click local runs.
 
